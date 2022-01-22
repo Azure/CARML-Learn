@@ -7,5 +7,5 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Original SPARK submission](./OriginalSubmission)
   - [Original Mock](./OriginalMock)
 - Pre-Requisites
-  - [Setup in Azure](./PreReqAzure.md)
+  - [Setup in Azure](./PreReqAzure)
 

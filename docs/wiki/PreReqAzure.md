@@ -28,11 +28,11 @@ Note, that throughout the documentation below you will be asked to note down sev
 
 1. Open to the Azure Portal via [https://portal.azure.com](https://portal.azure.com)
    
-    <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="240">
+    <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="230">
 
 1. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
 
-    <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="240">
+    <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="210">
 
 1. Here we want to do 2 things:
    - Make note of your `Tenant ID` in the displayed `Overview` for later reference
@@ -100,7 +100,7 @@ Now that we have a new service principal, we must grant it access on the subscri
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAdd.png" alt="Role assignment init" height="170">
 
-1. This opens a new view with 3 tabs we have to navigate through. First, you must select the role we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can you the search to search for the roles you want to assign and select them in the list below it.
+1. This opens a new view with 3 tabs we have to navigate through. First, you must select the `Role` we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can you the search to search for the roles you want to assign and select them in the list below it.
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRole.png" alt="Role assignment select role" height="260">
 

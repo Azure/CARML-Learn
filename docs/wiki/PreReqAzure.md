@@ -9,6 +9,7 @@ This section outlines how to set up the pre-requisites in Azure. This includes
 
 ### _Navigation_
 
+- [Section pre-requisites](#section-pre-requisites)
 - [Service Principal](#actions-in-azure-ad)
 - [Assign permissions](#actions-on-a-subscription)
 
@@ -23,10 +24,16 @@ Note, that throughout the documentation below you will be asked to note down sev
 - Application: Secret
 - Tenant: Tenant ID
 - Subscription: Subscription ID
+- Subscription: Parent Management Group
+
+# Section pre-requisites
+
+This section requires to you have
+-
 
 # Actions in Azure AD
 
-1. Open to the Azure Portal via [https://portal.azure.com](https://portal.azure.com)
+1. Open to the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
    
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="230">
 
@@ -86,46 +93,47 @@ Now that we have a new service principal, we must grant it access on the subscri
    
     <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
 
-1. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
+1. This brings you to the overview of your subscription. Here you need to perform 3 tasks:
    - Make note of the `Subscription ID` for later reference
+   - Make note of the `Parent Management Group` for later reference
    - Further select  `Access control (IAM)` in the blade to the left
    
-    <img src="./media/PreReqAzure/portalSubscriptionView.png" alt="Subscription overview" height="120">
+    <img src="./media/PreReqAzure/portalSubscriptionView.png" alt="Subscription overview" height="220">
 
-1. In the opened `Access control (IAM)` view, select `+ Add` on the top 
+2. In the opened `Access control (IAM)` view, select `+ Add` on the top 
    
     <img src="./media/PreReqAzure/portalSubscriptionIAM.png" alt="Role assignment overview" height="170">
 
-1. In the opening drop-down, select `Add role assignment`
+3. In the opening drop-down, select `Add role assignment`
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAdd.png" alt="Role assignment init" height="170">
 
-1. This opens a new view with 3 tabs we have to navigate through. First, you must select the `Role` we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can you the search to search for the roles you want to assign and select them in the list below it.
+4. This opens a new view with 3 tabs we have to navigate through. First, you must select the `Role` we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can you the search to search for the roles you want to assign and select them in the list below it.
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRole.png" alt="Role assignment select role" height="260">
 
-1. Next, navigate to the `Members` tab and click on `+ Select members`
+5. Next, navigate to the `Members` tab and click on `+ Select members`
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMember.png" alt="Role assignment member initial" height="275">
 
 
-1. In the opening blade, search for the name of the application you created (in this example it is `MyApplication`), make sure you **select** the application, and click on `Select` on the bottom of the blade 
+6. In the opening blade, search for the name of the application you created (in this example it is `MyApplication`), make sure you **select** the application, and click on `Select` on the bottom of the blade 
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMemberBlade.png" alt="Role assignment select member" height="250">
 
-1. This will close the blade and show the application in the `Members` view as shown in the image below
+7. This will close the blade and show the application in the `Members` view as shown in the image below
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMemberView.png" alt="Role assignment member selected" height="275">
 
 
-1. Finally, select the `Review + assign` tab which shows you an overview of the configuration and click on the `Review + assign` button on the bottom to conclude the role assignment
+8. Finally, select the `Review + assign` tab which shows you an overview of the configuration and click on the `Review + assign` button on the bottom to conclude the role assignment
    
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddFinal.png" alt="Role assignment Review" height="310">
 
-1. This will close the view and we can confirm that the role assignment worked by searching for the application in the searching and selecting your application in the `Check access` section. Be aware that it may take a few seconds for the role assignment to finish
+9. This will close the view and we can confirm that the role assignment worked by searching for the application in the searching and selecting your application in the `Check access` section. Be aware that it may take a few seconds for the role assignment to finish
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearch.png" alt="Role assignment check access search" height="300">
 
-1. In the opening blade you can see that the application indeed is configured with the expected role(s) for the current subscription.
+10. In the opening blade you can see that the application indeed is configured with the expected role(s) for the current subscription.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearchConfirm.png" alt="Role assignment check access" height="120">

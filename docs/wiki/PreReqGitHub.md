@@ -103,7 +103,7 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
 1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository
 
-    <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="190">
+    <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="250">
 
 1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short
 
@@ -115,7 +115,7 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
 1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution
 
-    <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="150">
+    <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
 
 1. Following the execution you will find that there is now a `ResourceModules` folder 
 

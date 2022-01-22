@@ -17,3 +17,8 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - An active Azure subscription
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
+- Installed 
+  - Visual Studio Code
+  - Git
+  - PowerShell Core 
+  - Windows Terminal

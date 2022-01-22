@@ -86,7 +86,7 @@ To do that you have to perform the following steps in sequence:
     - Special case: `AZURE_CREDENTIALS`, 
       This secret represents our service connection to Azure and its value is a   compressed JSON object that must match the following format:
       ```JSON
-      {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of   the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
+      {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
       ```
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
   
@@ -107,12 +107,23 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
 1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short
 
-    <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="105">
+    <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="150">
 
 1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
-    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="180">
+    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
+1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution
+
+    <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="150">
+
+1. Following the execution you will find that there is now a `ResourceModules` folder 
+
+    <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
+
+1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
+
+    <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="500">
 
 
 ### Prepare module parameter file

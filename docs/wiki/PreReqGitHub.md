@@ -67,21 +67,24 @@ To do that you have to perform the following steps in sequence:
 
     <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="400">
 
-  To get the solution up and running we need several pieces of information based on what we collected in the [Azure setup](./PreReqAzure) tutorial. So please create one secret for each entry in the following table and make sure you use the exact same naming:
+    To get the solution up and running we need several pieces of information based on what we collected in the [Azure setup](./PreReqAzure) tutorial. So please create one secret for each entry in the following table and make sure you use the exact same naming:
 
-  | Secret Name | Example | Description |
-  | - | - | - |
-  | `ARM_MGMTGROUP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | The group ID of the management group to test deploy modules of that level in. |
-  | `ARM_SUBSCRIPTION_ID` | `d0312b25-9160-4550-914f-8738d9b5caf5` | The subscription ID of the subscription to test deploy modules of that level in. |
-  | `ARM_TENANT_ID` | `9734cec9-4384-445b-bbb6-767e7be6e5ec` | The tenant ID of the tenant to test deploy modules of that level in. |
-  | `DEPLOYMENT_SP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | This is the Principal (Object ID) for the Service Principal used as the Azure service connection. It is used for Default Role Assignments when Modules are being deployed into Azure |
-
-  There is one additional secret we **must** create but needs a specific format. This secret is called `AZURE_CREDENTIALS`, represents our service connection to Azure and its value is a compressed JSON object that must match the following format:
-  ```JSON
-  {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
-  ```
-  Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
-
-  > Note: In theory there is one additional secret called `PLATFORM_REPO_UPDATE_PAT` which is used to sync the repository's `docs` folder with the repository's wiki. However, for the sake of this lab we will ignore it for now. If you are interested, you can find further information [here](https://github.com/Azure/ResourceModules/blob/main/docs/wiki/PipelinesDesign.md#github-component-github-secrets). 
+    | Secret Name | Example | Description |
+    | - | - | - |
+    | `ARM_MGMTGROUP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | The group ID of the management group to test deploy modules of that level in. |
+    | `ARM_SUBSCRIPTION_ID` | `d0312b25-9160-4550-914f-8738d9b5caf5` | The subscription ID of the   subscription to test deploy modules of that level in. |
+    | `ARM_TENANT_ID` | `9734cec9-4384-445b-bbb6-767e7be6e5ec` | The tenant ID of the tenant to test   deploy modules of that level in. |
+    | `DEPLOYMENT_SP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | This is the Principal (Object ID)   for the Service Principal used as the Azure service connection. It is used for Default Role Assignments when Modules are being deployed into Azure |
+    | `AZURE_CREDENTIALS` | See below | See below |
+    | <s>PLATFORM_REPO_UPDATE_PAT</s> | - | For this lab, this secret is optional and can be **ignored**. It would be used to sync the repository's `docs` folder with the repository's wiki. However, for the sake of this lab   we will ignore it for now. If you are interested, you can find further information [here](https://github.com/Azure/ResourceModules/blob/main/docs/wiki/PipelinesDesign.md#github-component-github-secrets). |
+  
+    - Special case: `AZURE_CREDENTIALS`, 
+      This secret represents our service connection to Azure and its value is a   compressed JSON object that must match the following format:
+      ```JSON
+      {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of   the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
+      ```
+      Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
+  
 
 ## Configure code base
+

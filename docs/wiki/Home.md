@@ -8,4 +8,4 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Original Mock](./OriginalMock)
 - Pre-Requisites
   - [Setup in Azure](./PreReqAzure)
-
+  - [Setup in GitHub](./PreReqGitHub)

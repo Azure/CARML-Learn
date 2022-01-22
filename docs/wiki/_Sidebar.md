@@ -1,5 +1,9 @@
 # Wiki content
 
 - [Home](./Home)
-- [Original SPARK submission](./OriginalSubmission)
-- [Original Mock](./OriginalMock)
+- Archive
+  - [Original SPARK submission](./OriginalSubmission)
+  - [Original Mock](./OriginalMock)
+- Pre-Requisites
+  - [Setup in Azure](./PreReqAzure)
+  - [Setup in GitHub](./PreReqGitHub)

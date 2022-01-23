@@ -9,7 +9,11 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
 - Pre-Requisites
   - [Setup in Azure](./PreReqAzure)
   - [Setup in GitHub](./PreReqGitHub)
-
+- Operation
+  - [Dependency pipeline]() 
+  - [Module pipeline(s)]() 
+- Usage
+  - [Consume modules]()  
 
 # Pre-Requisites
 

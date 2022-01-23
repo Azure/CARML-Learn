@@ -7,3 +7,9 @@
 - Pre-Requisites
   - [Setup in Azure](./PreReqAzure)
   - [Setup in GitHub](./PreReqGitHub)
+- Operation
+  - [Dependency pipeline]() 
+  - [Module pipeline(s)]() 
+- Usage
+  - [Consume modules]()  
+- [Contribution]()

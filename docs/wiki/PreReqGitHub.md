@@ -1,3 +1,5 @@
+--- included the content in LAB 1 --- will be structured in more labs
+
 # GitHub Pre-Requisites
 
 This section outlines how to set up the pre-requisites in GitHub. This includes

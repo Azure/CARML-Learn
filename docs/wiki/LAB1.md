@@ -44,7 +44,9 @@ To do that you have to perform the following steps in sequence:
 
 1. In the list of settings, navigate to `Secrets`. You can create a new repository secret by selecting `New repository secret` on the top right
 
-    > With a new version of the website, the secret sections has been splitted to several sections, use the `Actions` one <img src="./media/PreReqGitHub/secretNewGui.png" alt="New secrets GUI" height="100">
+    > With a new version of the website, the secret sections has been splitted to several sections, use the `Actions` one
+    >
+    > <img src="./media/PreReqGitHub/secretNewGui.png" alt="New secrets GUI" height="200">
 
     <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="500">
 
@@ -82,7 +84,7 @@ We will now do a minor change to the parameter file of the `Public IP` module.
 1. Navigate to the following path `arm/Microsoft.Network/publicIPAddresses/.parameters/parameters.json`
 1. Click on the `Edit` button
 
-    <img src="./media/LAB1/file-edit.png" alt="Edit Button" height="50">
+    <img src="./media/LAB1/file-edit.png" alt="Edit Button" height="100">
 
 1. Remove or comment all the parameter values related to diagnostic settings
 

@@ -126,6 +126,49 @@ To perform these changes as quickly and easy as possible, we recommend to update
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="500">
 
 
-### Prepare module parameter file
+### Prepare the default prefix
 
-### Prepare dependency pipeline
+To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" that must be set during the solution setup. 
+
+Essentially, each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders) with values that we store in a central location to facilitate maintenance. 
+The "name prefix" mentioned above is stored in the `settings.json` file in the repository root directory.
+
+So what you're required to do is to replace the `"value": "<replace>"` of token `namePrefix` to a different value.
+
+```json
+{
+    "parameterFileTokens": {
+        (...)
+        "localTokens": {
+            "tokens": [
+                {
+                    "name": "namePrefix",
+                    "value": "<replace>"
+                }
+            ]
+        }
+    }
+}
+```
+
+> **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. 
+
+Our recommendation is to use a triple like the first letter of your first name, and the first two letters of your second name. For example `Max Musterman` would result into `mmu`.
+
+
+
+## Enable actions
+
+Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
+
+To do so, follow the following sequence of steps:
+
+1. Navigate to the `Actions` tab on the top of the repository page
+
+    <img src="./media/PreReqGitHub/actionsOverview.png" alt="Navigate to actions" height="150">
+
+1. Next, select '`I understand my workflows, go ahead an enable them`' 
+
+    <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
+
+## Create a branch

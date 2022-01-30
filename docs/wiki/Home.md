@@ -12,8 +12,6 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Lab 3: Deploy pipeline dependencies]()
   - [Lab 4: Test & publish your first module]()
   - [Lab 5: Increase test coverage]()
-  - [Lab 6: ...]()
-- [Contribution]()
 
 # Pre-Requisites
 

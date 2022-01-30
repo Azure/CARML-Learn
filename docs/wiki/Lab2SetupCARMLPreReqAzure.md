@@ -1,9 +1,9 @@
 # Azure Pre-Requisites
 
 This section outlines how to set up the pre-requisites in Azure. This includes
-- Create a service principal
-- Create a secret for set service principal
-- Assign `Owner` permissions on a subscription
+- Creating a service principal
+- Creating a secret for set service principal
+- Assigning `Owner` permissions on a subscription
   
 ---
 

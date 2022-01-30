@@ -172,3 +172,16 @@ To do so, follow the following sequence of steps:
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
 
 ## Create a branch
+
+By default, CARML employs pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
+
+To this end, the trigger is set up to trigger upon any changes to the `main` branch if any module or pipeline file was modified.
+
+As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
+
+To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
+
+```PowerShell
+git checkout -b 'carmlLab'
+git push --set-upstream 'origin' 'carmlLab'
+```

@@ -30,9 +30,9 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
 1. Click on `Actions`
 
-    <img src="./media/FirstModuleRun/actions-menu.png" alt="Actions menu" height="200">
+    <img src="./media/FirstModuleRun/actions-menu.png" alt="Actions menu" height="100">
 
-1. ??? TODO See if this has been enabled by dependencies in previous LAB ??? Actions have been disabled for safty reasons on your fork, so you'll need to enable them
+1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safty reasons on your fork, so you'll need to enable them
 
     <img src="./media/FirstModuleRun/enable-workflows.png" alt="Enable workflow" height="200">
 
@@ -79,6 +79,22 @@ Now we can merge the pull request and publish the module at last!
 
 1. Now go back to `Actions`. You will see the merge triggered a workflow run.
 
+## Step 5 - Verify publishing results
+
+You can now check the results of the full workflow run.
+
+1. If you're not there, go to `Actions`. The last workflow run should be the one triggered by the merge. You can see the results, and the where the publishing job was correctly run.
+1. You can see the details by clicking on the `Publish module` job.
+
+    <img src="./media/FirstModuleRun/module-publish.png" alt="Publish details" height="500">
+
+1. You can also navigate to the azure portal and see the newly created `artifacts-rg` resource group. You will see a container registry and a template spec.
+
+    <img src="./media/FirstModuleRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
+
+1. If you select the azure container registry, you can verify the module was also published there.
+
+    <img src="./media/FirstModuleRun/publish-result-acr.png" alt="Module on ACR" height="500">
 
 ##### SCRIPT
 - Create fork

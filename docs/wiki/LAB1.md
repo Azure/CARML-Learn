@@ -130,3 +130,23 @@ You can also check the result on the Azure portal. You will notice that a resour
 > You can notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sanbox subscription cost as low as possible.
 >
 > You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
+
+## Step 6 - Merge the pull request
+
+The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
+
+CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globaly unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
+
+1. Go to `Code` and make sure your branch is selected
+1. Navigate to `.github/variables/global.variables.json` and click edit.
+1. Find the `bicepRegistryName` variable and modify its value. Use a name that will likely be available.
+1. Commit the change.
+
+Now we can merge the pull request and publish the module at last!
+
+1. Go to `Pull request` and select the pull request you previously created.
+1. Navigate to the bootom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
+
+    <img src="./media/LAB1/merge-pull-request.png" alt="Merge pull request" height="300">
+
+1. Now go back to `Actions`. You will see the merge triggered a workflow run. 

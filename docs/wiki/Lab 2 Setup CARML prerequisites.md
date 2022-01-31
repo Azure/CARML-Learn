@@ -1,4 +1,4 @@
-# LAB 2 - Setup baseline CARML prerequisites
+# LAB 2 - Setup CARML prerequisites
 
 In this lab, you'll set-up **CAML** on your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
 
@@ -187,3 +187,99 @@ To do that you have to perform the following steps in sequence:
       ```
 
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
+
+
+## Step 5 Configure code base
+
+As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
+- The individual module parameter files
+- The shared dependency pipeline
+
+### Clone the repository
+
+To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please follow the following sequence of steps:
+
+1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository
+
+    <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="250">
+
+1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short
+
+    <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="150">
+
+1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+
+    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
+
+1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution
+
+    <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
+
+1. Following the execution you will find that there is now a `ResourceModules` folder 
+
+    <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
+
+1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
+
+    <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="500">
+
+
+### Prepare the default prefix
+
+To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" that must be set during the solution setup. 
+
+Essentially, each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders) with values that we store in a central location to facilitate maintenance. 
+The "name prefix" mentioned above is stored in the `settings.json` file in the repository root directory.
+
+So what you're required to do is to replace the `"value": "<replace>"` of token `namePrefix` to a different value.
+
+```json
+{
+    "parameterFileTokens": {
+        (...)
+        "localTokens": {
+            "tokens": [
+                {
+                    "name": "namePrefix",
+                    "value": "<replace>"
+                }
+            ]
+        }
+    }
+}
+```
+
+> **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. 
+
+Our recommendation is to use a triple like the first letter of your first name, and the first two letters of your second name. For example `Max Musterman` would result into `mmu`.
+
+
+
+## Enable actions
+
+Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
+
+To do so, follow the following sequence of steps:
+
+1. Navigate to the `Actions` tab on the top of the repository page
+
+    <img src="./media/PreReqGitHub/actionsOverview.png" alt="Navigate to actions" height="150">
+
+1. Next, select '`I understand my workflows, go ahead an enable them`' 
+
+    <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
+
+## Create a branch
+
+By default, CARML employs pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
+
+To this end, the trigger is set up to trigger upon any changes to the `main` branch if any module or pipeline file was modified.
+
+As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
+
+To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
+
+```PowerShell
+git checkout -b 'carmlLab'
+git push --set-upstream 'origin' 'carmlLab'
+```

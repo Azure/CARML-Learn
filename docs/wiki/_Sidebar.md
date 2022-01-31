@@ -3,7 +3,7 @@
 - [Home](./Home)
 - Labs
   - [Lab 1](./Lab1UseCARML)
-  - [Lab 2](./Lab2SetupCARMLPreReq)
+  - [Lab 2](./Lab%202%20Setup%20CARML%20prerequisites)
   - [Lab 3](./Lab3DeployDependencies)
   - [Lab 4](./Lab4FirstModuleRun)
   - [Lab 5](./Lab5ExtendTestParameter)

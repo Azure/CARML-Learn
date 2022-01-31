@@ -1,8 +1,6 @@
-# LAB 2 - Setup CARML prerequisites
-
 In this lab, you'll set-up **CAML** on your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
 
-## Step 1 - Create Azure Service Principal
+# Step 1 - Create Azure Service Principal
 
 CARML tests the deployments and stores the module artifacts in an Azure subscription. To do so, it requires a service principal with access to it.
 
@@ -65,7 +63,7 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretView.png" alt="Portal AAD App Secret View" height="300">
 
-## Step 2 - Service principle access to subscription
+# Step 2 - Service principle access to subscription
 
 Now that we have a new service principal, we must grant it access on the subscription we want to test later deployments in.
 
@@ -120,7 +118,7 @@ Now that we have a new service principal, we must grant it access on the subscri
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearchConfirm.png" alt="Role assignment check access" height="120">
 
-## Step 3 - Create your fork
+# Step 3 - Create your fork
 
 In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to to _fork_ the repository.
 
@@ -146,7 +144,7 @@ In **CARML**, you can't work directly in the `main` branch, so the first action 
 
     <img src="./media/PreReqGitHub/carmlForkFinal.png" alt="Forked repository" height="250">
 
-## Step 4 - Configure your repository
+# Step 4 - Configure your repository
 
 Now you need to configure several secrets that are leveraged by the solution's workflows. Most notably for example, the service connection.
 
@@ -189,13 +187,13 @@ To do that you have to perform the following steps in sequence:
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 
-## Step 5 Configure code base
+# Step 5 Configure code base
 
 As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
 - The individual module parameter files
 - The shared dependency pipeline
 
-### Clone the repository
+## Clone the repository
 
 To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please follow the following sequence of steps:
 
@@ -224,7 +222,7 @@ To perform these changes as quickly and easy as possible, we recommend to update
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="500">
 
 
-### Prepare the default prefix
+## Prepare the default prefix
 
 To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" that must be set during the solution setup. 
 
@@ -255,7 +253,7 @@ Our recommendation is to use a triple like the first letter of your first name, 
 
 
 
-## Enable actions
+# Enable actions
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 
@@ -269,7 +267,7 @@ To do so, follow the following sequence of steps:
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
 
-## Create a branch
+# Create a branch
 
 By default, CARML employs pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
 

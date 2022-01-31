@@ -32,9 +32,9 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstModuleRun/actions-menu.png" alt="Actions menu" height="100">
 
-1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safty reasons on your fork, so you'll need to enable them
+<!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safty reasons on your fork, so you'll need to enable them
 
-    <img src="./media/FirstModuleRun/enable-workflows.png" alt="Enable workflow" height="200">
+    <img src="./media/FirstModuleRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
 
 1. Look for the `Network: PublicIpAddresses` workflow
 1. Select the `Run workflow` button. Make sure the selected branch is the one you created in the previous step and click on `Run workflow` on the bottom.
@@ -96,10 +96,6 @@ You can now check the results of the full workflow run.
 
     <img src="./media/FirstModuleRun/publish-result-acr.png" alt="Module on ACR" height="500">
 
-##### SCRIPT
-- Create fork
-- Customize PublicIP parameter file (comment diagnostic settings)
-- Deploy PublicIP - action manually
-- Verify resource removal
-- Merge
-- Check publishing happened
+---
+
+--> [Now proceed to the next LAB](./Lab5ExtendTestParameter) -->

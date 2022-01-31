@@ -1,5 +1,15 @@
 In this lab, you'll set-up **CAML** on your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
 
+### _Navigation_
+- [Step 1 - Create Azure Service Principal](#step-1---create-azure-service-principal)
+- [Step 2 - Service principle access to subscription](#step-2---service-principle-access-to-subscription)
+- [Step 3 - Create your fork](#step-3---create-your-fork)
+- [Step 4 - Configure your repository](#step-4---configure-your-repository)
+- [Step 5 - Configure code base](#step-5---configure-code-base)
+- [Step 6 - Enable actions](#step-6---enable-actions)
+
+---
+
 # Step 1 - Create Azure Service Principal
 
 CARML tests the deployments and stores the module artifacts in an Azure subscription. To do so, it requires a service principal with access to it.
@@ -187,7 +197,7 @@ To do that you have to perform the following steps in sequence:
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 
-# Step 5 Configure code base
+# Step 5 - Configure code base
 
 As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
 - The individual module parameter files
@@ -253,7 +263,7 @@ Our recommendation is to use a triple like the first letter of your first name, 
 
 
 
-# Enable actions
+# Step 6 - Enable actions
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 
@@ -266,18 +276,3 @@ To do so, follow the following sequence of steps:
 1. Next, select '`I understand my workflows, go ahead an enable them`' 
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
-
-# Create a branch
-
-By default, CARML employs pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
-
-To this end, the trigger is set up to trigger upon any changes to the `main` branch if any module or pipeline file was modified.
-
-As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
-
-To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
-
-```PowerShell
-git checkout -b 'carmlLab'
-git push --set-upstream 'origin' 'carmlLab'
-```

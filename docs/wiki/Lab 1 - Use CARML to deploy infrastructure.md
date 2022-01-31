@@ -19,6 +19,18 @@ So start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadZip.png" alt="Download zip" height="300">
 
+3. Following the download, navigate the downloaded file and expand it to a location of your choice (for example `C:/dev/CARML/lab1`)
+
+    <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="50">
+
+1. Next, navigate to inside the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+
+    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
+
+2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
+
+    <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="500">
+
 # Step 2 - Create solution file
 
 # Step 3 - Build solution

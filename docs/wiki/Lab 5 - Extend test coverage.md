@@ -1,17 +1,15 @@
-# LAB 5 - Extend tests with additional parameters
-
 In this LAB you will _enhance_ an existing module by adding additional tests.
 
 For this LAB, we will use another simple and quick to deploy module: `availabilitySets`.
 
-## Step 1 - Create a new branch
+# Step 1 - Create a new branch
 
 1. As said before, you should avoid working on the `main` branch directly. Make sure you're located on your fork of _CARML_ and create a new branch. For consistency, name it `lab5-add-tests`.
 1. Navigate to the `arm/Microsoft.Compute/availabilitySets`. You will notice the `readme.md` file describes several parameters and only one of them (`name`) is _Required_.
 1. Navigate to `.parameters/parameters.json` (from `arm/Microsoft.Compute/availabilitySets`). This is the file used for testing the module. This specifies only the `name` and `roleAssignments` parameters.
 1. You now want to test specifying all the available parameters.
 
-## Step 2 - Create dependency: proxymityPlacementGroup
+# Step 2 - Create dependency: proxymityPlacementGroup
 
 In the `proximityPlacementGroupId` parameter you will need to provide a value for a proximity placement group resource. In this step you'll create it manually from the azure portal.
 
@@ -25,7 +23,7 @@ In the `proximityPlacementGroupId` parameter you will need to provide a value fo
 
     <img src="./media/AddTest/proximity-placement-create.png" alt="Create Proximity Placement" height="300">
 
-## Step 3 - Add a new parameters file
+# Step 3 - Add a new parameters file
 
 You will now create a parameter file that will test all the availabilitySets module parameters.
 
@@ -33,7 +31,7 @@ You will now create a parameter file that will test all the availabilitySets mod
 1. Create a new file and name it `full.parameters.json`
 1. Edit the new file adding a value for all the parameters. If you need help to fill all the parameters, see the [sample below](#Full-parameter-file)
 
-## Step 4 - Configure workflow to use the new file
+# Step 4 - Configure workflow to use the new file
 
 Now you have to modify the workflow file to make sure it also uses the new parameter file during the tests.
 
@@ -42,7 +40,7 @@ Now you have to modify the workflow file to make sure it also uses the new param
 
     <img src="./media/AddTest/parameters-matrix.png" alt="Parameters matrix" height="75">
 
-## Step 5 - Test the deployment
+# Step 5 - Test the deployment
 
 You wil now manually test the deployment, verifying it's using both the parameter files.
 
@@ -60,7 +58,7 @@ You wil now manually test the deployment, verifying it's using both the paramete
 
     <img src="./media/AddTest/2-availability-set.png" alt="2 availability sets" height="100">
 
-## Full parameter file
+# Full parameter file
 
 ```json
 {

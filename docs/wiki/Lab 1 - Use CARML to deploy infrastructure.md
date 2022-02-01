@@ -65,23 +65,68 @@ To set these up, please follow the following steps:
 
 1. Next, add the following parameters to the template
 
-   ```bicep
-   @description('Optional. The name of the resource group to deploy')
-   param resourceGroupName string = 'validation-rg'
+    ```bicep
+    // ========== //
+    // Parameters //
+    // ========== //
+ 
+    @description('Optional. The name of the resource group to deploy')
+    param resourceGroupName string = 'validation-rg'
+ 
+    @description('Optional. The location to deploy into')
+    param location string = deployment().location
+ 
+    @description('Optional. The name of the storage account to deploy')
+    param storageAccountName string = '<AddGloballyUniqueName>'
+ 
+    @description('Optional. The name of the key vault to deploy')
+    param keyVaultName string = '<AddGloballyUniqueName>'
 
-   @description('Optional. The location to deploy into')
-   param location string = deployment().location
+    @description('Optional. The name of the log analytics workspace to deploy')
+    param logAnalyticsName string = 'carmllaw'
+    ```
 
-   @description('Optional. The name of the storage account to deploy')
-   param storageAccountName string = '<AddGloballyUniqueName>'
+1. Now, you will add the references to the individual CARML modules you will deploy. Let's start with the resource group. Underneath the parameters, add the following block
 
-   @description('Optional. The name of the key vault to deploy')
-   param keyVaultName string = '<AddGloballyUniqueName>'
+    ```bicep
+    // =========== //
+    // Deployments //
+    // =========== //
 
-   @description('Optional. The name of the log analytics workspace to deploy')
-   param logAnalyticsName string = 'carmllaw'
-   ```
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = 
+    ```
 
-1. Now, you will add the references to the individual CARML modules you will deploy
+   Fundamentally, the above snipped references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the once for which the bicep module does not have default values for.
+
+    <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Create Local Folder" height="120">
+
+    Once confirmed it will generate the following skeleton: 
+
+    ```bicep
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
+     name: 
+     params: {
+         name: 
+     }
+    }
+    ```
+
+    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` as in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's readme.md that is located in the same folder as the template itself.
+
+    By default, the resource group is deployed into the same location as the deployment. For the sake of this lab, please add an additional parameter `location` in the `params` block of the module. Here you will reference the location that is defined as an input parameter in this template's parameter block above.
+
+    Following you can find an example of how a complete reference would look like: 
+
+    ```bicep
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
+     name: 'workload-rg'
+     params: {
+         name: resourceGroupName
+         location: location
+     }
+    }
+    ```
+
+    Now, please fill in the parameters accordingly.
 
 # Step 4 - Stretch goal: Deploy solution

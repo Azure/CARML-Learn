@@ -14,11 +14,11 @@ We're almost ready to test the first module, but first you will now do a minor c
 
 1. Remove or comment all the parameter values related to diagnostic settings
 
-    <img src="./media/FirstModuleRun/diagnostic-removal.png" alt="Edit Button" height="300">
+    <img src="./media/FirstModuleRun/diagnostic-removal.png" alt="Removve diagnostic" height="300">
 
 1. On the bottom of the page, choose `Create a new branch anda start a pull request` (optionally specify a commit message and description) than click on `Commit changes`.
 
-    <img src="./media/FirstModuleRun/first-commit.png" alt="Edit Button" height="100">
+    <img src="./media/FirstModuleRun/first-commit.png" alt="First commit" height="100">
 
 1. Confirm the creation of the pull request.
 

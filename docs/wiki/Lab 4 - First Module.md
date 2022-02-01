@@ -2,6 +2,14 @@ In this LAB you will explore how a module is tested and published.
 
 This is how you will add/modify a module on your library and provide it to your company/customer for reuse.
 
+### _Navigation_
+- [Step 1 - Modify a parameter file](#Step-1---Modify-a-parameter-file)
+- [Step 2 - Test the module](#Step-2---Test-the-module)
+- [Step 3 - Build solution](#Step-3---Build-solution)
+- [Step 4 - Merge the pull request](#Step-4---Merge-the-pull-request)
+- [Step 5 - Verify publishing results](#Step-5---Verify-publishing-results)
+---
+
 # Step 1 - Modify a parameter file
 
 We're almost ready to test the first module, but first you will now do a minor change to the parameter file of the `Public IP` module.

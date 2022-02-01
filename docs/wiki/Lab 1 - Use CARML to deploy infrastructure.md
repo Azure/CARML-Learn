@@ -1,4 +1,4 @@
-In this lab, you will learn how to use the modules that are currently available in the CARML library to build a basic, template-orchestrated solution.
+In this lab, you will learn how to use the modules that are currently available in the CARML library to build a basic, template-orchestrated solution - using local file paths.
 
 ### _Navigation_
 - [Step 1 - Download the code base](#step-1---download-the-code-base)
@@ -33,8 +33,55 @@ So start building a solution / workload, you first have to get access to the cod
 
 # Step 2 - Create solution file
 
+In Visual Studio, the next step is to create the solution itself. To do so, perform the following steps:
+
+1. Create a folder called `workload` in the root folder by selecting the small `New Folder` button on the top of the file explorer in VSCode
+
+    <img src="./media/Lab1%20-%20First%20Solution/CreateFolder.png" alt="Create Local Folder" height="95">
+
+1. Next, select the new folder and trigger the small `New File` icon left of the `New Folder` icon and call it `deploy.bicep`. This will be the folder you create the workload in.
+
+    <img src="./media/Lab1%20-%20First%20Solution/NewFile.png" alt="Create Local Folder" height="170">
+
 # Step 3 - Build solution
 
-- Setup simple solution with local paths (e.g. RG + VNET + NSG + …) that can be changed later to ACR paths
+Now, let's create the actual solution. In this first lab we will start with a small setup to get rolling.
+
+Fundamentally, we want you to deploy
+- A Resource Group
+- A Storage Account
+- A Key Vault
+- A Log Analytics workspace
+
+To set these up, please follow the following steps:
+
+1. Open the created workload file in `workload/deploy.bicep`
+
+1. As you will deploy a resource group, we first need to set the template scope to subscription. To do so, add the following line on the top of the file
+
+   ```bicep
+   targetScope = 'subscription'
+   ```
+
+1. Next, add the following parameters to the template
+
+   ```bicep
+   @description('Optional. The name of the resource group to deploy')
+   param resourceGroupName string = 'validation-rg'
+
+   @description('Optional. The location to deploy into')
+   param location string = deployment().location
+
+   @description('Optional. The name of the storage account to deploy')
+   param storageAccountName string = '<AddGloballyUniqueName>'
+
+   @description('Optional. The name of the key vault to deploy')
+   param keyVaultName string = '<AddGloballyUniqueName>'
+
+   @description('Optional. The name of the log analytics workspace to deploy')
+   param logAnalyticsName string = 'carmllaw'
+   ```
+
+1. Now, you will add the references to the individual CARML modules you will deploy
 
 # Step 4 - Stretch goal: Deploy solution

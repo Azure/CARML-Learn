@@ -51,21 +51,21 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
 Let's now see what happened.
 
-First of all, if you click on the run, you should see jobs have run sccesfully.
+1. First of all, if you click on the run, you should see jobs have run sccesfully.
 
-<img src="./media/FirstModuleRun/workflow-result-git.png" alt="PIP run ok" height="500">
+    <img src="./media/FirstModuleRun/workflow-result-git.png" alt="PIP run ok" height="500">
 
-> You will also notice the `Publish module` step has been skipped. This is because the workflows will only execute this job if run from the `main` branch, so that you do your test before the publishing happens.
+    > You will also notice the `Publish module` step has been skipped. This is because the workflows will only execute this job if run from the `main` branch, so that you do your test before the publishing happens.
 
-You can also check the result on the Azure portal. You will notice that a resource group named `validation-rg` has been created. You can verify that new deployments happened in the Resource Group
+1. You can also check the result on the Azure portal. You will notice that a resource group named `validation-rg` has been created. You can verify that new deployments happened in the Resource Group
 
-<img src="./media/FirstModuleRun/workflow-result-azure.png" alt="PIP run ok, RG" height="400">
+    <img src="./media/FirstModuleRun/workflow-result-azure.png" alt="PIP run ok, RG" height="400">
 
-> You can notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sanbox subscription cost as low as possible.
->
-> You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
+    > You can notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sanbox subscription cost as low as possible.
+    >
+    > You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
 
-# Step 4 - Merge the pull request
+<!-- # Step 4 - Merge the pull request
 
 The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
 
@@ -100,7 +100,7 @@ You can now check the results of the full workflow run.
 
 1. If you select the azure container registry, you can verify the module was also published there.
 
-    <img src="./media/FirstModuleRun/publish-result-acr.png" alt="Module on ACR" height="500">
+    <img src="./media/FirstModuleRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
 
 ---
 

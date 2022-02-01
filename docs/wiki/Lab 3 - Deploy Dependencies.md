@@ -38,7 +38,12 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/execution.png" alt="Edit Button" height="100">
 
-> This workflow may take around 20 minutes to execute. Wait until it finished before moving to Lab 4 - First Module.
+7. You will verify that the workflow has finished once the status is green.
+
+    <img src="./media/Lab3/workflow_finished.png" alt="Edit Button" height="300">
+
+
+> This workflow may take around 20 minutes to execute. Wait until it finished before moving to Lab 4.
 
 # Step 2 - What you will deploy
 

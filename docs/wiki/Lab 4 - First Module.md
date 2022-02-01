@@ -1,10 +1,8 @@
-# LAB 4 - Fist module run
-
 In this LAB you will explore how a module is tested and published.
 
 This is how you will add/modify a module on your library and provide it to your company/customer for reuse.
 
-## Step 1 - Modify a paramter file
+# Step 1 - Modify a parameter file
 
 We're almost ready to test the first module, but first you will now do a minor change to the parameter file of the `Public IP` module.
 > Any module can be used at this stage, the public IP has been chosen because if excluding diagnostic settings, it has no external dependencies
@@ -24,7 +22,7 @@ We're almost ready to test the first module, but first you will now do a minor c
 
 1. Confirm the creation of the pull request.
 
-## Step 2 - Test the module
+# Step 2 - Test the module
 
 After this preparation phase, we're sure you would like to see some Action(s)!
 
@@ -41,7 +39,7 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstModuleRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
 
-## Step 3 - Verify the workflow run correctly
+# Step 3 - Verify the workflow run correctly
 
 Let's now see what happened.
 
@@ -59,7 +57,7 @@ You can also check the result on the Azure portal. You will notice that a resour
 >
 > You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
 
-## Step 4 - Merge the pull request
+# Step 4 - Merge the pull request
 
 The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
 
@@ -79,7 +77,7 @@ Now we can merge the pull request and publish the module at last!
 
 1. Now go back to `Actions`. You will see the merge triggered a workflow run.
 
-## Step 5 - Verify publishing results
+# Step 5 - Verify publishing results
 
 You can now check the results of the full workflow run.
 

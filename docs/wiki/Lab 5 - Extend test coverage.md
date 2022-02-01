@@ -58,7 +58,7 @@ You wil now manually test the deployment, verifying it's using both the paramete
 
 1. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding prarmeter file.
 
-    <img src="./media/AddTest/2-availability-set.png" alt="2 availability sets" height="300">
+    <img src="./media/AddTest/2-availability-set.png" alt="2 availability sets" height="100">
 
 ## Full parameter file
 

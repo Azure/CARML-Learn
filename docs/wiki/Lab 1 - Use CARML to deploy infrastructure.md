@@ -9,9 +9,9 @@ In this lab, you will learn how to use the modules that are currently available 
 
 # Step 1 - Download the code base
 
-So start building a solution / workload, you first have to get access to the code base. One of the ways to do so is to follow the following sequence of steps:
+To start building a solution / workload, you first have to get access to the code base. One of the ways to do so is to follow the following sequence of steps:
 
-1. Open to the repository via the URL [aka.ms/CARML](https://aka.ms/CARML)
+1. Open the repository via the URL [aka.ms/CARML](https://aka.ms/CARML)
 
     <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="240">
 
@@ -19,15 +19,15 @@ So start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadZip.png" alt="Download zip" height="300">
 
-3. Following the download, navigate the downloaded file and expand it to a location of your choice (for example `C:/dev/CARML/lab1`)
+3. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
 
     <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="50">
 
-1. Next, navigate to inside the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+1. Next, navigate to the inside of the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
     <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
-2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
+2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="500">
 
@@ -39,25 +39,25 @@ In Visual Studio, the next step is to create the solution itself. To do so, perf
 
     <img src="./media/Lab1%20-%20First%20Solution/CreateFolder.png" alt="Create Local Folder" height="95">
 
-1. Next, select the new folder and trigger the small `New File` icon left of the `New Folder` icon and call it `deploy.bicep`. This will be the folder you create the workload in.
+1. Then select the new folder and press the small `New File` button to the left of the previous `New Folder` button and name it `deploy.bicep`. This will be the folder where you create the workload.
 
     <img src="./media/Lab1%20-%20First%20Solution/NewFile.png" alt="Create template file" height="170">
 
 # Step 3 - Build solution
 
-Now, let's create the actual solution. In this first lab we will start with a small setup to get rolling.
+Now, let's create the actual solution. In this first lab, we will start with a small setup to get rolling.
 
 Fundamentally, we want you to deploy
 - A Resource Group
 - A Storage Account
 - A Key Vault
-- A Log Analytics workspace
+- A Log Analytics Workspace
 
 To set these up, please follow the following steps:
 
 1. Open the created workload file in `workload/deploy.bicep`
 
-1. As you will deploy a resource group, we first need to set the template scope to subscription. To do so, add the following line on the top of the file
+1. As you will deploy a resource group, we first need to set the template scope to `subscription`. To do so, add the following line on the top of the file
 
    ```bicep
    targetScope = 'subscription'
@@ -96,11 +96,11 @@ To set these up, please follow the following steps:
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = 
     ```
 
-   Fundamentally, the above snipped references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the once for which the bicep module does not have default values for.
+   Fundamentally, the above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the bicep module does not have default values for.
 
     <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Required properties" height="120">
 
-    Once confirmed it will generate the following skeleton: 
+    Once confirmed, it will generate the following skeleton: 
 
     ```bicep
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
@@ -111,7 +111,7 @@ To set these up, please follow the following steps:
     }
     ```
 
-    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` as in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's readme.md that is located in the same folder as the template itself.
+    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's `readme.md` that is located in the same folder as the template itself.
 
     By default, the resource group is deployed into the same location as the deployment. For the sake of this lab, please add an additional parameter `location` in the `params` block of the module. Here you will reference the location that is defined as an input parameter in this template's parameter block above.
 
@@ -149,7 +149,7 @@ To set these up, please follow the following steps:
 
     > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in bicep. 
 
-    As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snipped right before the final closing bracket of the storage account block:
+    As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snippet right before the final closing bracket of the storage account block:
 
     ```bicep
     dependsOn: [
@@ -172,7 +172,7 @@ To set these up, please follow the following steps:
     }
     ```
 
-1. For the remaining two resources, Key Vault & Log Analytics Workspace, apply the same steps as we did for the storage account.
+1. For the remaining two resources, Key Vault & Log Analytics Workspace, apply the same steps as you did for the storage account.
 
 1. To also get some insights into the resources that are deployed, let's add some outputs as well. To do so, add the following lines to the end of the file:
 
@@ -194,7 +194,7 @@ To set these up, please follow the following steps:
     output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
     ```
 
-1. In total, the final final should look similar to
+1. In total, the final result should look similar to
    
     ```bicep
     targetScope = 'subscription'
@@ -282,9 +282,9 @@ To set these up, please follow the following steps:
 
 # Step 4 - Stretch goal: Deploy solution
 
-In this, final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just follow the following sequence of steps:
+In this final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just follow the following sequence of steps:
 
-1. Select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not insight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+1. Select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
 
     <img src="./media/Lab1%20-%20First%20Solution/terminal.png" alt="Terminal" height="100">
 

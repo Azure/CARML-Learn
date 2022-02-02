@@ -223,44 +223,44 @@ To set these up, please follow the following steps:
     // =========== //
 
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
-    name: 'workload-rg'
-    params: {
-        name: resourceGroupName
-        location: location
-    }
+        name: 'workload-rg'
+        params: {
+            name: resourceGroupName
+            location: location
+        }
     }
 
     module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
-    scope: resourceGroup(resourceGroupName)
-    name: 'workload-sa'
-    params: {
-        name: storageAccountName
-    }
-    dependsOn: [
-        rg
-    ]
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-sa'
+        params: {
+            name: storageAccountName
+        }
+        dependsOn: [
+            rg
+        ]
     }
 
     module kv '../arm/Microsoft.KeyVault/vaults/deploy.bicep' = {
-    scope: resourceGroup(resourceGroupName)
-    name: 'workload-kv'
-    params: {
-        name: keyVaultName
-    }
-    dependsOn: [
-        rg
-    ]
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-kv'
+        params: {
+            name: keyVaultName
+        }
+        dependsOn: [
+            rg
+        ]
     }
 
     module la '../arm/Microsoft.OperationalInsights/workspaces/deploy.bicep' = {
-    scope: resourceGroup(resourceGroupName)
-    name: 'workload-law'
-    params: {
-        name: logAnalyticsName
-    }
-    dependsOn: [
-        rg
-    ]
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-law'
+        params: {
+            name: logAnalyticsName
+        }
+        dependsOn: [
+            rg
+        ]
     }
 
     // ======= //
@@ -293,7 +293,7 @@ In this, final step, we ask you to optionally perform a test deployment of the g
 1. Next, you can invoke the deployment itself. To do so, execute the following command: 
     ```Powershell
     $inputObject = @{
-        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format yyyyMMddTHHMMssffffZ)[0..63])"
+        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
         TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
         Location           = '<LocationOfYourChoice>' # E.g. WestEurope
         Verbose            = $true
@@ -315,7 +315,7 @@ In this, final step, we ask you to optionally perform a test deployment of the g
     carml@hotmail.de carml            00000000-0000-0000-0000-000000000000 AzureCloud
 
     PS C:\Desktop\CARML\ResourceModules> $inputObject = @{
-    >>     DeploymentName     = "CARML-workload-$(-join (Get-Date -Format yyyyMMddTHHMMssffffZ)[0..63])"
+    >>     DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
     >>     TemplateFile       = 'C:\Desktop\CARML\ResourceModules\workload\deploy.bicep'
     >>     Location           = 'WestEurope' 
     >>     Verbose            = $true

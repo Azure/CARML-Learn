@@ -70,20 +70,20 @@ To set these up, please follow the following steps:
     // Parameters //
     // ========== //
  
-    @description('Optional. The name of the resource group to deploy')
-    param resourceGroupName string = 'validation-rg'
+    @description('Required. The name of the resource group to deploy')
+    param resourceGroupName string = 'carml-rg'
  
     @description('Optional. The location to deploy into')
     param location string = deployment().location
  
-    @description('Optional. The name of the storage account to deploy')
-    param storageAccountName string = '<AddGloballyUniqueName>'
+    @description('Required. The name of the storage account to deploy')
+    param storageAccountName string
  
-    @description('Optional. The name of the key vault to deploy')
-    param keyVaultName string = '<AddGloballyUniqueName>'
+    @description('Required. The name of the key vault to deploy')
+    param keyVaultName string
 
-    @description('Optional. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string = 'carmllaw'
+    @description('Required. The name of the log analytics workspace to deploy')
+    param logAnalyticsName string
     ```
 
 1. Now, you will add the references to the individual CARML modules you will deploy. Let's start with the resource group. Underneath the parameters, add the following block
@@ -176,73 +176,91 @@ To set these up, please follow the following steps:
 
 1. To also get some insights into the resources that are deployed, let's add some outputs as well. To do so, add the following lines to the end of the file:
 
-   ```bicep
-   // ======= //
-   // Outputs //
-   // ======= //
+    ```bicep
+    // ======= //
+    // Outputs //
+    // ======= //
 
-   @description('The resource ID of the deployed resource group')
-   output resourceGroupResourceId string = rg.outputs.resourceId
+    @description('The resource ID of the deployed resource group')
+    output resourceGroupResourceId string = rg.outputs.resourceId
 
-   @description('The resource ID of the deployed storage account')
-   output storageAccountResourceId string = sa.outputs.resourceId
-   ```
+    @description('The resource ID of the deployed storage account')
+    output storageAccountResourceId string = sa.outputs.resourceId
+
+    @description('The resource ID of the deployed key vault')
+    output keyVaultResourceId string = kv.outputs.resourceId
+
+    @description('The resource ID of the deployed log analytics workspace')
+    output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
+    ```
 
 1. In total, the final final should look similar to
    
     ```bicep
     targetScope = 'subscription'
- 
+
     // ================ //
     // Input Parameters //
     // ================ //
-    @description('Optional. The name of the resource group to deploy')
-    param resourceGroupName string = 'validation-rg'
- 
+
+    @description('Required. The name of the resource group to deploy')
+    param resourceGroupName string
+
     @description('Optional. The location to deploy into')
     param location string = deployment().location
- 
-    @description('Optional. The name of the storage account to deploy')
-    param storageAccountName string = '<AddGloballyUniqueName>'
- 
-    @description('Optional. The name of the key vault to deploy')
-    param keyVaultName string = '<AddGloballyUniqueName>'
- 
-    @description('Optional. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string = 'carmllaw'
- 
+
+    @description('Required. The name of the storage account to deploy')
+    param storageAccountName string
+
+    @description('Required. The name of the key vault to deploy')
+    param keyVaultName string
+
+    @description('Required. The name of the log analytics workspace to deploy')
+    param logAnalyticsName string
+
     // =========== //
     // Deployments //
     // =========== //
- 
+
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
-        name: 'workload-rg'
-        params: {
-            name: resourceGroupName
-            location: location
-        }
+    name: 'workload-rg'
+    params: {
+        name: resourceGroupName
+        location: location
     }
-    
+    }
+
     module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
-        scope: resourceGroup(resourceGroupName)
-        name: 'workload-sa'
-        params: {
-            name: storageAccountName
-        }
-        dependsOn: [
-            rg
-        ]
+    scope: resourceGroup(resourceGroupName)
+    name: 'workload-sa'
+    params: {
+        name: storageAccountName
+    }
+    dependsOn: [
+        rg
+    ]
     }
 
     module kv '../arm/Microsoft.KeyVault/vaults/deploy.bicep' = {
-        scope: resourceGroup(resourceGroupName)
-        name: 'workload-kv'
-        params: {
-            name: keyVaultName
-        }
-        dependsOn: [
-            rg
-        ]
+    scope: resourceGroup(resourceGroupName)
+    name: 'workload-kv'
+    params: {
+        name: keyVaultName
+    }
+    dependsOn: [
+        rg
+    ]
+    }
+
+    module la '../arm/Microsoft.OperationalInsights/workspaces/deploy.bicep' = {
+    scope: resourceGroup(resourceGroupName)
+    name: 'workload-law'
+    params: {
+        name: logAnalyticsName
+    }
+    dependsOn: [
+        rg
+    ]
     }
 
     // ======= //
@@ -254,6 +272,113 @@ To set these up, please follow the following steps:
 
     @description('The resource ID of the deployed storage account')
     output storageAccountResourceId string = sa.outputs.resourceId
+
+    @description('The resource ID of the deployed key vault')
+    output keyVaultResourceId string = kv.outputs.resourceId
+
+    @description('The resource ID of the deployed log analytics workspace')
+    output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
     ```
 
 # Step 4 - Stretch goal: Deploy solution
+
+In this, final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just follow the following sequence of steps:
+
+1. Select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not insight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+
+    <img src="./media/Lab1%20-%20First%20Solution/terminal.png" alt="Terminal" height="100">
+
+1. Now, you have to run a few commands in succession. First, log into your Azure subscription by executing `Connect-AzAccount` and follow the process
+
+1. Next, you can invoke the deployment itself. To do so, execute the following command: 
+    ```Powershell
+    $inputObject = @{
+        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format yyyyMMddTHHMMssffffZ)[0..63])"
+        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose            = $true
+        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+    }
+    New-AzSubscriptionDeployment @inputObject
+    ```
+
+    The resulting log should look similar to:
+
+    ```Powershell
+    PS C:\Desktop\CARML\ResourceModules> Connect-AzAccount
+
+    Account          SubscriptionName TenantId                             Environment
+    -------          ---------------- --------                             -----------
+    carml@hotmail.de carml            00000000-0000-0000-0000-000000000000 AzureCloud
+
+    PS C:\Desktop\CARML\ResourceModules> $inputObject = @{
+    >>     DeploymentName     = "CARML-workload-$(-join (Get-Date -Format yyyyMMddTHHMMssffffZ)[0..63])"
+    >>     TemplateFile       = 'C:\Desktop\CARML\ResourceModules\workload\deploy.bicep'
+    >>     Location           = 'WestEurope' 
+    >>     Verbose            = $true
+    >>     ResourceGroupName  = 'carml-rg'
+    >>     StorageAccountName = 'carmllabsa'
+    >>     KeyVaultName       = 'carmlLabsakv'
+    >>     LogAnalyticsName   = 'carmllaw'
+    >> }
+    PS C:\Desktop\CARML\ResourceModules> New-AzSubscriptionDeployment @inputObject
+    VERBOSE: Using Bicep v0.4.1008
+    VERBOSE: 
+    VERBOSE: 18:09:23 - Template is valid.
+    VERBOSE: 18:09:25 - Create template deployment 'CARML-workload-20220202T1802526927Z'
+    VERBOSE: 18:09:25 - Checking deployment status in 5 seconds
+    VERBOSE: 18:09:30 - Resource Microsoft.Resources/deployments 'workload-rg' provisioning status is running
+    VERBOSE: 18:09:30 - Resource Microsoft.Resources/resourceGroups 'carml-rg' provisioning status is succeeded
+    VERBOSE: 18:09:31 - Checking deployment status in 14 seconds
+    VERBOSE: 18:09:45 - Resource Microsoft.Resources/deployments 'workload-rg' provisioning status is succeeded
+    VERBOSE: 18:09:45 - Resource Microsoft.Resources/deployments 'workload-rg' provisioning status is succeeded
+    VERBOSE: 18:09:45 - Checking deployment status in 16 seconds
+    VERBOSE: 18:10:02 - Resource Microsoft.Resources/deployments 'workload-kv' provisioning status is running
+    VERBOSE: 18:10:02 - Resource Microsoft.Resources/deployments 'workload-sa' provisioning status is running
+    VERBOSE: 18:10:02 - Resource Microsoft.Storage/storageAccounts 'carmllabsa' provisioning status is running
+    VERBOSE: 18:10:02 - Resource Microsoft.Resources/deployments 'workload-law' provisioning status is running
+    VERBOSE: 18:10:02 - Checking deployment status in 15 seconds
+    VERBOSE: 18:10:18 - Resource Microsoft.Resources/deployments 'workload-sa' provisioning status is succeeded
+    VERBOSE: 18:10:18 - Resource Microsoft.Storage/storageAccounts 'carmllabsa' provisioning status is succeeded
+    VERBOSE: 18:10:19 - Resource Microsoft.KeyVault/vaults 'carmlLabsakv' provisioning status is running
+    VERBOSE: 18:10:19 - Resource Microsoft.Resources/deployments 'workload-sa' provisioning status is succeeded
+    VERBOSE: 18:10:19 - Resource Microsoft.OperationalInsights/workspaces 'carmllaw' provisioning status is running
+    VERBOSE: 18:10:19 - Checking deployment status in 14 seconds
+    VERBOSE: 18:10:34 - Resource Microsoft.Resources/deployments 'workload-kv' provisioning status is succeeded
+    VERBOSE: 18:10:34 - Resource Microsoft.KeyVault/vaults 'carmlLabsakv' provisioning status is succeeded
+    VERBOSE: 18:10:34 - Resource Microsoft.Resources/deployments 'workload-kv' provisioning status is succeeded
+    VERBOSE: 18:10:34 - Checking deployment status in 14 seconds
+    VERBOSE: 18:10:50 - Resource Microsoft.Resources/deployments 'workload-law' provisioning status is succeeded
+    VERBOSE: 18:10:50 - Resource Microsoft.OperationalInsights/workspaces 'carmllaw' provisioning status is succeeded
+    VERBOSE: 18:10:50 - Resource Microsoft.Resources/deployments 'workload-law' provisioning status is succeeded
+
+    Id                : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/CARML-workload-20220202T1802526
+    927Z
+    DeploymentName    : CARML-workload-20220202T1802526927Z
+    Get-Location      : westeurope
+    ProvisioningState : Succeeded
+    Timestamp         : 02.02.2022 17:10:47
+    Mode              : Incremental
+    TemplateLink      : 
+    Parameters        : 
+                        Name                 Type                      Value     
+                        ==================== ========================= ==========
+                        resourceGroupName    String                    carml-rg
+                        Get-location         String                    WestEurope
+                        storageAccountName   String                    carmllabsa
+                        keyVaultName         String                    carmlLabsakv
+                        logAnalyticsName     String                    carmllaw
+
+    Outputs           : 
+                        Name                              Type                      Value
+                        ================================= ========================= ==========
+                        resourceGroupResourceId           String                    /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/carml-rg
+                        storageAccountResourceId          String                    /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/carml-rg/providers/Microsoft.Storage/storageAccounts/carmllabsa
+                        keyVaultResourceId                String                    /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/carml-rg/providers/Microsoft.KeyVault/vaults/carmlLabsakv
+                        logAnalyticsWorkspaceResourceId   String                    /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/carml-rg/providers/Microsoft.OperationalInsights/workspaces/carmllaw
+
+    DeploymentDebugLogLevel : 
+    ```

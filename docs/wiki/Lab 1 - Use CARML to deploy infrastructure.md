@@ -13,15 +13,15 @@ To start building a solution / workload, you first have to get access to the cod
 
 1. Open the repository via the URL [aka.ms/CARML](https://aka.ms/CARML)
 
-    <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="240">
+    <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="200">
 
-2. On the overview page, select the `<> Code` button to the right, and select the `Download ZIP` button in the opening pop up to trigger the repository to be downloaded as a compressed file.
+1. On the overview page, select the `<> Code` button to the right, and select the `Download ZIP` button in the opening pop up to trigger the repository to be downloaded as a compressed file.
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadZip.png" alt="Download zip" height="300">
 
-3. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
+1. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
 
-    <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="50">
+    <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
 1. Next, navigate to the inside of the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
@@ -29,7 +29,7 @@ To start building a solution / workload, you first have to get access to the cod
 
 2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
 
-    <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="500">
+    <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
 
 # Step 2 - Create solution file
 

@@ -27,11 +27,11 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 
 1. Open to the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
    
-    <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="230">
+    <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
 1. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
 
-    <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="210">
+    <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="190">
 
 1. Here we want to do 2 things:
    - Make note of your `Tenant ID` in the displayed `Overview` for later reference
@@ -63,7 +63,7 @@ For this lab, it is enough to just write them temporarily in for example Notepad
    - Select `Certificates & secrets` in the blade to the left
    - Select `+ New client secret` in the opening view to the right
 
-    <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="350">
+    <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="300">
 
 1. Now enter a name for the secret, and click on `Add`
 
@@ -225,7 +225,7 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
 1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
 
-    <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="500">
+    <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 
 
 ## Prepare the default prefix

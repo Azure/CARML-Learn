@@ -9,11 +9,11 @@ For this LAB, we will use another simple and quick to deploy module: `availabili
 1. Navigate to `.parameters/parameters.json` (from `arm/Microsoft.Compute/availabilitySets`). This is the file used for testing the module. This specifies only the `name` and `roleAssignments` parameters.
 1. You now want to test specifying all the available parameters.
 
-# Step 2 - Create dependency: proxymityPlacementGroup
+# Step 2 - Create dependency: proximityPlacementGroup
 
 In the `proximityPlacementGroupId` parameter you will need to provide a value for a proximity placement group resource. In this step you'll create it manually from the azure portal.
 
-> As it's needed for testing a module, the proximity placement group should be created by the dependency pipeline. This is currently not implemened.
+> As it's needed for testing a module, the proximity placement group should be created by the dependency pipeline. This is currently not implemented.
 
 1. Navigate to the azure portal and search for proximity placement groups
 
@@ -42,7 +42,7 @@ Now you have to modify the workflow file to make sure it also uses the new param
 
 # Step 5 - Test the deployment
 
-You wil now manually test the deployment, verifying it's using both the parameter files.
+You will now manually test the deployment, verifying it's using both the parameter files.
 
 1. On GitHub, go to Action
 1. Find the `Compute: AvailabilitySets` workflow
@@ -54,7 +54,7 @@ You wil now manually test the deployment, verifying it's using both the paramete
 
     <img src="./media/AddTest/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="200">
 
-1. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding prarmeter file.
+1. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding parameter file.
 
     <img src="./media/AddTest/2-availability-set.png" alt="2 availability sets" height="100">
 

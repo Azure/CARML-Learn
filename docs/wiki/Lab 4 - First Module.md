@@ -38,7 +38,7 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstModuleRun/actions-menu.png" alt="Actions menu" height="100">
 
-<!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safty reasons on your fork, so you'll need to enable them
+<!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safety reasons on your fork, so you'll need to enable them
 
     <img src="./media/FirstModuleRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
 
@@ -51,7 +51,7 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
 Let's now see what happened.
 
-1. First of all, if you click on the run, you should see jobs have run sccesfully.
+1. First of all, if you click on the run, you should see jobs have run successfully.
 
     <img src="./media/FirstModuleRun/workflow-result-git.png" alt="PIP run ok" height="500">
 
@@ -69,7 +69,7 @@ Let's now see what happened.
 
 The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
 
-CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globaly unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
+CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globally unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
 
 1. Go to `Code` and make sure your branch is selected
 1. Navigate to `.github/variables/global.variables.json` and click edit.
@@ -79,7 +79,7 @@ CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registr
 Now we can merge the pull request and publish the module at last!
 
 1. Go to `Pull request` and select the pull request you previously created.
-1. Navigate to the bootom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
+1. Navigate to the bottom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
 
     <img src="./media/FirstModuleRun/merge-pull-request.png" alt="Merge pull request" height="300">
 

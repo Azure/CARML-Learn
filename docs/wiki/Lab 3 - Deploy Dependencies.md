@@ -32,7 +32,7 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/run_workflow.png" height="230">
 
->For the seek of saving time in the lab, we will leave the SQL Managed Identity and vhd check boxes **unchecked**.
+>For the seek of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
 6. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 
@@ -49,13 +49,13 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 In order to successfully deploy and test all modules in your desired environment some modules have to have resources deployed beforehand. Since also dependency resources are in turn subject to dependencies with each other, resources are deployed in the following grouped order.
 
-**First level resources**: resource groups everaged by all modules. Multiple instances are deployed:
+**First level resources**: resource groups leveraged by all modules. Multiple instances are deployed:
      - 'validation-rg': The resource group to which resources are deployed by default during the test deployment phase. This same resource group is also the one hosting the dependencies.
      - 'artifacts-rg': The resource group to which templates are published during the publishing phase.
 
 **Second level resources**: This group of resources has a dependency only on the resource group which will host them. Resources in this category include a log analytics workspace, storage account, event hub namespace, Azure container registry, etc.
 
-**Third level resources**: This group of resources has a dependency on one or more resources in the group above. In this group we can find a keyvault, recovery services vault, application insights, etc.
+**Third level resources**: This group of resources has a dependency on one or more resources in the group above. In this group we can find a key vault, recovery services vault, application insights, etc.
 
 **Fourth level resources**: This group of resources has a dependency on one or more resources in the groups above. These resources include some virtual networks and a AVD application group.
 

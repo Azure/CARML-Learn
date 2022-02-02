@@ -132,7 +132,7 @@ Now that we have a new service principal, we must grant it access on the subscri
 
 In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to to _fork_ the repository.
 
-> One of the fundamental features in version control systems, branching and forking are foundamentals to collaboration.
+> One of the fundamental features in version control systems, branching and forking are fundamentals to collaboration.
 >
 > A **branch** in Git creates another line of development in the project without affecting the main branch.
 >
@@ -164,17 +164,13 @@ To do that you have to perform the following steps in sequence:
 
     <img src="./media/PreReqGitHub/forkSettings.png" alt="Navigate to settings" height="100">
 
-1. In the list of settings, navigate to `Secrets`. You can create a new repository secret by selecting `New repository secret` on the top right
+1. In the list of settings, expand `Secrets` and select `Actions`. You can create a new repository secret by selecting `New repository secret` on the top right
 
-    > With a new version of the website, the secret sections has been splitted to several sections, use the `Actions` one
-    >
-    > <img src="./media/PreReqGitHub/secretNewGui.png" alt="New secrets GUI" height="200">
+    <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="600">
 
-    <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="500">
+2. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button
 
-1. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button
-
-    <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="400">
+    <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="600">
 
     The values of the secrets are the ones we collected in the [Azure setup](./PreReqAzure) tutorial. You'll need to create one secret for each entry in the following table and make sure you use the exact same naming:
 
@@ -185,7 +181,7 @@ To do that you have to perform the following steps in sequence:
     | `ARM_TENANT_ID` | `9734cec9-4384-445b-bbb6-767e7be6e5ec` | The tenant ID of the tenant to test   deploy modules of that level in. |
     | `DEPLOYMENT_SP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | This is the Principal (Object ID)   for the Service Principal used as the Azure service connection. It is used for Default Role Assignments when Modules are being deployed into Azure |
     | `AZURE_CREDENTIALS` | See below | See below |
-    <!-- | <s>PLATFORM_REPO_UPDATE_PAT</s> | - | For this lab, this secret is optional and can be **ignored**. It would be used to sync the repository's `docs` folder with the repository's wiki. However, for the sake of this lab   we will ignore it for now. If you are interested, you can find further information [here](https://github.com/Azure/ResourceModules/blob/main/docs/wiki/PipelinesDesign.md#github-component-github-secrets). | -->
+    <!-- | <s>PLATFORM_REPO_UPDATE_PAT</s> | - | For this lab, this secret is optional and can be **ignored**. It would be used to sync the repository's `docs` folder with the repository's wiki. However, for the sake of this lab we will ignore it for now. If you are interested, you can find further information [here](https://github.com/Azure/ResourceModules/blob/main/docs/wiki/PipelinesDesign.md#github-component-github-secrets). | -->
   
     - Special case: `AZURE_CREDENTIALS`,
       This secret represents our service connection to Azure and its value is a compressed JSON object that must match the following format:

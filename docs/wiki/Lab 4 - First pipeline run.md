@@ -18,15 +18,15 @@ We're almost ready to test the first module, but first you will now do a minor c
 1. Navigate to the following path `arm/Microsoft.Network/publicIPAddresses/.parameters/parameters.json`
 1. Click on the `Edit` button
 
-    <img src="./media/FirstModuleRun/file-edit.png" alt="Edit Button" height="100">
+    <img src="./media/FirstPipelineRun/file-edit.png" alt="Edit Button" height="100">
 
 1. Remove or comment all the parameter values related to diagnostic settings
 
-    <img src="./media/FirstModuleRun/diagnostic-removal.png" alt="Removve diagnostic" height="300">
+    <img src="./media/FirstPipelineRun/diagnostic-removal.png" alt="Removve diagnostic" height="300">
 
 1. On the bottom of the page, choose `Create a new branch anda start a pull request` (optionally specify a commit message and description) than click on `Commit changes`.
 
-    <img src="./media/FirstModuleRun/first-commit.png" alt="First commit" height="100">
+    <img src="./media/FirstPipelineRun/first-commit.png" alt="First commit" height="100">
 
 1. Confirm the creation of the pull request.
 
@@ -36,16 +36,16 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
 1. Click on `Actions`
 
-    <img src="./media/FirstModuleRun/actions-menu.png" alt="Actions menu" height="100">
+    <img src="./media/FirstPipelineRun/actions-menu.png" alt="Actions menu" height="100">
 
 <!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safety reasons on your fork, so you'll need to enable them
 
-    <img src="./media/FirstModuleRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
+    <img src="./media/FirstPipelineRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
 
 1. Look for the `Network: PublicIpAddresses` workflow
 1. Select the `Run workflow` button. Make sure the selected branch is the one you created in the previous step and click on `Run workflow` on the bottom.
 
-    <img src="./media/FirstModuleRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
+    <img src="./media/FirstPipelineRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
 
 # Step 3 - Verify the workflow run correctly
 
@@ -53,13 +53,13 @@ Let's now see what happened.
 
 1. First of all, if you click on the run, you should see jobs have run successfully.
 
-    <img src="./media/FirstModuleRun/workflow-result-git.png" alt="PIP run ok" height="500">
+    <img src="./media/FirstPipelineRun/workflow-result-git.png" alt="PIP run ok" height="500">
 
     > You will also notice the `Publish module` step has been skipped. This is because the workflows will only execute this job if run from the `main` branch, so that you do your test before the publishing happens.
 
 1. You can also check the result on the Azure portal. You will notice that a resource group named `validation-rg` has been created. You can verify that new deployments happened in the Resource Group
 
-    <img src="./media/FirstModuleRun/workflow-result-azure.png" alt="PIP run ok, RG" height="400">
+    <img src="./media/FirstPipelineRun/workflow-result-azure.png" alt="PIP run ok, RG" height="400">
 
     > You can notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sanbox subscription cost as low as possible.
     >
@@ -81,7 +81,7 @@ Now we can merge the pull request and publish the module at last!
 1. Go to `Pull request` and select the pull request you previously created.
 1. Navigate to the bottom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
 
-    <img src="./media/FirstModuleRun/merge-pull-request.png" alt="Merge pull request" height="300">
+    <img src="./media/FirstPipelineRun/merge-pull-request.png" alt="Merge pull request" height="300">
 
 1. Now go back to `Actions`. You will see the merge triggered a workflow run.
 
@@ -92,15 +92,15 @@ You can now check the results of the full workflow run.
 1. If you're not there, go to `Actions`. The last workflow run should be the one triggered by the merge. You can see the results, and the where the publishing job was correctly run.
 1. You can see the details by clicking on the `Publish module` job.
 
-    <img src="./media/FirstModuleRun/module-publish.png" alt="Publish details" height="500">
+    <img src="./media/FirstPipelineRun/module-publish.png" alt="Publish details" height="500">
 
 1. You can also navigate to the azure portal and see the newly created `artifacts-rg` resource group. You will see a container registry and a template spec.
 
-    <img src="./media/FirstModuleRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
+    <img src="./media/FirstPipelineRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
 
 1. If you select the azure container registry, you can verify the module was also published there.
 
-    <img src="./media/FirstModuleRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
+    <img src="./media/FirstPipelineRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
 
 ---
 

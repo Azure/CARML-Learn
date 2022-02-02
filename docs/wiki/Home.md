@@ -12,9 +12,9 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Lab 3: Deploy Dependencies](./Lab%203%20-%20Deploy%20Dependencies)
   - [Lab 4: First Module](./Lab%204%20-%20First%20Module)
   - [Lab 5: Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)
-  - [Lab 6: Publishing](./Lab%205%20-%20Extend%20test%20coverage.md)
-  - [Lab 7: Build an ACR-driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution.md)
-  - [Lab 9: Contribution](./Lab%209%20-%20Contribution.md)
+  - [Lab 6: Publishing](./Lab%205%20-%20Extend%20test%20coverage)
+  - [Lab 7: Build an ACR-driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution)
+  - [Lab 9: Contribution](./Lab%209%20-%20Contribution)
 
 # Pre-Requisites
 

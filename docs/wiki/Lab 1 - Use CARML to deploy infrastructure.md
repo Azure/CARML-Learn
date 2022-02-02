@@ -41,7 +41,7 @@ In Visual Studio, the next step is to create the solution itself. To do so, perf
 
 1. Next, select the new folder and trigger the small `New File` icon left of the `New Folder` icon and call it `deploy.bicep`. This will be the folder you create the workload in.
 
-    <img src="./media/Lab1%20-%20First%20Solution/NewFile.png" alt="Create Local Folder" height="170">
+    <img src="./media/Lab1%20-%20First%20Solution/NewFile.png" alt="Create template file" height="170">
 
 # Step 3 - Build solution
 
@@ -98,16 +98,16 @@ To set these up, please follow the following steps:
 
    Fundamentally, the above snipped references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the once for which the bicep module does not have default values for.
 
-    <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Create Local Folder" height="120">
+    <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Required properties" height="120">
 
     Once confirmed it will generate the following skeleton: 
 
     ```bicep
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
      name: 
-     params: {
-         name: 
-     }
+        params: {
+            name: 
+        }
     }
     ```
 
@@ -119,14 +119,141 @@ To set these up, please follow the following steps:
 
     ```bicep
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
-     name: 'workload-rg'
-     params: {
-         name: resourceGroupName
-         location: location
-     }
+        name: 'workload-rg'
+        params: {
+            name: resourceGroupName
+            location: location
+        }
     }
     ```
 
     Now, please fill in the parameters accordingly.
+
+1. Following the same flow, please now go ahead and add the references to the `../arm/Microsoft.Storage/storageAccounts` CARML module underneath the resource group module. Once done, it should look similar to:
+
+    ```bicep
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
+        scope: 
+        name: 'workload-sa'
+        params: {
+            name: storageAccountName
+        }
+    }
+    ```
+
+    The part that is missing is the `scope`. As we want to deploy the storage account into the resource group above and as such into a resource group scope, we must set that reference in the storage account scope. To do so, complete the `scope:` line with
+
+    ```bicep
+    scope: resourceGroup(resourceGroupName)
+    ```
+
+    > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in bicep. 
+
+    As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snipped right before the final closing bracket of the storage account block:
+
+    ```bicep
+    dependsOn: [
+        rg
+    ]
+    ``` 
+
+    The full module reference should now look like
+
+    ```bicep
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-sa'
+        params: {
+            name: storageAccountName
+        }
+        dependsOn: [
+            rg
+        ]
+    }
+    ```
+
+1. For the remaining two resources, Key Vault & Log Analytics Workspace, apply the same steps as we did for the storage account.
+
+1. To also get some insights into the resources that are deployed, let's add some outputs as well. To do so, add the following lines to the end of the file:
+
+   ```bicep
+   // ======= //
+   // Outputs //
+   // ======= //
+
+   @description('The resource ID of the deployed resource group')
+   output resourceGroupResourceId string = rg.outputs.resourceId
+
+   @description('The resource ID of the deployed storage account')
+   output storageAccountResourceId string = sa.outputs.resourceId
+   ```
+
+1. In total, the final final should look similar to
+   
+    ```bicep
+    targetScope = 'subscription'
+ 
+    // ================ //
+    // Input Parameters //
+    // ================ //
+    @description('Optional. The name of the resource group to deploy')
+    param resourceGroupName string = 'validation-rg'
+ 
+    @description('Optional. The location to deploy into')
+    param location string = deployment().location
+ 
+    @description('Optional. The name of the storage account to deploy')
+    param storageAccountName string = '<AddGloballyUniqueName>'
+ 
+    @description('Optional. The name of the key vault to deploy')
+    param keyVaultName string = '<AddGloballyUniqueName>'
+ 
+    @description('Optional. The name of the log analytics workspace to deploy')
+    param logAnalyticsName string = 'carmllaw'
+ 
+    // =========== //
+    // Deployments //
+    // =========== //
+ 
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
+        name: 'workload-rg'
+        params: {
+            name: resourceGroupName
+            location: location
+        }
+    }
+    
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-sa'
+        params: {
+            name: storageAccountName
+        }
+        dependsOn: [
+            rg
+        ]
+    }
+
+    module kv '../arm/Microsoft.KeyVault/vaults/deploy.bicep' = {
+        scope: resourceGroup(resourceGroupName)
+        name: 'workload-kv'
+        params: {
+            name: keyVaultName
+        }
+        dependsOn: [
+            rg
+        ]
+    }
+
+    // ======= //
+    // Outputs //
+    // ======= //
+
+    @description('The resource ID of the deployed resource group')
+    output resourceGroupResourceId string = rg.outputs.resourceId
+
+    @description('The resource ID of the deployed storage account')
+    output storageAccountResourceId string = sa.outputs.resourceId
+    ```
 
 # Step 4 - Stretch goal: Deploy solution

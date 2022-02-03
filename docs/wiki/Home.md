@@ -23,14 +23,14 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
 - Installed 
-  - Visual Studio Code + Bicep extension
-  - Bicep CLI
-  - Azure CLI
+  - [Visual Studio Code](URL 'https://code.visualstudio.com/Download') + [Bicep extension](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install')
+  - [Azure CLI](URL 'https://docs.microsoft.com/en-us/cli/azure/install-azure-cli')
+    - [Bicep CLI](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli')
   - Azure CLI Extensions
     - Bicep
-  - Git
-  - PowerShell Core 
-  - Windows Terminal
-  - PowerShell modules
+  - [Git](URL 'https://git-scm.com/downloads')
+  - [PowerShell Core](URL 'https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2')
+  - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
+  - [PowerShell modules] (URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
     - Az.Accounts
     - Az.Resources  

@@ -22,7 +22,7 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
 3. Select the `Run workflow` button. Make sure the selected branch is the one you created in Lab 2 and click on `Run workflow` on the bottom.
 
-    <img src="./media/FirstPipelineRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
+    <img src="./media/FirstPipelineRun/pipelineExecution.png" alt="Run workflow on branch" height="500">
 
 # Step 3 - Verify the workflow run correctly
 

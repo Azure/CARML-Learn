@@ -29,8 +29,9 @@ This lab requires a number of fundamental pre-requisites you need in order to co
   - Azure CLI Extensions
     - Bicep
   - [Git](URL 'https://git-scm.com/downloads')
+    - [Git Guide](URL 'https://rogerdudler.github.io/git-guide/')
   - [PowerShell Core](URL 'https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2')
   - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
-  - [PowerShell modules] (URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
+  - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
     - Az.Accounts
     - Az.Resources  

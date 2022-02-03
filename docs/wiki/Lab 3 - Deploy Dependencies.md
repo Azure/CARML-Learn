@@ -4,7 +4,6 @@ In order to successfully deploy and test all modules in your desired environment
 - [Step 1 - Trigger the dependency pipeline](#step-1---trigger-the-dependency-pipeline)
 - [Step 2 - What you will deploy](#step-2---what-you-will-deploy)
 
-
 ---
 
 # Step 1 - Trigger the dependency pipeline
@@ -19,15 +18,11 @@ Together with the resource modules pipelines, we are providing a dependency pipe
     
     <img src="./media/Lab3/dependey_workflow.png" height="170">
 
-3. To the right, you will se a `Run workflow` button. Click on it and open the branch dropdown menu.
+3. To the right, you will see a `Run workflow` button you can trigger
 
     <img src="./media/Lab3/run_workflow_menu.png" height="230">
 
-4. From the dropdown, search your branch in the search box and select it.
-    
-    <img src="./media/Lab3/search_branch.png" height="230">
-
-5. Once you can see your branch correctly selected you can proceed to trigger the workflow by clicking on the green button `Run workflow`.
+4. You can now proceed to trigger the workflow by clicking on the green button `Run workflow`.
 
     <img src="./media/Lab3/run_workflow.png" height="230">
 

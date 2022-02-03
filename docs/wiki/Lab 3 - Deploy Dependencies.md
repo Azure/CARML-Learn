@@ -14,25 +14,25 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/Actions.png" height="180">
 
-2. From the workflows list, select the one named `.Platform: Dependencies`.
+1. From the workflows list, select the one named `.Platform: Dependencies`.
     
     <img src="./media/Lab3/dependey_workflow.png" height="170">
 
-3. To the right, you will see a `Run workflow` button you can trigger
+1. To the right, you will see a `Run workflow` button to trigger
 
     <img src="./media/Lab3/run_workflow_menu.png" height="230">
 
-4. You can now proceed to trigger the workflow by clicking on the green button `Run workflow`.
+1. You can now proceed to trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/run_workflow.png" height="230">
+    <img src="./media/Lab3/run_workflow.png" height="300">
 
 > For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
-6. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
+1. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 
-    <img src="./media/Lab3/execution.png" height="100">
+    <img src="./media/Lab3/execution.png" height="90">
 
-7. You will verify that the workflow has finished once the status is green.
+1. You will verify that the workflow has finished once the status is green.
 
     <img src="./media/Lab3/workflow_finished.png" height="300">
 

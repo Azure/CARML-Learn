@@ -1,14 +1,12 @@
 In this LAB you will explore how a module runs through the first two pipeline stages, the local validation, as well as validation through Azure.
 
 ### _Navigation_
-- [Step 1 - Modify a parameter file](#Step-1---Modify-a-parameter-file)
-- [Step 2 - Test the module](#Step-2---Test-the-module)
-- [Step 3 - Build solution](#Step-3---Build-solution)
-- [Step 4 - Merge the pull request](#Step-4---Merge-the-pull-request)
-- [Step 5 - Verify publishing results](#Step-5---Verify-publishing-results)
+- [Step 1 - Test the module using the pipeline](#step-1---test-the-module-using-the-pipeline)
+- [Step 2 - Verify the workflow ran correctly](#step-2---verify-the-workflow-ran-correctly)
+
 ---
 
-# Step 1 - Test the module
+# Step 1 - Test the module using the pipeline
 
 After this preparation phase, we're sure you would like to see some Action(s)!
 
@@ -24,7 +22,7 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstPipelineRun/pipelineExecution.png" alt="Run workflow on branch" height="500">
 
-# Step 3 - Verify the workflow run correctly
+# Step 2 - Verify the workflow ran correctly
 
 Let's now see what happened.
 

@@ -23,7 +23,6 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/run_workflow_menu.png" height="230">
 
-
 4. From the dropdown, search your branch in the search box and select it.
     
     <img src="./media/Lab3/search_branch.png" height="230">
@@ -32,7 +31,7 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/run_workflow.png" height="230">
 
->For the seek of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
+> For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
 6. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 

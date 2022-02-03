@@ -1,6 +1,4 @@
-In this LAB you will explore how a module is tested and published.
-
-This is how you will add/modify a module on your library and provide it to your company/customer for reuse.
+In this LAB you will explore how a module runs through the first two pipeline stages, the local validation, as well as validation through Azure.
 
 ### _Navigation_
 - [Step 1 - Modify a parameter file](#Step-1---Modify-a-parameter-file)
@@ -10,27 +8,7 @@ This is how you will add/modify a module on your library and provide it to your 
 - [Step 5 - Verify publishing results](#Step-5---Verify-publishing-results)
 ---
 
-# Step 1 - Modify a parameter file
-
-We're almost ready to test the first module, but first you will now do a minor change to the parameter file of the `Public IP` module.
-> Any module can be used at this stage, the public IP has been chosen because if excluding diagnostic settings, it has no external dependencies
-
-1. Navigate to the following path `arm/Microsoft.Network/publicIPAddresses/.parameters/parameters.json`
-1. Click on the `Edit` button
-
-    <img src="./media/FirstPipelineRun/file-edit.png" alt="Edit Button" height="100">
-
-1. Remove or comment all the parameter values related to diagnostic settings
-
-    <img src="./media/FirstPipelineRun/diagnostic-removal.png" alt="Removve diagnostic" height="300">
-
-1. On the bottom of the page, choose `Create a new branch anda start a pull request` (optionally specify a commit message and description) than click on `Commit changes`.
-
-    <img src="./media/FirstPipelineRun/first-commit.png" alt="First commit" height="100">
-
-1. Confirm the creation of the pull request.
-
-# Step 2 - Test the module
+# Step 1 - Test the module
 
 After this preparation phase, we're sure you would like to see some Action(s)!
 
@@ -38,12 +16,11 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstPipelineRun/actions-menu.png" alt="Actions menu" height="100">
 
-<!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safety reasons on your fork, so you'll need to enable them
+2. Look for the `Network: RouteTables` workflow
 
-    <img src="./media/FirstPipelineRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
+    <img src="./media/FirstPipelineRun/actionSelection.png" alt="Actions selection" height="100">
 
-1. Look for the `Network: PublicIpAddresses` workflow
-1. Select the `Run workflow` button. Make sure the selected branch is the one you created in the previous step and click on `Run workflow` on the bottom.
+3. Select the `Run workflow` button. Make sure the selected branch is the one you created in Lab 2 and click on `Run workflow` on the bottom.
 
     <img src="./media/FirstPipelineRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
 
@@ -65,43 +42,6 @@ Let's now see what happened.
     >
     > You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
 
-<!-- # Step 4 - Merge the pull request
-
-The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
-
-CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globally unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
-
-1. Go to `Code` and make sure your branch is selected
-1. Navigate to `.github/variables/global.variables.json` and click edit.
-1. Find the `bicepRegistryName` variable and modify its value. Use a name that will likely be available.
-1. Commit the change.
-
-Now we can merge the pull request and publish the module at last!
-
-1. Go to `Pull request` and select the pull request you previously created.
-1. Navigate to the bottom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
-
-    <img src="./media/FirstPipelineRun/merge-pull-request.png" alt="Merge pull request" height="300">
-
-1. Now go back to `Actions`. You will see the merge triggered a workflow run.
-
-# Step 5 - Verify publishing results
-
-You can now check the results of the full workflow run.
-
-1. If you're not there, go to `Actions`. The last workflow run should be the one triggered by the merge. You can see the results, and the where the publishing job was correctly run.
-1. You can see the details by clicking on the `Publish module` job.
-
-    <img src="./media/FirstPipelineRun/module-publish.png" alt="Publish details" height="500">
-
-1. You can also navigate to the azure portal and see the newly created `artifacts-rg` resource group. You will see a container registry and a template spec.
-
-    <img src="./media/FirstPipelineRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
-
-1. If you select the azure container registry, you can verify the module was also published there.
-
-    <img src="./media/FirstPipelineRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
-
 ---
 
---> [Now proceed to the next LAB](./Lab5ExtendTestParameter) -->
+[Now proceed to the next LAB](./Lab%205%20-%20Extend%20test%20coverage)

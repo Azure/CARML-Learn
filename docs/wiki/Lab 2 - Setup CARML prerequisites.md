@@ -7,7 +7,7 @@ In this lab, you'll set-up **CAML** on your own environment. This set-up can be 
 - [Step 4 - Configure your repository](#step-4---configure-your-repository)
 - [Step 5 - Configure code base](#step-5---configure-code-base)
 - [Step 6 - Create a branch](#step-6---create-a-branch)
-- [Step 7 - Enable actions](#step-6---enable-actions)
+- [Step 7 - Enable actions](#step-7---enable-actions)
 
 ---
 

@@ -18,13 +18,9 @@ Together with the resource modules pipelines, we are providing a dependency pipe
     
     <img src="./media/Lab3/dependey_workflow.png" height="170">
 
-1. To the right, you will see a `Run workflow` button to trigger
+1. To the right, you will see a `Run workflow` button. Click on it, select your branch from the branch dropdown menu and trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/run_workflow_menu.png" height="230">
-
-1. You can now proceed to trigger the workflow by clicking on the green button `Run workflow`.
-
-    <img src="./media/Lab3/run_workflow.png" height="300">
+    <img src="./media/Lab3/dependencyTrigger.png" height="230">
 
 > For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 

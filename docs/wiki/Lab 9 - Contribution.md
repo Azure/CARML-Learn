@@ -122,7 +122,7 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab9/openActions.png" alt="Open actions" height="100">
 
-1. From the list of actions to the left, select `Compute: DiskEncryptionSets` followed by the `Run workflow` dropdown to the right
+1. From the list of actions to the left, select `Compute: AvailabilitySets` followed by the `Run workflow` dropdown to the right
 
     <img src="./media/Lab9/actionSelect.png" alt="Select actions" height="350">
 
@@ -140,7 +140,9 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab9/badgeDropdown.png" alt="Badge dropdown" height="200">
 
+1. In the opening pop up, you first need to select your branch and then click on the `Copy status badge Markdown`
 
+    <img src="./media/Lab9/carmlStatusBadge.png" alt="Status badge" height="400">
 
 <!--
 1. In your fork, navigate to the list of pipelines in the lower end of the repository overview and select the name of the `Key Vault` module in the left column

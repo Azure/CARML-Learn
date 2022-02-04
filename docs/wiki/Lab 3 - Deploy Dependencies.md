@@ -12,7 +12,7 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 1. In the repository menu open the `actions` tab.
 
-    <img src="./media/Lab3/Actions.png" height="180">
+    <img src="./media/Lab3/Actions.png" height="250">
 
 1. From the workflows list, select the one named `.Platform: Dependencies`.
     
@@ -20,13 +20,13 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 1. To the right, you will see a `Run workflow` button. Click on it, select your branch from the branch dropdown menu and trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/dependencyTrigger.png" height="300">
+    <img src="./media/Lab3/dependencyTrigger.png" height="350">
 
 > For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
 1. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 
-    <img src="./media/Lab3/execution.png" height="90">
+    <img src="./media/Lab3/execution.png" height="100">
 
 1. You will verify that the workflow has finished once the status is green.
 
@@ -54,4 +54,4 @@ Finally, the **fifth level resources** are resources with dependency on all the 
 
 <img src="./media/Lab3/dependencies_groups.png" height="330">
 
---> [Now proceed to the next LAB](./Lab%204%20-%20First%20pipeline%20run.md) -->
+--> [Now proceed to the next LAB](./Lab%204%20-%20First%20pipeline%20run) -->

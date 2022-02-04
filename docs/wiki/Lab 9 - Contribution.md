@@ -118,6 +118,30 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab9/gitpush.png" alt="Git push" height="60">
 
+1. Back in your fork, navigate to `Actions`
+
+    <img src="./media/Lab9/openActions.png" alt="Open actions" height="100">
+
+1. From the list of actions to the left, select `Compute: DiskEncryptionSets` followed by the `Run workflow` dropdown to the right
+
+    <img src="./media/Lab9/actionSelect.png" alt="Select actions" height="350">
+
+1. Further select your branch from the `Branch:` dropdown
+
+    <img src="./media/Lab9/actionBranch.png" alt="Select branch" height="200">
+
+1. And finally trigger the pipeline with the default settings by selecting `Run workflow`
+ 
+    <img src="./media/Lab9/actionTrigger.png" alt="Trigger run" height="200">
+
+    Subsequently, the pipeline will start running through the the same tests you executed locally, but also execute the simulated deployment, followed by an actual test deployment in Azure.
+
+1. While the pipeline is running, we can use the time to create a Pull Request. However, before doing so, you can take the chance to create a pipeline badge that you can attach to the later Pull Request. This badge will show the reviewer that the code changes were successfully validated & tested. To create a badge, first select the three dots (`...`) to the top right of the pipeline.
+
+    <img src="./media/Lab9/badgeDropdown.png" alt="Badge dropdown" height="200">
+
+
+
 <!--
 1. In your fork, navigate to the list of pipelines in the lower end of the repository overview and select the name of the `Key Vault` module in the left column
 

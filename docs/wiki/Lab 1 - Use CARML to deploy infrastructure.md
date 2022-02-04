@@ -9,7 +9,7 @@ In this lab, you will learn how to use the modules that are currently available 
 
 # Step 1 - Download the code base
 
-To start building a solution / workload, you first have to get access to the code base. One of the ways to do so is to follow the following sequence of steps:
+To start building a solution / workload, you first have to get access to the code base. One of the ways to do so is to perform the following steps:
 
 1. Open the repository via the URL [aka.ms/CARML](https://aka.ms/CARML)
 
@@ -53,7 +53,7 @@ Fundamentally, we want you to deploy
 - A Key Vault
 - A Log Analytics Workspace
 
-To set these up, please follow the following steps:
+To set these up, please perform the following steps:
 
 1. Open the created workload file in `workload/deploy.bicep`
 
@@ -282,7 +282,7 @@ To set these up, please follow the following steps:
 
 # Step 4 - Stretch goal: Deploy solution
 
-In this final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just follow the following sequence of steps:
+In this final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just perform the following steps:
 
 1. Select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
 

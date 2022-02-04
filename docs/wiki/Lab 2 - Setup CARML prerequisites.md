@@ -2,7 +2,7 @@ In this lab, you'll set-up **CAML** on your own environment. This set-up can be 
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal](#step-1---create-azure-service-principal)
-- [Step 2 - Service principle access to subscription](#step-2---service-principle-access-to-subscription)
+- [Step 2 - Service principal access to subscription](#step-2---service-principal-access-to-subscription)
 - [Step 3 - Create your fork](#step-3---create-your-fork)
 - [Step 4 - Configure your repository](#step-4---configure-your-repository)
 - [Step 5 - Configure code base](#step-5---configure-code-base)
@@ -15,7 +15,7 @@ In this lab, you'll set-up **CAML** on your own environment. This set-up can be 
 
 CARML tests the deployments and stores the module artifacts in an Azure subscription. To do so, it requires a service principal with access to it.
 
-This step will guide you in the creation of the Service Principle and the gathering of the required values that will be used in the next steps.
+This step will guide you in the creation of the Service Principal and the gathering of the required values that will be used in the next steps.
 
 For this lab, it is enough to just write them temporarily in for example Notepad. You should have notes the following pieces:
 
@@ -74,7 +74,7 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretView.png" alt="Portal AAD App Secret View" height="300">
 
-# Step 2 - Service principle access to subscription
+# Step 2 - Service principal access to subscription
 
 Now that we have a new service principal, we must grant it access on the subscription we want to test later deployments in.
 
@@ -202,7 +202,7 @@ As the platform tests services in Azure, you have to ensure that those services 
 
 ## Clone the repository
 
-To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please follow the following sequence of steps:
+To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please perform the following steps:
 
 1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository
 
@@ -231,32 +231,35 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
 ## Prepare the default prefix
 
-To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" that must be set during the solution setup. 
+To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" for resources that must be set during the solution setup. 
 
-Essentially, each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders) with values that we store in a central location to facilitate maintenance. 
-The "name prefix" mentioned above is stored in the `settings.json` file in the repository root directory.
+Each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders). Token values are stored in a central location to facilitate maintenance. 
 
-So what you're required to do is to replace the `"value": "<replace>"` of token `namePrefix` to a different value.
+To complete this section perform the following steps:
 
-```json
-{
-    "parameterFileTokens": {
-        (...)
-        "localTokens": {
-            "tokens": [
-                {
-                    "name": "namePrefix",
-                    "value": "<replace>"
-                }
-            ]
+1. Open the `settings.json` file in the repository root directory. This is where the "name prefix" mentioned above is stored.
+
+1. Replace the `"value": "<replace>"` of token `namePrefix` to a different value. Our recommendation is to use a triple like the first letter of your first name, and the first two letters of your second name. For example `Max Mustermann` would result into `mmu`.
+
+    ```json
+    {
+        "parameterFileTokens": {
+            (...)
+            "localTokens": {
+                "tokens": [
+                    {
+                        "name": "namePrefix",
+                        "value": "<replace>"
+                    }
+                ]
+            }
         }
     }
-}
-```
+    ```
 
-> **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. 
+    > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. 
 
-Our recommendation is to use a triple like the first letter of your first name, and the first two letters of your second name. For example `Max Musterman` would result into `mmu`.
+
 
 ## Step 6 - Create a branch
 
@@ -264,7 +267,7 @@ By default, CARML uses pipeline triggers to automate for example the publishing 
 
 To this end, the trigger is set up to look for any changes in the `main` branch if any module or pipeline file was modified.
 
-As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
+As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
 To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
 
@@ -277,7 +280,7 @@ git push --set-upstream 'origin' 'carmlLab'
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 
-To do so, follow the following sequence of steps:
+To do so, perform the following steps:
 
 1. Navigate to the `Actions` tab on the top of the repository page
 

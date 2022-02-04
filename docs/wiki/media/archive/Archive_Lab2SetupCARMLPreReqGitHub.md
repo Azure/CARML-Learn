@@ -99,7 +99,7 @@ As the platform tests services in Azure, you have to ensure that those services 
 
 ### Clone the repository
 
-To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please follow the following sequence of steps:
+To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please perform the following steps:
 
 1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository
 
@@ -161,7 +161,7 @@ Our recommendation is to use a triple like the first letter of your first name, 
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 
-To do so, follow the following sequence of steps:
+To do so, perform the following steps:
 
 1. Navigate to the `Actions` tab on the top of the repository page
 
@@ -177,7 +177,7 @@ By default, CARML employs pipeline triggers to automate for example the publishi
 
 To this end, the trigger is set up to trigger upon any changes to the `main` branch if any module or pipeline file was modified.
 
-As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
+As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
 To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
 

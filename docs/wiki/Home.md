@@ -36,3 +36,4 @@ This lab requires a number of fundamental pre-requisites you need in order to co
   - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
     - Az.Accounts
     - Az.Resources  
+    - Pester with minimum version `5.3.1`

@@ -23,7 +23,7 @@ The first step of any contribution is its implementation. For the sake if this l
    
     ```bicep
     @description('A list of references to all virtual machines in the availability set.')
-    output subnets array = availabilitySet.properties.virtualMachines
+    output virtualMachines array = availabilitySet.properties.virtualMachines
     ```
 
 # Step 2 - Run local test(s)
@@ -36,15 +36,67 @@ CARML comes with a number of tools that you can use to perform several automated
 
 1. Next, you must load the function implemented in the script by triggering the `Run` button to the top right of VSCode.
 
-    <img src="./media/Lab9/loadScript.png" alt="Local script" height="50">
+    <img src="./media/Lab9/loadScriptTest.png" alt="load script for testing" height="50">
 
     > ***Note***: Should VSCode ask you (in the terminal) whether you are sure you want to execute the script, please confirm
     > <img src="./media/Lab9/allowsScript.png" alt="Enable execution" height="100">
 
+2. Once confirmed, the function will be loaded and can be invoked via the command of the same name `Test-ModuleLocally`. As stated earlier, the script replicates the feeling of the pipeline. That means, it can run a simple Pester test, but also a deployment which includes a parameter file using tokens. For our purpose, please invoke the function as follows
+
+    ```PowerShell
+    $TestModuleLocallyInput = @{
+        templateFilePath           = '<PathToTheUpdatedTemplate>' # Get the path via a right-click on the updated template file in VSCode & select 'Copy Path'
+        PesterTest                 = $true
+    }
+    Test-ModuleLocally @TestModuleLocallyInput -Verbose
+    ```
+
+3. Confirm to execute the script. After a moment, the terminal will show the test cases that are executed and should show one failed test
+
+    <img src="./media/Lab9/failedTest.png" alt="Failed test" height="300">
+
+    So why did it fail? Well, as per its description: The ReadMe outputs section should document all outputs defined in the template file. Before, you added a new template output, but the readme remained in its original state. 
 
 # Step 3 - Re-generate the documentation
 
-# Step 4 - Run local test(s)
+To update the readme, we provide another utility called `Set-ModuleReadMe`. This script again takes the template file path as an input an creates / updates almost all content of the module's readme file for you.
+
+1. To get started you need to load the function first. Like before, load the script in path `utilities\tools\Set-ModuleReadMe.ps1`.
+
+    <img src="./media/Lab9/loadScriptReadme.png" alt="load script for readme" height="50">
+
+1. Next, you can invoke the function as follows
+
+    ```PowerShell
+    Set-ModuleReadMe -TemplateFilePath '<PathToTheUpdatedTemplate>' # Get the path via a right-click on the updated template file in VSCode & select 'Copy Path'
+    ```
+
+1. Once you confirmed the execution of the script you should notice that the module's `readme.md` file is marked as modified. 
+
+    <img src="./media/Lab9/readMeUpdatedLog.png" alt="ReadMe Updated Log" height="100">
+
+1. If you open version control to the left you should notice at least the template file `deploy.bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
+
+    <img src="./media/Lab9/readMeUpdated.png" alt="ReadMe Updated" height="400">
+
+# Step 4 - Re-Run local test(s)
+
+With the readme updated we can now re-run the test to confirm everything is in order.
+
+1. Select again the terminal and either use your arrow-up key go through your previous commands until the get to the one that triggered the test (`Test-ModuleLocally`), or copy the same snipped from Step 2.
+
+    ```PowerShell
+    $TestModuleLocallyInput = @{
+        templateFilePath           = '<PathToTheUpdatedTemplate>' # Get the path via a right-click on the updated template file in VSCode & select 'Copy Path'
+        PesterTest                 = $true
+    }
+    Test-ModuleLocally @TestModuleLocallyInput -Verbose
+    ```
+
+1. This time, however, none of the tests should fail
+
+    <img src="./media/Lab9/succeedTest.png" alt="Test succeeded" height="400">
+
 
 # Step 5 - Upload your changes and run the module pipeline
 <!--
@@ -57,5 +109,5 @@ CARML comes with a number of tools that you can use to perform several automated
 # Step 6 - Create a PR
 <!-- Attach the badge -->
 
-# Strep 7 - Cleanup unintended changes
+# Step 7 - Cleanup unintended changes
 <!-- Undo changes to e.g. global variables & settings.json -->

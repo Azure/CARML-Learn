@@ -2,11 +2,12 @@ In this lab, you will learn how a contribution to the source repository (in this
 
 ### _Navigation_
 - [Step 1 - Implement the contribution](#step-1---implement-the-contribution)
-- [Step 2 - Re-generate the documentation](#step-2---re-generate-the-documentation)
-- [Step 3 - Run local test(s)](#step-3---run-local-tests)
-- [Step 4 - Upload your changes and run the module pipeline](#step-4---upload-your-changes-and-run-the-module-pipeline)
-- [Step 5 - Create a PR](#step-5---create-a-pr)
-- [Step 6 - Cleanup unintended changes](#strep-6---cleanup-unintended-changes)
+- [Step 2 - Run local test(s)](#step-2---run-local-tests)
+- [Step 3 - Re-generate the documentation](#step-3---re-generate-the-documentation)
+- [Step 4 - Re-run local test(s)](#step-4---re-run-local-tests)
+- [Step 5 - Upload your changes and run the module pipeline](#step-5---upload-your-changes-and-run-the-module-pipeline)
+- [Step 6 - Create a PR](#step-6---create-a-pull-request)
+- [Step 7 - Exclude environment-specific changes](#step-7---exclude-environment-specific-changes)
   
 ---
 
@@ -83,7 +84,7 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
 
 With the readme updated we can now re-run the test to confirm everything is in order.
 
-1. Select again the terminal and either use your arrow-up key go through your previous commands until the get to the one that triggered the test (`Test-ModuleLocally`), or copy the same snipped from Step 2.
+1. Select again the terminal and either use your arrow-up key go through your previous commands until the get to the one that triggered the test (`Test-ModuleLocally`), or copy the same snipped from [Step 2](#step-2---run-local-tests).
 
     ```PowerShell
     $TestModuleLocallyInput = @{
@@ -104,19 +105,19 @@ Now that the contribution is implemented and the tests are green, you can contin
 
 1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode git integration. If not already there, navigate to the source control menu to the left.
 
-    <img src="./media/Lab9/sourceControl.png" alt="Open source control" height="120">
+    <img src="./media/Lab9/sourceControl.png" alt="Open source control" height="140">
 
 1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab9/gitadd.png" alt="Git add" height="50">
+    <img src="./media/Lab9/gitadd.png" alt="Git add" height="80">
 
 1. Next, you should give the commit a meaningful message such as 'Added VM output to availability set' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab9/gitCommit.png" alt="Git commit" height="100">
+    <img src="./media/Lab9/gitCommit.png" alt="Git commit" height="140">
 
 1. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
-    <img src="./media/Lab9/gitpush.png" alt="Git push" height="60">
+    <img src="./media/Lab9/gitpush.png" alt="Git push" height="80">
 
 1. Back in your fork, navigate to `Actions`
 
@@ -159,7 +160,7 @@ In this step you will create the pull request. Do do so, perform the following t
 1. This opens a new view in the `Azure/ResourceModules` (target) repository. Here, 
     - make you your `branch` is selected on the top right 
     - you provide a meaningful `title`
-    - you provide a meaningful `description`. This description should include the pipeline badge you copied at the end of from step 5 
+    - you provide a meaningful `description`. This description should include the pipeline badge you copied at the end of from [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) 
     - select the correct `type of change`. In this case it would be a `New feature`
 
     <img src="./media/Lab9/openPRRaw.png" alt="Pull request raw" height="600">
@@ -168,11 +169,21 @@ In this step you will create the pull request. Do do so, perform the following t
 
     <img src="./media/Lab9/openPRPreview.png" alt="Pull request preview" height="500">
 
-<!--
-1. In your fork, navigate to the list of pipelines in the lower end of the repository overview and select the name of the `Key Vault` module in the left column
+# Step 7 - Exclude environment-specific changes
 
-    <img src="./media/Lab9/repoOverview.png" alt="Repo Overview" height="600">
--->
+Part of your pull request are 2 files that should not be pushed into the target repository as they contain details specific to your environment:
+- `settings.json`
+- `global.variables.json`
 
-# Step 7 - Cleanup unintended changes
-<!-- Undo changes to e.g. global variables & settings.json -->
+1. In your Visual Studio Code, open the `settings.json` file in the root directory
+
+    <img src="./media/Lab9/settingsjson.png" alt="Settings JSON fork" height="180">
+
+1. Now, open the `settings.json` of the `CARML` repository at _https://github.com/Azure/ResourceModules/blob/main/settings.json_, copy its content and overwrite it in your local file in VSCode 
+
+    <img src="./media/Lab9/settingsCarml.png" alt="Settings JSON CARML" height="400">
+
+1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the `CARML` at _https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_.
+
+
+1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.

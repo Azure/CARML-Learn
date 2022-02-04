@@ -27,7 +27,7 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
-2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
+2. Next, just type & execute the command `code ./ResourceModules` (folder name might be a bit different, for instance `ResourceModules-main`) to open Visual Studio Code in the extracted repository folder
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
 
@@ -290,7 +290,8 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 
 1. Now, you have to run a few commands in succession. First, log into your Azure subscription by executing `Connect-AzAccount` and follow the process
 
-1. Next, you can invoke the deployment itself. To do so, execute the following command: 
+1. Next, you can invoke the deployment itself. To do so, execute the following command:
+
     ```Powershell
     $inputObject = @{
         DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"

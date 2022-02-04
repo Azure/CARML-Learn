@@ -16,11 +16,11 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 1. From the workflows list, select the one named `.Platform: Dependencies`.
     
-    <img src="./media/Lab3/dependey_workflow.png" height="170">
+    <img src="./media/Lab3/dependey_workflow.png" height="250">
 
 1. To the right, you will see a `Run workflow` button. Click on it, select your branch from the branch dropdown menu and trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/dependencyTrigger.png" height="230">
+    <img src="./media/Lab3/dependencyTrigger.png" height="300">
 
 > For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
@@ -52,6 +52,6 @@ In order to successfully deploy and test all modules in your desired environment
 Finally, the **fifth level resources** are resources with dependency on all the other groups. They include a virtual machine and a private DNS zone.
 
 
-<img src="./media/Lab3/dependencies_groups.png" height="300">
+<img src="./media/Lab3/dependencies_groups.png" height="330">
 
---> [Now proceed to the next LAB](./Lab4FirstModule) -->
+--> [Now proceed to the next LAB](./Lab%204%20-%20First%20pipeline%20run.md) -->

@@ -6,7 +6,8 @@ In this lab, you'll set-up **CAML** on your own environment. This set-up can be 
 - [Step 3 - Create your fork](#step-3---create-your-fork)
 - [Step 4 - Configure your repository](#step-4---configure-your-repository)
 - [Step 5 - Configure code base](#step-5---configure-code-base)
-- [Step 6 - Enable actions](#step-6---enable-actions)
+- [Step 6 - Create a branch](#step-6---create-a-branch)
+- [Step 7 - Enable actions](#step-7---enable-actions)
 
 ---
 
@@ -257,9 +258,22 @@ So what you're required to do is to replace the `"value": "<replace>"` of token 
 
 Our recommendation is to use a triple like the first letter of your first name, and the first two letters of your second name. For example `Max Musterman` would result into `mmu`.
 
+## Step 6 - Create a branch
 
+By default, CARML uses pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
 
-# Step 6 - Enable actions
+To this end, the trigger is set up to look for any changes in the `main` branch if any module or pipeline file was modified.
+
+As you don't want to accidently trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
+
+To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
+
+```PowerShell
+git checkout -b 'carmlLab'
+git push --set-upstream 'origin' 'carmlLab'
+```
+
+# Step 7 - Enable actions
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 

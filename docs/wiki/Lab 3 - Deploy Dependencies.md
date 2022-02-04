@@ -4,7 +4,6 @@ In order to successfully deploy and test all modules in your desired environment
 - [Step 1 - Trigger the dependency pipeline](#step-1---trigger-the-dependency-pipeline)
 - [Step 2 - What you will deploy](#step-2---what-you-will-deploy)
 
-
 ---
 
 # Step 1 - Trigger the dependency pipeline
@@ -13,32 +12,23 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 1. In the repository menu open the `actions` tab.
 
-    <img src="./media/Lab3/Actions.png" height="180">
+    <img src="./media/Lab3/Actions.png" height="250">
 
-2. From the workflows list, select the one named `.Platform: Dependencies`.
+1. From the workflows list, select the one named `.Platform: Dependencies`.
     
-    <img src="./media/Lab3/dependey_workflow.png" height="170">
+    <img src="./media/Lab3/dependey_workflow.png" height="250">
 
-3. To the right, you will se a `Run workflow` button. Click on it and open the branch dropdown menu.
+1. To the right, you will see a `Run workflow` button. Click on it, select your branch from the branch dropdown menu and trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/run_workflow_menu.png" height="230">
+    <img src="./media/Lab3/dependencyTrigger.png" height="350">
 
+> For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
-4. From the dropdown, search your branch in the search box and select it.
-    
-    <img src="./media/Lab3/search_branch.png" height="230">
-
-5. Once you can see your branch correctly selected you can proceed to trigger the workflow by clicking on the green button `Run workflow`.
-
-    <img src="./media/Lab3/run_workflow.png" height="230">
-
->For the seek of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
-
-6. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
+1. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 
     <img src="./media/Lab3/execution.png" height="100">
 
-7. You will verify that the workflow has finished once the status is green.
+1. You will verify that the workflow has finished once the status is green.
 
     <img src="./media/Lab3/workflow_finished.png" height="300">
 
@@ -62,6 +52,6 @@ In order to successfully deploy and test all modules in your desired environment
 Finally, the **fifth level resources** are resources with dependency on all the other groups. They include a virtual machine and a private DNS zone.
 
 
-<img src="./media/Lab3/dependencies_groups.png" height="300">
+<img src="./media/Lab3/dependencies_groups.png" height="330">
 
---> [Now proceed to the next LAB](./Lab4FirstModule) -->
+--> [Now proceed to the next LAB](./Lab%204%20-%20First%20pipeline%20run) -->

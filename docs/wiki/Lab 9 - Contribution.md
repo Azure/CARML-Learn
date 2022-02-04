@@ -77,7 +77,7 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
 
 1. If you open version control to the left you should notice at least the template file `deploy.bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
 
-    <img src="./media/Lab9/readMeUpdated.png" alt="ReadMe Updated" height="400">
+    <img src="./media/Lab9/readMeUpdated.png" alt="ReadMe Updated" height="250">
 
 # Step 4 - Re-Run local test(s)
 
@@ -93,12 +93,31 @@ With the readme updated we can now re-run the test to confirm everything is in o
     Test-ModuleLocally @TestModuleLocallyInput -Verbose
     ```
 
-1. This time, however, none of the tests should fail
+1. This time, however, none of the tests should fail:
 
     <img src="./media/Lab9/succeedTest.png" alt="Test succeeded" height="400">
 
 
 # Step 5 - Upload your changes and run the module pipeline
+
+Now that the contribution is implemented and the tests are green, you can continue prepare everything for the subsequent pull request.
+
+1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode git integration. If not already there, navigate to the source control menu to the left.
+
+    <img src="./media/Lab9/sourceControl.png" alt="Open source control" height="120">
+
+1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+
+    <img src="./media/Lab9/gitadd.png" alt="Git add" height="50">
+
+1. Next, you should give the commit a meaningful message such as 'Added VM output to availability set' and can then click the checkmark symbol on the top to create the commit
+
+    <img src="./media/Lab9/gitCommit.png" alt="Git commit" height="100">
+
+1. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+
+    <img src="./media/Lab9/gitpush.png" alt="Git push" height="60">
+
 <!--
 1. In your fork, navigate to the list of pipelines in the lower end of the repository overview and select the name of the `Key Vault` module in the left column
 

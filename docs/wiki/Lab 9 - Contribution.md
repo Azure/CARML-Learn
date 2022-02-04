@@ -144,15 +144,35 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab9/carmlStatusBadge.png" alt="Status badge" height="400">
 
+# Step 6 - Create a Pull Request
+
+In this step you will create the pull request. Do do so, perform the following tasks:
+
+1. Navigate to `Pull requests` tab on the top. Here you should have multiple options: 
+   - As you just uploaded changes to a branch, there is an automated popup that allows you to create a pull request for that branch directly
+   - Alternatively, you can create a blank pull request via the `New pull request` button.
+  
+   Select now the `New pull request` button.
+
+    <img src="./media/Lab9/pullRequestInit.png" alt="Pull request init" height="300">
+
+1. This opens a new view in the `Azure/ResourceModules` (target) repository. Here, 
+    - make you your `branch` is selected on the top right 
+    - you provide a meaningful `title`
+    - you provide a meaningful `description`. This description should include the pipeline badge you copied at the end of from step 5 
+    - select the correct `type of change`. In this case it would be a `New feature`
+
+    <img src="./media/Lab9/openPRRaw.png" alt="Pull request raw" height="600">
+
+1. Once you entered all the details, you can open a preview of the final look by selecting `Preview` on the top and finally select `Create pull request` to the bottom right.
+
+    <img src="./media/Lab9/openPRPreview.png" alt="Pull request preview" height="500">
+
 <!--
 1. In your fork, navigate to the list of pipelines in the lower end of the repository overview and select the name of the `Key Vault` module in the left column
 
     <img src="./media/Lab9/repoOverview.png" alt="Repo Overview" height="600">
 -->
-
-
-# Step 6 - Create a PR
-<!-- Attach the badge -->
 
 # Step 7 - Cleanup unintended changes
 <!-- Undo changes to e.g. global variables & settings.json -->

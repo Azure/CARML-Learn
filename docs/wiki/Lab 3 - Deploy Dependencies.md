@@ -4,7 +4,6 @@ In order to successfully deploy and test all modules in your desired environment
 - [Step 1 - Trigger the dependency pipeline](#step-1---trigger-the-dependency-pipeline)
 - [Step 2 - What you will deploy](#step-2---what-you-will-deploy)
 
-
 ---
 
 # Step 1 - Trigger the dependency pipeline
@@ -15,30 +14,21 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
     <img src="./media/Lab3/Actions.png" height="180">
 
-2. From the workflows list, select the one named `.Platform: Dependencies`.
+1. From the workflows list, select the one named `.Platform: Dependencies`.
     
     <img src="./media/Lab3/dependey_workflow.png" height="170">
 
-3. To the right, you will se a `Run workflow` button. Click on it and open the branch dropdown menu.
+1. To the right, you will see a `Run workflow` button. Click on it, select your branch from the branch dropdown menu and trigger the workflow by clicking on the green button `Run workflow`.
 
-    <img src="./media/Lab3/run_workflow_menu.png" height="230">
+    <img src="./media/Lab3/dependencyTrigger.png" height="230">
 
+> For the sake of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
 
-4. From the dropdown, search your branch in the search box and select it.
-    
-    <img src="./media/Lab3/search_branch.png" height="230">
+1. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
 
-5. Once you can see your branch correctly selected you can proceed to trigger the workflow by clicking on the green button `Run workflow`.
+    <img src="./media/Lab3/execution.png" height="90">
 
-    <img src="./media/Lab3/run_workflow.png" height="230">
-
->For the seek of saving time in the lab, we will leave the SQL Managed Identity and VHD check boxes **unchecked**.
-
-6. After running the workflow, if you wait a few seconds or refresh the page, you will see that a new execution is in progress.
-
-    <img src="./media/Lab3/execution.png" height="100">
-
-7. You will verify that the workflow has finished once the status is green.
+1. You will verify that the workflow has finished once the status is green.
 
     <img src="./media/Lab3/workflow_finished.png" height="300">
 

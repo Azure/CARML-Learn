@@ -130,7 +130,6 @@ You will now manually test the deployment, verifying it's template using both pa
 
     <img src="./media/Lab5/actionTrigger.png" alt="Execute the workflow" height="200">
 
-
 1. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
 
     <img src="./media/Lab5/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="350">

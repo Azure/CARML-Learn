@@ -2,6 +2,18 @@ In this LAB you will _enhance_ an existing module by adding additional tests.
 
 For this LAB, we will use another simple and quick to deploy module: `availabilitySets`.
 
+### _Navigation_
+- [Step 1 - Examine the module](#step-1---examine-the-module)
+- [Step 2 - Update existing parameter file](#step-2---update-existing-parameter-file)
+- [Step 3 - Add a new parameters file](#step-3---add-a-new-parameters-file)
+- [Step 4 - Add the new file to the workflow](#step-4---add-the-new-file-to-the-workflow)
+- [Step 5 - Upload your changes to GitHub](#step-5---upload-your-changes-to-github)
+- [Step 6 - Test the deployment](#step-6---test-the-deployment)
+- [Optional Appendix](#optional-appendix)
+
+---
+
+
 # Step 1 - Examine the module
    
 1. In your VSCode, navigate to the path `arm/Microsoft.Compute/availabilitySets`. You will notice the `readme.md` file describes several parameters and only one of them, `name`, is marked as _`Required`_.
@@ -53,7 +65,7 @@ At this point, the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Depen
     }
     ```
 
-# Step 4 - Add a new parameters file
+# Step 3 - Add a new parameters file
 
 Next you will create a new parameter file that will test that the template's default values work as intended by providing only the minimum set of parameters.
 
@@ -77,7 +89,7 @@ Next you will create a new parameter file that will test that the template's def
 
     > ***Note:*** The name value is different from the previous `parameters.json` file. As both resources are deployed in parallel, they must have different names to not interfere with one another.
 
-# Step 5 - Add the new file to the workflow 
+# Step 4 - Add the new file to the workflow 
 
 Now you have to modify the workflow file to make sure it also uses the new parameter file during the tests.
 
@@ -89,28 +101,28 @@ Now you have to modify the workflow file to make sure it also uses the new param
 
     > ***Note:*** If this would be a direct contribution to the main CARML repository, we'd also ask you to update the corresponding Azure DevOps template file in the similar way
 
-# Step 6 - Upload your changes to GitHub
+# Step 5 - Upload your changes to GitHub
 
 Now that the tests are implemented and the pipeline updated, you can upload your changes to GitHub.
 
 1. This can either be done via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration. If not already there, navigate to the source control menu to the left.
 
-    <img src="./media/Lab5/gitInit.png" alt="Open source control" height="120">
+    <img src="./media/Lab5/gitInit.png" alt="Open source control" height="130">
 
-2. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab5/gitAdd.png" alt="Git add" height="120">
+    <img src="./media/Lab5/gitAdd.png" alt="Git add" height="130">
 
-3. Next, you should give the commit a meaningful message such as 'Added new minimum parameter test file and proximity placement group test to availability set module' and can then click the checkmark symbol on the top to create the commit
+1. Next, you should give the commit a meaningful message such as 'Added new minimum parameter test file and proximity placement group test to availability set module' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab5/gitCommit.png" alt="Git commit" height="140">
+    <img src="./media/Lab5/gitCommit.png" alt="Git commit" height="160">
 
-4. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+1. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
     <img src="./media/Lab9/gitpush.png" alt="Git push" height="80">
 
 
-# Step 7 - Test the deployment
+# Step 6 - Test the deployment
 
 You will now manually test the deployment, verifying it's template using both parameter files.
 
@@ -120,7 +132,7 @@ You will now manually test the deployment, verifying it's template using both pa
 
 1. Find the `Compute: AvailabilitySets` workflow
 
-    <img src="./media/Lab5/actionSearch.png" height="350">
+    <img src="./media/Lab5/actionSearch.png" height="400">
 
 1. Further select your branch from the `Branch:` dropdown (e.g. `carmlLab`)
 
@@ -138,7 +150,7 @@ You will now manually test the deployment, verifying it's template using both pa
 
     <img src="./media/Lab5/2-availability-set.png" alt="2 availability sets" height="300">
 
-# Appendix
+# Optional Appendix
 
 ## Proximity Placement Group dependency
 

@@ -131,13 +131,13 @@ You will now manually test the deployment, verifying it's template using both pa
     <img src="./media/Lab5/actionTrigger.png" alt="Execute the workflow" height="200">
 
 
-2. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
+1. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
 
-    <img src="./media/Lab5/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="200">
+    <img src="./media/Lab5/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="350">
 
-3. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding parameter file.
+2. Once the jobs are completed, you can see that both availability groups have been deployed to Azure. You can also verify the settings correspond to the ones specified in the corresponding parameter file.
 
-    <img src="./media/Lab5/2-availability-set.png" alt="2 availability sets" height="100">
+    <img src="./media/Lab5/2-availability-set.png" alt="2 availability sets" height="300">
 
 # Appendix
 

@@ -6,7 +6,7 @@ For this LAB, we will use another simple and quick to deploy module: `availabili
    
 1. In your VSCode, navigate to the path `arm/Microsoft.Compute/availabilitySets`. You will notice the `readme.md` file describes several parameters and only one of them, `name`, is marked as _`Required`_.
 
-    <img src="./media/Lab5/avReadMe.png" alt="AVS Readme" height="250">
+    <img src="./media/Lab5/avReadMe.png" alt="AVS Readme" height="300">
 
 1. Next, navigate to `.parameters/parameters.json` of the same module. This file is used for testing the module. It specifies only the `name` and `roleAssignments` parameters. In this lab you will:
     - update the existing `parameters.json` file to test an additional parameter
@@ -92,7 +92,7 @@ In case the dependency pipeline of [Lab 3](./Lab 3 - Deploy Dependencies) failed
 
 1. Navigate to the azure portal and search for proximity placement groups
 
-    <img src="./media/Lab5/proximity-placement-search.png" alt="Search for Proximity Placement" height="200">
+    <img src="./media/Lab5/proximity-placement-search.png" alt="Search for Proximity Placement" height="100">
 
 1. Next, select the `+ Create` button in the Proximity placement groups view
 

@@ -87,7 +87,7 @@ Now that the new dependency is implemented, you can upload your changes to GitHu
 
 1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab3/gitadd.png" alt="Git add" height="120">
+    <img src="./media/Lab3/gitAdd.png" alt="Git add" height="120">
 
 1. Next, you should give the commit a meaningful message such as 'Added Proximity Placement Group to dependency pipeline' and can then click the checkmark symbol on the top to create the commit
 

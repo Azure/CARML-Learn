@@ -112,7 +112,7 @@ Now that the tests are implemented and the pipeline updated, you can upload your
 
 # Step 7 - Test the deployment
 
-You will now manually test the deployment, verifying it's using both parameter files.
+You will now manually test the deployment, verifying it's template using both parameter files.
 
 1. On GitHub, go to Actions
 
@@ -120,17 +120,22 @@ You will now manually test the deployment, verifying it's using both parameter f
 
 1. Find the `Compute: AvailabilitySets` workflow
 
+    <img src="./media/Lab5/actionSearch.png" height="350">
+
+1. Further select your branch from the `Branch:` dropdown (e.g. `carmlLab`)
+
+    <img src="./media/Lab9/actionBranch.png" alt="Select branch" height="200">
+
+1. Unflag the `Remove deployed module` and execute the workflow
+
+    <img src="./media/Lab5/actionTrigger.png" alt="Execute the workflow" height="200">
 
 
-2. Manually run the workflow, _making sure your branch_ is selected. You can unflag the `Remove deployed module`
-
-    <img src="./media/Lab5/run-action.png" alt="2 parameters run action" height="200">
-
-3. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
+2. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
 
     <img src="./media/Lab5/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="200">
 
-4. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding parameter file.
+3. When the jobs complete, you will be able to see both the availability sets has been deployed. You can also verify the settings corresponds to the ones specified in the corresponding parameter file.
 
     <img src="./media/Lab5/2-availability-set.png" alt="2 availability sets" height="100">
 
@@ -144,11 +149,11 @@ In case the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Dependencies
 
     <img src="./media/Lab5/proximity-placement-search.png" alt="Search for Proximity Placement" height="100">
 
-2. Next, select the `+ Create` button in the Proximity placement groups view
+1. Next, select the `+ Create` button in the Proximity placement groups view
 
     <img src="./media/Lab5/proximity-placement-init.png" alt="Init Proximity Placement Creation" height="200">
 
-3. Select the `validation-rg` resource group, a `location` and a `name` for the resource (e.g. `adp-<<YourNamePrefix>>-az-ppg-x-001`) and create the resource
+1. Select the `validation-rg` resource group, a `location` and a `name` for the resource (e.g. `adp-<<YourNamePrefix>>-az-ppg-x-001`) and create the resource
 
    > ***Note:*** The name you give the resource must exactly match the one specified in the availability set's parameter file (excluding the token).
 

@@ -101,9 +101,9 @@ Now that the new dependency is implemented, you can upload your changes to GitHu
 
 Usually, the dependency workflow would not run frequently, but only when new module dependencies are identified or its original state must be recovered. Therefore, the type of trigger that has been configured is the `workflow_dispatch`, which allows us to manually trigger the workflow when needed.
 
-1. In the repository menu open the `actions` tab.
+1. In the repository menu open the `Actions` tab.
 
-    <img src="./media/Lab3/Actions.png" height="250">
+    <img src="./media/Lab5/openActions.png" height="180">
 
 1. From the workflows list, select the one named `.Platform: Dependencies`.
     

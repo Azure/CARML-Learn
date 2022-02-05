@@ -85,7 +85,7 @@ Now you have to modify the workflow file to make sure it also uses the new param
    
 1. In line 84 you should see the parameters `matrix` where you will need to add the `min.parameters.json`
 
-    <img src="./media/Lab5/parameters-matrix.png" alt="Parameters matrix" height="100">
+    <img src="./media/Lab5/parameters-matrix.png" alt="Parameters matrix" height="230">
 
     > ***Note:*** If this would be a direct contribution to the main CARML repository, we'd also ask you to update the corresponding Azure DevOps template file in the similar way
 

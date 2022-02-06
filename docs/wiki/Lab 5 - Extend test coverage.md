@@ -92,3 +92,7 @@ You will now manually test the deployment, verifying it's using both the paramet
     }
 }
 ```
+
+---
+
+[Now proceed to the next LAB](./Lab%206%20-%20Publishing)

@@ -23,7 +23,7 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
-1. Next, navigate to the inside of the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+1. Next, navigate to the inside of the extracted folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
     <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 

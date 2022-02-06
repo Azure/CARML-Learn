@@ -1,4 +1,4 @@
-In this lab, you will convert the 
+In this lab, you will convert the
 
 ### _Navigation_
 - [Step 1 - Modify the workload file to use Bicep Registry](#Step-1---Modify-the-workload-file-to-use-Bicep-Registry)
@@ -125,6 +125,8 @@ You can now re-deploy your template to update and add the new resources.
     ```
 
 1. At last, you can check in the Azure portal if the template deployed what you expected to.
+
+<!-- TODO: Extend with how to use bicepconfig.json ? -->
 
 ---
 

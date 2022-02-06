@@ -12,7 +12,7 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Lab 3: Deploy dependencies](./Lab%203%20-%20Deploy%20dependencies)
   - [Lab 4: First pipeline run](./Lab%204%20-%20First%20pipeline%20run)
   - [Lab 5: Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)
-  - [Lab 6: Publishing](./Lab%206%20-%20Publishing.md)
+  - [Lab 6: Publishing](./Lab%206%20-%20Publishing)
   - [Lab 7: Build an ACR-driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution)
   - [Lab 8: Interoperability](./Lab%208%20-%20Interoperability)
   - [Lab 9: Contribution](./Lab%209%20-%20Contribution)
@@ -23,7 +23,7 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - An active Azure subscription
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
-- Installed 
+- Installed
   - [Visual Studio Code](URL 'https://code.visualstudio.com/Download') + [Bicep extension](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install')
   - [Azure CLI](URL 'https://docs.microsoft.com/en-us/cli/azure/install-azure-cli')
     - [Bicep CLI](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli')
@@ -35,5 +35,5 @@ This lab requires a number of fundamental pre-requisites you need in order to co
   - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
   - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
     - Az.Accounts
-    - Az.Resources  
+    - Az.Resources
     - Pester with minimum version `5.3.1`

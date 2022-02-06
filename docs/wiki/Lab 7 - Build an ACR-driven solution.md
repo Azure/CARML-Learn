@@ -2,6 +2,8 @@ In this lab, you will convert the
 
 ### _Navigation_
 - [Step 1 - Modify the workload file to use Bicep Registry](#Step-1---Modify-the-workload-file-to-use-Bicep-Registry)
+- [Step 2 - Add new resources](#Step-2---A#dd-new-resources)
+- [Step 3 - Add Diagnostic settings and RBAC](#Step-3---Add-Diagnostic-settings-and-RBAC)
 ---
 
 # Step 1 - Modify the workload file to use Bicep Registry
@@ -12,7 +14,7 @@ In the previous lab you published all the neccessary modules to bicep registry. 
 1. Click on the Container registry resource and go to the `Repositories` list
 1. Select the first resource type in the list and click on the latest version. You will need to take note of the `Artifact reference` field
 
-    <img src="./media/ACRSolution/registry-reference.png" alt="Registry reference" height="500">
+    <img src="./media/Lab7/registry-reference.png" alt="Registry reference" height="500">
 
 1. Repeat the previous step for all resources. Make sure you have at least the urls for the following resource types:
     1. Resource group
@@ -69,3 +71,61 @@ You will now modify the template to deploy a machine learning service. In this s
         }
     }
     ```
+## Step 3 - Add Diagnostic settings and RBAC
+
+You can add to the solution new fancy stuff.
+
+1. Add diagnostic settings to resources. Add the following code to the machine learning properties:
+
+    ```bicep
+    diagnosticWorkspaceId: la.outputs.resourceId
+    diagnosticLogsRetentionInDays: 2
+    ```
+
+1. Add Reader role RBAC to one of the resources. You will need an object ID of a principal on your directory. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
+
+    <img src="./media/Lab7/object-id.png" alt="Object ID" height="400">
+
+1. Now add the following lines of code in the properties of a resource (e.g. the storage account):
+
+    ```bicep
+    roleAssignments: [
+      {
+        roleDefinitionIdOrName: 'Reader'
+        principalIds: [
+          '<an object id of a principal in your directory>'
+        ]
+      }
+    ]
+    ```
+
+## Step 4 - Update your workload
+
+You can now re-deploy your template to update and add the new resources.
+
+1. (optional) You didn't add any new parameter to the template, so you can skip this part if your terminal is still open. If you closed the terminal, you can set up the input variable as you did in Lab1
+
+    ```Powershell
+    $inputObject = @{
+        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose            = $true
+        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+    }
+    ```
+
+1. Now execute again the deployment
+
+    ```Powershell
+    New-AzSubscriptionDeployment @inputObject
+    ```
+
+1. At last, you can check in the Azure portal if the template deployed what you expected to.
+
+---
+
+[Now proceed to the next LAB](./Lab%208%20-%20Interoperability)

@@ -1,4 +1,4 @@
-# Common Azure Resource Modules Lab
+# Common Azure Resource Modules Library - Lab
 
 This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'_
 

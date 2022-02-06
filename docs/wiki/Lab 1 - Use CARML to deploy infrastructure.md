@@ -23,11 +23,11 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
-1. Next, navigate to the inside of the extracted folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+1. Next, navigate to the inside of the extracted folder (e.g. `ResourceModules-main`), perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
-    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
+    <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="230">
 
-2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
+2. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
 
@@ -111,7 +111,7 @@ To set these up, please perform the following steps:
     }
     ```
 
-    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's `readme.md` that is located in the same folder as the template itself.
+    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's `readme.md` that is located in the same folder as the template itself (for example `arm\Microsoft.Resources\resourceGroups\readme.md`).
 
     By default, the resource group is deployed into the same location as the deployment. For the sake of this lab, please add an additional parameter `location` in the `params` block of the module. Here you will reference the location that is defined as an input parameter in this template's parameter block above.
 
@@ -149,7 +149,7 @@ To set these up, please perform the following steps:
 
     > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in bicep. 
 
-    As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snippet right before the final closing bracket of the storage account block:
+    As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snippet in between the two final closing brackets `}` of the storage account block:
 
     ```bicep
     dependsOn: [
@@ -290,7 +290,7 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 
 1. Now, you have to run a few commands in succession. First, log into your Azure subscription by executing `Connect-AzAccount` and follow the process
 
-1. Next, you can invoke the deployment itself. To do so, execute the following command: 
+1. Next, you can invoke the deployment itself. To do so, you can execute the following command using your own values for everything marked by _`<x>`_: 
     ```Powershell
     $inputObject = @{
         DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"

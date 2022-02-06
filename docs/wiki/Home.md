@@ -24,16 +24,15 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
 - Installed 
-  - [Visual Studio Code](URL 'https://code.visualstudio.com/Download') + [Bicep extension](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install')
-  - [Azure CLI](URL 'https://docs.microsoft.com/en-us/cli/azure/install-azure-cli')
-    - [Bicep CLI](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli')
-  - Azure CLI Extensions
-    - Bicep
-  - [Git](URL 'https://git-scm.com/downloads')
-    - [Git Guide](URL 'https://rogerdudler.github.io/git-guide/')
-  - [PowerShell Core](URL 'https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2')
-  - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
-  - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
-    - Az.Accounts
-    - Az.Resources  
-    - Pester with minimum version `5.3.1`
+  - [Visual Studio Code](https://code.visualstudio.com/Download)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
+  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
+  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
+  - [Git](https://git-scm.com/downloads)
+    - [Git Guide](https://rogerdudler.github.io/git-guide/)
+  - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
+  - [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
+    - \+ Module: `Az.Accounts`
+    - \+ Module: `Az.Resources`  
+    - \+ Module: `Pester` with minimum version `5.3.1`

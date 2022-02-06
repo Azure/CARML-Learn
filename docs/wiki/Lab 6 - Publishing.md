@@ -1,45 +1,32 @@
-In this lab, you will learn how to ...
+In this lab, you will learn how publish modules, both for releases and prereleases. You will also publish your first modules to the Bicep Registry.
 
 ### _Navigation_
-- [Step 1 - ](#)
+- [Step 1 - Publish prerelease for a module](#step-1---publish-prerelease-for-a-module)
+- [Step 2 - Prepare to publish a release](#step-2---prepare-to-publish-a-release)
+
 ---
 
-# Step 1 - ...
+# Step 1 - Publish prerelease for a module
 
+- Create and check out a new branch called `dev/routeTable`.
+- Change: `arm\Microsoft.Network\routeTables\version.json` - Update version to be `0.1`.
+- Save, commit and push your branch.
+- Run the workflow in GitHub.
+  - Find the workflow for `Network: RouteTables`.
+  - Click on the "Run workflow" button, select branch `dev/routeTable` and check the box for `Publish prerelease`.
+  - Wait for the workflow to run, verify that the workflow has published a prerelease version (`x.x.x-prerelease`) to the Bicep registry.
+  - Verify by going to the Azure portal and investigating the bicep registry. Find the `bicep/modules/microsoft.network.routetables` repository. Check it for published versions.
 
-<!-- # Step 4 - Merge the pull request
+# Step 2 - Prepare to publish a release
 
-The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
-
-CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globally unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
-
-1. Go to `Code` and make sure your branch is selected
-1. Navigate to `.github/variables/global.variables.json` and click edit.
-1. Find the `bicepRegistryName` variable and modify its value. Use a name that will likely be available.
-1. Commit the change.
-
-Now we can merge the pull request and publish the module at last!
-
-1. Go to `Pull request` and select the pull request you previously created.
-1. Navigate to the bottom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
-
-    <img src="./media/FirstPipelineRun/merge-pull-request.png" alt="Merge pull request" height="300">
-
-1. Now go back to `Actions`. You will see the merge triggered a workflow run.
-
-# Step 5 - Verify publishing results
-
-You can now check the results of the full workflow run.
-
-1. If you're not there, go to `Actions`. The last workflow run should be the one triggered by the merge. You can see the results, and the where the publishing job was correctly run.
-1. You can see the details by clicking on the `Publish module` job.
-
-    <img src="./media/FirstPipelineRun/module-publish.png" alt="Publish details" height="500">
-
-1. You can also navigate to the azure portal and see the newly created `artifacts-rg` resource group. You will see a container registry and a template spec.
-
-    <img src="./media/FirstPipelineRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
-
-1. If you select the azure container registry, you can verify the module was also published there.
-
-    <img src="./media/FirstPipelineRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
+- While still on branch `dev/routeTable`, Update the `version.json` files from all the modules used in Lab 1. Change the version number to `0.1`.
+- Save, commit and push your changes.
+- Merge your branch with `main` by creating a pull request on GitHub and merging it.
+- Go to one of the modules workflows and pay attention to the publish step.
+  - When a change happends to any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
+  - The publishing stage of the workflow will:
+    - Look for changed files in the module and child modules folders.
+    - Find the nearest template file (deploy.* in same folder as the changed file or parent folder).
+    - Find the corresponging `version.json` file and get the `major` and `minor` version numbers. The `patch` number is calculated from 'git hight' (number of commits from base commit). If the workflow/pipeline is run on a non `main`/`master` branch, '-prerelease' is added to the version number.
+- When you have seen that the workflow has completed for the module you chose, go to the Actions overview and filter the view to show only successful workflow runs.
+- Check that the others complete, and verify their published versions in the Azure portal.

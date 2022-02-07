@@ -269,7 +269,9 @@ To this end, the trigger is set up to look for any changes in the `main` branch 
 
 As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
-To do so, navigate back to your local Visual Studio code, navigate to the `Terminal` to the bottom, and execute the following PowerShell commands:
+1. To do so, navigate back to your local Visual Studio code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
+1. Now, execute the following PowerShell commands:
 
 ```PowerShell
 git checkout -b 'carmlLab'

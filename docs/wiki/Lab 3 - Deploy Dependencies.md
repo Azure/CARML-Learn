@@ -129,15 +129,14 @@ Usually, the dependency workflow would not run frequently, but only when new mod
     <img src="./media/Lab3/workflow_finished.png" height="300">
 
 
-> This workflow may take up to 20 minutes to execute. You can proceed with the following steps and labs and revisit the pipeline later to make sure it succeeded.
+> This workflow may take up to 30 minutes to execute. You can proceed with the following steps and labs and revisit the pipeline later to make sure it succeeded.
 
 # Step 4 - What you will deploy
 
 In order to successfully deploy and test all modules in your desired environment some modules have to have resources deployed beforehand. Since also dependency resources are in turn subject to dependencies with each other, resources are deployed in the following grouped order.
 
-**First level resources**: resource groups leveraged by all modules. Multiple instances are deployed:
+**First level resources**: resource groups leveraged by all modules. Once instance is deployed:
 - `validation-rg`: The resource group to which resources are deployed by default during the test deployment phase. This same resource group is also the one hosting the dependencies.
-- `artifacts-rg`: The resource group to which templates are published during the publishing phase.
 
 **Second level resources**: This group of resources has a dependency only on the resource group which will host them. Resources in this category include a log analytics workspace, storage account, event hub namespace, Azure container registry, etc.
 > ***Note:*** This group contains the previously added Proximity Placement group

@@ -68,7 +68,7 @@ As part of a later lab you will need an additional dependency, a proximity place
         - name: 'Deploy module'
           uses: ./.github/actions/templates/validateModuleDeployment
           with:
-            templateFilePath: 'arm/${{ env.namespace }}/  deploy.bicep'
+            templateFilePath: 'arm/${{ env.namespace }}/deploy.bicep'
             parameterFilePath: '${{ env.dependencyPath }}/${{ env.namespace }}/parameters/${{ matrix.parameterFilePaths }}'
             location: '${{ env.defaultLocation }}'
             resourceGroupName: '${{ env.defaultResourceGroupName }}'
@@ -131,8 +131,8 @@ Usually, the dependency workflow would not run frequently, but only when new mod
 In order to successfully deploy and test all modules in your desired environment some modules have to have resources deployed beforehand. Since also dependency resources are in turn subject to dependencies with each other, resources are deployed in the following grouped order.
 
 **First level resources**: resource groups leveraged by all modules. Multiple instances are deployed:
-     - 'validation-rg': The resource group to which resources are deployed by default during the test deployment phase. This same resource group is also the one hosting the dependencies.
-     - 'artifacts-rg': The resource group to which templates are published during the publishing phase.
+- `validation-rg`: The resource group to which resources are deployed by default during the test deployment phase. This same resource group is also the one hosting the dependencies.
+- `artifacts-rg`: The resource group to which templates are published during the publishing phase.
 
 **Second level resources**: This group of resources has a dependency only on the resource group which will host them. Resources in this category include a log analytics workspace, storage account, event hub namespace, Azure container registry, etc.
 > ***Note:*** This group contains the previously added Proximity Placement group

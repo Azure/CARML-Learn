@@ -22,9 +22,13 @@ As part of a later lab you will need an additional dependency, a proximity place
 
     <img src="./media/Lab3/depNewFolder.png" alt="PPG folder" height="80">
 
-2. Add a new parameter file `parameters.json` to the created folder. This folder hosts the minimum parameters you need to deploy the dependency.
+1. Add another nested folder called `parameters`. This folder hosts all parameter files you would use to deploy proximityPlacementGroup-dependencies.
+
+2. In the parameters folder, add a new parameter file `parameters.json`. This file hosts the minimum parameters you need to deploy the dependency.
 
     <img src="./media/Lab3/depNewFile.png" alt="PPG File" height="95">
+
+   > ***Note:*** The file's full path should match `utilities\pipelines\dependencies\Microsoft.Compute\proximityPlacementGroups\parameters\parameters.json`. 
 
 3. Add the below snippet to the file
 

@@ -150,6 +150,10 @@ You will now manually test the deployment, verifying it's template using both pa
 
     <img src="./media/Lab5/2-availability-set.png" alt="2 availability sets" height="300">
 
+---
+
+[Now proceed to the next LAB](./Lab%206%20-%20Publishing)
+
 # Optional Appendix
 
 ## Proximity Placement Group dependency

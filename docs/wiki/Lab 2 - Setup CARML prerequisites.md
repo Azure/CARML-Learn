@@ -1,4 +1,4 @@
-In this lab, you'll set-up **CAML** on your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
+In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal](#step-1---create-azure-service-principal)

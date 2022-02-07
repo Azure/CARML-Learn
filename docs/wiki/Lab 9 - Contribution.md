@@ -98,12 +98,11 @@ With the readme updated we can now re-run the test to confirm everything is in o
 
     <img src="./media/Lab9/succeedTest.png" alt="Test succeeded" height="400">
 
-
 # Step 5 - Upload your changes and run the module pipeline
 
-Now that the contribution is implemented and the tests are green, you can continue prepare everything for the subsequent pull request.
+Now that the contribution is implemented and the tests are green, you can continue to prepare everything for the subsequent pull request.
 
-1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode git integration. If not already there, navigate to the source control menu to the left.
+1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration. If not already there, navigate to the source control menu to the left.
 
     <img src="./media/Lab9/sourceControl.png" alt="Open source control" height="140">
 

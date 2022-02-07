@@ -46,6 +46,7 @@ As part of a later lab you will need an additional dependency, a proximity place
 
 5. Add the below snippet in between the `job_deploy_rg` & `job_deploy_msi` job in line 62. You can add spaces as you see fit. 
    > ***Note:*** Make sure the snipped uses the same ident as the other jobs as YAML is space-sensitive
+   
    > ***Note:*** If this would be a contribution to the main CARML repository, we would ask you to perform the same update to the Azure DevOps dependency pipeline  
 
     ```Yaml

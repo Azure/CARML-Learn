@@ -66,14 +66,14 @@ As part of a later lab you will need an additional dependency, a proximity place
           with:
             fetch-depth: 0
         - name: 'Deploy module'
-          uses: ./.github/actions/templates/  validateModuleDeployment
+          uses: ./.github/actions/templates/validateModuleDeployment
           with:
             templateFilePath: 'arm/${{ env.namespace }}/  deploy.bicep'
-            parameterFilePath: '${{ env.dependencyPath }}/$  {{ env.namespace }}/parameters/${{ matrix.  parameterFilePaths }}'
+            parameterFilePath: '${{ env.dependencyPath }}/${{ env.namespace }}/parameters/${{ matrix.parameterFilePaths }}'
             location: '${{ env.defaultLocation }}'
-            resourceGroupName: '${{ env.  defaultResourceGroupName }}'
-            subscriptionId: '${{ secrets.  ARM_SUBSCRIPTION_ID }}'
-            managementGroupId: '${{ secrets.  ARM_MGMTGROUP_ID }}'
+            resourceGroupName: '${{ env.defaultResourceGroupName }}'
+            subscriptionId: '${{ secrets.ARM_SUBSCRIPTION_ID }}'
+            managementGroupId: '${{ secrets.ARM_MGMTGROUP_ID }}'
             removeDeployment: '${{ env.removeDeployment }}'
    ``` 
 

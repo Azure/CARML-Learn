@@ -143,7 +143,7 @@ In **CARML**, you can't work directly in the `main` branch, so the first action 
 
     <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="240">
 
-1. Select the `Fork` button on the top right and select the organization you'd like to fork into. For this lab we recommend to use your own organization as this insures you will have all the permissions you need.
+1. Select the `Fork` button on the top right and select the organization you'd like to fork into. For this lab we recommend to use your own organization as this ensures you will have all the permissions you need.
 
     <img src="./media/PreReqGitHub/carmlFork.png" alt="Repository Fork" height="180">
 
@@ -161,7 +161,7 @@ Now you need to configure several secrets that are leveraged by the solution's w
 
 To do that you have to perform the following steps in sequence:
 
-1. Navigate to the repository's `settings`
+1. Navigate to the repository's `Settings`
 
     <img src="./media/PreReqGitHub/forkSettings.png" alt="Navigate to settings" height="100">
 

@@ -66,7 +66,7 @@ az login
 6. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
 
 ```Powershell
-az account set --subscription <subscription id>
+az account set --subscription "<subscription id>"
 ```
 
 7. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
@@ -75,7 +75,11 @@ az account set --subscription <subscription id>
 az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
 ```
 
-> If you don't want to assign `Owner`, you can also choose `Contributor`. In this case, because the `az ad sp create-for-rbac` command doesn't allow multiple roles to be added, you will later need to add a new role assignment for the `User Access Administrator` role. You can do so by using this command: `az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator"`.
+If you don't want to assign **Owner**, you can also choose **Contributor** in combination with **User Access Administrator**. For this second role assignment you will need to execute the following command:
+
+```Powershell
+az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
+```
 
 8. The below output will be returned when the service principal has been created. Make sure you copy these values in a Noteped, for instance.
 

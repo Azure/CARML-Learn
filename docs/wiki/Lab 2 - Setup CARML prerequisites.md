@@ -63,10 +63,10 @@ The following commands will allow us to:
 az login 
 ```
 
-6. Select the right subscription you want to work in by executing the following command. Update the `<subscription name or id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
+6. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
 
 ```Powershell
-az account set --subscription <subscription name or id>
+az account set --subscription <subscription id>
 ```
 
 7. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:

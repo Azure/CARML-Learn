@@ -1,23 +1,22 @@
 In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
 
 ### _Navigation_
-- [Step 1 - Create Azure Service Principal](#step-1---create-azure-service-principal)
-- [Step 2 - Service principal access to subscription](#step-2---service-principal-access-to-subscription)
-- [Step 3 - Create your fork](#step-3---create-your-fork)
-- [Step 4 - Configure your repository](#step-4---configure-your-repository)
-- [Step 5 - Configure code base](#step-5---configure-code-base)
-- [Step 6 - Create a branch](#step-6---create-a-branch)
-- [Step 7 - Enable actions](#step-7---enable-actions)
+- [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)
+- [Step 2 - Create your fork](#step-3---create-your-fork)
+- [Step 3 - Configure your repository](#step-4---configure-your-repository)
+- [Step 4 - Configure code base](#step-5---configure-code-base)
+- [Step 5 - Create a branch](#step-6---create-a-branch)
+- [Step 6 - Enable actions](#step-7---enable-actions)
 
 ---
 
-# Step 1 - Create Azure Service Principal
+# Step 1 - Create Azure Service Principal and Configure Access to Subscription
 
 CARML tests the deployments and stores the module artifacts in an Azure subscription. To do so, it requires a service principal with access to it.
 
 This step will guide you in the creation of the Service Principal and the gathering of the required values that will be used in the next steps.
 
-For this lab, it is enough to just write them temporarily in for example Notepad. You should have notes the following pieces:
+For this lab, it is enough to just write them temporarily in for example Notepad. You should have notes for the following pieces:
 
 - Application ID
 - Service Principal Object ID
@@ -26,55 +25,128 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 - Subscription ID
 - Parent Management Group
 
+There are to alternatives two execute this step:
+
+1. [Using Az CLI commands](#alternative-1-using-az-cli-commands)
+2. [Using the Azure Portal](#alternative-2-using-the-azure-portal)
+
+Please, choose the one you prefer and move to Step 2 afterwards
+
+## Alternative 1: Using Az CLI commands
+
+The following commands will allow us to:
+- Login to Azure using Az CLI.
+- Create a new Service Principal.
+- Assign the Service Principal `Owner` role at subscription level.
+
+> If you don't want to give Owner permissions to the Service Principals other options will be provided as part of the steps.
+
+1. As a first step, in the Azure portal, you have to navigate to you subscription by using for example the search bar on the top
+
+    <img src="./media/PreReqAzure/portalSubscriptionSearch.png" alt="Subscription search" height="170">
+
+2. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`
+
+    <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
+
+3. This brings you to the overview of your subscription. Here you need to perform 3 tasks:
+   - Make note of the `Subscription ID` for later reference
+   - Make note of the `Parent Management Group` for later reference
+
+    <img src="./media/Lab2/portalSubscriptionOverview.png" alt="Subscription overview" height="220">
+
+4. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
+
+5. Now, login to Azure by executing:
+
+```PowerShell
+az login 
+```
+
+6. Select the right subscription you want to work in by executing the following command. Update the `<subscription name or id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
+
+```Powershell
+az account set --subscription <subscription name or id>
+```
+
+7. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
+
+```Powershell
+az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
+```
+
+> If you don't want to assign `Owner`, you can also choose `Contributor`. In this case, because the `az ad sp create-for-rbac` command doesn't allow multiple roles to be added, you will later need to add a new role assignment for the `User Access Administrator` role. You can do so by using this command: `az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator"`.
+
+8. The below output will be returned when the service principal has been created. Make sure you copy these values in a Noteped, for instance.
+
+```JSON
+{
+  "appId": "<client_id>",
+  "displayName": "<service-principal-name>",
+  "name": "http://<service-principal-name>",
+  "password": "<client_secret>",
+  "tenant": "<tenant_id>"
+}
+```
+9. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
+
+```Powershell
+az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
+```
+
+## Alternative 2: Using the Azure Portal
+
+### Create the Service Principal
+
 1. Open to the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
    
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
-1. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
+2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
 
     <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="190">
 
-1. Here we want to do 2 things:
+3. Here we want to do 2 things:
    - Make note of your `Tenant ID` in the displayed `Overview` for later reference
    - Further select `App registrations` in the blade to the left
 
     <img src="./media/PreReqAzure/portalAzureAD.png" alt="Portal AAD Home" height="400">
 
-1. In the opening view select `+ New registration` on the top
+4. In the opening view select `+ New registration` on the top
 
     <img src="./media/PreReqAzure/portalAzureADAppRegistrations.png" alt="Portal AAD App Registration Overview" height="180">
 
-1. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
+5. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
 
     <img src="./media/PreReqAzure/portalAzureADAppCreate.png" alt="Portal AAD App Registration" height="600">
 
-1. This will open the created application's overview. Here we again want to do 2 things:
+6. This will open the created application's overview. Here we again want to do 2 things:
    - Make note of the `Application (client) ID` for later reference
    - Navigate to the application's underlying service principal by selecting it's name on the right side of the application's overview
 
     <img src="./media/PreReqAzure/portalAzureADAppView.png" alt="Portal AAD App View" height="200">
 
-1. Here you have to perform 2 tasks:
+7. Here you have to perform 2 tasks:
    - Make note of the service principal's `Object ID`    for later reference
    - Further, navigate back to the created application's overview by going back in your browser
 
     <img src="./media/PreReqAzure/portalAzureADAppViewSPView.png" alt="" height="200">
 
-1. Back on the application, you again have to perform 2 tasks:
+8. Back on the application, you again have to perform 2 tasks:
    - Select `Certificates & secrets` in the blade to the left
    - Select `+ New client secret` in the opening view to the right
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="300">
 
-1. Now enter a name for the secret, and click on `Add`
+9. Now enter a name for the secret, and click on `Add`
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreateBlade.png" alt="Portal AAD App Secret Create Blade" height="150">
 
-1. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
+10. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretView.png" alt="Portal AAD App Secret View" height="300">
 
-# Step 2 - Service principal access to subscription
+### Grant Service principal access to subscription
 
 Now that we have a new service principal, we must grant it access on the subscription we want to test later deployments in.
 
@@ -129,7 +201,7 @@ Now that we have a new service principal, we must grant it access on the subscri
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearchConfirm.png" alt="Role assignment check access" height="120">
 
-# Step 3 - Create your fork
+# Step 2 - Create your fork
 
 In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to to _fork_ the repository.
 
@@ -155,7 +227,7 @@ In **CARML**, you can't work directly in the `main` branch, so the first action 
 
     <img src="./media/PreReqGitHub/carmlForkFinal.png" alt="Forked repository" height="250">
 
-# Step 4 - Configure your repository
+# Step 3 - Configure your repository
 
 Now you need to configure several secrets that are leveraged by the solution's workflows. Most notably for example, the service connection.
 
@@ -194,7 +266,7 @@ To do that you have to perform the following steps in sequence:
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 
-# Step 5 - Configure code base
+# Step 4 - Configure code base
 
 As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
 - The individual module parameter files
@@ -261,7 +333,7 @@ To complete this section perform the following steps:
 
 
 
-## Step 6 - Create a branch
+# Step 5 - Create a branch
 
 By default, CARML uses pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
 
@@ -278,7 +350,7 @@ git checkout -b 'carmlLab'
 git push --set-upstream 'origin' 'carmlLab'
 ```
 
-# Step 7 - Enable actions
+# Step 6 - Enable actions
 
 Finally, the 'GitHub Actions' are disabled by default. Hence, in order to continue with the rest of the lab and execute any pipelines you have to enable them first.
 

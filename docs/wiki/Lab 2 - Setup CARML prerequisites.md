@@ -2,11 +2,11 @@ In this lab, you will set up **CARML** in your own environment. This set-up can 
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)
-- [Step 2 - Create your fork](#step-3---create-your-fork)
-- [Step 3 - Configure your repository](#step-4---configure-your-repository)
-- [Step 4 - Configure code base](#step-5---configure-code-base)
-- [Step 5 - Create a branch](#step-6---create-a-branch)
-- [Step 6 - Enable actions](#step-7---enable-actions)
+- [Step 2 - Create your fork](#step-2---create-your-fork)
+- [Step 3 - Configure your repository](#step-3---configure-your-repository)
+- [Step 4 - Configure code base](#step-4---configure-code-base)
+- [Step 5 - Create a branch](#step-5---create-a-branch)
+- [Step 6 - Enable actions](#step-6---enable-actions)
 
 ---
 

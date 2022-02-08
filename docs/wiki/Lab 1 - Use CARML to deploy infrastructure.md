@@ -27,7 +27,7 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="230">
 
-2. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
+1. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
 
@@ -194,7 +194,7 @@ To set these up, please perform the following steps:
     output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
     ```
 
-1. In total, the final result should look similar to
+1. In total, the final result should look similar to. When done, make sure to save the file.
 
     ```bicep
     targetScope = 'subscription'

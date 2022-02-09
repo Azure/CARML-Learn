@@ -20,17 +20,21 @@ For this LAB, we will use another simple and quick to deploy module: `availabili
 
     <img src="./media/Lab5/avReadMe.png" alt="AVS Readme" height="300">
 
-1. Next, navigate to `.parameters/parameters.json` of the same module. This file is currently used to 'deployment'-test the module. It specifies only the `name` and `roleAssignments` parameters. In this lab you will:
+1. Navigate to `.parameters/parameters.json` in availability set module. This file is urrently use for  'deployment'-test the module. It specifies only the `name` and `roleAssignments` parameters. In this lab you will perform the following tasks:
     - update the existing `parameters.json` file to test an additional parameter
     - add one additional parameter file to test the minimum set of parameters 
 
 # Step 2 - Update existing parameter file
 
-At this point, the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Dependencies) should have deployed a `Proximity Placement Group` for you. In case the pipeline failed for any reason you can create the dependency manually by following the steps described [here](#proximity-placement-group-dependency). Once the dependency is available, proceed with the follow steps:
+Ensure that dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Dependencies)  have deployed a `Proximity Placement Group` for in your lab environment. 
 
-1. If not already open, navigate back to the `parameter.json` file in path `arm\Microsoft.Compute\proximityPlacementGroups\.parameters\parameters.json` in your local VSCode instance.
+> ***Note:*** In case the pipeline failed for any reason you can create the dependency manually by following the steps described [here](#proximity-placement-group-dependency). Once the dependency is available, proceed with the follow steps:
 
-1. Next, add the below snipped as a new parameter to the parameter file and ensure the name of the proximity placement group matches the one you deployed as a dependency. Values such as the `subscriptionID` & `namePrefix` will automatically be replaced by the pipeline
+Now lets update the existing parameter file.
+
+1. If not already open, navigate back to the `parameter.json` file in path `arm\Microsoft.Compute\proximityPlacementGroups\.parameters\parameters.json` in your local VSCode.
+
+1. Add the below snipped as a new parameter to the parameter file and ensure the name of the proximity placement group matches the one you deployed as a dependency. Values such as the `subscriptionID` & `namePrefix` will automatically be replaced by the pipeline
 
     ```Json
     "proximityPlacementGroupId": {
@@ -67,7 +71,7 @@ At this point, the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Depen
 
 # Step 3 - Add a new parameters file
 
-Next you will create a new parameter file that will test that the template's default values work as intended by providing only the minimum set of parameters.
+Now you will create a new parameter file that will test that the template's default values work as intended by providing only the minimum set of parameters.
 
 1. If not already, navigate again to the `arm/Microsoft.Compute/availabilitySets/.parameters` folder
 

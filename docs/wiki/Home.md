@@ -1,4 +1,4 @@
-# Common Azure Resource Modules Lab
+# Common Azure Resource Modules Library - Lab
 
 This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'_
 
@@ -12,8 +12,9 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Lab 3: Deploy dependencies](./Lab%203%20-%20Deploy%20dependencies)
   - [Lab 4: First pipeline run](./Lab%204%20-%20First%20pipeline%20run)
   - [Lab 5: Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)
-  - [Lab 6: Publishing](./Lab%205%20-%20Extend%20test%20coverage)
+  - [Lab 6: Publishing](./Lab%206%20-%20Publishing)
   - [Lab 7: Build an ACR-driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution)
+  - [Lab 8: Interoperability](./Lab%208%20-%20Interoperability)
   - [Lab 9: Contribution](./Lab%209%20-%20Contribution)
 
 # Pre-Requisites
@@ -23,19 +24,20 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
 - Installed 
-  - [Visual Studio Code](URL 'https://code.visualstudio.com/Download') + [Bicep extension](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install')
-  - [Azure CLI](URL 'https://docs.microsoft.com/en-us/cli/azure/install-azure-cli')
-    - [Bicep CLI](URL 'https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli')
-  - Azure CLI Extensions
-    - Bicep
-  - [Git](URL 'https://git-scm.com/downloads')
-    - [Git Guide](URL 'https://rogerdudler.github.io/git-guide/')
-  - [PowerShell Core](URL 'https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2')
-  - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
-  - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
-    - Az.Accounts
-    - Az.Resources
-  
+  - [Visual Studio Code](https://code.visualstudio.com/Download)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
+  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
+  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
+  - [Git](https://git-scm.com/downloads)
+    - [Git Guide](https://rogerdudler.github.io/git-guide/)
+  - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
+  - [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
+    - \+ Module: `Az.Accounts`
+    - \+ Module: `Az.Resources`  
+    - \+ Module: `Pester` with minimum version `5.3.1`
+
+## Add PowerShell 7.x to VSCode
 - 1. VS Code will default to the built-in PowerShell version. Verify this by `code $PSversionTable`. This is because the default integrated shell on Windows is the base PowerShell from your OS, and PowerShell 7 is a separate install.
 
     <img src="./media/Lab1%20-%20First%20Solution/VScodePowerShellVersion.png" alt="PSversionTable" height="100">

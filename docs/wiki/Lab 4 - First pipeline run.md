@@ -1,36 +1,13 @@
-In this LAB you will explore how a module is tested and published.
-
-This is how you will add/modify a module on your library and provide it to your company/customer for reuse.
+In this LAB you will explore how a module runs through the first two pipeline stages, the local validation, as well as validation through Azure.
 
 ### _Navigation_
-- [Step 1 - Modify a parameter file](#Step-1---Modify-a-parameter-file)
-- [Step 2 - Test the module](#Step-2---Test-the-module)
-- [Step 3 - Build solution](#Step-3---Build-solution)
-- [Step 4 - Merge the pull request](#Step-4---Merge-the-pull-request)
-- [Step 5 - Verify publishing results](#Step-5---Verify-publishing-results)
+- [Step 1 - Test the module using the pipeline](#step-1---test-the-module-using-the-pipeline)
+- [Step 2 - Check up on the deployment](#step-2---check-up-on-the-deployment)
+- [Step 3 - Verify the workflow ran correctly](#step-3---verify-the-workflow-concluded-correctly)
+
 ---
 
-# Step 1 - Modify a parameter file
-
-We're almost ready to test the first module, but first you will now do a minor change to the parameter file of the `Public IP` module.
-> Any module can be used at this stage, the public IP has been chosen because if excluding diagnostic settings, it has no external dependencies
-
-1. Navigate to the following path `arm/Microsoft.Network/publicIPAddresses/.parameters/parameters.json`
-1. Click on the `Edit` button
-
-    <img src="./media/FirstPipelineRun/file-edit.png" alt="Edit Button" height="100">
-
-1. Remove or comment all the parameter values related to diagnostic settings
-
-    <img src="./media/FirstPipelineRun/diagnostic-removal.png" alt="Removve diagnostic" height="300">
-
-1. On the bottom of the page, choose `Create a new branch anda start a pull request` (optionally specify a commit message and description) than click on `Commit changes`.
-
-    <img src="./media/FirstPipelineRun/first-commit.png" alt="First commit" height="100">
-
-1. Confirm the creation of the pull request.
-
-# Step 2 - Test the module
+# Step 1 - Test the module using the pipeline
 
 After this preparation phase, we're sure you would like to see some Action(s)!
 
@@ -38,70 +15,59 @@ After this preparation phase, we're sure you would like to see some Action(s)!
 
     <img src="./media/FirstPipelineRun/actions-menu.png" alt="Actions menu" height="100">
 
-<!-- 1. **??? TODO See if this has been enabled by dependencies in previous LAB ???** Actions have been disabled for safety reasons on your fork, so you'll need to enable them
+1. Look for the `Network: RouteTables` workflow
 
-    <img src="./media/FirstPipelineRun/enable-workflows.png" alt="Enable workflow" height="200"> -->
+    <img src="./media/FirstPipelineRun/actionSelection.png" alt="Actions selection" height="100">
 
-1. Look for the `Network: PublicIpAddresses` workflow
-1. Select the `Run workflow` button. Make sure the selected branch is the one you created in the previous step and click on `Run workflow` on the bottom.
+1. Select the `Run workflow` button. Make sure the selected branch is the one you created in Lab 2 and click on `Run workflow` on the bottom.
 
-    <img src="./media/FirstPipelineRun/public-ip-workflow.png" alt="Run workflow on branch" height="500">
+    <img src="./media/FirstPipelineRun/pipelineExecution.png" alt="Run workflow on branch" height="500">
 
-# Step 3 - Verify the workflow run correctly
+# Step 2 - Check up on the deployment
+
+1. Once the pipeline is triggered you will notice that the `Pester tests` job starts executing. 
+
+    <img src="./media/FirstPipelineRun/routeTablePesterTests.png" alt="Pester pipeline" height="500">
+
+1. If you click on the `Pester tests` job, GitHub opens the log of the selected job and you can see the tests that it is running
+
+    <img src="./media/FirstPipelineRun/routeTablePesterLog.png" alt="Pester log" height="500">
+
+1. Once the `Pester tests` job concluded successfully, the `Deployment tests` job will start and test the parameter file referenced by the pipeline job (`parameters.json`). In sequence, the job executes 3 fundamental tasks
+- Run a static Test-Az*Deployment using both the module's `deploy.json` and the aforementioned parameter file
+- Run an actually deployment against the Azure environment specified through the credentials set up in Lab 2
+- Remove set resources once the deployment concluded
+
+    <img src="./media/FirstPipelineRun/routeTableDeployment.png" alt="Deployment pipeline" height="500">
+
+1. If you click on the `Deployment tests` job, GitHub opens the log of the selected job and you can see the deployment that it is running
+
+    <img src="./media/FirstPipelineRun/routeTableDeploymentLog.png" alt="Deployment log" height="500">
+
+2. While the deployment is running, you can take a look at the Azure portal. You will notice that a resource group named `validation-rg` has been created, and also, that a route table was created inside it.
+   > Note: The pipeline operates fairly quickly, so it can happen that the route table was already removed by the time you open the resource group
+      
+    <img src="./media/FirstPipelineRun/routeTableAzure.png" alt="Route table in Azure" height="500">
+
+
+# Step 3 - Verify the workflow concluded correctly
 
 Let's now see what happened.
 
 1. First of all, if you click on the run, you should see jobs have run successfully.
 
-    <img src="./media/FirstPipelineRun/workflow-result-git.png" alt="PIP run ok" height="500">
+    <img src="./media/FirstPipelineRun/workflow-result-git.png" alt="Route run ok" height="400">
 
     > You will also notice the `Publish module` step has been skipped. This is because the workflows will only execute this job if run from the `main` branch, so that you do your test before the publishing happens.
 
-1. You can also check the result on the Azure portal. You will notice that a resource group named `validation-rg` has been created. You can verify that new deployments happened in the Resource Group
+2. You can also examine the deployment in the Azure portal by navigating to the resource group `validation-rg`, select `Deployments` in its blade and check the list of deployments opening to the right. If you select any one of them you can see the used inputs, template & outputs - and even drill down into nested deployments.
 
-    <img src="./media/FirstPipelineRun/workflow-result-azure.png" alt="PIP run ok, RG" height="400">
+    <img src="./media/FirstPipelineRun/workflow-result-azure.png" alt="Route run ok, RG" height="350">
 
-    > You can notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sanbox subscription cost as low as possible.
+    > You will notice the resource group has no resources now. By default, the last step of the deployment will also remove what has been deployed, to keep the testing sandbox subscription cost as low as possible.
     >
-    > You can modify this behaviour by unflagging `Remove deployed module` flag when running the workflow
-
-<!-- # Step 4 - Merge the pull request
-
-The final objective of this LAB is to publish a module so that would be ready to be consumed... But where will you publish it?
-
-CARML (GitHub version) currently publishing on _TemplateSpec_ and _Bicep registry_. The Bicep Registry needs a globally unique name, so you will need to use a name that's different from the one cloned from the public CARML repository.
-
-1. Go to `Code` and make sure your branch is selected
-1. Navigate to `.github/variables/global.variables.json` and click edit.
-1. Find the `bicepRegistryName` variable and modify its value. Use a name that will likely be available.
-1. Commit the change.
-
-Now we can merge the pull request and publish the module at last!
-
-1. Go to `Pull request` and select the pull request you previously created.
-1. Navigate to the bottom of the page and push the `Merge pull request` button and confirm. You can also delete the branch, we won't use it anymore.
-
-    <img src="./media/FirstPipelineRun/merge-pull-request.png" alt="Merge pull request" height="300">
-
-1. Now go back to `Actions`. You will see the merge triggered a workflow run.
-
-# Step 5 - Verify publishing results
-
-You can now check the results of the full workflow run.
-
-1. If you're not there, go to `Actions`. The last workflow run should be the one triggered by the merge. You can see the results, and the where the publishing job was correctly run.
-1. You can see the details by clicking on the `Publish module` job.
-
-    <img src="./media/FirstPipelineRun/module-publish.png" alt="Publish details" height="500">
-
-1. You can also navigate to the azure portal and see the newly created `artifacts-rg` resource group. You will see a container registry and a template spec.
-
-    <img src="./media/FirstPipelineRun/publish-result-azure-portal.png" alt="Artifacts rg" height="500">
-
-1. If you select the azure container registry, you can verify the module was also published there.
-
-    <img src="./media/FirstPipelineRun/publish-result-acr.png" alt="Module on ACR" height="500"> -->
+    > You can modify this behaviour by unflagging `Remove deployed module` flag when running a workflow
 
 ---
 
---> [Now proceed to the next LAB](./Lab5ExtendTestParameter) -->
+[Now proceed to the next LAB](./Lab%205%20-%20Extend%20test%20coverage)

@@ -35,6 +35,7 @@ Please, choose the one you prefer and move to Step 2 afterwards
 ## Alternative 1: Using Az CLI commands
 
 The following commands will allow us to:
+
 - Login to Azure using Az CLI.
 - Create a new Service Principal.
 - Assign the Service Principal `Owner` role at subscription level.
@@ -92,6 +93,7 @@ az role assignment create --assignee "<<service-principal-name>>" --role "User A
   "tenant": "<tenant_id>"
 }
 ```
+
 9. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
 
 ```Powershell
@@ -103,7 +105,7 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 ### Create the Service Principal
 
 1. Open to the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
-   
+
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
 2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
@@ -269,12 +271,14 @@ To do that you have to perform the following steps in sequence:
 
       Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
-
 # Step 4 - Configure code base
 
 As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
+
 - The individual module parameter files
 - The shared dependency pipeline
+
+The platform, by default, will publish the modules on _Azure Container Registry_, that also requires a globally unique name. You will need to set a unique name for it too.
 
 ## Clone the repository
 
@@ -304,12 +308,11 @@ To perform these changes as quickly and easy as possible, we recommend to update
 
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 
-
 ## Prepare the default prefix
 
-To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" for resources that must be set during the solution setup. 
+To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" for resources that must be set during the solution setup.
 
-Each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders). Token values are stored in a central location to facilitate maintenance. 
+Each pipeline in CARML that deploys resources uses a logic that automatically replaces "tokens" (i.e. placeholders). Token values are stored in a central location to facilitate maintenance.
 
 To complete this section perform the following steps:
 
@@ -333,13 +336,49 @@ To complete this section perform the following steps:
     }
     ```
 
-    > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. 
+    > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions.
 
+## Set the container registry unique name
 
+As said above, the Bicep Registry needs a globally unique name, so you will need to use something that's different from the one cloned from the public CARML repository. To change it
+
+1. Open the `.github/variables/global.variables.json` file.
+1. Find the `bicepRegistryName` variable and modify its value (where `<put your unique name here>` is in the example). The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
+
+    ```json
+    {
+        "name": "bicepRegistryName",
+        "value": "<put your unique name here>"
+    },
+    ```
+
+## Commit your changes to main
+
+You now need to push the changes in the repo. To do so using VSCode UI
+
+1. Go to source control and stash the changes by clicking on the `+` button
+
+    <img src="./media/Lab2/stash-settings-changes.png" alt="Stash changes" height="100">
+
+1. Type a commit message and commit
+
+    <img src="./media/Lab2/commit-message.png" alt="Commit changes" height="100">
+
+1. Sync the changes
+
+    <img src="./media/Lab2/sync-changes.png" alt="Sync changes" height="100">
+
+**as alternative** you can use the command line using the following commands:
+
+ ```PowerShell
+git add -A
+git commit -m "Update settings and variables"
+git push
+```
 
 # Step 5 - Create a branch
 
-By default, CARML uses pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged. 
+By default, CARML uses pipeline triggers to automate for example the publishing of a new module once a corresponding PR is merged.
 
 To this end, the trigger is set up to look for any changes in the `main` branch if any module or pipeline file was modified.
 
@@ -364,6 +403,6 @@ To do so, perform the following steps:
 
     <img src="./media/PreReqGitHub/actionsOverview.png" alt="Navigate to actions" height="150">
 
-1. Next, select '`I understand my workflows, go ahead an enable them`' 
+1. Next, select '`I understand my workflows, go ahead and enable them`'
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">

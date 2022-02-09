@@ -14,20 +14,25 @@ To start building a solution / workload, you first have to get access to the cod
 1. Open the repository via the URL [aka.ms/CARML](https://aka.ms/CARML)
 
     <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="200">
+  
 
 1. On the overview page, select the `<> Code` button to the right, and select the `Download ZIP` button in the opening pop up to trigger the repository to be downloaded as a compressed file.
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadZip.png" alt="Download zip" height="300">
 
-1. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
+1. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/path/to/the/folder`)
 
     <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
-1. Next, navigate to the inside of the expanded folder, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+    1. Alternative method would be to use GIT `code git clone https://github.com/Azure/ResourceModules.git </path/to/the/folder>`
+
+1. Next, navigate to the extracted folder using a terminal of your choice. `code cd </path/to/the/folder>`
+
+    1. With Windows Terminal, you can navigate to the folder and right click to select the option `Open in Windows Terminal` to open a new Windows Terminal session with the path set to the current folder.
 
     <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
-2. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
+1. Next, just type & execute the command `code ./ResourceModules` to open Visual Studio Code in the extracted repository folder
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
 
@@ -284,11 +289,15 @@ To set these up, please follow the following steps:
 
 In this final step, we ask you to optionally perform a test deployment of the given template to ensure that everything works as intended. To do so, just follow the following sequence of steps:
 
-1. Select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+1. Verify VS Cose Terminal is open, if not ``code SHIFT+CTRL+` `` will open a new terminal. This will be shown on the lower end of VSCode. 
+
+    1. Alternative, if `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
 
     <img src="./media/Lab1%20-%20First%20Solution/terminal.png" alt="Terminal" height="100">
 
-1. Now, you have to run a few commands in succession. First, log into your Azure subscription by executing `Connect-AzAccount` and follow the process
+    1. VS Code will default to the built-in PowerShell version. Verify this by `code $PSversionTable`. Check [Pre-Requisites](./Home.md) to fix this.
+
+1. Now, you have to run a few commands in succession. First, log into your Azure subscription by executing `Connect-AzAccount -Tenant 'xxxx-xxxx-xxxx-xxxx' -SubscriptionId 'yyyy-yyyy-yyyy-yyyy'` and follow the process.
 
 1. Next, you can invoke the deployment itself. To do so, execute the following command: 
     ```Powershell

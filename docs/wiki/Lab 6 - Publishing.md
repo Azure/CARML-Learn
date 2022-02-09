@@ -9,7 +9,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 # Step 1 - Publish prerelease for a module
 
-1. Find the file `arm\Microsoft.Network\routeTables\version.json` and update the version property to be `0.1`.
+1. In your local VSCode, find the file `arm\Microsoft.Network\routeTables\version.json` and update the version property to be `0.1`.
 
     <img src="./media/Lab6/1.png" alt="update the version property in the version.json file to be 0.1" height=180>
 

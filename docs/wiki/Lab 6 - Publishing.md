@@ -58,7 +58,11 @@ Next, you will create an actual release, that is, publish modules without the pr
    <img src="./media/Lab6/prMerge.png" alt="Merge a PR" height=200>
 
 
-1. Check the workflow run that was triggered by the merge (push) to main and see what happens with the published version.
+2. Check the workflow run that was triggered by the merge (push) to main 
+
+   <img src="./media/Lab6/mergeTrigger.png" alt="Trigger by PR merge" height=150>
+
+3. See what happens with the published version.
 
     <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
 

@@ -130,4 +130,4 @@ You can now re-deploy your template to update and add the new resources.
 
 ---
 
-[Now proceed to the next LAB](./Lab%208%20-%20Interoperability)
+[Now proceed to the next LAB](./Lab%208%20-%20Interoperability.md)

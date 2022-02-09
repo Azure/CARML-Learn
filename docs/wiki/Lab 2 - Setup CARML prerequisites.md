@@ -404,3 +404,6 @@ To do so, perform the following steps:
 1. Next, select '`I understand my workflows, go ahead and enable them`'
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
+    
+    
+  --> [Now proceed to the next LAB](./Lab%203%20-%20Deploy%20Dependencies.md) -->

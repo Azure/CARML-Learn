@@ -34,4 +34,22 @@ This lab requires a number of fundamental pre-requisites you need in order to co
   - [Windows Terminal](URL 'https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab')
   - [PowerShell modules](URL 'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-7.1.0')
     - Az.Accounts
-    - Az.Resources  
+    - Az.Resources
+  
+- 1. VS Code will default to the built-in PowerShell version. Verify this by `code $PSversionTable`. This is because the default integrated shell on Windows is the base PowerShell from your OS, and PowerShell 7 is a separate install.
+
+    <img src="./media/Lab1%20-%20First%20Solution/VScodePowerShellVersion.png" alt="PSversionTable" height="100">
+
+  1. Navigate to the VS Code Settings
+
+  <img src="./media/Lab1%20-%20First%20Solution/VScodeSettings.png" alt="PSversionTable" height="100">
+
+    1. Within the Settings, search for 'Edit in settings.json'
+
+    <img src="./media/Lab1%20-%20First%20Solution/VScodeEdditSettings.png" alt="settings.json" height="100">
+
+    1. Click on 'Edit in settings.json'
+
+        1. Replace simular text (using the correct path if you installed to a non-default location) and save the file: 
+        
+        `code "terminal.integrated.defaultProfile.windows": "PowerShell",`

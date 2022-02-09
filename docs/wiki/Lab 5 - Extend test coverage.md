@@ -177,3 +177,5 @@ In case the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Dependencies
    > ***Note:*** The name you give the resource must exactly match the one specified in the availability set's parameter file (excluding the token).
 
     <img src="./media/Lab5/proximity-placement-create.png" alt="Create Proximity Placement" height="350">
+
+--> [Now proceed to the next LAB](./Lab%206%20-%20Publishing.md) -->

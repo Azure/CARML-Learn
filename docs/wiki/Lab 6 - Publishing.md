@@ -38,7 +38,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 1. Check the workflow run that was triggered by the merge (push) to main and see what happens with the published version.
 
-    <img src="./media/Lab6/6.png" alt="Check the workflow run of the routeTables once the PR is merged">
+    <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
 
 # Step 2 - Prepare to publish a release
 

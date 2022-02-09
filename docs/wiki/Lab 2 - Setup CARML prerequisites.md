@@ -403,6 +403,6 @@ To do so, perform the following steps:
 
     <img src="./media/PreReqGitHub/actionsOverview.png" alt="Navigate to actions" height="150">
 
-1. Next, select '`I understand my workflows, go ahead an enable them`'
+1. Next, select '`I understand my workflows, go ahead and enable them`'
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">

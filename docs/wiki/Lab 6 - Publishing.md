@@ -47,9 +47,16 @@ One of the ways you can verify whether the publishing worked is by going to the 
 
 # Step 4 - Prepare to publish a release
 
-1. Merge your branch with `main` by creating a pull request on GitHub and merging it.
+Next, you will create an actual release, that is, publish modules without the prerelease flag. To do so, proceed with the following steps: 
 
-  <img src="./media/Lab6/5.png" alt="Create a PR">
+1. First, you need to create a pull request. As `carmlLab` was the last branch you worked on, GitHub should create a banner with a button `Compare & Pull request` for you, once you navigate to the `<> Code` tab (refresh the page if it does not show up automatically).
+
+   <img src="./media/Lab6/prbanner.png" alt="Create a PR" height=200>
+
+1. In the PR, provide a meaningful description and if you're interested also check the file changes (should be around 6 files) to make sure everything seems in order. Once you're ready, go ahead an merge the pull request.
+
+   <img src="./media/Lab6/prMerge.png" alt="Merge a PR" height=200>
+
 
 1. Check the workflow run that was triggered by the merge (push) to main and see what happens with the published version.
 

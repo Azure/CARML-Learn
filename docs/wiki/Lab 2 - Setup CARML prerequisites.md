@@ -343,7 +343,7 @@ To complete this section perform the following steps:
 As said above, the Bicep Registry needs a globally unique name, so you will need to use something that's different from the one cloned from the public CARML repository. To change it
 
 1. Open the `.github/variables/global.variables.json` file.
-1. Find the `bicepRegistryName` variable and modify its value (where `<put your unique name here>` is in the example). Use a name that will likely be available.
+1. Find the `bicepRegistryName` variable and modify its value (where `<put your unique name here>` is in the example). The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 
     ```json
     {

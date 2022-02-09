@@ -70,4 +70,4 @@ Let's now see what happened.
 
 ---
 
-[Now proceed to the next LAB](./Lab%205%20-%20Extend%20test%20coverage)
+[Now proceed to the next LAB](./Lab%205%20-%20Extend%20test%20coverage.md)

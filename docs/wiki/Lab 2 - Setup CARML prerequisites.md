@@ -324,14 +324,12 @@ To complete this section perform the following steps:
     {
         "parameterFileTokens": {
             (...)
-            "localTokens": {
-                "tokens": [
-                    {
-                        "name": "namePrefix",
-                        "value": "<replace>"
-                    }
-                ]
-            }
+            "localTokens": [
+                {
+                    "name": "namePrefix",
+                    "value": "<replace>"
+                }
+            ]
         }
     }
     ```

@@ -20,7 +20,7 @@ For this LAB, we will use another simple and quick to deploy module: `availabili
 
     <img src="./media/Lab5/avReadMe.png" alt="AVS Readme" height="300">
 
-1. Navigate to `.parameters/parameters.json` in availability set module. This file is urrently use for  'deployment'-test the module. It specifies only the `name` and `roleAssignments` parameters. In this lab you will perform the following tasks:
+1. Navigate to `.parameters/parameters.json` in availability set module. This file is currently used to 'deployment'-test the module. It specifies only the `name` and `roleAssignments` parameters. In this lab you will perform the following tasks:
     - update the existing `parameters.json` file to test an additional parameter
     - add one additional parameter file to test the minimum set of parameters 
 
@@ -134,7 +134,7 @@ You will now manually test the deployment, verifying it's template using both pa
 
     <img src="./media/Lab5/openActions.png" height="180">
 
-1. Find the `Compute: AvailabilitySets` workflow
+1. Find the `Compute: AvailabilitySets` workflow and select `Run workflow`
 
     <img src="./media/Lab5/actionSearch.png" height="400">
 
@@ -142,11 +142,14 @@ You will now manually test the deployment, verifying it's template using both pa
 
     <img src="./media/Lab9/actionBranch.png" alt="Select branch" height="200">
 
-1. Unflag the `Remove deployed module` and execute the workflow
+1. Unflag the `Remove deployed module` and execute the workflow by selecting `Run workflow`
 
     <img src="./media/Lab5/actionTrigger.png" alt="Execute the workflow" height="200">
 
+    > ***Note:*** The pipeline will take rougly 5-6 minutes to complete
+
 1. You can click on the running workflow and verify that you have a separate job for each specified parameter file.
+   > ***Note:*** The separate jobs will only be visible once the `Deployment tests` stage starts
 
     <img src="./media/Lab5/2-parameters-workflow-run.png" alt="Run with 2 parameters" height="350">
 

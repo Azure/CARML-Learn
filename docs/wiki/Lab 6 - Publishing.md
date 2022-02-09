@@ -2,8 +2,9 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 ### _Navigation_
 - [Step 1 - Publish prerelease for a module](#step-1---publish-prerelease-for-a-module)
-- [Step 2 - Prepare to publish a release](#step-2---prepare-to-publish-a-release)
-
+- [Step 2 - Run the workflow in GitHub](#step-2---run-the-workflow-in-github)
+- [Step 3 - Verify the published module](#step-3---verify-the-published-module)
+- [Step 4 - Prepare to publish a release](#step-4---prepare-to-publish-a-release)
 ---
 
 # Step 1 - Publish prerelease for a module
@@ -16,7 +17,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
     <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
 
-# Step 2 Run the workflow in GitHub
+# Step 2 - Run the workflow in GitHub
 
 1.  Find the workflow for `Network: RouteTables` in the `Actions` tab in GitHub.
 

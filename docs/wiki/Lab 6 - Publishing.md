@@ -1,4 +1,4 @@
-In this lab, you will learn how publish modules, both for releases and prereleases. You will also publish your first modules to the Bicep Registry.
+In this lab, you will learn how to publish modules, both for releases and prereleases. You will also publish your first modules to the Bicep Registry.
 
 ### _Navigation_
 - [Step 1 - Publish prerelease for a module](#step-1---publish-prerelease-for-a-module)
@@ -8,22 +8,15 @@ In this lab, you will learn how publish modules, both for releases and prereleas
 
 # Step 1 - Publish prerelease for a module
 
-1. From VSCode, create and check out a new branch called `dev/routeTable`.
-  ```pwsh
-    git checkout -b dev/routeTable origin/main
-  ```
 1. Find the file `arm\Microsoft.Network\routeTables\version.json` and update the version property to be `0.1`.
 
-  <img src="./media/Lab6/1.png" alt="update the version property in the version.json file to be 0.1">
+  <img src="./media/Lab6/1.png" alt="update the version property in the version.json file to be 0.1" height=180>
 
-2. Save (`Ctrl+s`), commit and push your branch.
+1. Next, upload your changes in the same manner as you did before, add your changes to the commit, create a commit with a corresponding commit message (e.g. `Updated route table version to 0.1"`) and push the changes to GitHub
 
-  ```pwsh
-    git commit -a -m "update version to 0.1"
-    git push origin dev/routeTable
-  ```
+    <img src="./media/Lab9/gitpush.png" alt="Git push" height="80">
 
-1. Run the workflow in GitHub.
+# Step 2 Run the workflow in GitHub
   - Find the workflow for `Network: RouteTables`.
   - Click on the "Run workflow" button, select branch `dev/routeTable` and check the box for `Publish prerelease`.
 

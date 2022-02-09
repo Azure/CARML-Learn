@@ -91,4 +91,4 @@ In this lab, you will learn how publish modules, both for releases and prereleas
 - When you have seen that the workflow has completed for the module you chose, go to the Actions overview and filter the view to show only successful workflow runs.
 - Check that the others complete, and verify their published versions in the Azure portal.
 
-Proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution)
+Proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution.md)

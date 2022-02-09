@@ -18,19 +18,33 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 # Step 2 Run the workflow in GitHub
 
-  - Find the workflow for `Network: RouteTables`.
-  - Click on the "Run workflow" button, select branch `dev/routeTable` and check the box for `Publish prerelease`.
+1.  Find the workflow for `Network: RouteTables` in the `Actions` tab in GitHub.
+
+1.  Click on the "Run workflow" button, select branch `dev/routeTable` and check the box for `Publish prerelease`.
 
     <img src="./media/Lab6/triggerPreRelease.png" alt="Manually run the workflow for Network: RouteTables with prerelease flag" height=250>
 
-  - Wait for the workflow to run, verify that the workflow has published a prerelease version (`0.1.x-prerelease`) to the Bicep registry.
+1. Wait for the workflow to run, verify that the workflow has published a prerelease version (`0.1.x-prerelease`) to the Bicep registry.
 
-    <img src="./media/Lab6/3.png" alt="Verify the workflow logs seeing that it published to the registry">
+    <img src="./media/Lab6/acrPublish.png" alt="Verify the workflow logs seeing that it published to the registry">
 
+# Step 3 - Verify the published module
 
-  - Verify by going to the Azure portal and investigating the bicep registry. To get there, you first have to navigate to the resource group containing the container registry (by default `artifacts-rg`). In it, search for the ACR that you specified in [Lab 2](./Lab%202%20-%20Setup%20CARML%20prerequisites#Set-the-container-registry-unique-name). In it, find the `bicep/modules/microsoft.network.routetables` repository. Check it for published versions.
+One of the ways you can verify whether the publishing worked is by going to the Azure portal and investigating the bicep registry. 
 
-    <img src="./media/Lab6/4.png" alt="Verify in the Azure portal what version was published">
+1. To get there, you first have to navigate to the resource group containing the container registry (by default `artifacts-rg`). In it, search for the ACR that you specified in [Lab 2](./Lab%202%20-%20Setup%20CARML%20prerequisites#Set-the-container-registry-unique-name).
+
+    <img src="./media/Lab6/acrSelect.png" alt="Find the ACR" height=500>   
+
+1. Next, find the `bicep/modules/microsoft.network.routetables` repository. 
+    
+    <img src="./media/Lab6/acrRepo.png" alt="Verify in the Azure portal what version was published" height=350>
+
+1. Check the repository for the published version.
+
+    <img src="./media/Lab6/acrVersion.png" alt="The published version" height=250>
+
+# Step 4 - Prepare to publish a release
 
 1. Merge your branch with `main` by creating a pull request on GitHub and merging it.
 
@@ -40,7 +54,6 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
     <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
 
-# Step 2 - Prepare to publish a release
 
 - Back in VSCode, change to main and sync main branch with the newest changes.
 

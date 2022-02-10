@@ -79,11 +79,11 @@ For the next lab you will need a few more modules being published. To do so, pro
 1. Back in VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
       - **Alternative 1:** Via VSCode's terminal by executing the following commands
-    
-      ```PowerShell
-        git checkout 'main'
-        git pull
-      ```
+      
+        ```PowerShell
+          git checkout 'main'
+          git pull
+        ```
 
      - **Alternative 2:** You can perform a few steps in the UI
 

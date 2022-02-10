@@ -2,17 +2,9 @@ In this lab, you will set up **CARML** in your own environment. This set-up can 
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)
-  - [Alternative 1: Using Az CLI commands](#alternative-1-using-az-cli-commands)
-  - [Alternative 2: Using the Azure Portal](#alternative-2-using-the-azure-portal)
-    - [Create the Service Principal](#create-the-service-principal)
-    - [Grant Service principal access to subscription](#grant-service-principal-access-to-subscription)
 - [Step 2 - Create your fork](#step-2---create-your-fork)
 - [Step 3 - Configure your repository](#step-3---configure-your-repository)
 - [Step 4 - Configure code base](#step-4---configure-code-base)
-  - [Clone the repository](#clone-the-repository)
-  - [Prepare the default prefix](#prepare-the-default-prefix)
-  - [Set the container registry unique name](#set-the-container-registry-unique-name)
-  - [Commit your changes to main](#commit-your-changes-to-main)
 - [Step 5 - Create a branch](#step-5---create-a-branch)
 - [Step 6 - Enable actions](#step-6---enable-actions)
 

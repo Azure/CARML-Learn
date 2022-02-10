@@ -186,3 +186,8 @@ Part of your pull request are 2 files that should not be pushed into the target 
 
 
 1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
+
+---
+---
+
+If ready, proceed to the next lab: [Lab 8 - Build an ACR driven solution](./Lab%208%20-%20Build%20an%20ACR-driven%20solution)

@@ -129,5 +129,6 @@ You can now re-deploy your template to update and add the new resources.
 <!-- TODO: Extend with how to use bicepconfig.json ? -->
 
 ---
+---
 
-[Now proceed to the next LAB](./Lab%208%20-%20Interoperability.md)
+If ready, proceed to the next lab: [Lab 9 - Interoperability](./Lab%209%20-%20Interoperability)

@@ -165,4 +165,7 @@ For the next lab you will need a few more modules being published. To do so, pro
 >       - Finds all parent module files, and get their version data using the same logic as mentioned before.
 >     - Publish each changed child module and parents using the calculated version numbers
 
-Proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution.md)
+---
+---
+
+If ready, proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Contribution)

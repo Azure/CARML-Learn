@@ -405,5 +405,7 @@ To do so, perform the following steps:
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
     
-    
-  --> [Now proceed to the next LAB](./Lab%203%20-%20Deploy%20Dependencies.md) -->
+---
+---
+
+If ready, proceed to the next lab: [Lab 3 - Deploy Dependencies](./Lab%203%20-%20Deploy%20Dependencies)

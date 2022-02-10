@@ -150,4 +150,7 @@ Finally, the **fifth level resources** are resources with dependency on all the 
 
 <img src="./media/Lab3/dependencies_groups.png" height="330">
 
---> [Now proceed to the next LAB](./Lab%204%20-%20First%20pipeline%20run.md) -->
+---
+---
+
+If ready, proceed to the next lab: [Lab 4 - First pipeline run](./Lab%204%20-%20First%20pipeline%20run)

@@ -382,3 +382,8 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 
     DeploymentDebugLogLevel :
     ```
+
+---
+---
+
+If ready, proceed to the next lab: [Lab 2 - Setup CARML prerequisites](./Lab%202%20-%20Setup%20CARML%20prerequisites)

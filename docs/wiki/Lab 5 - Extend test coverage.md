@@ -181,4 +181,7 @@ In case the dependency pipeline of [Lab 3](./Lab%203%20-%20Deploy%20Dependencies
 
     <img src="./media/Lab5/proximity-placement-create.png" alt="Create Proximity Placement" height="350">
 
---> [Now proceed to the next LAB](./Lab%206%20-%20Publishing.md) -->
+---
+---
+
+If ready, proceed to the next lab: [Lab 6 - Publishing](./Lab%206%20-%20Publishing)

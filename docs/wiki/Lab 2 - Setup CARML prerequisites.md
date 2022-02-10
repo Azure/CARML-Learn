@@ -1,4 +1,4 @@
-In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform and end to end testing for contribution purposes.
+In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform an end to end testing for contribution purposes.
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)
@@ -25,12 +25,12 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 - Subscription ID
 - Parent Management Group
 
-There are to alternatives two execute this step:
+There are two alternatives to execute this step:
 
 1. [Using Az CLI commands](#alternative-1-using-az-cli-commands)
 2. [Using the Azure Portal](#alternative-2-using-the-azure-portal)
 
-Please, choose the one you prefer and move to Step 2 afterwards
+Please, choose the one you prefer and move to Step 2 afterwards.
 
 ## Alternative 1: Using Az CLI commands
 
@@ -42,15 +42,15 @@ The following commands will allow us to:
 
 > If you don't want to give Owner permissions to the Service Principals other options will be provided as part of the steps.
 
-1. As a first step, in the Azure portal, you have to navigate to you subscription by using for example the search bar on the top
+1. As a first step, in the Azure portal, you have to navigate to your subscription by using for example the search bar on the top.
 
     <img src="./media/PreReqAzure/portalSubscriptionSearch.png" alt="Subscription search" height="170">
 
-2. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`
+2. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
 
     <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
 
-3. This brings you to the overview of your subscription. Here you need to perform 3 tasks:
+3. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
    - Make note of the `Subscription ID` for later reference
    - Make note of the `Parent Management Group` for later reference
 
@@ -104,11 +104,11 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
 ### Create the Service Principal
 
-1. Open to the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
+1. Open the Azure Portal via the URL [https://portal.azure.com](https://portal.azure.com)
 
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
-2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top 
+2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top.
 
     <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="190">
 
@@ -118,7 +118,7 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
     <img src="./media/PreReqAzure/portalAzureAD.png" alt="Portal AAD Home" height="400">
 
-4. In the opening view select `+ New registration` on the top
+4. In the opening view select `+ New registration` on the top.
 
     <img src="./media/PreReqAzure/portalAzureADAppRegistrations.png" alt="Portal AAD App Registration Overview" height="180">
 
@@ -128,7 +128,7 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
 6. This will open the created application's overview. Here we again want to do 2 things:
    - Make note of the `Application (client) ID` for later reference
-   - Navigate to the application's underlying service principal by selecting it's name on the right side of the application's overview
+   - Navigate to the application's underlying service principal by selecting its name on the right side of the application's overview
 
     <img src="./media/PreReqAzure/portalAzureADAppView.png" alt="Portal AAD App View" height="200">
 
@@ -144,7 +144,7 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="300">
 
-9. Now enter a name for the secret, and click on `Add`
+9. Now enter a name for the secret, and click on `Add`.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreateBlade.png" alt="Portal AAD App Secret Create Blade" height="150">
 
@@ -156,11 +156,11 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
 Now that we have a new service principal, we must grant it access on the subscription we want to test later deployments in.
 
-1. As a first step, you have to navigate to you subscription by using for example the search bar on the top
+1. As a first step, you have to navigate to your subscription by using for example the search bar on the top.
 
     <img src="./media/PreReqAzure/portalSubscriptionSearch.png" alt="Subscription search" height="170">
 
-1. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`
+1. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
 
     <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
 
@@ -171,35 +171,35 @@ Now that we have a new service principal, we must grant it access on the subscri
 
     <img src="./media/PreReqAzure/portalSubscriptionView.png" alt="Subscription overview" height="220">
 
-1. In the opened `Access control (IAM)` view, select `+ Add` on the top 
+1. In the opened `Access control (IAM)` view, select `+ Add` on the top.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAM.png" alt="Role assignment overview" height="170">
 
-1. In the opening drop-down, select `Add role assignment`
+1. In the opening drop-down, select `Add role assignment`.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAdd.png" alt="Role assignment init" height="170">
 
-1. This opens a new view with 3 tabs we have to navigate through. First, you must select the `Role` we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can you the search to search for the roles you want to assign and select them in the list below it.
+1. This opens a new view with 3 tabs we have to navigate through. First, you must select the `Role` we want to assign. For this lab we recommend to use the `Owner` role, as the CI platform tests both resource deployments, as well as role assignments. If you don't want to assign `Owner`, you can also choose `Contributor` in combination with `User Access Administrator`. In either case, you can use the search to search for the roles you want to assign and select them in the list below it.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRole.png" alt="Role assignment select role" height="260">
 
-1. Next, navigate to the `Members` tab and click on `+ Select members`
+1. Next, navigate to the `Members` tab and click on `+ Select members`.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMember.png" alt="Role assignment member initial" height="275">
 
-1. In the opening blade, search for the name of the application you created (in this example it is `MyApplication`), make sure you **select** the application, and click on `Select` on the bottom of the blade 
+1. In the opening blade, search for the name of the application you created (in this example it is `MyApplication`), make sure you **select** the application, and click on `Select` on the bottom of the blade.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMemberBlade.png" alt="Role assignment select member" height="250">
 
-1. This will close the blade and show the application in the `Members` view as shown in the image below
+1. This will close the blade and show the application in the `Members` view as shown in the image below.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddRoleMemberView.png" alt="Role assignment member selected" height="275">
 
-1. Finally, select the `Review + assign` tab which shows you an overview of the configuration and click on the `Review + assign` button on the bottom to conclude the role assignment
+1. Finally, select the `Review + assign` tab which shows you an overview of the configuration and click on the `Review + assign` button on the bottom to conclude the role assignment.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMAddFinal.png" alt="Role assignment Review" height="310">
 
-1. This will close the view and we can confirm that the role assignment worked by searching for the application in the searching and selecting your application in the `Check access` section. Be aware that it may take a few seconds for the role assignment to finish
+1. This will close the view and we can confirm that the role assignment worked by searching for the application in the search and selecting your application in the `Check access` section. Be aware that it may take a few seconds for the role assignment to finish.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearch.png" alt="Role assignment check access search" height="300">
 
@@ -225,11 +225,11 @@ In **CARML**, you can't work directly in the `main` branch, so the first action 
 
     <img src="./media/PreReqGitHub/carmlFork.png" alt="Repository Fork" height="180">
 
-1. Once triggered, the repository will take a moment to be set up
+1. Once triggered, the repository will take a moment to be set up.
 
     <img src="./media/PreReqGitHub/carmlForkingInProgress.png" alt="Forking in progess" height="160">
 
-1. Once done, you will automatically be forwarded to your repository
+1. Once done, you will automatically be forwarded to your repository.
 
     <img src="./media/PreReqGitHub/carmlForkFinal.png" alt="Forked repository" height="250">
 
@@ -239,19 +239,19 @@ Now you need to configure several secrets that are leveraged by the solution's w
 
 To do that you have to perform the following steps in sequence:
 
-1. Navigate to the repository's `Settings`
+1. Navigate to the repository's `Settings`.
 
     <img src="./media/PreReqGitHub/forkSettings.png" alt="Navigate to settings" height="100">
 
-1. In the list of settings, expand `Secrets` and select `Actions`. You can create a new repository secret by selecting `New repository secret` on the top right
+1. In the list of settings, expand `Secrets` and select `Actions`. You can create a new repository secret by selecting `New repository secret` on the top right.
 
     <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="600">
 
-2. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button
+2. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button.
 
     <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="600">
 
-    The values of the secrets are the ones we collected in the [Azure setup](./PreReqAzure) tutorial. You'll need to create one secret for each entry in the following table and make sure you use the exact same naming:
+    The values of the secrets are the ones we collected in [Step 1](#step-1---create-azure-service-principal-and-configure-access-to-subscription) of this lab. You'll need to create one secret for each entry in the following table and make sure you use the exact same naming:
 
     | Secret Name | Example | Description |
     | - | - | - |
@@ -269,11 +269,11 @@ To do that you have to perform the following steps in sequence:
       {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
       ```
 
-      Make sure you create this object as one continuous string as shown above - using the information you collected during the Azure setup. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
+      Make sure you create this object as one continuous string as shown above - using the information you collected during Step 1 of this lab. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 # Step 4 - Configure code base
 
-As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places
+As the platform tests services in Azure, you have to ensure that those services with globally unique naming requirements are set up accordingly. This must happen in two places:
 
 - The individual module parameter files
 - The shared dependency pipeline
@@ -282,29 +282,29 @@ The platform, by default, will publish the modules on _Azure Container Registry_
 
 ## Clone the repository
 
-To perform these changes as quickly and easy as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please perform the following steps:
+To perform these changes as quickly and easily as possible, we recommend to update the code base using a local clone of the code in Visual Studio Code (VSCode). To do so, please perform the following steps:
 
-1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository
+1. On the overview page of your fork, select the `<> Code` button to the right, and select the copy button in the opening pop up to copy the URL we need to clone the repository.
 
     <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="250">
 
-1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short
+1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short.
 
     <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="150">
 
-1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder.
 
     <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
-1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution
+1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
 
     <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
 
-1. Following the execution you will find that there is now a `ResourceModules` folder 
+1. Following the execution you will find that there is now a `ResourceModules` folder.
 
     <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
 
-1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder folder
+1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder.
 
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 
@@ -354,19 +354,19 @@ As said above, the Bicep Registry needs a globally unique name, so you will need
 
 You now need to push the changes in the repo. To do so using VSCode UI
 
-1. Go to source control and stash the changes by clicking on the `+` button
+1. Go to source control and stash the changes by clicking on the `+` button.
 
     <img src="./media/Lab2/stash-settings-changes.png" alt="Stash changes" height="100">
 
-1. Type a commit message and commit
+1. Type a commit message and commit.
 
     <img src="./media/Lab2/commit-message.png" alt="Commit changes" height="100">
 
-1. Sync the changes
+1. Sync the changes.
 
     <img src="./media/Lab2/sync-changes.png" alt="Sync changes" height="100">
 
-**as alternative** you can use the command line using the following commands:
+**As an alternative** you can use the command line using the following commands:
 
  ```PowerShell
 git add -A
@@ -382,7 +382,7 @@ To this end, the trigger is set up to look for any changes in the `main` branch 
 
 As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
-1. To do so, navigate back to your local Visual Studio code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+1. To do so, navigate back to your local Visual Studio code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
 
 1. Now, execute the following PowerShell commands:
 
@@ -397,11 +397,11 @@ Finally, the 'GitHub Actions' are disabled by default. Hence, in order to contin
 
 To do so, perform the following steps:
 
-1. Navigate to the `Actions` tab on the top of the repository page
+1. Navigate to the `Actions` tab on the top of the repository page.
 
     <img src="./media/PreReqGitHub/actionsOverview.png" alt="Navigate to actions" height="150">
 
-1. Next, select '`I understand my workflows, go ahead and enable them`'
+1. Next, select '`I understand my workflows, go ahead and enable them`'.
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
     

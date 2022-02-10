@@ -66,6 +66,8 @@ Next, you will create an actual release, that is, publish modules without the pr
 
    <img src="./media/Lab6/mergeTrigger.png" alt="Trigger by PR merge" height=150>
 
+    > **Note:** The pipelines will roughly take ***10 minutes*** to complete. However, you can already proceed with the next steps.
+
 4. If you further drill into the route table pipeline run, open its `Publish module` logs, and you can get a detailed view of its process to determine the new version to publish into the target location
 
     <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
@@ -150,6 +152,8 @@ For the next lab you will need a few more modules being published. To do so, pro
 1. Once the PR is merged, navigate to the `Actions` tab. You should notice 6 pipelines automatically running.
 
     <img src="./media/Lab6/prereqModulesRuns.png" alt="Prereq pipeline runs" height=400>
+
+    > **Note:** The pipelines will roughly take ***30 minutes*** to complete. However, you can already proceed with the next steps.
 
 > **Background**
 >  - When a change in `main` occurs on any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.

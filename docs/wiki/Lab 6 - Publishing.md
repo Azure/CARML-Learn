@@ -5,6 +5,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 - [Step 2 - Run the workflow in GitHub](#step-2---run-the-workflow-in-github)
 - [Step 3 - Verify the published module](#step-3---verify-the-published-module)
 - [Step 4 - Prepare to publish a release](#step-4---prepare-to-publish-a-release)
+- [Step 5 - Prepare to publish a release](#step-5---prepare-the-next-lab)
 ---
 
 # Step 1 - Publish prerelease for a module
@@ -53,49 +54,98 @@ Next, you will create an actual release, that is, publish modules without the pr
 
    <img src="./media/Lab6/prbanner.png" alt="Create a PR" height=200>
 
-1. In the PR, provide a meaningful description and if you're interested also check the file changes (should be around 6 files) to make sure everything seems in order. Once you're ready, go ahead an merge the pull request.
+1. In the PR, first you have to make sure the correct target location is selected. By default the PR would be opened to the upstream CARML repository. To do so, just select your fork from the left dropdown. The UI will then automatically adjust the target to `main`.
+
+   <img src="./media/Lab6/prbranch.png" alt="Select target repo" height=130>
+ 
+2. provide a meaningful description and if you're interested also check the file changes (should be around 6 files) to make sure everything seems in order. Once you're ready, go ahead an merge the pull request.
 
    <img src="./media/Lab6/prMerge.png" alt="Merge a PR" height=200>
 
-
-2. Check the workflow run that was triggered by the merge (push) to main 
+3. Check the workflow run that was triggered by the merge (push) to main 
 
    <img src="./media/Lab6/mergeTrigger.png" alt="Trigger by PR merge" height=150>
 
-3. See what happens with the published version.
+4. If you further drill into the route table pipeline run, open its `Publish module` logs, and you can get a detailed view of its process to determine the new version to publish into the target location
 
     <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
 
+# Step 5 - Prepare the next lab
 
-- Back in VSCode, change to main and sync main branch with the newest changes.
+For the next lab you will need a few more modules being published. To do so, proceed with the following steps:
 
-```pwsh
-  git checkout main
-  git pull
-```
+1. Back in VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
-- Create and check out a new branch called `dev/prereqModules`.
+      - **Alternative 1:** Via VSCode's terminal by executing the following commands
+    
+      ```PowerShell
+        git checkout 'main'
+        git pull
+      ```
 
-  ```pwsh
-    git checkout -b dev/prereqModules origin/main
-  ```
+     - **Alternative 2:** You can perform a few steps in the UI
 
-- Now we do the same exercise for all the modules used in Lab 1 and those needed for next lab. Change the version number to `0.1` on the following modules:
-  - `Microsoft.Resources/resourceGroups`
-  - `Microsoft.Storage/storageAccounts`
-  - `Microsoft.KeyVault/vaults`
-  - `Microsoft.OperationalInsights/workspaces`
-  - `Microsoft.Insights/components`
-  - `Microsoft.MachineLearningServices/workspaces`
-- Save (`Ctrl+s`), commit and push your changes.
+       1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
-  ```pwsh
-    git commit -a -m "update version to 0.1"
-    git push origin dev/routeTable
-  ```
+            <img src="./media/Lab6/initBranchChange.png" alt="Change branch" height=80> 
 
-- Merge your branch with `main` by creating a pull request on GitHub and merging it.
-- Go to one of the modules workflows and pay attention to the publish step.
+        1. Next, a dropdown opens where you select the `main` branch
+
+            <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+
+        1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
+
+            <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+
+1. Create a new branch `prereqModules`. Again you can do this in two ways:
+
+   - **Alternative 1:** Via VSCode's terminal with the following steps
+  
+      1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+       
+      1. Now, execute the following PowerShell commands:
+
+          ```PowerShell
+          git checkout -b 'prereqModules'
+          git push --set-upstream 'origin' 'prereqModules'
+          ```
+   - **Alternative 2:** You can perform a few steps in the UI
+
+      1. Select the current branch on the bottom left of VSCode
+
+          <img src="./media/Lab6/initBranchMain.png" alt="Change branch main" height=80> 
+
+      1. Select `+ Create new branch` in the opening dropdown
+
+          <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
+
+      1. Enter the new branch name `prereqModules`
+
+          <img src="./media/Lab6/createBranchName.png" alt="Enter name" height=70> 
+
+      1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+          <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
+
+1. Next, change the version number to `0.1` for all of the following modules:
+     - `Microsoft.Resources/resourceGroups`
+     - `Microsoft.Storage/storageAccounts`
+     - `Microsoft.KeyVault/vaults`
+     - `Microsoft.OperationalInsights/workspaces`
+     - `Microsoft.Insights/components`
+     - `Microsoft.MachineLearningServices/workspaces`
+    > **Note:** For our purposes it is sufficient to only change the `version.json` file for the top-level resource type. In other words, you can ignore the child-modules.
+    >
+    > **Note:** Make sure you safe the changes on each file
+
+1. Next, push the changes the same way you did before (either via the UI, or PowerShell). VSCode should display you 6 changed files.
+
+    <img src="./media/Lab6/changedFiles.png" alt="Changed files" height=250>
+
+1. And as before, create and merge a pull request from the created branch `prereqModules` to your main branch
+    > **Note:** Don't forget to select the correct target location (your fork)
+
+1. Go to one of the modules workflows and pay attention to the publish step.
 
    <img src="./media/Lab6/7.png" alt="Updates for storageAccounts">
 

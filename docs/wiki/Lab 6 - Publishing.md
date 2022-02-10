@@ -147,20 +147,18 @@ For the next lab you will need a few more modules being published. To do so, pro
 
     <img src="./media/Lab6/prereqPR.png" alt="PR for prereq modules" height=550>
 
-1. Once the PR is merged, navigate to the `Actions` tab. You should notice 6 pipelines running.
+1. Once the PR is merged, navigate to the `Actions` tab. You should notice 6 pipelines automatically running.
 
     <img src="./media/Lab6/prereqModulesRuns.png" alt="Prereq pipeline runs" height=400>
 
-
-  - When a change happens to any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
-  - The publishing stage of the workflow will:
-    - Look for changed files in the module and child modules folders.
-    - For a detected change:
-      - Find the nearest template file (deploy.* in same folder as the changed file or parent folder).
-      - Find the corresponging `version.json` file and get the `major` and `minor` version numbers. The `patch` number is calculated from 'git hight' (number of commits from base commit). If the workflow/pipeline is run on a non `main`/`master` branch, '-prerelease' is added to the version number.
-      - Finds all parent module files, and get their version data using the same logic as mentioned over.
-    - Publish each changed child module and parents, using the calculated version numbers, publish a `major` and `major.minor` version for easy selection of 'latest' version.
-- When you have seen that the workflow has completed for the module you chose, go to the Actions overview and filter the view to show only successful workflow runs.
-- Check that the others complete, and verify their published versions in the Azure portal.
+> **Background**
+>  - When a change in `main` occurs on any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
+>  - The publishing stage of the workflow will:
+>     - Look for changed files in the module and child modules folders.
+>     - For a detected change:
+>       - Find the nearest template file (`deploy.*` in same folder as the changed file or parent folder).
+>       - Find the corresponding `version.json` file and get the `major` and `minor` version numbers. The `patch` number is calculated from 'git height' (number of commits from base commit). If the workflow/pipeline is run on a non `main`/`master` branch, '-prerelease' is added to the version number
+>       - Finds all parent module files, and get their version data using the same logic as mentioned before.
+>     - Publish each changed child module and parents using the calculated version numbers
 
 Proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution.md)

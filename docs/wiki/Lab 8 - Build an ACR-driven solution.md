@@ -14,7 +14,7 @@ In the previous lab you published all the neccessary modules to bicep registry. 
 1. Click on the Container registry resource and go to the `Repositories` list
 1. Select the first resource type in the list and click on the latest version. You will need to take note of the `Artifact reference` field
 
-    <img src="./media/Lab7/registry-reference.png" alt="Registry reference" height="500">
+    <img src="./media/Lab8/registry-reference.png" alt="Registry reference" height="500">
 
 1. Repeat the previous step for all resources. Make sure you have at least the urls for the following resource types:
     1. Resource group
@@ -84,7 +84,7 @@ You can add to the solution new fancy stuff.
 
 1. Add Reader role RBAC to one of the resources. You will need an object ID of a principal on your directory. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
 
-    <img src="./media/Lab7/object-id.png" alt="Object ID" height="400">
+    <img src="./media/Lab8/object-id.png" alt="Object ID" height="400">
 
 1. Now add the following lines of code in the properties of a resource (e.g. the storage account):
 

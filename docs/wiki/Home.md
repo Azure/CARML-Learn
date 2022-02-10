@@ -13,9 +13,9 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Lab 4: First pipeline run](./Lab%204%20-%20First%20pipeline%20run)
   - [Lab 5: Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)
   - [Lab 6: Publishing](./Lab%206%20-%20Publishing)
-  - [Lab 7: Build an ACR-driven solution](./Lab%207%20-%20Build%20an%20ACR-driven%20solution)
-  - [Lab 8: Interoperability](./Lab%208%20-%20Interoperability)
-  - [Lab 9: Contribution](./Lab%209%20-%20Contribution)
+  - [Lab 7: Contribution](./Lab%207%20-%20Contribution)
+  - [Lab 8: Build an ACR-driven solution](./Lab%208%20-%20Build%20an%20ACR-driven%20solution)
+  - [Lab 9: Interoperability](./Lab%209%20-%20Interoperability)
 
 # Pre-Requisites
 

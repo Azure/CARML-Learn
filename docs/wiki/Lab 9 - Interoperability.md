@@ -22,7 +22,7 @@ At this point, you have now taken CARML modules written in Bicep and deployed th
 
 1. To run the script, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select copy path
 
-    <img src="./media/Lab8/copyPathofScript.png" alt="Copy Path of ConvertTo-ARMTemplate.ps1" height="300">
+    <img src="./media/Lab9/copyPathofScript.png" alt="Copy Path of ConvertTo-ARMTemplate.ps1" height="300">
 
 1. Open a new PowerShell terminal session. Type + paste into the terminal
 
@@ -30,7 +30,7 @@ At this point, you have now taken CARML modules written in Bicep and deployed th
 
     For example:
 
-    <img src="./media/Lab8/scriptOutput.png" alt="Terminal Output for ConvertTo-ARMTemplate.ps1" height="75">
+    <img src="./media/Lab9/scriptOutput.png" alt="Terminal Output for ConvertTo-ARMTemplate.ps1" height="75">
 
     > Upon hitting enter the script will be begin running. You will notice 'Warning' as part of the output, that is normal and the script will continute. 
 
@@ -59,28 +59,28 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
 
 1. Go to your Azure DevOps project and select Pipelines on the left-hand side
 
-    <img src="./media/Lab8/ADOHomepage.png" alt="ADO Homepage" height="200">
+    <img src="./media/Lab9/ADOHomepage.png" alt="ADO Homepage" height="200">
 
 1. Next, click the more actions `:` icon and select `Manage Security`
 
-    <img src="./media/Lab8/ADOPipelineSettings.png" alt="ADO Pipeline Setting" height="200">
+    <img src="./media/Lab9/ADOPipelineSettings.png" alt="ADO Pipeline Setting" height="200">
 
 1. The pipeline permissions for the project will appear. Scroll to the bottom and find the `<ProjectName>` Build Service under `Users`. Select the Build Service. Locate the `Edit build pipeline` setting and change it from `Not Set` to `Allow`
 
-    <img src="./media/Lab8/UpdatePipelineSetting.png" alt="Update Pipeline Setting" height="300">
+    <img src="./media/Lab9/UpdatePipelineSetting.png" alt="Update Pipeline Setting" height="300">
 
     > The changes will automatically be saved/updated and you can close the permissions panel once done.
 
 1. Next, click on `Project Setings` on the bottom-left corner of the page. Scroll towards the bottom of the `Project Settings` panel, locate the `Service Connections` tab
 
-    <img src="./media/Lab8/ServiceConnectionSettings.png" alt="Service Connection Settings" height="300">
+    <img src="./media/Lab9/ServiceConnectionSettings.png" alt="Service Connection Settings" height="300">
 
 
 1. The next step(s) should only be done when the repo is in GitHub. We will be establishing a service connection between Azure DevOps and GitHub:
     1. Click `Create New Service Connection`
     1. Scroll, find, and select `GitHub` and click next. 
 
-        <img src="./media/Lab8/GithubServiceConnection.png" alt="Github Service Connection" height="300">
+        <img src="./media/Lab9/GithubServiceConnection.png" alt="Github Service Connection" height="300">
         
         > Note if an orginization is using GitHub Enterprise to host their repository, GitHub Enterprise must be selected instead. 
     
@@ -88,7 +88,7 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
 
     1. A new window will appear taking you to GitHub. If you are already logged in to GitHub, it will automatically authenticate and authorize the service connection. If not, it will prompt you. Follow the steps and once finished you should see the user as part of the service connection: 
 
-        <img src="./media/Lab8/GithubConnectionConfig.png" alt="Github Service Connection Configured" height="300">
+        <img src="./media/Lab9/GithubConnectionConfig.png" alt="Github Service Connection Configured" height="300">
 
     1. The name of the service connection will be automatically populated. For simplicity of this lab, rename the service connection to `GithubConnection`. You will need this name later. Click save once finished.
 

@@ -145,11 +145,14 @@ For the next lab you will need a few more modules being published. To do so, pro
 1. And as before, create and merge a pull request from the created branch `prereqModules` to your main branch
     > **Note:** Don't forget to select the correct target location (your fork)
 
-1. Go to one of the modules workflows and pay attention to the publish step.
+    <img src="./media/Lab6/prereqPR.png" alt="PR for prereq modules" height=550>
 
-   <img src="./media/Lab6/7.png" alt="Updates for storageAccounts">
+1. Once the PR is merged, navigate to the `Actions` tab. You should notice 6 pipelines running.
 
-  - When a change happends to any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
+    <img src="./media/Lab6/prereqModulesRuns.png" alt="Prereq pipeline runs" height=400>
+
+
+  - When a change happens to any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
   - The publishing stage of the workflow will:
     - Look for changed files in the module and child modules folders.
     - For a detected change:

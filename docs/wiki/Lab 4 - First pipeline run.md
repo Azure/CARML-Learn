@@ -69,5 +69,6 @@ Let's now see what happened.
     > You can modify this behaviour by unflagging `Remove deployed module` flag when running a workflow
 
 ---
+---
 
 If ready, proceed to the next lab: [Lab 5 - Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)

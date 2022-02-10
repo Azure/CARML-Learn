@@ -1,18 +1,76 @@
 In this lab, you will learn how a contribution to the source repository (in this example the CARML main repository) would look like. At a customer, the same approach could be used to allow teams to contribute to a central library.
 
 ### _Navigation_
-- [Step 1 - Implement the contribution](#step-1---implement-the-contribution)
-- [Step 2 - Run local test(s)](#step-2---run-local-tests)
-- [Step 3 - Re-generate the documentation](#step-3---re-generate-the-documentation)
-- [Step 4 - Re-run local test(s)](#step-4---re-run-local-tests)
-- [Step 5 - Upload your changes and run the module pipeline](#step-5---upload-your-changes-and-run-the-module-pipeline)
-- [Step 6 - Create a PR](#step-6---create-a-pull-request)
-- [Step 7 - Exclude environment-specific changes](#step-7---exclude-environment-specific-changes)
+- [Step 1 - Create a contribution branch](#step-1---create-a-contribution-branch)
+- [Step 2 - Implement the contribution](#step-2---implement-the-contribution)
+- [Step 3 - Run local test(s)](#step-3---run-local-tests)
+- [Step 4 - Re-generate the documentation](#step-4---re-generate-the-documentation)
+- [Step 5 - Re-run local test(s)](#step-5---re-run-local-tests)
+- [Step 6 - Upload your changes and run the module pipeline](#step-6---upload-your-changes-and-run-the-module-pipeline)
+- [Step 7 - Create a PR](#step-7---create-a-pull-request)
+- [Step 8 - Exclude environment-specific changes](#step-8---exclude-environment-specific-changes)
   
 ---
 
-# Step 1 - Implement the contribution
-<!-- E.g. update parameter metadata -->
+# Step 1 - Create a contribution branch
+
+For the subsequent contribution, you first need a new branch. Similar to the other labs, create one by performing the following sequence of steps:
+
+1. In VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
+
+      - **Alternative 1:** Via VSCode's terminal by executing the following commands
+      
+        ```PowerShell
+          git checkout 'main'
+          git pull
+        ```
+
+     - **Alternative 2:** You can perform a few steps in the UI
+
+       1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
+
+            <img src="./media/Lab7/initBranchChange.png" alt="Change branch" height=80> 
+
+        1. Next, a dropdown opens where you select the `main` branch
+
+            <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+
+        1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
+
+            <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+
+
+1. Next, create a new branch `contribution`. Again you can do this in two ways:
+
+   - **Alternative 1:** Via VSCode's terminal with the following steps
+  
+      1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+       
+      1. Now, execute the following PowerShell commands:
+
+          ```PowerShell
+          git checkout -b 'contribution'
+          git push --set-upstream 'origin' 'contribution'
+          ```
+   - **Alternative 2:** You can perform a few steps in the UI
+
+      1. Select the current branch on the bottom left of VSCode
+
+          <img src="./media/Lab6/initBranchMain.png" alt="Change branch main" height=80> 
+
+      1. Select `+ Create new branch` in the opening dropdown
+
+          <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
+
+      1. Enter the new branch name `contribution`
+
+          <img src="./media/Lab7/createBranchName.png" alt="Enter name" height=70> 
+
+      1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+          <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
+
+# Step 2 - Implement the contribution
 
 The first step of any contribution is its implementation. For the sake if this lab, we will suggest a simple contribution that will allow you the make use of some of our tools:
 
@@ -20,14 +78,14 @@ The first step of any contribution is its implementation. For the sake if this l
 
     <img src="./media/Lab7/asDeployBicepSelect.png" alt="Availability Set VSCode" height="300">
 
-1. A simple contribution to perform is the addition of an additional `output` the bicep template will return upon successful execution. As we have seen, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
+1. A simple contribution to perform is the addition of an additional `output` the bicep template will return upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
    
     ```bicep
     @description('A list of references to all virtual machines in the availability set.')
     output virtualMachines array = availabilitySet.properties.virtualMachines
     ```
 
-# Step 2 - Run local test(s)
+# Step 3 - Run local test(s)
 
 CARML comes with a number of tools that you can use to perform several automated tasks for you. One of these tools can be use to perform the same tests locally as you would see in the pipeline. To do so, please perform the following tasks:
 
@@ -42,7 +100,7 @@ CARML comes with a number of tools that you can use to perform several automated
     > ***Note***: Should VSCode ask you (in the terminal) whether you are sure you want to execute the script, please confirm
     > <img src="./media/Lab7/allowsScript.png" alt="Enable execution" height="100">
 
-2. Once confirmed, the function will be loaded and can be invoked via the command of the same name `Test-ModuleLocally`. As stated earlier, the script replicates the feeling of the pipeline. That means, it can run a simple Pester test, but also a deployment which includes a parameter file using tokens. For our purpose, please invoke the function as follows
+1. Once confirmed, the function will be loaded and can be invoked via the command of the same name `Test-ModuleLocally`. As stated earlier, the script replicates the feeling of the pipeline. That means, it can run a simple Pester test, but also a deployment which includes a parameter file using tokens. For our purpose, please invoke the function as follows
 
     ```PowerShell
     $TestModuleLocallyInput = @{
@@ -52,13 +110,13 @@ CARML comes with a number of tools that you can use to perform several automated
     Test-ModuleLocally @TestModuleLocallyInput -Verbose
     ```
 
-3. Confirm to execute the script. After a moment, the terminal will show the test cases that are executed and should show one failed test
+1. Confirm to execute the script. After a moment, the terminal will show the test cases that are executed and should show one failed test
 
     <img src="./media/Lab7/failedTest.png" alt="Failed test" height="300">
 
     So why did it fail? Well, as per its description: The ReadMe outputs section should document all outputs defined in the template file. Before, you added a new template output, but the readme remained in its original state. 
 
-# Step 3 - Re-generate the documentation
+# Step 4 - Re-generate the documentation
 
 To update the readme, we provide another utility called `Set-ModuleReadMe`. This script again takes the template file path as an input an creates / updates almost all content of the module's readme file for you.
 
@@ -80,7 +138,7 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
 
     <img src="./media/Lab7/readMeUpdated.png" alt="ReadMe Updated" height="250">
 
-# Step 4 - Re-Run local test(s)
+# Step 5 - Re-Run local test(s)
 
 With the readme updated we can now re-run the test to confirm everything is in order.
 
@@ -98,7 +156,7 @@ With the readme updated we can now re-run the test to confirm everything is in o
 
     <img src="./media/Lab7/succeedTest.png" alt="Test succeeded" height="400">
 
-# Step 5 - Upload your changes and run the module pipeline
+# Step 6 - Upload your changes and run the module pipeline
 
 Now that the contribution is implemented and the tests are green, you can continue to prepare everything for the subsequent pull request.
 
@@ -136,7 +194,7 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     Subsequently, the pipeline will start running through the the same tests you executed locally, but also execute the simulated deployment, followed by an actual test deployment in Azure.
 
-1. While the pipeline is running, we can use the time to create a Pull Request. However, before doing so, you can take the chance to create a pipeline badge that you can attach to the later Pull Request. This badge will show the reviewer that the code changes were successfully validated & tested. To create a badge, first select the three dots (`...`) to the top right of the pipeline.
+1. While the pipeline is running, we can use the time to create a Pull Request. However, before doing so, you can take the chance to create a pipeline badge that you can attach to the later Pull Request. This badge will show the reviewer that the code changes were successfully validated & tested. To create a badge, first select the three dots (`...`) to the top right of the pipeline, and further the `Create status badge` option.
 
     <img src="./media/Lab7/badgeDropdown.png" alt="Badge dropdown" height="200">
 
@@ -144,7 +202,7 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab7/carmlStatusBadge.png" alt="Status badge" height="400">
 
-# Step 6 - Create a Pull Request
+# Step 7 - Create a Pull Request
 
 In this step you will create the pull request. Do do so, perform the following tasks:
 
@@ -168,7 +226,7 @@ In this step you will create the pull request. Do do so, perform the following t
 
     <img src="./media/Lab7/openPRPreview.png" alt="Pull request preview" height="500">
 
-# Step 7 - Exclude environment-specific changes
+# Step 8 - Exclude environment-specific changes
 
 Part of your pull request are 2 files that should not be pushed into the target repository as they contain details specific to your environment:
 - `settings.json`

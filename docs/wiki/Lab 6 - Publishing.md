@@ -16,7 +16,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 1. Next, upload your changes in the same manner as you did before, add your changes to the commit, create a commit with a corresponding commit message (e.g. `Updated route table version to 0.1`) and push the changes to GitHub
 
-    <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
+    <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
 
 # Step 2 - Run the workflow in GitHub
 

@@ -308,7 +308,9 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 
-## Prepare the default prefix
+<div style="padding: 10px; border-left: 3px solid #F59C00;">
+
+## <b><span style="color:#F59C00">! Prepare the default prefix</span></b>.
 
 To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" for resources that must be set during the solution setup.
 
@@ -336,7 +338,7 @@ To complete this section perform the following steps:
 
     > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions.
 
-## Set the container registry unique name
+## <b><span style="color:#F59C00">! Set the container registry unique name</span></b>
 
 As said above, the Bicep Registry needs a globally unique name, so you will need to use something that's different from the one cloned from the public CARML repository. To change it
 
@@ -349,6 +351,8 @@ As said above, the Bicep Registry needs a globally unique name, so you will need
         "value": "<put your unique name here>"
     },
     ```
+
+</div>
 
 ## Commit your changes to main
 

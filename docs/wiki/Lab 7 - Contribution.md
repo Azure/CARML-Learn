@@ -74,15 +74,15 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
 The first step of any contribution is its implementation. For the sake if this lab, we will suggest a simple contribution that will allow you the make use of some of our tools:
 
-1. In your local VSCode, navigate via `arm`, on to `Microsoft.Compute` and finally to the `availabilitySets`'s template `deploy.bicep`
+1. In your local VSCode, navigate via `arm`, on to `Microsoft.Network` and finally to the `routeTable`'s template `deploy.bicep`
 
-    <img src="./media/Lab7/asDeployBicepSelect.png" alt="Availability Set VSCode" height="300">
+    <img src="./media/Lab7/deployBicepSelect.png" alt="Availability Set VSCode" height="150">
 
 1. A simple contribution to perform is the addition of an additional `output` the bicep template will return upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
    
     ```bicep
-    @description('A list of references to all virtual machines in the availability set.')
-    output virtualMachines array = availabilitySet.properties.virtualMachines
+    @description('The routes of the deployed route table')
+    output route array = routeTable.properties.routes
     ```
 
 # Step 3 - Run local test(s)
@@ -112,7 +112,7 @@ CARML comes with a number of tools that you can use to perform several automated
 
 1. Confirm to execute the script. After a moment, the terminal will show the test cases that are executed and should show one failed test
 
-    <img src="./media/Lab7/failedTest.png" alt="Failed test" height="300">
+    <img src="./media/Lab7/failedTest.png" alt="Failed test" height="200">
 
     So why did it fail? Well, as per its description: The ReadMe outputs section should document all outputs defined in the template file. Before, you added a new template output, but the readme remained in its original state. 
 
@@ -124,19 +124,19 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
 
     <img src="./media/Lab7/loadScriptReadme.png" alt="load script for readme" height="50">
 
-1. Next, you can invoke the function as follows
+2. Next, you can invoke the function as follows
 
     ```PowerShell
     Set-ModuleReadMe -TemplateFilePath '<PathToTheUpdatedTemplate>' # Get the path via a right-click on the updated template file in VSCode & select 'Copy Path'
     ```
 
-1. Once you confirmed the execution of the script you should notice that the module's `readme.md` file is marked as modified. 
+3. Once you confirmed the execution of the script you should notice that the module's `readme.md` file is marked as modified. 
 
-    <img src="./media/Lab7/readMeUpdatedLog.png" alt="ReadMe Updated Log" height="100">
+    <img src="./media/Lab7/readMeUpdatedLog.png" alt="ReadMe Updated Log" height="50">
 
-1. If you open version control to the left you should notice at least the template file `deploy.bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
+4. If you open version control to the left you should notice at least the template file `deploy.bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
 
-    <img src="./media/Lab7/readMeUpdated.png" alt="ReadMe Updated" height="250">
+    <img src="./media/Lab7/readMeUpdated.png" alt="ReadMe Updated" height="350">
 
 # Step 5 - Re-Run local test(s)
 
@@ -154,7 +154,7 @@ With the readme updated we can now re-run the test to confirm everything is in o
 
 1. This time, however, none of the tests should fail:
 
-    <img src="./media/Lab7/succeedTest.png" alt="Test succeeded" height="400">
+    <img src="./media/Lab7/succeedTest.png" alt="Test succeeded" height="180">
 
 # Step 6 - Upload your changes and run the module pipeline
 

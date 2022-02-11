@@ -127,7 +127,7 @@ For the next lab you will need a few more modules being published. To do so, pro
 
       1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
-          <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
+          <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
 
 1. Next, change the version number to `0.1` for all of the following modules:
      - `Microsoft.Resources/resourceGroups`

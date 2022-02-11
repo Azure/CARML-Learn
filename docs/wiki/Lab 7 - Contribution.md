@@ -162,15 +162,15 @@ Now that the contribution is implemented and the tests are green, you can contin
 
 1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration. If not already there, navigate to the source control menu to the left.
 
-    <img src="./media/Lab7/sourceControl.png" alt="Open source control" height="140">
+    <img src="./media/Lab7/sourceControl.png" alt="Open source control" height="120">
 
 1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab7/gitadd.png" alt="Git add" height="80">
+    <img src="./media/Lab7/gitadd.png" alt="Git add" height="120">
 
-1. Next, you should give the commit a meaningful message such as 'Added VM output to availability set' and can then click the checkmark symbol on the top to create the commit
+1. Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="140">
+    <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="120">
 
 1. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
@@ -180,7 +180,7 @@ Now that the contribution is implemented and the tests are green, you can contin
 
     <img src="./media/Lab7/openActions.png" alt="Open actions" height="100">
 
-1. From the list of actions to the left, select `Compute: AvailabilitySets` followed by the `Run workflow` dropdown to the right
+1. From the list of actions to the left, select `Network: RouteTables` followed by the `Run workflow` dropdown to the right
 
     <img src="./media/Lab7/actionSelect.png" alt="Select actions" height="350">
 

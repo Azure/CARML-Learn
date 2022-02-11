@@ -1,4 +1,6 @@
-In this lab, you will convert the
+In this lab, you will 
+- Update the template you created in Lab 1 to leverage the modules you published to the ACR instead and
+- Learn how to extend the template with new solutions
 
 ### _Navigation_
 - [Step 1 - Modify the workload file to use Bicep Registry](#Step-1---Modify-the-workload-file-to-use-Bicep-Registry)
@@ -8,37 +10,76 @@ In this lab, you will convert the
 
 # Step 1 - Modify the workload file to use Bicep Registry
 
-In the previous lab you published all the neccessary modules to bicep registry. You will now use them to (re-) deploy the workload you deployed in LAB 1.
+In the previous lab you published all the necessary modules to bicep registry. You will now use them to (re-)deploy the workload you deployed in LAB 1.
 
-1. Go to the azure portal and navigate to the `artifacts-rg` resource group
+1. Go to the azure portal and navigate to the `artifacts-rg` resource group and navigate to the container registry you specified in [Lab 2](/docs/wiki/Lab%202%20-%20Setup%20CARML%20prerequisites#--set-the-container-registry-unique-name).
+
+   <img src="./media/Lab8/acrSelect.png" alt="Registry select" height="500">
+
 1. Click on the Container registry resource and go to the `Repositories` list
-1. Select the first resource type in the list and click on the latest version. You will need to take note of the `Artifact reference` field
 
-    <img src="./media/Lab8/registry-reference.png" alt="Registry reference" height="500">
+   <img src="./media/Lab8/repoSelect.png" alt="Repository select" height="450">
 
-1. Repeat the previous step for all resources. Make sure you have at least the urls for the following resource types:
-    1. Resource group
-    1. Storage account
-    1. Log Analytics workspace (microsoft.operationalinsights.workspaces)
-    1. Application insights (microsoft.insights.components)
-    1. Key Vault
-    1. Machine Learning service
-1. Open the `deploy.bicep` you created in lab 1, in this file you still have the module reference set to the local file
-1. Replace the module reference with `br:` + the reference you noted down. E.g. the keyvault first line will look like the following code
+1. Select the `bicep/modules/microsoft.resources.resourcegroups` reference and the latest version in the list
+
+   <img src="./media/Lab8/versionSelect.png" alt="Version select" height="350">
+
+1. Finally, copy the You will need to take note of the `Artifact reference` field
+
+    <img src="./media/Lab8/versionRefCopy.png" alt="Version reference" height="250">
+
+1. Repeat the previous step for all of the following resource types:
+    | Name | Reference |
+    | - | - |
+    | Resource group | `bicep/modules/microsoft.resources.resourcegroups`
+    | Storage account | `bicep/modules/microsoft.storage.storageaccounts` |
+    | Log Analytics workspace | `bicep/modules/microsoft.operationalinsights.workspaces` |
+    | Application insights | `bicep/modules/microsoft.insights.components` |
+    | Key Vault | `bicep/modules/microsoft.keyvault.vaults` |
+    | Machine Learning service | `bicep/modules/microsoft.machinelearningservices.workspaces` |
+
+1. Open the `deploy.bicep` from Lab 1. In this file you still have the module reference set to the local file.
+
+    <img src="./media/Lab8/localRef.png" alt="Local reference" height="300">
+
+1. Replace each module's local reference the sequence:
+
+        `br:` + `<the matching reference you noted down>` 
+     
+     For example, the resource group's first line will look similar to:
 
     ```bicep
-    module kv 'br:youracrname.azurecr.io/bicep/modules/microsoft.keyvault.vaults:0.1.999' = {
+    module kv 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {
     ```
 
-1. Now run the deployment command again. The deployment should succeede (even if no changes will happen)
+1. Eventually, all references should look similar to:
 
-    ```powershell
+    ```bicep
+    module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {}
+    module sa 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.storage.storageaccounts:<YourVersion>' = {}
+    module kv 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.keyvault.vaults:<YourVersion>' = {}
+    module la 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.operationalinsights.workspaces:<YourVersion>' = {}
+    ```
+
+2. Now, re-run the template's deployment like you did in  [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##--step-4---stretch-goal-deploy-solution). The deployment should succeed (even if no changes will happen).
+
+    ```Powershell
+    $inputObject = @{
+        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose            = $true
+        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+    }
     New-AzSubscriptionDeployment @inputObject
     ```
 
 # Step 2 - Add new resources
 
-You will now modify the template to deploy a machine learning service. In this step you will use resources that have dependencies on others, demostrating how easy it is to reference resources created by modules.
+You will now modify the template to deploy a machine learning service. In this step you will use resources that have dependencies on others, demonstrating how easy it is to reference resources created by modules.
 
 1. Machine Learning resource requires a reference to an AppInsights instance. Add the creation of this resource. The code you need to add will be similar to the following:
 

@@ -224,8 +224,6 @@ In this step you will create the pull request. Do do so, perform the following t
 
 1. Once you entered all the details, you can open a preview of the final look by selecting `Preview` on the top and finally select `Create pull request` to the bottom right.
 
-    <img src="./media/Lab7/openPRPreview.png" alt="Pull request preview" height="500">
-
 # Step 8 - Exclude environment-specific changes
 
 Part of your pull request are 2 files that should not be pushed into the target repository as they contain details specific to your environment:

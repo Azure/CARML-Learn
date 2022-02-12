@@ -1,10 +1,11 @@
 In order to successfully deploy and test all modules in your desired environment some modules have to have resources deployed beforehand. In this lab you will deploy the modules' dependencies by manually triggering the **dependency pipeline**.
 
 ### _Navigation_
-- [Step 1 - Add a dependency](#step-1---add-a-dependency)
-- [Step 2 - Upload your changes to GitHub](#step-2---upload-your-changes-to-github)
-- [Step 3 - Trigger the dependency pipeline](#step-3---trigger-the-dependency-pipeline)
-- [Step 4 - What you will deploy](#step-4---what-you-will-deploy)
+- [Step 1 - Add a dependency resource parameter](#step-1---add-a-dependency-resource-parameter)
+- [Step 2 - Update the dependency workflow](#step-2---update-the-dependency-workflow)
+- [Step 3 - Upload your changes to GitHub](#step-3---upload-your-changes-to-github)
+- [Step 4 - Trigger the dependency pipeline](#step-4---trigger-the-dependency-pipeline)
+- [Step 5 - Understand the dependency pipeline](#step-5---understand-the-dependency-pipeline)
 
 ---
 

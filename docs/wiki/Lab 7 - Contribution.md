@@ -74,7 +74,7 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
 The first step of any contribution is its implementation. For the sake if this lab, we will suggest a simple contribution that will allow you the make use of some of our tools:
 
-1. In your local VSCode, navigate via `arm`, on to `Microsoft.Network` and finally to the `routeTable`'s template `deploy.Bicep`
+1. In your local VSCode, navigate via `arm`, on to `Microsoft.Network` and finally to the `routeTable`'s template `deploy.bicep`
 
     <img src="./media/Lab7/deployBicepSelect.png" alt="Availability Set VSCode" height="150">
 
@@ -134,7 +134,7 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
 
     <img src="./media/Lab7/readMeUpdatedLog.png" alt="ReadMe Updated Log" height="50">
 
-4. If you open version control to the left you should notice at least the template file `deploy.Bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
+4. If you open version control to the left you should notice at least the template file `deploy.bicep` and readme file `readme.md` to be marked as changed. If you click on the readme specifically, a comparison view will open and show you that the readme was correctly updated
 
     <img src="./media/Lab7/readMeUpdated.png" alt="ReadMe Updated" height="350">
 

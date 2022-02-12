@@ -93,7 +93,7 @@ To set these up, please perform the following steps:
     // Deployments //
     // =========== //
 
-    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.Bicep' =
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' =
     ```
 
    Fundamentally, the above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the Bicep module does not have default values for.
@@ -103,7 +103,7 @@ To set these up, please perform the following steps:
     Once confirmed, it will generate the following skeleton:
 
     ```Bicep
-    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.Bicep' = {
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
      name:
         params: {
             name:
@@ -118,7 +118,7 @@ To set these up, please perform the following steps:
     Following you can find an example of how a complete reference would look like:
 
     ```Bicep
-    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.Bicep' = {
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
         name: 'workload-rg'
         params: {
             name: resourceGroupName
@@ -132,7 +132,7 @@ To set these up, please perform the following steps:
 1. Following the same flow, please now go ahead and add the references to the `../arm/Microsoft.Storage/storageAccounts` CARML module underneath the resource group module. Once done, it should look similar to:
 
     ```Bicep
-    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.Bicep' = {
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
         scope:
         name: 'workload-sa'
         params: {
@@ -160,7 +160,7 @@ To set these up, please perform the following steps:
     The full module reference should now look like
 
     ```Bicep
-    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.Bicep' = {
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-sa'
         params: {
@@ -222,7 +222,7 @@ To set these up, please perform the following steps:
     // Deployments //
     // =========== //
 
-    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.Bicep' = {
+    module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
         name: 'workload-rg'
         params: {
             name: resourceGroupName
@@ -230,7 +230,7 @@ To set these up, please perform the following steps:
         }
     }
 
-    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.Bicep' = {
+    module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-sa'
         params: {
@@ -241,7 +241,7 @@ To set these up, please perform the following steps:
         ]
     }
 
-    module kv '../arm/Microsoft.KeyVault/vaults/deploy.Bicep' = {
+    module kv '../arm/Microsoft.KeyVault/vaults/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-kv'
         params: {
@@ -252,7 +252,7 @@ To set these up, please perform the following steps:
         ]
     }
 
-    module la '../arm/Microsoft.OperationalInsights/workspaces/deploy.Bicep' = {
+    module la '../arm/Microsoft.OperationalInsights/workspaces/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-law'
         params: {
@@ -316,7 +316,7 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 
     PS C:\Desktop\CARML\ResourceModules> $inputObject = @{
     >>     DeploymentName            = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-    >>     TemplateFile              = 'C:\Desktop\CARML\ResourceModules\workload\deploy.Bicep'
+    >>     TemplateFile              = 'C:\Desktop\CARML\ResourceModules\workload\deploy.bicep'
     >>     Location                  = 'WestEurope'
     >>     Verbose                   = $true
     >>     ResourceGroupName         = 'carml-rg'

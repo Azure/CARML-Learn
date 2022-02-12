@@ -40,7 +40,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
     | Key Vault | `Bicep/modules/microsoft.keyvault.vaults` |
     | Machine Learning service | `Bicep/modules/microsoft.machinelearningservices.workspaces` |
 
-1. Open the `deploy.Bicep` from Lab 1. In this file you still have the module reference set to the local file.
+1. Open the `deploy.bicep` from Lab 1. In this file you still have the module reference set to the local file.
 
     <img src="./media/Lab8/localRef.png" alt="Local reference" height="300">
 

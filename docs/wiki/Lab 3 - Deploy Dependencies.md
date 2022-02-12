@@ -73,7 +73,7 @@ As part of a later lab you will need an additional dependency, a proximity place
         - name: 'Deploy module'
           uses: ./.github/actions/templates/validateModuleDeployment
           with:
-            templateFilePath: 'arm/${{ env.namespace }}/deploy.Bicep'
+            templateFilePath: 'arm/${{ env.namespace }}/deploy.bicep'
             parameterFilePath: '${{ env.dependencyPath }}/${{ env.namespace }}/parameters/${{ matrix.parameterFilePaths }}'
             location: '${{ env.defaultLocation }}'
             resourceGroupName: '${{ env.defaultResourceGroupName }}'

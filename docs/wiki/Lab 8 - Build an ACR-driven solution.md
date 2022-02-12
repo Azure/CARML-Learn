@@ -49,13 +49,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 
         `br:` + `<the matching reference you noted down>` 
      
-     For example, the resource group's first line will look similar to:
-
-    ```Bicep
-    module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {
-    ```
-
-1. Eventually, all references should look similar to:
+1. Once done, all references should look similar to:
 
     ```Bicep
     module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {}
@@ -64,7 +58,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
     module la 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.operationalinsights.workspaces:<YourVersion>' = {}
     ```
 
-2. Now, re-run the template's deployment like you did in  [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##--step-4---stretch-goal-deploy-solution). The deployment should succeed (even if no changes will happen).
+1. Now, re-run the template's deployment like you did in  [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##--step-4---stretch-goal-deploy-solution). The deployment should succeed (even if no changes will happen).
 
     ```Powershell
     $inputObject = @{

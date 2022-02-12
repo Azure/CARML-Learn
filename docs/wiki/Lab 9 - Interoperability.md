@@ -60,7 +60,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 1. First you need to load the script. There are different ways to do this, but for our purposes, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select `Copy Path`.
 
-    <img src="./media/Lab9/copyPathofScript.png" alt="Copy Path of ConvertTo-ARMTemplate.ps1" height="300">
+    <img src="./media/Lab9/copyPathofScript.png" alt="Copy Path of ConvertTo-ARMTemplate.ps1" height="500">
 
 1. Open an existing or new PowerShell terminal session and execute the following snippet:
 
@@ -77,7 +77,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 
-    <img src="./media/Lab9/converted.png" alt="Converted result" height="500">
+    <img src="./media/Lab9/converted.png" alt="Converted result" height="600">
 
 # Step 3 - Transition to Azure DevOps Pipelines (Optional Lab)
 

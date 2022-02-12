@@ -78,7 +78,7 @@ The first step of any contribution is its implementation. For the sake if this l
 
     <img src="./media/Lab7/deployBicepSelect.png" alt="Availability Set VSCode" height="150">
 
-1. A simple contribution to perform is the addition of an additional `output` the Bicep template will return upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
+1. A simple contribution to perform is to define an additional `output`. The Bicep template will return its value upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
    
     ```Bicep
     @description('The routes of the deployed route table')

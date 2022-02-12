@@ -181,7 +181,7 @@ There are also a few other features you can enable easily. For example `RBAC` & 
     diagnosticWorkspaceId: la.outputs.resourceId
     ```
 
-    > ***Note:*** Optionally, you could also set additional parameter such as `logsToEnable` to specify which logs to set exactly. By default, all are enabled once a diagnostic target was specified.
+    > ***Note:*** Optionally, you could also set additional parameter such as `logsToEnable` to specify which logs to set exactly. By default, all are enabled once a diagnostic target is specified.
 
     > ***Note:*** Linter may warn you that you should explicitely specify the module's `location` parameter once you added the diagnostic settings. To do so, you can just add `location: location` as well.
 

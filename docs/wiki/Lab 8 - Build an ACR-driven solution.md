@@ -114,7 +114,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
 
     > You may notice we didn't ask you to add a dependency to the `la` module deployment. This is not required, as Bicep creates an implicit dependency since you're using the `la`-module's output `la.outputs.resourceId`.
 
-4. You can now add the 'Machine Learning' module:
+1. You can now add the 'Machine Learning' module:
     - Insert the registry-reference
     - Let Bicep generate the required parameters
     - Add a parameter for the workspace `name`

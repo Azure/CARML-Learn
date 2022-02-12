@@ -14,6 +14,8 @@ Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is co
 
 # Step 1 - Create a new branch
 
+First, navigate back to your local CARML fork.
+
 To not interfere with your current setup, you should make sure to perform this lab in a dedicated branch.
 
 You can achieve this in two ways:
@@ -50,25 +52,26 @@ You can achieve this in two ways:
 In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
 
 1. Navigate to the `utilities/tools` folder. You will find a PowerShell file titled `ConvertTo-ARMTemplate.ps1`. The script allows you to do the following:
-    1. Take the modules written in Bicep within your CARML library and convert them to ARM Template syntax (_Excludes children templates by default_). 
-    1. Remove existing deploy.json files (_Optional_)
-    1. Remove Bicep metadata from the new JSON files (_Optional_)
-    1. Remove Bicep files and folders (_Optional_)
-    1. Update workflow YAML files to replace .bicep with .json so that deployments now use the newly created .json files (_Optional_)
+    - Take the modules written in Bicep within your CARML library and convert them to ARM Template syntax (_Excludes child-modules by default_). 
+    - Remove existing deploy.json files 
+    - Remove Bicep metadata from the new JSON files
+    - Remove Bicep files and folders 
+    - Update workflow YAML files to replace `.bicep` with `.json` so that deployments now use the newly created `.json` files 
 
-1. To run the script, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select copy path
+1. First you need to load the script. There are different ways to do this, but for our purposes, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select `Copy Path`.
 
     <img src="./media/Lab9/copyPathofScript.png" alt="Copy Path of ConvertTo-ARMTemplate.ps1" height="300">
 
-1. Open a new PowerShell terminal session. Type + paste into the terminal
+1. Open an existing or new PowerShell terminal session and execute the following snippet:
 
-                . "<path of script>" 
+    ```PowerShell
+    . '<path of script>' -ConvertChildren
+    
+    # For example
+    . 'C:/dev/Carml-lab/ResourceModules/utilities/ConvertTo-ARMTemplate.ps1' -ConvertChildren
+    ``` 
 
-    For example:
-
-    <img src="./media/Lab9/scriptOutput.png" alt="Terminal Output for ConvertTo-ARMTemplate.ps1" height="75">
-
-    > Upon hitting enter the script will be begin running. You will notice 'Warning' as part of the output, that is normal and the script will continute. 
+    > Upon hitting enter the script will be begin running. You will notice 'Warning' as part of the output, that is normal and the script will continue. 
 
 1. By default, the script will take all the modules found under the `arm` folder that have a `.bicep`   file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted in step `2.` above. 
 

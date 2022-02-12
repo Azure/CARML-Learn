@@ -26,7 +26,7 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - Installed 
   - [Visual Studio Code](https://code.visualstudio.com/Download)
     - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
-  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/Bicep/install#manual-with-powershell)
+  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
   - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
     - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
   - [Git](https://git-scm.com/downloads)

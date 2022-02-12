@@ -39,7 +39,7 @@ In Visual Studio, the next step is to create the solution itself. To do so, perf
 
     <img src="./media/Lab1%20-%20First%20Solution/CreateFolder.png" alt="Create Local Folder" height="95">
 
-1. Then select the new folder and press the small `New File` button to the left of the previous `New Folder` button and name it `deploy.Bicep`. This will be the folder where you create the workload.
+1. Then select the new folder and press the small `New File` button to the left of the previous `New Folder` button and name it `deploy.bicep`. This will be the folder where you create the workload.
 
     <img src="./media/Lab1%20-%20First%20Solution/NewFile.png" alt="Create template file" height="170">
 
@@ -55,7 +55,7 @@ Fundamentally, we want you to deploy
 
 To set these up, please perform the following steps:
 
-1. Open the created workload file in `workload/deploy.Bicep`
+1. Open the created workload file in `workload/deploy.bicep`
 
 1. As you will deploy a resource group, we first need to set the template scope to `subscription`. To do so, add the following line on the top of the file
 

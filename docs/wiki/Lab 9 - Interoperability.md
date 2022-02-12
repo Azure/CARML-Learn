@@ -77,6 +77,8 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 
+    <img src="./media/Lab9/converted.png" alt="Converted result" height="500">
+
 # Step 3 - Transition to Azure DevOps Pipelines (Optional Lab)
 
 Similar to Bicep adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML is able to be hosted in a GitHub repo and deployed with Azure DevOps Pipelines or it can completely be ran out of Azure DevOps. The following will demonstrate how CARML can enable users to do Infrastructure-as-Code deployments with Azure DevOps Pipelines:

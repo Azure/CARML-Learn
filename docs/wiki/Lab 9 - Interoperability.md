@@ -8,8 +8,8 @@ Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is co
 
 ### _Navigation_
 - [Step 1 - Create a new branch](#step-1---create-a-new-branch)
-- [Step 2 - Export from Bicep to JSON Template](#Step-2---Export-from-Bicep-to-JSON-Template)
-- [Step 3 - Transition to Azure DevOps Pipelines](#Step-3---Test-the-module)
+- [Step 2 - Convert to ARM](#step-2---convert-to-arm)
+- [Step 3 - (Optional) Leverage Azure DevOps Pipelines](#step-3---optional-leverage-azure-devops-pipelines)
 ---
 
 # Step 1 - Create a new branch
@@ -47,7 +47,7 @@ You can achieve this in two ways:
         <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
 
 
-# Step 2 - Export from Bicep to JSON Template
+# Step 2 - Convert to ARM
 
 In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
 
@@ -79,7 +79,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
     <img src="./media/Lab9/converted.png" alt="Converted result" height="600">
 
-# Step 3 - Transition to Azure DevOps Pipelines (Optional Lab)
+# Step 3 - (Optional) Leverage Azure DevOps Pipelines
 
 Similar to Bicep adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML is able to be hosted in a GitHub repo and deployed with Azure DevOps Pipelines or it can completely be ran out of Azure DevOps. The following will demonstrate how CARML can enable users to do Infrastructure-as-Code deployments with Azure DevOps Pipelines:
 

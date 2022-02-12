@@ -96,7 +96,7 @@ To set these up, please perform the following steps:
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' =
     ```
 
-   Fundamentally, the above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the Bicep module does not have default values for.
+   The above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the Bicep module does not have default values for.
 
     <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Required properties" height="120">
 

@@ -55,7 +55,7 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
 
 1. Go to the [Azure DevOps Portal](dev.azure.com) and login.
 
-1. To create a new DevOps projece, choose the orginization that you wish to create the project under. Then select `+ New Project` on the top right corner of the page. 
+1. To create a new DevOps project, choose the organization that you wish to create the project under. Then select `+ New Project` on the top right corner of the page. 
 
 1. Go to your Azure DevOps project and select Pipelines on the left-hand side
 
@@ -75,14 +75,13 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
 
     <img src="./media/Lab9/ServiceConnectionSettings.png" alt="Service Connection Settings" height="300">
 
-
 1. The next step(s) should only be done when the repo is in GitHub. We will be establishing a service connection between Azure DevOps and GitHub:
     1. Click `Create New Service Connection`
     1. Scroll, find, and select `GitHub` and click next. 
 
         <img src="./media/Lab9/GithubServiceConnection.png" alt="Github Service Connection" height="300">
         
-        > Note if an orginization is using GitHub Enterprise to host their repository, GitHub Enterprise must be selected instead. 
+        > Note if an organization is using GitHub Enterprise to host their repository, GitHub Enterprise must be selected instead. 
     
     1. Make sure `Grant Authorization` is selected under `Authentication Method`. Then click the drop-down under `OAuth Configuration` and select `AzurePipelines`. Click Authorize
 
@@ -93,7 +92,7 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
     1. The name of the service connection will be automatically populated. For simplicity of this lab, rename the service connection to `GithubConnection`. You will need this name later. Click save once finished.
 
 
-1. You will be returned to the Service Connection settings page and should see your Github connection. We will now need a Service Connetion between Azure DevOps and our Azure Subscription. Click on `New Service Connection` at the top right corner:
+1. You will be returned to the Service Connection settings page and should see your GitHub connection. We will now need a Service Connection between Azure DevOps and our Azure Subscription. Click on `New Service Connection` at the top right corner:
     1. Scroll, find, and select `AzureResourceManager` and click next.
     1. For this lab we will be using `Service Principal (Automatic)` which allows the Azure DevOps Service to automatically create a Service Principal in your Azure AD Tenant using a secret. Once selected click next
     1. Select `Subscription` under `Scope` and then select your target Subscription for deployments in the drop-down menu. Leave the `Resource Group` selection blank. 
@@ -105,7 +104,7 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
 
 1. Navigate to the `.azuredevops/pipelineVariables` folder. You will find a YAML file titled `global.variables.yml`. Open the file and update the `serviceConnection` to `AzureConnection` and save the file
 
-1. Navigate to the `tools/AzureDevOps` folder. You will find a Powershell file titled `Register-AzureDevOpsPipeline.ps1`. 
+1. Navigate to the `tools/AzureDevOps` folder. You will find a PowerShell file titled `Register-AzureDevOpsPipeline.ps1`. 
 
 1. Right-click on the `ConvertTo-ARMTemplate.ps1` file, and select copy path
 
@@ -126,13 +125,13 @@ Similar to Bicep adoption, not all customers may be using GitHub repos and/or Gi
             AzureDevOpsPAT                   = '<Placeholder>'
         }
 
-1. Paste the code block into the Powershell terminal and hit enter
+1. Paste the code block into the PowerShell terminal and hit enter
 
-1. Copy the following command into the Powershell terminal:
+1. Copy the following command into the PowerShell terminal:
         
             Register-AzureDevOpsPipeline @inputObject
 
 1. Once entered the script will run and create Azure DevOps pipelines based on the YAML files you have in the `.azuredevops/modulePipelines` folder. Once finished you will be able to go to the Azure DevOps portal and see pipelines that were created as part of this process. 
 
-1. This script is redeployable, as all existing pipeline will not be affected. You can use this process to automatically create new pipelines for new modules/workloads!
+1. This script is re-deployable, as all existing pipeline will not be affected. You can use this process to automatically create new pipelines for new modules/workloads!
 

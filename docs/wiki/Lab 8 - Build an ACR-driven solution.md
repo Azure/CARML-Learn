@@ -5,7 +5,7 @@ In this lab, you will
 ### _Navigation_
 - [Step 1 - Modify the workload file to use Bicep Registry](#step-1---modify-the-workload-file-to-use-bicep-registry)
 - [Step 2 - Add new resources](#step-2---add-new-resources)
-- [Step 3 - Add Diagnostic settings and RBAC](#step-3---add-diagnostic-settings-and-rbac)
+- [Step 3 - Add Diagnostic Settings and RBAC](#step-3---add-diagnostic-settings-and-rbac)
 - [Step 4 - Update your workload](#step-4---update-your-workload)
 - [Step 5 - (Optional) Incorporate a bicepconfig.json](#step-5---optional-incorporate-a-bicepconfigjson)
 ---
@@ -14,7 +14,7 @@ In this lab, you will
 
 In the previous lab you published all the necessary modules to Bicep registry. You will now use them to (re-)deploy the workload you deployed in LAB 1.
 
-1. Go to the Azure portal and navigate to the `artifacts-rg` resource group
+1. Go to the Azure portal and navigate to the `artifacts-rg` Resource Group
 1. Navigate to the container registry you specified in [Lab 2](/docs/wiki/Lab%202%20-%20Setup%20CARML%20prerequisites#--set-the-container-registry-unique-name).
 
    <img src="./media/Lab8/acrSelect.png" alt="Registry select" height="500">
@@ -34,10 +34,10 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 1. Repeat the previous step for all of the following resource types:
     | Name | Reference |
     | - | - |
-    | Resource group | `bicep/modules/microsoft.resources.resourcegroups`
+    | Resource Group | `bicep/modules/microsoft.resources.resourcegroups`
     | Storage account | `bicep/modules/microsoft.storage.storageaccounts` |
     | Log Analytics workspace | `bicep/modules/microsoft.operationalinsights.workspaces` |
-    | Application insights | `bicep/modules/microsoft.insights.components` |
+    | Application Insights | `bicep/modules/microsoft.insights.components` |
     | Key Vault | `bicep/modules/microsoft.keyvault.vaults` |
     | Machine Learning service | `bicep/modules/microsoft.machinelearningservices.workspaces` |
 
@@ -76,7 +76,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 
 # Step 2 - Add new resources
 
-You will now modify the template to deploy a machine learning service. In this step you will 
+You will now modify the template to deploy a Machine Learning service. In this step you will 
 - Use resources that have dependencies on others, demonstrating how easy it is to reference resources created by modules
 - Add additional resources from your private Bicep registry and see how easy it can be to interact with it
 
@@ -90,7 +90,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
     <img src="./media/Lab8/requiredProperties.png" alt="Required properties" height="150">
 
-3. As you can see, application insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
+3. As you can see, Application Insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
    - Add a `applicationInsightsWorkspaceName` parameter to the parameters section
    - Fill in the module properties as you did for the other resources (i.e. scope, deployment name). For the `workspaceResourceId` use the `resourceId` output of the `la`-module deployment. 
   
@@ -116,7 +116,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
 4. You can now add the 'Machine Learning' module:
     - Insert the registry-reference
-    - Let bicep generate the required parameters
+    - Let Bicep generate the required parameters
     - Add a parameter for the workspace `name`
     - Add a reference to the corresponding  `associated` parameters (`appi`,`kv`, `sa`)
     - Set the SKU to `Basic`
@@ -147,7 +147,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
     ```Bicep
     // Params section
-    @description('Required. The name of the machine learning workspace')
+    @description('Required. The name of the Machine Learning workspace')
     param machineLearningWorkspaceName string
 
     // Deployments section
@@ -165,11 +165,11 @@ You will now modify the template to deploy a machine learning service. In this s
     }
     ```
 
-# Step 3 - Add diagnostic settings and RBAC
+# Step 3 - Add Diagnostic Settings and RBAC
 
 There are also a few other features you can enable easily. For example `RBAC` & `DiagnosticSettings` for your resources.
 
-1. You can add diagnostic settings to the `Machine Learning Workspace`, `Key Vault` & `Storage Account` module by adding the following line to each of their `param` blocks:
+1. You can add Diagnostic Settings to the `Machine Learning Workspace`, `Key Vault` & `Storage Account` module by adding the following line to each of their `param` blocks:
 
     ```Bicep
     diagnosticWorkspaceId: la.outputs.resourceId
@@ -177,13 +177,13 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
     > ***Note:*** Optionally, you could also set additional parameter such as `logsToEnable` to specify which logs to set exactly. By default, all are enabled once a diagnostic target is specified.
 
-    > ***Note:*** Linter may warn you that you should explicitely specify the module's `location` parameter once you added the diagnostic settings. To do so, you can just add `location: location` as well.
+    > ***Note:*** Linter may warn you that you should explicitely specify the module's `location` parameter once you added the Diagnostic Settings. To do so, you can just add `location: location` as well.
 
-1. To add RBAC to any of the resources you first need to know the object ID of the principal to assign a role to. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
+1. To add RBAC to any of the resources you first need to know the object ID of the principal to assign a role to. You can use the one of the Service Principal you're using to deploy, or get the object ID from Azure Active Directory.
 
     <img src="./media/Lab8/object-id.png" alt="Object ID" height="400">
 
-1. Each module that supports RBAC has an example specified in its readme. For example, when navigating to the resource group readme you can find the following example:
+1. Each module that supports RBAC has an example specified in its readme. For example, when navigating to the Resource Group readme you can find the following example:
 
     ```markdown
         ### Parameter Usage: `roleAssignments`

@@ -278,7 +278,7 @@ You can now re-deploy your template to update the existing, and add the new reso
 
 You can further simplify your module my moving certain metadata into a `bicepconfig.json` file. For our purposes we can use it to create a shorter module reference. To do so, please perform the following steps:
 
-1. In the `workload` folder your template is is, create a new file called `bicepconfig.json`, paste the following content into it, and replace the `<YourRegistry>` token with the name your your container registry:
+1. In the `workload` folder hosting your template, create a new file called `bicepconfig.json`, paste the following content into it, and replace the `<YourRegistry>` token with the name of your container registry:
 
     ```json
     {

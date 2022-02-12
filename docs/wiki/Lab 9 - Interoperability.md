@@ -11,13 +11,42 @@ Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is co
 - [Step 2 - Transition to Azure DevOps Pipelines](#Step-2---Test-the-module)
 ---
 
-# Step 1 - Export from Bicep to JSON Template
-
-In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
+# Step 1 - Create a new branch
 
 To not interfere with your current setup, you should make sure to perform this step in a dedicated branch.
 
-TODO: Add branch
+You can achive this in two ways:
+
+ - **Alternative 1:** Via VSCode's terminal with the following steps
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+     
+    1. Now, execute the following PowerShell commands:
+
+        ```PowerShell
+        git checkout -b 'usingARM'
+        git push --set-upstream 'origin' 'usingARM'
+        ```
+ - **Alternative 2:** You can perform a few steps in the UI
+
+    1. Select the current branch on the bottom left of VSCode
+
+        <img src="./media/Lab9/initBranchMain.png" alt="Change branch main" height=80> 
+
+    1. Select `+ Create new branch` in the opening dropdown
+
+        <img src="./media/Lab9/createBranchUI.png" alt="Init create branch" height=70> 
+
+    1. Enter the new branch name `usingARM`
+
+    1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+        <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
+
+
+# Step 1 - Export from Bicep to JSON Template
+
+In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
 
 1. Navigate to the `utilities/tools` folder. You will find a PowerShell file titled `ConvertTo-ARMTemplate.ps1`. The script allows you to do the following:
     1. Take the modules written in Bicep within your CARML library and convert them to ARM Template syntax (_Excludes children templates by default_). 

@@ -18,7 +18,7 @@ At this point, you have now taken CARML modules written in Bicep and deployed th
     1. Remove existing deploy.json files (_Optional_)
     1. Remove Bicep metadata from the new JSON files (_Optional_)
     1. Remove Bicep files and folders (_Optional_)
-    1. Update workflow YAML files to replace .bicep with .json so that deployments now use the newly created .json files (_Optional_)
+    1. Update workflow YAML files to replace .Bicep with .json so that deployments now use the newly created .json files (_Optional_)
 
 1. To run the script, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select copy path
 
@@ -34,13 +34,13 @@ At this point, you have now taken CARML modules written in Bicep and deployed th
 
     > Upon hitting enter the script will be begin running. You will notice 'Warning' as part of the output, that is normal and the script will continute. 
 
-1. By default, the script will take all the modules found under the `arm` folder that have a `.bicep`   file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted in step `2.` above. 
+1. By default, the script will take all the modules found under the `arm` folder that have a `.Bicep`   file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted in step `2.` above. 
 
 1. To change some of the default functionality, the following parameters can be passed when executing the script:
 
             . "<path of script>" -ConvertChildren -SkipMetadataCleanup -SkipBicepCleanUp -SkipPipelineUpdate
 
-    > This will convert top level + child bicep modules to json based ARM template, keeping metadata in json, keeping all bicep files and folders, and not updating workflows.
+    > This will convert top level + child Bicep modules to json based ARM template, keeping metadata in json, keeping all Bicep files and folders, and not updating workflows.
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 

@@ -25,10 +25,10 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - Access to the subscriptions tenant with permissions to create applications
 - Installed 
   - [Visual Studio Code](https://code.visualstudio.com/Download)
-    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
-  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/Bicep/install)
+  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/Bicep/install#manual-with-powershell)
   - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/Bicep/install#azure-cli)
   - [Git](https://git-scm.com/downloads)
     - [Git Guide](https://rogerdudler.github.io/git-guide/)
   - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)

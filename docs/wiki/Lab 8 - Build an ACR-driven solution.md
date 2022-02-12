@@ -86,7 +86,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
     module appi 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.insights.components:<YourVersion>' =
     ```
 
-2. Next, select the area right behind the `=` character and press `space`. This should open a context menu that, as in Lab 1 for the local path, offers you to auto-populate the module with all required parameters.
+1. Next, select the area right behind the `=` character and press `space`. This should open a context menu that, as in Lab 1 for the local path, offers you to auto-populate the module with all required parameters.
 
     <img src="./media/Lab8/requiredProperties.png" alt="Required properties" height="150">
 

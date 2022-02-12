@@ -14,7 +14,8 @@ In this lab, you will
 
 In the previous lab you published all the necessary modules to Bicep registry. You will now use them to (re-)deploy the workload you deployed in LAB 1.
 
-1. Go to the azure portal and navigate to the `artifacts-rg` resource group and navigate to the container registry you specified in [Lab 2](/docs/wiki/Lab%202%20-%20Setup%20CARML%20prerequisites#--set-the-container-registry-unique-name).
+1. Go to the Azure portal and navigate to the `artifacts-rg` resource group
+1. Navigate to the container registry you specified in [Lab 2](/docs/wiki/Lab%202%20-%20Setup%20CARML%20prerequisites#--set-the-container-registry-unique-name).
 
    <img src="./media/Lab8/acrSelect.png" alt="Registry select" height="500">
 

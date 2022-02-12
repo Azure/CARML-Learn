@@ -3,9 +3,11 @@ In this lab, you will
 - Learn how to extend the template with new solutions
 
 ### _Navigation_
-- [Step 1 - Modify the workload file to use Bicep Registry](#Step-1---Modify-the-workload-file-to-use-Bicep-Registry)
-- [Step 2 - Add new resources](#Step-2---A#dd-new-resources)
-- [Step 3 - Add Diagnostic settings and RBAC](#Step-3---Add-Diagnostic-settings-and-RBAC)
+- [Step 1 - Modify the workload file to use Bicep Registry](#step-1---modify-the-workload-file-to-use-bicep-registry)
+- [Step 2 - Add new resources](#step-2---add-new-resources)
+- [Step 3 - Add Diagnostic settings and RBAC](#step-3---add-diagnostic-settings-and-rbac)
+- [Step 4 - Update your workload](#step-4---update-your-workload)
+- [Step 5 - (Optional) Incorporate a bicepconfig.json](#step-5---optional-incorporate-a-bicepconfigjson)
 ---
 
 # Step 1 - Modify the workload file to use Bicep Registry
@@ -168,7 +170,7 @@ You will now modify the template to deploy a machine learning service. In this s
     }
     ```
 
-## Step 3 - Add Diagnostic settings and RBAC
+# Step 3 - Add Diagnostic settings and RBAC
 
 There are also a few other features you can enable easily. For example `RBAC` & `DiagnosticSettings` for your resources.
 
@@ -236,7 +238,7 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
     Any role assignment we pass in as a template parameter will be passed down into the module and applied to its resource.
 
-## Step 4 - Update your workload
+# Step 4 - Update your workload
 
 You can now re-deploy your template to update the existing, and add the new resources.
 
@@ -271,7 +273,7 @@ You can now re-deploy your template to update the existing, and add the new reso
 
 1. At last, you can check in the Azure portal if the template deployed what you expected to.
 
-## Step 5 - (Optional) Incorporate a bicepconfig.json
+# Step 5 - (Optional) Incorporate a bicepconfig.json
 
 You can further simplify your module my moving certain metadata into a `bicepconfig.json` file. For our purposes we can use it to create a shorter module reference. To do so, please perform the following steps:
 
@@ -282,7 +284,7 @@ You can further simplify your module my moving certain metadata into a `bicepcon
         "moduleAliases": {
             "br": {
                 "modules": {
-                    "registry": "<YourRegistry>.azurecr.io",
+                    "registry": "<YourRegistry>.azurecr.io", // Replace
                     "modulePath": "bicep/modules"
                 }
             }

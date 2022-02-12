@@ -146,7 +146,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
     <img src="./media/Lab8/extraParam.png" alt="Extra parameter" height="200">
 
-2. The result should look similar to similar the following:
+1. The result should look similar to similar the following:
 
     ```Bicep
     // Params section
@@ -167,23 +167,26 @@ You will now modify the template to deploy a machine learning service. In this s
         }
     }
     ```
-    
+
 ## Step 3 - Add Diagnostic settings and RBAC
 
-You can add to the solution new fancy stuff.
+There are also a few other features you can enable easily. For example `RBAC` & `DiagnosticSettings` for your resources.
 
-1. Add diagnostic settings to resources. Add the following code to the machine learning properties:
+1. You can add diagnostic settings to the `Machine Learning Workspace`, `Key Vault` & `Storage Account` module by adding the following line to each of their `param` blocks:
 
     ```Bicep
     diagnosticWorkspaceId: la.outputs.resourceId
-    diagnosticLogsRetentionInDays: 2
     ```
+
+    > ***Note:*** Optionally, you could also set additional parameter such as `logsToEnable` to specify which logs to set exactly. By default, all are enabled once a diagnostic target was specified.
+
+    > ***Note:*** Linter may warn you that you should explicitely specify the module's `location` parameter once you added the diagnostic settings. To do so, you can just add `location: location` as well.
 
 1. Add Reader role RBAC to one of the resources. You will need an object ID of a principal on your directory. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
 
     <img src="./media/Lab8/object-id.png" alt="Object ID" height="400">
 
-1. Now add the following lines of code in the properties of a resource (e.g. the storage account):
+3. Now add the following lines of code in the properties of a resource (e.g. the storage account):
 
     ```Bicep
     roleAssignments: [

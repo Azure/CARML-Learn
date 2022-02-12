@@ -171,7 +171,7 @@ You will now modify the template to deploy a machine learning service. In this s
     }
     ```
 
-# Step 3 - Add Diagnostic settings and RBAC
+# Step 3 - Add diagnostic settings and RBAC
 
 There are also a few other features you can enable easily. For example `RBAC` & `DiagnosticSettings` for your resources.
 

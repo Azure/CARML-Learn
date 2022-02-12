@@ -7,15 +7,16 @@ There may be good reasons why a customer may not want to use these technologies 
 Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is compatible with both ARM JSON as well as Bicep.
 
 ### _Navigation_
-- [Step 1 - Export from Bicep to JSON Template](#Step-1---Export-from-Bicep-to-JSON-Template)
-- [Step 2 - Transition to Azure DevOps Pipelines](#Step-2---Test-the-module)
+- [Step 1 - Create a new branch](#step-1---create-a-new-branch)
+- [Step 2 - Export from Bicep to JSON Template](#Step-2---Export-from-Bicep-to-JSON-Template)
+- [Step 3 - Transition to Azure DevOps Pipelines](#Step-3---Test-the-module)
 ---
 
 # Step 1 - Create a new branch
 
 To not interfere with your current setup, you should make sure to perform this step in a dedicated branch.
 
-You can achive this in two ways:
+You can achieve this in two ways:
 
  - **Alternative 1:** Via VSCode's terminal with the following steps
 
@@ -44,7 +45,7 @@ You can achive this in two ways:
         <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
 
 
-# Step 1 - Export from Bicep to JSON Template
+# Step 2 - Export from Bicep to JSON Template
 
 In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
 
@@ -79,7 +80,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 
-# Step 2 - Transition to Azure DevOps Pipelines (Optional Lab)
+# Step 3 - Transition to Azure DevOps Pipelines (Optional Lab)
 
 Similar to Bicep adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML is able to be hosted in a GitHub repo and deployed with Azure DevOps Pipelines or it can completely be ran out of Azure DevOps. The following will demonstrate how CARML can enable users to do Infrastructure-as-Code deployments with Azure DevOps Pipelines:
 

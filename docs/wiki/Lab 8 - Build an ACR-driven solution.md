@@ -186,65 +186,84 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
     <img src="./media/Lab8/object-id.png" alt="Object ID" height="400">
 
-1. Each module that supports RBAC has an example specified in its readme. For example, when navigating to the resource group readme you can find the following example
+1. Each module that supports RBAC has an example specified in its readme. For example, when navigating to the resource group readme you can find the following example:
 
     ```markdown
-    ### Parameter Usage: `roleAssignments`
+        ### Parameter Usage: `roleAssignments`
 
-    ```json
-    "roleAssignments": {
-        "value": [
-            {
-                "roleDefinitionIdOrName": "Reader",
-                "principalIds": [
-                    "12345678-1234-1234-1234-123456789012", // object 1
-                    "78945612-1234-1234-1234-123456789012" // object 2
-                ]
-            },
-            {
-                "roleDefinitionIdOrName": "/providers/Microsoft.Authorization/roleDefinitions/c2f4ef07-c644-48eb-af81-4b1b4947fb11",
-                "principalIds": [
-                    "12345678-1234-1234-1234-123456789012" // object 1
-                ]
-            }
-        ]
-    }
-    ```
+        ```json
+        "roleAssignments": {
+            "value": [
+                {
+                    "roleDefinitionIdOrName": "Reader",
+                    "principalIds": [
+                        "12345678-1234-1234-1234-123456789012", // object 1
+                        "78945612-1234-1234-1234-123456789012" // object 2
+                    ]
+                },
+                {
+                    "roleDefinitionIdOrName": "/providers/Microsoft.Authorization/roleDefinitions/c2f4ef07-c644-48eb-af81-4b1b4947fb11",
+                    "principalIds": [
+                        "12345678-1234-1234-1234-123456789012" // object 1
+                    ]
+                }
+            ]
+        }
+        ```
     ```
 
-2. Now add the following lines of code in the properties of a resource (e.g. the storage account):
+    As you can see, the role assignments parameter expects an array of objects, where each element captures a `roleDefinitionIdOrName` as well as yet again another array of `principalIds` to assign the role to.  
+
+1. Next, add the following parameter to the template parameters:
+   
+    ```Bicep
+    @description('Optional. The role assignment to add to the resources')
+    param roleAssignments array = []
+    ```
+    
+    The parameter will be optional in case you'd not want to assign any IDs. You will combine the information you gathered above in the subsequent step.
+
+
+1. Finally, add the following snipped to any resource(s) param-block you want. All of support RBAC out of the box.
 
     ```Bicep
-    roleAssignments: [
-      {
-        roleDefinitionIdOrName: 'Reader'
-        principalIds: [
-          '<an object id of a principal in your directory>'
-        ]
-      }
-    ]
+    params: {
+        (...)
+        roleAssignments: roleAssignments
+        (...)
+    }
     ```
+
+    Any role assignment we pass in as a template parameter will be passed down into the module and applied to its resource.
 
 ## Step 4 - Update your workload
 
-You can now re-deploy your template to update and add the new resources.
+You can now re-deploy your template to update the existing, and add the new resources.
 
-1. (optional) You didn't add any new parameter to the template, so you can skip this part if your terminal is still open. If you closed the terminal, you can set up the input variable as you did in Lab1
+1. As we added a few additional parameters, the deployment command will likewise change slightly from what you used in [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##step-4---stretch-goal-deploy-solution). To deploy the template, you can use the following template
 
     ```Powershell
     $inputObject = @{
-        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
-        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
-        Verbose            = $true
-        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
-        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
-        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
-        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        DeploymentName                  = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+        TemplateFile                    = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location                         = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose                          = $true
+        ResourceGroupName                = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName               = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName                     = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsWorkspaceName        = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        applicationInsightsWorkspaceName = '<NameOfTheApplicationInsightsWorkspace>'
+        machineLearningWorkspaceName     = '<NameOfTheMachineLearningWorkspace>'
+        roleAssignments                  = @(
+            @{
+                roleDefinitionIdOrName = '<ARoleToAssign>' # E.g. Reader
+                principalIds = @('<APrincipalObjectId>') # The one you copied from Azure AD
+            }
+        )
     }
     ```
 
-1. Now execute again the deployment
+1. Now execute the deployment again
 
     ```Powershell
     New-AzSubscriptionDeployment @inputObject
@@ -252,7 +271,34 @@ You can now re-deploy your template to update and add the new resources.
 
 1. At last, you can check in the Azure portal if the template deployed what you expected to.
 
-<!-- TODO: Extend with how to use bicepconfig.json ? -->
+## Step 5 - (Optional) Incorporate a bicepconfig.json
+
+You can further simplify your module my moving certain metadata into a `bicepconfig.json` file. For our purposes we can use it to create a shorter module reference. To do so, please perform the following steps:
+
+1. In the `workload` folder your template is is, create a new file called `bicepconfig.json`, paste the following content into it, and replace the `<YourRegistry>` token with the name your your container registry:
+
+    ```json
+    {
+        "moduleAliases": {
+            "br": {
+                "modules": {
+                    "registry": "<YourRegistry>.azurecr.io",
+                    "modulePath": "bicep/modules"
+                }
+            }
+        }
+    }
+    ```
+
+1. Back inside the template, you can now shorten all of your container references like the following:
+
+    ```bicep
+    // Before
+    module ml 'br:yxlsxxazacrx001.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:0.1.760' = {}
+
+    // After
+    module ml 'br/modules:microsoft.machinelearningservices.workspaces:0.1.760' = {}
+    ```
 
 ---
 ---

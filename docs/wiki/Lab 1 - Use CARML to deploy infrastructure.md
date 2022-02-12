@@ -83,7 +83,7 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string
+    param LogAnalyticsWorkspaceName string
     ```
 
 1. Now, you will add the references to the individual CARML modules you will deploy. Let's start with the resource group. Underneath the parameters, add the following block
@@ -216,7 +216,7 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string
+    param LogAnalyticsWorkspaceName string
 
     // =========== //
     // Deployments //
@@ -256,7 +256,7 @@ To set these up, please perform the following steps:
         scope: resourceGroup(resourceGroupName)
         name: 'workload-law'
         params: {
-            name: logAnalyticsName
+            name: LogAnalyticsWorkspaceName
         }
         dependsOn: [
             rg
@@ -293,14 +293,14 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 1. Next, you can invoke the deployment itself. To do so, you can execute the following command using your own values for everything marked by _`<x>`_: 
     ```Powershell
     $inputObject = @{
-        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
-        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
-        Verbose            = $true
-        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
-        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
-        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
-        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        DeploymentName            = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+        TemplateFile              = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location                  = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose                   = $true
+        ResourceGroupName         = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName        = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName              = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsWorkspaceName = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
     }
     New-AzSubscriptionDeployment @inputObject
     ```
@@ -315,14 +315,14 @@ In this final step, we ask you to optionally perform a test deployment of the gi
     carml@hotmail.de carml            00000000-0000-0000-0000-000000000000 AzureCloud
 
     PS C:\Desktop\CARML\ResourceModules> $inputObject = @{
-    >>     DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-    >>     TemplateFile       = 'C:\Desktop\CARML\ResourceModules\workload\deploy.Bicep'
-    >>     Location           = 'WestEurope'
-    >>     Verbose            = $true
-    >>     ResourceGroupName  = 'carml-rg'
-    >>     StorageAccountName = 'carmllabsa'
-    >>     KeyVaultName       = 'carmlLabsakv'
-    >>     LogAnalyticsName   = 'carmllaw'
+    >>     DeploymentName            = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+    >>     TemplateFile              = 'C:\Desktop\CARML\ResourceModules\workload\deploy.Bicep'
+    >>     Location                  = 'WestEurope'
+    >>     Verbose                   = $true
+    >>     ResourceGroupName         = 'carml-rg'
+    >>     StorageAccountName        = 'carmllabsa'
+    >>     KeyVaultName              = 'carmlLabsakv'
+    >>     LogAnalyticsWorkspaceName = 'carmllaw'
     >> }
     PS C:\Desktop\CARML\ResourceModules> New-AzSubscriptionDeployment @inputObject
     VERBOSE: Using Bicep v0.4.1008
@@ -364,13 +364,13 @@ In this final step, we ask you to optionally perform a test deployment of the gi
     Mode              : Incremental
     TemplateLink      :
     Parameters        :
-                        Name                 Type                      Value
-                        ==================== ========================= ==========
-                        resourceGroupName    String                    carml-rg
-                        Get-location         String                    WestEurope
-                        storageAccountName   String                    carmllabsa
-                        keyVaultName         String                    carmlLabsakv
-                        logAnalyticsName     String                    carmllaw
+                        Name                         Type                      Value
+                        =========================    ========================= ==========
+                        resourceGroupName            String                    carml-rg
+                        Get-location                 String                    WestEurope
+                        storageAccountName           String                    carmllabsa
+                        keyVaultName                 String                    carmlLabsakv
+                        LogAnalyticsWorkspaceName    String                    carmllaw
 
     Outputs           :
                         Name                              Type                      Value

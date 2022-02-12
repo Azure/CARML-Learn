@@ -52,7 +52,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
      For example, the resource group's first line will look similar to:
 
     ```Bicep
-    module kv 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {
+    module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {
     ```
 
 1. Eventually, all references should look similar to:

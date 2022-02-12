@@ -90,7 +90,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
 
     <img src="./media/Lab8/requiredProperties.png" alt="Required properties" height="150">
 
-3. As you can see, Application Insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
+1. As you can see, Application Insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
    - Add a `applicationInsightsWorkspaceName` parameter to the parameters section
    - Fill in the module properties as you did for the other resources (i.e. scope, deployment name). For the `workspaceResourceId` use the `resourceId` output of the `la`-module deployment. 
   

@@ -122,7 +122,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
 1. You can now add the 'Machine Learning' module:
     - Insert the registry-reference
-    - Generate the required parameters
+    - Let bicep generate the required parameters
     - Add a parameter for the workspace `name`
     - Add a reference to the corresponding  `associated` parameters (`appi`,`kv`, `sa`)
     - Set the SKU to `Basic`

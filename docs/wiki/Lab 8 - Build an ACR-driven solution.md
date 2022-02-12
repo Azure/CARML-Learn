@@ -149,7 +149,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
     <img src="./media/Lab8/extraParam.png" alt="Extra parameter" height="200">
 
-1. The result should look similar to similar the following:
+1. The result should look similar to the following:
 
     ```Bicep
     // Params section

@@ -182,11 +182,37 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
     > ***Note:*** Linter may warn you that you should explicitely specify the module's `location` parameter once you added the diagnostic settings. To do so, you can just add `location: location` as well.
 
-1. Add Reader role RBAC to one of the resources. You will need an object ID of a principal on your directory. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
+1. To add RBAC to any of the resources you first need to know the object ID of the principal to assign a role to. You can use the one of the service principal you're using to deploy, or get the object ID from Azure Active Directory.
 
     <img src="./media/Lab8/object-id.png" alt="Object ID" height="400">
 
-3. Now add the following lines of code in the properties of a resource (e.g. the storage account):
+1. Each module that supports RBAC has an example specified in its readme. For example, when navigating to the resource group readme you can find the following example
+
+    ```markdown
+    ### Parameter Usage: `roleAssignments`
+
+    ```json
+    "roleAssignments": {
+        "value": [
+            {
+                "roleDefinitionIdOrName": "Reader",
+                "principalIds": [
+                    "12345678-1234-1234-1234-123456789012", // object 1
+                    "78945612-1234-1234-1234-123456789012" // object 2
+                ]
+            },
+            {
+                "roleDefinitionIdOrName": "/providers/Microsoft.Authorization/roleDefinitions/c2f4ef07-c644-48eb-af81-4b1b4947fb11",
+                "principalIds": [
+                    "12345678-1234-1234-1234-123456789012" // object 1
+                ]
+            }
+        ]
+    }
+    ```
+    ```
+
+2. Now add the following lines of code in the properties of a resource (e.g. the storage account):
 
     ```Bicep
     roleAssignments: [

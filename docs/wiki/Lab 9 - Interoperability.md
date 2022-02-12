@@ -1,6 +1,10 @@
-In this LAB you will explore how CARML is able to operate between ARM JSON Templates & Bicep and Azure DevOps Pipelines & GitHub Action to meet different customer scenarios.  
+In this LAB you will explore how CARML is able to operate with both ARM JSON Templates & Bicep as well as Azure DevOps Pipelines & GitHub Workflows to meet different customer scenarios.  
 
-This is how you will run different scripts and set up a module in either ARM JSON Template or Bicep syntax and configure a CI/CD pipeline using Azure DevOps or GitHub.
+There may be good reasons why a customer may not want to use these technologies just yet:
+- Bicep is still a relatively new DSL and not yet version 1.0.0
+- GitHub workflows are likewise relatively new compared to Azure DevOps pipelines and not yet on par with it
+
+Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is compatible with both ARM JSON as well as Bicep.
 
 ### _Navigation_
 - [Step 1 - Export from Bicep to JSON Template](#Step-1---Export-from-Bicep-to-JSON-Template)
@@ -9,9 +13,11 @@ This is how you will run different scripts and set up a module in either ARM JSO
 
 # Step 1 - Export from Bicep to JSON Template
 
-At this point, you have now taken CARML modules written in Bicep and deployed them using a GitHub Action written in YAML. This orchestration covers a very specific setup that may or may not meet your requirements. Some users may not be using Bicep yet and want to stick with traditional ARM JSON Templates. Thankfully, CARML allows for easy transition from Bicep to ARM Templates. 
+In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant bicep-specific folders.  
 
-1. As said before, you should avoid working on the main branch directly. Make sure you're located on your fork of CARML and create a new branch. For consistency, name it lab8-interoperability
+To not interfere with your current setup, you should make sure to perform this step in a dedicated branch.
+
+TODO: Add branch
 
 1. Navigate to the `utilities/tools` folder. You will find a PowerShell file titled `ConvertTo-ARMTemplate.ps1`. The script allows you to do the following:
     1. Take the modules written in Bicep within your CARML library and convert them to ARM Template syntax (_Excludes children templates by default_). 

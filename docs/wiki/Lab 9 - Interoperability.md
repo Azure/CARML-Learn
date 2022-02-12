@@ -1,4 +1,4 @@
-In this LAB you will explore how CARML is able to operate between ARM JSON Templates & Bicep and Azure DevOps Pipelines & GitHub Action to meet different customer scenarios.  
+In this lab you will explore how CARML is able to operate between ARM JSON Templates & Bicep and Azure DevOps Pipelines & GitHub Action to meet different customer scenarios.  
 
 This is how you will run different scripts and set up a module in either ARM JSON Template or Bicep syntax and configure a CI/CD pipeline using Azure DevOps or GitHub.
 

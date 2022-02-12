@@ -40,7 +40,7 @@ At this point, you have now taken CARML modules written in Bicep and deployed th
 
             . "<path of script>" -ConvertChildren -SkipMetadataCleanup -SkipBicepCleanUp -SkipPipelineUpdate
 
-    > This will convert top level + child bicep modules to json based ARM template, keeping metadata in json, keeping all bicep files and folders, and not updating workflows.
+    > This will convert top level + child Bicep modules to json based ARM template, keeping metadata in json, keeping all Bicep files and folders, and not updating workflows.
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 

@@ -78,9 +78,9 @@ The first step of any contribution is its implementation. For the sake if this l
 
     <img src="./media/Lab7/deployBicepSelect.png" alt="Availability Set VSCode" height="150">
 
-1. A simple contribution to perform is the addition of an additional `output` the bicep template will return upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
+1. A simple contribution to perform is to define an additional `output`. The Bicep template will return its value upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
    
-    ```bicep
+    ```Bicep
     @description('The routes of the deployed route table')
     output route array = routeTable.properties.routes
     ```
@@ -223,8 +223,6 @@ In this step you will create the pull request. Do do so, perform the following t
     <img src="./media/Lab7/openPRRaw.png" alt="Pull request raw" height="600">
 
 1. Once you entered all the details, you can open a preview of the final look by selecting `Preview` on the top and finally select `Create pull request` to the bottom right.
-
-    <img src="./media/Lab7/openPRPreview.png" alt="Pull request preview" height="500">
 
 # Step 8 - Exclude environment-specific changes
 

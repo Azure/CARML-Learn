@@ -59,13 +59,13 @@ To set these up, please perform the following steps:
 
 1. As you will deploy a resource group, we first need to set the template scope to `subscription`. To do so, add the following line on the top of the file
 
-   ```bicep
+   ```Bicep
    targetScope = 'subscription'
    ```
 
 1. Next, add the following parameters to the template
 
-    ```bicep
+    ```Bicep
     // ========== //
     // Parameters //
     // ========== //
@@ -83,12 +83,12 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string
+    param LogAnalyticsWorkspaceName string
     ```
 
 1. Now, you will add the references to the individual CARML modules you will deploy. Let's start with the resource group. Underneath the parameters, add the following block
 
-    ```bicep
+    ```Bicep
     // =========== //
     // Deployments //
     // =========== //
@@ -96,13 +96,13 @@ To set these up, please perform the following steps:
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' =
     ```
 
-   Fundamentally, the above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the bicep module does not have default values for.
+   The above snippet references the local path to the ResourceGroup CARML module. Thanks to Bicep's ability to resolve the reference, it should open a pop-up and ask you whether you want to auto-insert the `required parameters` (if it does not come up automatically, try to remove & add the `=`, or press `Ctrl + Space`). Press `Enter` to confirm. These parameters are the ones the Bicep module does not have default values for.
 
     <img src="./media/Lab1%20-%20First%20Solution/requiredProperties.png" alt="Required properties" height="120">
 
     Once confirmed, it will generate the following skeleton:
 
-    ```bicep
+    ```Bicep
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
      name:
         params: {
@@ -117,7 +117,7 @@ To set these up, please perform the following steps:
 
     Following you can find an example of how a complete reference would look like:
 
-    ```bicep
+    ```Bicep
     module rg '../arm/Microsoft.Resources/resourceGroups/deploy.bicep' = {
         name: 'workload-rg'
         params: {
@@ -131,7 +131,7 @@ To set these up, please perform the following steps:
 
 1. Following the same flow, please now go ahead and add the references to the `../arm/Microsoft.Storage/storageAccounts` CARML module underneath the resource group module. Once done, it should look similar to:
 
-    ```bicep
+    ```Bicep
     module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
         scope:
         name: 'workload-sa'
@@ -143,15 +143,15 @@ To set these up, please perform the following steps:
 
     The part that is missing is the `scope`. As we want to deploy the storage account into the resource group above and as such into a resource group scope, we must set that reference in the storage account scope. To do so, complete the `scope:` line with
 
-    ```bicep
+    ```Bicep
     scope: resourceGroup(resourceGroupName)
     ```
 
-    > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in bicep.
+    > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in Bicep.
 
     As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snippet in between the two final closing brackets `}` of the storage account block:
 
-    ```bicep
+    ```Bicep
     dependsOn: [
         rg
     ]
@@ -159,7 +159,7 @@ To set these up, please perform the following steps:
 
     The full module reference should now look like
 
-    ```bicep
+    ```Bicep
     module sa '../arm/Microsoft.Storage/storageAccounts/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-sa'
@@ -176,7 +176,7 @@ To set these up, please perform the following steps:
 
 1. To also get some insights into the resources that are deployed, let's add some outputs as well. To do so, add the following lines to the end of the file:
 
-    ```bicep
+    ```Bicep
     // ======= //
     // Outputs //
     // ======= //
@@ -196,7 +196,7 @@ To set these up, please perform the following steps:
 
 1. In total, the final result should look similar to. When done, make sure to save the file.
 
-    ```bicep
+    ```Bicep
     targetScope = 'subscription'
 
     // ================ //
@@ -216,7 +216,7 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param logAnalyticsName string
+    param LogAnalyticsWorkspaceName string
 
     // =========== //
     // Deployments //
@@ -256,7 +256,7 @@ To set these up, please perform the following steps:
         scope: resourceGroup(resourceGroupName)
         name: 'workload-law'
         params: {
-            name: logAnalyticsName
+            name: LogAnalyticsWorkspaceName
         }
         dependsOn: [
             rg
@@ -293,14 +293,14 @@ In this final step, we ask you to optionally perform a test deployment of the gi
 1. Next, you can invoke the deployment itself. To do so, you can execute the following command using your own values for everything marked by _`<x>`_: 
     ```Powershell
     $inputObject = @{
-        DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-        TemplateFile       = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
-        Location           = '<LocationOfYourChoice>' # E.g. WestEurope
-        Verbose            = $true
-        ResourceGroupName  = '<NameOfTheResourceGroup>' # E.g. workload-rg
-        StorageAccountName = '<NameOfTheStorageAccount>' # Must be globally unique
-        KeyVaultName       = '<NameOfTheKeyVault>' # Must be globally unique
-        LogAnalyticsName   = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        DeploymentName            = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+        TemplateFile              = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
+        Location                  = '<LocationOfYourChoice>' # E.g. WestEurope
+        Verbose                   = $true
+        ResourceGroupName         = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        StorageAccountName        = '<NameOfTheStorageAccount>' # Must be globally unique
+        KeyVaultName              = '<NameOfTheKeyVault>' # Must be globally unique
+        LogAnalyticsWorkspaceName = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
     }
     New-AzSubscriptionDeployment @inputObject
     ```
@@ -315,14 +315,14 @@ In this final step, we ask you to optionally perform a test deployment of the gi
     carml@hotmail.de carml            00000000-0000-0000-0000-000000000000 AzureCloud
 
     PS C:\Desktop\CARML\ResourceModules> $inputObject = @{
-    >>     DeploymentName     = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
-    >>     TemplateFile       = 'C:\Desktop\CARML\ResourceModules\workload\deploy.bicep'
-    >>     Location           = 'WestEurope'
-    >>     Verbose            = $true
-    >>     ResourceGroupName  = 'carml-rg'
-    >>     StorageAccountName = 'carmllabsa'
-    >>     KeyVaultName       = 'carmlLabsakv'
-    >>     LogAnalyticsName   = 'carmllaw'
+    >>     DeploymentName            = "CARML-workload-$(-join (Get-Date -Format 'yyyyMMddTHHMMssffffZ')[0..63])"
+    >>     TemplateFile              = 'C:\Desktop\CARML\ResourceModules\workload\deploy.bicep'
+    >>     Location                  = 'WestEurope'
+    >>     Verbose                   = $true
+    >>     ResourceGroupName         = 'carml-rg'
+    >>     StorageAccountName        = 'carmllabsa'
+    >>     KeyVaultName              = 'carmlLabsakv'
+    >>     LogAnalyticsWorkspaceName = 'carmllaw'
     >> }
     PS C:\Desktop\CARML\ResourceModules> New-AzSubscriptionDeployment @inputObject
     VERBOSE: Using Bicep v0.4.1008
@@ -364,13 +364,13 @@ In this final step, we ask you to optionally perform a test deployment of the gi
     Mode              : Incremental
     TemplateLink      :
     Parameters        :
-                        Name                 Type                      Value
-                        ==================== ========================= ==========
-                        resourceGroupName    String                    carml-rg
-                        Get-location         String                    WestEurope
-                        storageAccountName   String                    carmllabsa
-                        keyVaultName         String                    carmlLabsakv
-                        logAnalyticsName     String                    carmllaw
+                        Name                         Type                      Value
+                        =========================    ========================= ==========
+                        resourceGroupName            String                    carml-rg
+                        Get-location                 String                    WestEurope
+                        storageAccountName           String                    carmllabsa
+                        keyVaultName                 String                    carmlLabsakv
+                        LogAnalyticsWorkspaceName    String                    carmllaw
 
     Outputs           :
                         Name                              Type                      Value

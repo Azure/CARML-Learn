@@ -243,7 +243,7 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
 You can now re-deploy your template to update the existing, and add the new resources.
 
-1. As we added a few additional parameters, the deployment command will likewise change slightly from what you used in [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##step-4---stretch-goal-deploy-solution). To deploy the template, you can use the following template
+1. As we added a few additional parameters, the deployment command will likewise change slightly from what you used in [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##step-4---stretch-goal-deploy-solution). To deploy the template, you can refer to the following:
 
     ```Powershell
     $inputObject = @{

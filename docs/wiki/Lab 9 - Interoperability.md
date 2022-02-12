@@ -71,15 +71,9 @@ In this step, you will use one of CARML's utilities to convert the repository fr
     . 'C:/dev/Carml-lab/ResourceModules/utilities/ConvertTo-ARMTemplate.ps1' -ConvertChildren
     ``` 
 
-    > Upon hitting enter the script will be begin running. You will notice 'Warning' as part of the output, that is normal and the script will continue. 
+    > Upon hitting enter the script will be begin running. You will notice several Bicep 'Warnings' as part of the output. This is normal and the script will continue. 
 
-1. By default, the script will take all the modules found under the `arm` folder that have a `.bicep`   file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted in step `2.` above. 
-
-1. To change some of the default functionality, the following parameters can be passed when executing the script:
-
-            . "<path of script>" -ConvertChildren -SkipMetadataCleanup -SkipBicepCleanUp -SkipPipelineUpdate
-
-    > This will convert top level + child Bicep modules to json based ARM template, keeping metadata in json, keeping all Bicep files and folders, and not updating workflows.
+1. By default, the script will take all the modules found under the `arm` folder that contain a `.bicep` file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted before.
 
 1. Once finished, you will see that your Bicep files have now all been converted to ARM Templates. These ARM Templates will work with your existing parameter files and workflows!
 

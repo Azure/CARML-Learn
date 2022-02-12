@@ -145,7 +145,7 @@ You will now modify the template to deploy a machine learning service. In this s
     }
     ```
 
-1. Last but not least, add a new empty line in the `ml`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
+1. Add a new empty line in the `ml`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
 
     <img src="./media/Lab8/extraParam.png" alt="Extra parameter" height="200">
 

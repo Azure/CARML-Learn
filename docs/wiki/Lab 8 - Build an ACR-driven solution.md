@@ -19,7 +19,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 
    <img src="./media/Lab8/acrSelect.png" alt="Registry select" height="500">
 
-1. Click on the Container registry resource and go to the `Repositories` list
+1. Click on the container registry resource and go to the `Repositories` list
 
    <img src="./media/Lab8/repoSelect.png" alt="Repository select" height="450">
 

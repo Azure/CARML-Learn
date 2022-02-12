@@ -38,7 +38,7 @@ One of the ways you can verify whether the publishing worked is by going to the 
 
     <img src="./media/Lab6/acrSelect.png" alt="Find the ACR" height=500>   
 
-1. Next, find the `Bicep/modules/microsoft.network.routetables` repository. 
+1. Next, find the `bicep/modules/microsoft.network.routetables` repository. 
     
     <img src="./media/Lab6/acrRepo.png" alt="Verify in the Azure portal what version was published" height=350>
 

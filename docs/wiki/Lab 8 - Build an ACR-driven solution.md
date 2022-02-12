@@ -22,7 +22,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 
    <img src="./media/Lab8/repoSelect.png" alt="Repository select" height="450">
 
-1. Select the `Bicep/modules/microsoft.resources.resourcegroups` reference and the latest version in the list
+1. Select the `bicep/modules/microsoft.resources.resourcegroups` reference and the latest version in the list
 
    <img src="./media/Lab8/versionSelect.png" alt="Version select" height="350">
 
@@ -33,12 +33,12 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 1. Repeat the previous step for all of the following resource types:
     | Name | Reference |
     | - | - |
-    | Resource group | `Bicep/modules/microsoft.resources.resourcegroups`
-    | Storage account | `Bicep/modules/microsoft.storage.storageaccounts` |
-    | Log Analytics workspace | `Bicep/modules/microsoft.operationalinsights.workspaces` |
-    | Application insights | `Bicep/modules/microsoft.insights.components` |
-    | Key Vault | `Bicep/modules/microsoft.keyvault.vaults` |
-    | Machine Learning service | `Bicep/modules/microsoft.machinelearningservices.workspaces` |
+    | Resource group | `bicep/modules/microsoft.resources.resourcegroups`
+    | Storage account | `bicep/modules/microsoft.storage.storageaccounts` |
+    | Log Analytics workspace | `bicep/modules/microsoft.operationalinsights.workspaces` |
+    | Application insights | `bicep/modules/microsoft.insights.components` |
+    | Key Vault | `bicep/modules/microsoft.keyvault.vaults` |
+    | Machine Learning service | `bicep/modules/microsoft.machinelearningservices.workspaces` |
 
 1. Open the `deploy.bicep` from Lab 1. In this file you still have the module reference set to the local file.
 

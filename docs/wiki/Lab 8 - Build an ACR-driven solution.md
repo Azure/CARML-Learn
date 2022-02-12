@@ -1,5 +1,5 @@
 In this lab, you will 
-- Update the template you created in Lab 1 to leverage the modules you published to the ACR instead and
+- Update the template you created in Lab 1 to leverage the modules you published to the ACR instead
 - Learn how to extend the template with new solutions
 
 ### _Navigation_

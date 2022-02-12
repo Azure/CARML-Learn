@@ -27,7 +27,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
 
    <img src="./media/Lab8/versionSelect.png" alt="Version select" height="350">
 
-1. Finally, copy the You will need to take note of the `Artifact reference` field
+1. Finally, take note of the `Artifact reference` field
 
     <img src="./media/Lab8/versionRefCopy.png" alt="Version reference" height="250">
 

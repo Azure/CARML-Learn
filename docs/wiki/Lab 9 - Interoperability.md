@@ -14,7 +14,7 @@ Fortunately, CARML supports both GitHub & Azure DevOps and either pipeline is co
 
 # Step 1 - Create a new branch
 
-To not interfere with your current setup, you should make sure to perform this step in a dedicated branch.
+To not interfere with your current setup, you should make sure to perform this lab in a dedicated branch.
 
 You can achieve this in two ways:
 

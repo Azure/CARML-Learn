@@ -86,17 +86,17 @@ You will now modify the template to deploy a machine learning service. In this s
 - Use resources that have dependencies on others, demonstrating how easy it is to reference resources created by modules
 - Add additional resources from your private Bicep registry and see how easy it can be to interact with it
 
-1. Machine Learning resource requires a reference to an AppInsights instance. To get started, first at its reference the same way you did before based on the notes you copied from the registry:
+1. The Machine Learning resource requires a reference to an Application Insights Workspace instance. To get things started, add the `microsoft.insights.components` bicep registry reference you copied earlier. For example:
 
     ```Bicep
     module appi 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.insights.components:<YourVersion>' =
     ```
 
-1. Next, select the area right behind the `=` character and press `space`. This should open a context menu that, as in Lab 1 for the local path, offers you to auto-populate the module with all required parameters.
+2. Next, select the area right behind the `=` character and press `space`. This should open a context menu that, as in Lab 1 for the local path, offers you to auto-populate the module with all required parameters.
 
     <img src="./media/Lab8/requiredProperties.png" alt="Required properties" height="150">
 
-1. As you can see, application insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
+3. As you can see, application insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
    - Add a `applicationInsightsWorkspaceName` parameter to the parameters section
    - Fill in the module properties as you did for the other resources (i.e. scope, deployment name). For the `workspaceResourceId` use the `resourceId` output of the `la`-module deployment. 
   
@@ -120,7 +120,7 @@ You will now modify the template to deploy a machine learning service. In this s
 
     > You may notice we didn't ask you to add a dependency to the `la` module deployment. This is not required, as Bicep creates an implicit dependency since you're using the `la`-module's output `la.outputs.resourceId`.
 
-1. You can now add the 'Machine Learning' module:
+4. You can now add the 'Machine Learning' module:
     - Insert the registry-reference
     - Let bicep generate the required parameters
     - Add a parameter for the workspace `name`
@@ -145,11 +145,11 @@ You will now modify the template to deploy a machine learning service. In this s
     }
     ```
 
-1. Add a new empty line in the `ml`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
+5. Add a new empty line in the `ml`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
 
     <img src="./media/Lab8/extraParam.png" alt="Extra parameter" height="200">
 
-1. The result should look similar to the following:
+6. The result should look similar to the following:
 
     ```Bicep
     // Params section

@@ -28,8 +28,8 @@ You can achieve this in two ways:
     1. Now, execute the following PowerShell commands:
 
         ```PowerShell
-        git checkout -b 'usingARM'
-        git push --set-upstream 'origin' 'usingARM'
+        git checkout -b 'interoperability'
+        git push --set-upstream 'origin' 'interoperability'
         ```
  - **Alternative 2:** You can perform a few steps in the UI
 
@@ -41,7 +41,7 @@ You can achieve this in two ways:
 
         <img src="./media/Lab9/createBranchUI.png" alt="Init create branch" height=70> 
 
-    1. Enter the new branch name `usingARM`
+    1. Enter the new branch name `interoperability`
 
     1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
@@ -123,11 +123,11 @@ Similar to Bicep's adoption, not all customers may be using GitHub repos and/or 
     
     1. Make sure `Grant Authorization` is selected under `Authentication Method`. Then open the drop-down under `OAuth Configuration` and select `AzurePipelines`. 
    
-    1. Click Authorize
+    1. Click `Authorize`.
 
-    1. A new window will appear taking you to GitHub. If you are already logged in to GitHub, it will automatically authenticate and authorize the service connection. If not, it will prompt you. Follow the steps and once finished you should see the user as part of the service connection: 
+    1. A new window will appear taking you to GitHub. If you are already logged into GitHub, it will automatically authenticate and authorize the service connection. If not, it will prompt you. Follow the steps and once finished you should see the user as part of the service connection: 
 
-        <img src="./media/Lab9/GithubConnectionConfig.png" alt="Github Service Connection Configured" height="300">
+        <img src="./media/Lab9/GitHubConnectionConfig.png" alt="Github Service Connection Configured" height="300">
 
     1. The name of the service connection will be automatically populated. For simplicity of this lab, rename the service connection to `GitHubConnection`. You will need this name later. Click save once finished.
 
@@ -135,44 +135,49 @@ Similar to Bicep's adoption, not all customers may be using GitHub repos and/or 
 
 1. We will now need a Service Connection between Azure DevOps and our Azure Subscription. Click on `New Service Connection` at the top right corner:
     1. Scroll, find, and select `AzureResourceManager` and click next.
-    1. For this lab we will be using `Service Principal (Automatic)` which allows the Azure DevOps Service to automatically create a Service Principal in your Azure AD Tenant using a secret. Once selected click next
-    1. Select `Subscription` under `Scope` and then select your target Subscription for deployments in the drop-down menu. Leave the `Resource Group` selection blank. 
-    1. Name your Service Connection `AzureConnection`. You will need this later. Click save on the bottom right corner
+    1. For this lab we will be using `Service Principal (manual)` which allows you to re-use the same service principal you used for GitHub.
+    1. Fill in all the required data.
+    1. Name your Service Connection `AzureConnection`. You will need this later. Click `Verify and save` on the bottom right. corner.
 
-1. You should now have two (2) Service Connections under your DevOps project, the `GithubConnection` and the `AzureConnetion`. 
+1. You should now have two (2) Service Connections under your DevOps project, the `GitHubConnection` and the `AzureConnection`. 
 
-1. Return to your Visual Studio Code window. Make sure you are still located on your fork of CARML and in your `lab8-interoperability` branch
+1. Return to your Visual Studio Code window. Make sure you are still located on your fork of CARML and in your `interoperability` branch.
 
-1. Navigate to the `.azuredevops/pipelineVariables` folder. You will find a YAML file titled `global.variables.yml`. Open the file and update the `serviceConnection` to `AzureConnection` and save the file
+1. Navigate to the `.azuredevops/pipelineVariables` folder. You will find a YAML file titled `global.variables.yml`. Open the file and update the `serviceConnection` to `AzureConnection` and save the file. This variable is passed to the pipeline jobs, which in turn automatically use the previously created service connection. 
 
 1. Navigate to the `tools/AzureDevOps` folder. You will find a PowerShell file titled `Register-AzureDevOpsPipeline.ps1`. 
 
-1. Right-click on the `ConvertTo-ARMTemplate.ps1` file, and select copy path
+1. Right-click on the `Register-AzureDevOpsPipeline.ps1` file, and select `Copy Path`
 
-1. Open a new PowerShell terminal session. Type + paste into the terminal
 
-        . "<path of script>" 
+1. Open an existing or new PowerShell terminal session and execute the following snippet:
 
-    > Upon hitting enter the script the script will not automatically run. The functions found in the script have been loaded to your Powershell session.
+    ```PowerShell
+    . 'Register-AzureDevOpsPipeline.ps1'
+    
+    # For example
+    . 'C:/dev/Carml-lab/ResourceModules/utilities/Register-AzureDevOpsPipeline.ps1'
+    ``` 
+
+    > Upon hitting enter the script will load the function(s) specified in the file into your Powershell session.
 
 1. Update and copy the following code block: 
 
+    ```PowerShell
         $inputObject = @{
             OrganizationName                 = '<Name of your DevOps Organization>'
             ProjectName                      = '<Name of your DevOps Project>'
             SourceRepository                 = '<Forked Github Repo Name>'
             Branch                           = '<Name of source branch>' 
-            GitHubServiceConnectionName      = 'GithubConnection'
+            GitHubServiceConnectionName      = 'GitHubConnection'
             AzureDevOpsPAT                   = '<Placeholder>'
         }
+        Register-AzureDevOpsPipeline @inputObject
+    ```
 
 1. Paste the code block into the PowerShell terminal and hit enter
 
-1. Copy the following command into the PowerShell terminal:
-        
-            Register-AzureDevOpsPipeline @inputObject
-
-1. Once entered the script will run and create Azure DevOps pipelines based on the YAML files you have in the `.azuredevops/modulePipelines` folder. Once finished you will be able to go to the Azure DevOps portal and see pipelines that were created as part of this process. 
+1. Once executed the script will run and create Azure DevOps pipelines based on the YAML files you have in the `.azuredevops/modulePipelines` folder. Once finished you will be able to go to the Azure DevOps portal and see pipelines that were created as part of this process. 
 
 1. This script is re-deployable, as all existing pipeline will not be affected. You can use this process to automatically create new pipelines for new modules/workloads!
 

@@ -18,57 +18,74 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
 1. In VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
-      - **Alternative 1:** Via VSCode's terminal by executing the following commands
-      
+    <details>
+    <summary><b>Via VSCode's terminal</b></summary>
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the Terminal-dropdown on the top, and selecting New Terminal
+
+    1. Executing the following commands
+
         ```PowerShell
-          git checkout 'main'
-          git pull
+            git checkout 'main'
+            git pull
         ```
+    </details>
 
-     - **Alternative 2:** You can perform a few steps in the UI
+    <details>
+    <summary><b>Via VSCode's UI</b></summary>
 
-       1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
+    1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
-            <img src="./media/Lab7/initBranchChange.png" alt="Change branch" height=80> 
+        <img src="./media/Lab7/initBranchChange.png" alt="Change branch" height=80> 
 
-        1. Next, a dropdown opens where you select the `main` branch
+    1. Next, a dropdown opens where you select the `main` branch
 
-            <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+        <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
 
-        1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
+    1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
 
-            <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+        <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+
+    </details>
+
+<p>
+
+1. Next, create a new branch `contribution`. You can achieve this in two ways:
+
+    <details>
+    <summary><b>Via VSCode's terminal</b></summary>
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+        
+    1. Now, execute the following PowerShell commands:
+
+        ```PowerShell
+        git checkout -b 'contribution'
+        git push --set-upstream 'origin' 'contribution'
+        ```
+    </details>
+
+    <details>
+    <summary><b>Via VSCode's UI</b></summary>
+
+    1. Select the current branch on the bottom left of VSCode
+
+        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80> 
+
+    1. Select `+ Create new branch` in the opening dropdown
+
+        <img src="./media/Lab7/createBranchUI.png" alt="Init create branch" height=70> 
+
+    1. Enter the new branch name `contribution`
 
 
-1. Next, create a new branch `contribution`. Again you can do this in two ways:
+        <img src="./media/Lab7/createBranchName.png" alt="Enter name" height=70> 
 
-   - **Alternative 1:** Via VSCode's terminal with the following steps
-  
-      1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
-       
-      1. Now, execute the following PowerShell commands:
+    1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
-          ```PowerShell
-          git checkout -b 'contribution'
-          git push --set-upstream 'origin' 'contribution'
-          ```
-   - **Alternative 2:** You can perform a few steps in the UI
+        <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
 
-      1. Select the current branch on the bottom left of VSCode
-
-          <img src="./media/Lab6/initBranchMain.png" alt="Change branch main" height=80> 
-
-      1. Select `+ Create new branch` in the opening dropdown
-
-          <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
-
-      1. Enter the new branch name `contribution`
-
-          <img src="./media/Lab7/createBranchName.png" alt="Enter name" height=70> 
-
-      1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
-
-          <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
+    </details>
 
 # Step 2 - Implement the contribution
 

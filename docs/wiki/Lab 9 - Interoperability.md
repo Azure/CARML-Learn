@@ -22,35 +22,34 @@ To not interfere with your current setup, you should make sure to perform this l
 You can achieve this in two ways:
 
 <details>
-    <summary>Via VSCode's terminal</summary>
+<summary><b>Via VSCode's terminal</b></summary>
 
-    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-     
-    1. Now, execute the following PowerShell commands:
+  1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+      
+  1. Now, execute the following PowerShell commands:
 
-        ```PowerShell
-        git checkout -b 'interoperability'
-        git push --set-upstream 'origin' 'interoperability'
-        ```
-
+      ```PowerShell
+      git checkout -b 'interoperability'
+      git push --set-upstream 'origin' 'interoperability'
+      ```
 </details>
 
 <details>
-    <summary>Via VSCode's UI</summary>
+<summary><b>Via VSCode's UI</b></summary>
 
-     1. Select the current branch on the bottom left of VSCode
+  1. Select the current branch on the bottom left of VSCode
 
-        <img src="./media/Lab9/initBranchMain.png" alt="Change branch main" height=80> 
+     <img src="./media/Lab9/initBranchMain.png" alt="Change branch main" height=80> 
 
-    1. Select `+ Create new branch` in the opening dropdown
+  1. Select `+ Create new branch` in the opening dropdown
 
-        <img src="./media/Lab9/createBranchUI.png" alt="Init create branch" height=70> 
+     <img src="./media/Lab9/createBranchUI.png" alt="Init create branch" height=70> 
 
-    1. Enter the new branch name `interoperability`
+  1. Enter the new branch name `interoperability`
 
-    1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+  1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
-        <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
+     <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
 
 </details>
 

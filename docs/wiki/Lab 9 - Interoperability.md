@@ -55,7 +55,6 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 1. Navigate to the `utilities/tools` folder. You will find a PowerShell file titled `ConvertTo-ARMTemplate.ps1`. The script allows you to do the following:
     - Remove existing deploy.json files
     - Take the modules written in Bicep within your CARML library and convert them to ARM JSON syntax (_Excludes child-modules by default_). 
-    - Remove existing deploy.json files 
     - Remove Bicep metadata from the new JSON files
     - Remove Bicep files and folders 
     - Update existing GitHub workflow as well as ADO pipeline YAML files to replace `.bicep` with `.json` so that deployments now use the newly created `.json` files 

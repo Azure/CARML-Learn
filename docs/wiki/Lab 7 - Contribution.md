@@ -40,11 +40,11 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
     1. Next, a dropdown opens where you select the `main` branch
 
-        <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+        <img src="./media/Lab7/selectMain.png" alt="Select main" height=150> 
 
     1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
 
-        <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+        <img src="./media/Lab7/syncBranch.png" alt="Sync main" height=70> 
 
     </details>
 

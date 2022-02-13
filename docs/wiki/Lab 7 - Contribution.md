@@ -179,39 +179,39 @@ Now that the contribution is implemented and the tests are green, you can contin
 
 1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode:
 
-<details>
-<summary><b>Via VSCode's terminal</b></summary>
+    <details>
+    <summary><b>Via VSCode's terminal</b></summary>
 
-1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-    
-1. Now, execute the following PowerShell commands:
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+        
+    1. Now, execute the following PowerShell commands:
 
-    ```PowerShell
-    git add .
-    git commit -m 'Added output to route table'
-    git push
-    ```
-    
-</details>
+        ```PowerShell
+        git add .
+        git commit -m 'Added output to route table'
+        git push
+        ```
+        
+    </details>
 
-<details>
-<summary><b>Via VSCode's UI</b></summary>
+    <details>
+    <summary><b>Via VSCode's UI</b></summary>
 
- 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
-     
-    <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
+    1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+        
+        <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
 
-1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
+    1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="160">
+        <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="160">
 
-1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+    1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
-    <img src="./media/Lab7/gitpush.png" alt="Git push" height="80">
+        <img src="./media/Lab7/gitpush.png" alt="Git push" height="80">
 
-</details>
+    </details>
 
-<p>
+    <p>
 
 1. Back in your fork, navigate to `Actions`
 

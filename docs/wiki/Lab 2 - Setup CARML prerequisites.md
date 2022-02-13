@@ -352,27 +352,42 @@ As said above, the Bicep Registry needs a globally unique name, so you will need
 
 ## Commit your changes to main
 
-You now need to push the changes in the repo. To do so using VSCode UI
+You now need to push the changes in the repo. You can do this in two ways:
 
-1. Go to source control and stash the changes by clicking on the `+` button.
 
-    <img src="./media/Lab2/stash-settings-changes.png" alt="Stash changes" height="100">
+<details>
+<summary><b>Via VSCode's terminal</b></summary>
 
-1. Type a commit message and commit.
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
+1. Now, execute the following PowerShell commands:
 
-    <img src="./media/Lab2/commit-message.png" alt="Commit changes" height="100">
+    ```PowerShell
+    git add .
+    git commit -m 'Update settings and variables'
+    git push
+    ```
+    
+</details>
 
-1. Sync the changes.
+<details>
+<summary><b>Via VSCode's UI</b></summary>
 
-    <img src="./media/Lab2/sync-changes.png" alt="Sync changes" height="100">
+1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-**As an alternative** you can use the command line using the following commands:
+    <img src="./media/Lab2/gitAdd.png" alt="Open source control" height="130">
 
- ```PowerShell
-git add -A
-git commit -m "Update settings and variables"
-git push
-```
+1. Commit your changes: Next, you should give the commit a meaningful message such as 'Update settings and variables' and can then click the checkmark symbol on the top to create the commit
+
+    <img src="./media/Lab2/gitCommit.png" alt="Git commit" height="120">
+
+1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+
+    <img src="./media/Lab2/gitpush.png" alt="Git push" height="120">
+
+</details>
+
+<p>
 
 # Step 5 - Create a branch
 
@@ -382,14 +397,44 @@ To this end, the trigger is set up to look for any changes in the `main` branch 
 
 As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
-1. To do so, navigate back to your local Visual Studio code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
+You can do this in one of two ways:
 
+<details>
+<summary><b>Via VSCode's terminal</b></summary>
+
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
 1. Now, execute the following PowerShell commands:
 
-```PowerShell
-git checkout -b 'carmlLab'
-git push --set-upstream 'origin' 'carmlLab'
-```
+    ```PowerShell
+    git checkout -b 'carmlLab'
+    git push --set-upstream 'origin' 'carmlLab'
+    ```
+</details>
+
+<details>
+<summary><b>Via VSCode's UI</b></summary>
+
+1. Select the current branch on the bottom left of VSCode
+
+    <img src="./media/Lab2/initBranchMain.png" alt="Change branch main" height=80> 
+
+1. Select `+ Create new branch` in the opening dropdown
+
+    <img src="./media/Lab2/createBranchUI.png" alt="Init create branch" height=70> 
+
+1. Enter the new branch name `carmlLab`
+
+
+    <img src="./media/Lab2/createBranchName.png" alt="Enter name" height=70> 
+
+1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+    <img src="./media/Lab3/gitpush.png" alt="Git push" height=100>
+
+</details>
+
+<p>
 
 # Step 6 - Enable actions
 

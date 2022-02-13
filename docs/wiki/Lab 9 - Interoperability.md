@@ -21,9 +21,10 @@ To not interfere with your current setup, you should make sure to perform this l
 
 You can achieve this in two ways:
 
- - **Alternative 1:** Via VSCode's terminal with the following steps
+<details>
+    <summary>Via VSCode's terminal</summary>
 
-    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
      
     1. Now, execute the following PowerShell commands:
 
@@ -31,9 +32,13 @@ You can achieve this in two ways:
         git checkout -b 'interoperability'
         git push --set-upstream 'origin' 'interoperability'
         ```
- - **Alternative 2:** You can perform a few steps in the UI
 
-    1. Select the current branch on the bottom left of VSCode
+</details>
+
+<details>
+    <summary>Via VSCode's UI</summary>
+
+     1. Select the current branch on the bottom left of VSCode
 
         <img src="./media/Lab9/initBranchMain.png" alt="Change branch main" height=80> 
 
@@ -47,6 +52,7 @@ You can achieve this in two ways:
 
         <img src="./media/Lab9/gitpush.png" alt="Git push" height=100>
 
+</details>
 
 # Step 2 - Convert to ARM
 
@@ -177,7 +183,7 @@ Similar to Bicep's adoption, not all customers may be using GitHub repos and/or 
 
 1. Paste the code block into the PowerShell terminal and hit enter
 
-1. Once executed the script will run and create Azure DevOps pipelines based on the YAML files you have in the `.azuredevops/modulePipelines` folder. Once finished you will be able to go to the Azure DevOps portal and see pipelines that were created as part of this process. 
+1. Once executed, the script will run and create Azure DevOps pipelines based on the YAML files you have in the `.azuredevops/modulePipelines` folder. Once finished you will be able to go to the Azure DevOps portal and see pipelines that were created as part of this process. 
 
 1. This script is re-deployable, as all existing pipeline will not be affected. You can use this process to automatically create new pipelines for new modules/workloads!
 

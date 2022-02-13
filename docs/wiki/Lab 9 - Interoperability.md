@@ -53,7 +53,8 @@ You can achieve this in two ways:
 In this step, you will use one of CARML's utilities to convert the repository from Bicep-based to ARM-based. This includes the conversion of the templates themselves, the update of the pipelines that use them, as well as the cleanup of both metadata & redundant Bicep-specific folders.  
 
 1. Navigate to the `utilities/tools` folder. You will find a PowerShell file titled `ConvertTo-ARMTemplate.ps1`. The script allows you to do the following:
-    - Take the modules written in Bicep within your CARML library and convert them to ARM Template syntax (_Excludes child-modules by default_). 
+    - Remove existing deploy.json files
+    - Take the modules written in Bicep within your CARML library and convert them to ARM JSON syntax (_Excludes child-modules by default_). 
     - Remove existing deploy.json files 
     - Remove Bicep metadata from the new JSON files
     - Remove Bicep files and folders 

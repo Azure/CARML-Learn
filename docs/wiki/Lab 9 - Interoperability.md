@@ -84,12 +84,12 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 Similar to Bicep's adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML can be hosted in a GitHub repo and deployed using Azure DevOps Pipelines or run entirely from Azure DevOps. The following demonstrates how CARML can enable users to perform Infrastructure-as-Code deployments using Azure DevOps Pipelines:
 
-1. Before starting, make sure that you have the following:
+1. Before starting, make sure that you have the following installed:
     - Azure CLI
-    - [Azure DevOps CLI extension](https://docs.microsoft.com/en-us/azure/devops/cli/?view=azure-devops)
+    - Azure CLI Extension: [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/cli/?view=azure-devops)
     - An Azure DevOps Project 
 
-1. Go to the [Azure DevOps Portal](dev.azure.com) and login.
+1. Go to the [Azure DevOps Portal](https://dev.azure.com) and log in.
 
 1. To create a new DevOps project, choose the organization that you wish to create the project under. Then select `+ New Project` on the top right corner of the page. 
 
@@ -107,28 +107,33 @@ Similar to Bicep's adoption, not all customers may be using GitHub repos and/or 
 
     > The changes will automatically be saved/updated and you can close the permissions panel once done.
 
-1. Next, click on `Project Setings` on the bottom-left corner of the page. Scroll towards the bottom of the `Project Settings` panel, locate the `Service Connections` tab
-
-    <img src="./media/Lab9/ServiceConnectionSettings.png" alt="Service Connection Settings" height="300">
-
 1. The next step(s) should only be done when the repo is in GitHub. We will be establishing a service connection between Azure DevOps and GitHub:
+
+    1. Next, click on `Project Settings` on the bottom-left corner of the page. Scroll towards the bottom of the `Project Settings` panel, locate the `Service Connections` tab
+
+        <img src="./media/Lab9/ServiceConnectionSettings.png" alt="Service Connection Settings" height="300">
+
     1. Click `Create New Service Connection`
+   
     1. Scroll, find, and select `GitHub` and click next. 
 
         <img src="./media/Lab9/GithubServiceConnection.png" alt="Github Service Connection" height="300">
         
         > Note if an organization is using GitHub Enterprise to host their repository, GitHub Enterprise must be selected instead. 
     
-    1. Make sure `Grant Authorization` is selected under `Authentication Method`. Then click the drop-down under `OAuth Configuration` and select `AzurePipelines`. Click Authorize
+    1. Make sure `Grant Authorization` is selected under `Authentication Method`. Then open the drop-down under `OAuth Configuration` and select `AzurePipelines`. 
+   
+    1. Click Authorize
 
     1. A new window will appear taking you to GitHub. If you are already logged in to GitHub, it will automatically authenticate and authorize the service connection. If not, it will prompt you. Follow the steps and once finished you should see the user as part of the service connection: 
 
         <img src="./media/Lab9/GithubConnectionConfig.png" alt="Github Service Connection Configured" height="300">
 
-    1. The name of the service connection will be automatically populated. For simplicity of this lab, rename the service connection to `GithubConnection`. You will need this name later. Click save once finished.
+    1. The name of the service connection will be automatically populated. For simplicity of this lab, rename the service connection to `GitHubConnection`. You will need this name later. Click save once finished.
 
+   1. You will be returned to the Service Connection settings page and should see your GitHub connection. 
 
-1. You will be returned to the Service Connection settings page and should see your GitHub connection. We will now need a Service Connection between Azure DevOps and our Azure Subscription. Click on `New Service Connection` at the top right corner:
+1. We will now need a Service Connection between Azure DevOps and our Azure Subscription. Click on `New Service Connection` at the top right corner:
     1. Scroll, find, and select `AzureResourceManager` and click next.
     1. For this lab we will be using `Service Principal (Automatic)` which allows the Azure DevOps Service to automatically create a Service Principal in your Azure AD Tenant using a secret. Once selected click next
     1. Select `Subscription` under `Scope` and then select your target Subscription for deployments in the drop-down menu. Leave the `Resource Group` selection blank. 

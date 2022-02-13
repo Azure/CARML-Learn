@@ -28,7 +28,7 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 There are two alternatives to execute this step. Please, choose the one you prefer and move to Step 2 afterwards.
 
 <details>
-<summary><b>Alternative 1: Using Az CLI command</b></summary>
+<summary><b>Alternative 1: Via the Az CLI</b></summary>
 
 The following commands will allow us to:
 
@@ -100,7 +100,7 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
 
 <details>
-<summary><b>Alternative 2: Using the Azure Portal</b></summary>
+<summary><b>Alternative 2: Via the Azure Portal</b></summary>
 
 ### Create the Service Principal
 

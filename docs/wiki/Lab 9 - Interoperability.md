@@ -1,6 +1,6 @@
 In this lab you will explore how CARML is able to operate with both ARM JSON Templates & Bicep as well as with both Azure DevOps Pipelines & GitHub Workflows to meet different customer scenarios.  
 
-There may be good reasons why a customer may not want to use these technologies just yet:
+There may be reasons why a customer may not want to use Bicep or GitHub workflows just yet:
 - Bicep is still a relatively new DSL and not yet version 1.0.0
 - GitHub workflows are likewise relatively new compared to Azure DevOps pipelines and not yet on par with it
 

@@ -71,7 +71,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
     . 'C:/dev/Carml-lab/ResourceModules/utilities/ConvertTo-ARMTemplate.ps1' -ConvertChildren
     ``` 
 
-    > Upon hitting enter the script will be begin running. You will notice several Bicep 'Warnings' as part of the output. This is normal and the script will continue. 
+    > Upon hitting enter the script will start running. You will notice several Bicep 'Warnings' as part of the output. This is normal and the script will continue. 
 
 1. By default, the script will take all the modules found under the `arm` folder that contain a `.bicep` file, begin converting from Bicep to JSON, and conduct all the optional functions highlighted before.
 

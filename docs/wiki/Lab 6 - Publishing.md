@@ -14,9 +14,39 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
     <img src="./media/Lab6/1.png" alt="update the version property in the version.json file to be 0.1" height=180>
 
-1. Next, upload your changes in the same manner as you did before, add your changes to the commit, create a commit with a corresponding commit message (e.g. `Updated route table version to 0.1`) and push the changes to GitHub
+1. Next, upload your changes in any of the following 2 ways:
 
-    <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
+    <details>
+    <summary><b>Via VSCode's terminal</b></summary>
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+        
+    1. Now, execute the following PowerShell commands:
+
+        ```PowerShell
+        git add .
+        git commit -m 'Updated route table version to 0.1'
+        git push
+        ```
+        
+    </details>
+
+    <details>
+    <summary><b>Via VSCode's UI</b></summary>
+
+    1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+
+        <img src="./media/Lab6/gitAdd.png" alt="Open source control" height="130">
+
+    1. Commit your changes: Next, you should give the commit a meaningful message such as 'Updated route table version to 0.1' and can then click the checkmark symbol on the top to create the commit
+
+        <img src="./media/Lab6/gitCommit.png" alt="Git commit" height="160">
+
+    1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+
+        <img src="./media/Lab6/gitpush.png" alt="Git push" height="80">
+
+    </details>
 
 # Step 2 - Run the workflow in GitHub
 

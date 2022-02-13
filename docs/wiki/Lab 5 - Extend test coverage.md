@@ -106,15 +106,29 @@ Now you have to modify the workflow file to make sure it also uses the new param
 
 # Step 5 - Upload your changes to GitHub
 
-Now that the tests are implemented and the pipeline updated, you can upload your changes to GitHub.
+Now that the tests are implemented and the pipeline updated, you can upload your changes to GitHub. You can do this in two ways
 
-1. This can either be done via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration. If not already there, navigate to the source control menu to the left.
+<details>
+<summary><b>Via VSCode's terminal</b></summary>
 
-    <img src="./media/Lab5/gitInit.png" alt="Open source control" height="130">
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
+1. Now, execute the following PowerShell commands:
 
-1. Stage your changes: Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+    ```PowerShell
+    git add .
+    git commit -m 'Added new minimum parameter test file and proximity placement group test to availability set module'
+    git push
+    ```
+    
+</details>
 
-    <img src="./media/Lab5/gitAdd.png" alt="Git add" height="130">
+<details>
+<summary><b>Via VSCode's UI</b></summary>
+
+1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+
+    <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
 
 1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added new minimum parameter test file and proximity placement group test to availability set module' and can then click the checkmark symbol on the top to create the commit
 
@@ -123,6 +137,10 @@ Now that the tests are implemented and the pipeline updated, you can upload your
 1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
     <img src="./media/Lab5/gitpush.png" alt="Git push" height="80">
+
+</details>
+
+<p>
 
 
 # Step 6 - Test the deployment
@@ -158,7 +176,7 @@ You will now manually test the deployment, verifying its template is using both 
 
 ---
 
-[Now proceed to the next lab](./Lab%206%20-%20Publishing)
+If ready, proceed to the next lab: [Lab 6 - Publishing](./Lab%206%20-%20Publishing)
 
 # Optional Appendix
 

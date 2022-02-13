@@ -177,21 +177,41 @@ With the readme updated we can now re-run the test to confirm everything is in o
 
 Now that the contribution is implemented and the tests are green, you can continue to prepare everything for the subsequent pull request.
 
-1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration. If not already there, navigate to the source control menu to the left.
+1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode:
 
-    <img src="./media/Lab7/sourceControl.png" alt="Open source control" height="120">
+<details>
+<summary><b>Via VSCode's terminal</b></summary>
 
-1. Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
+1. Now, execute the following PowerShell commands:
 
-    <img src="./media/Lab7/gitadd.png" alt="Git add" height="120">
+    ```PowerShell
+    git add .
+    git commit -m 'Added output to route table'
+    git push
+    ```
+    
+</details>
 
-1. Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
+<details>
+<summary><b>Via VSCode's UI</b></summary>
 
-    <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="120">
+ 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+     
+    <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
 
-1. Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
+
+    <img src="./media/Lab7/gitCommit.png" alt="Git commit" height="160">
+
+1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
     <img src="./media/Lab7/gitpush.png" alt="Git push" height="80">
+
+</details>
+
+<p>
 
 1. Back in your fork, navigate to `Actions`
 
@@ -251,11 +271,11 @@ Part of your pull request are 2 files that should not be pushed into the target 
 
     <img src="./media/Lab7/settingsjson.png" alt="Settings JSON fork" height="180">
 
-1. Now, open the `settings.json` of the `CARML` repository at _https://github.com/Azure/ResourceModules/blob/main/settings.json_, copy its content and overwrite it in your local file in VSCode 
+1. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode 
 
     <img src="./media/Lab7/settingsCarml.png" alt="Settings JSON CARML" height="400">
 
-1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the `CARML` at _https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_.
+1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
 
 
 1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.

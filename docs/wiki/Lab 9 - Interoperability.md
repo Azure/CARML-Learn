@@ -56,7 +56,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
     - Remove existing deploy.json files 
     - Remove Bicep metadata from the new JSON files
     - Remove Bicep files and folders 
-    - Update workflow YAML files to replace `.bicep` with `.json` so that deployments now use the newly created `.json` files 
+    - Update existing GitHub workflow as well as ADO pipeline YAML files to replace `.bicep` with `.json` so that deployments now use the newly created `.json` files 
 
 1. First you need to load the script. There are different ways to do this, but for our purposes, right-click on the `ConvertTo-ARMTemplate.ps1` file, and select `Copy Path`.
 

@@ -25,14 +25,10 @@ For this lab, it is enough to just write them temporarily in for example Notepad
 - Subscription ID
 - Parent Management Group
 
-There are two alternatives to execute this step:
+There are two alternatives to execute this step. Please, choose the one you prefer and move to Step 2 afterwards.
 
-1. [Using Az CLI commands](#alternative-1-using-az-cli-commands)
-2. [Using the Azure Portal](#alternative-2-using-the-azure-portal)
-
-Please, choose the one you prefer and move to Step 2 afterwards.
-
-## Alternative 1: Using Az CLI commands
+<details>
+<summary><b>Alternative 1: Using Az CLI command</b></summary>
 
 The following commands will allow us to:
 
@@ -46,31 +42,31 @@ The following commands will allow us to:
 
     <img src="./media/PreReqAzure/portalSubscriptionSearch.png" alt="Subscription search" height="170">
 
-2. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
+1. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
 
     <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
 
-3. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
+1. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
    - Make note of the `Subscription ID` for later reference
    - Make note of the `Parent Management Group` for later reference
 
     <img src="./media/Lab2/portalSubscriptionOverview.png" alt="Subscription overview" height="220">
 
-4. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
+1. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
 
-5. Now, login to Azure by executing:
+1. Now, login to Azure by executing:
 
 ```PowerShell
 az login 
 ```
 
-6. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
+1. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
 
 ```Powershell
 az account set --subscription "<subscription id>"
 ```
 
-7. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
+1. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
 
 ```Powershell
 az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
@@ -82,7 +78,7 @@ If you don't want to assign **Owner**, you can also choose **Contributor** in co
 az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
 ```
 
-8. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.
+1. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.
 
 ```JSON
 {
@@ -94,13 +90,17 @@ az role assignment create --assignee "<<service-principal-name>>" --role "User A
 }
 ```
 
-9. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
+1. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
 
 ```Powershell
 az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
 ```
 
-## Alternative 2: Using the Azure Portal
+</details>
+
+
+<details>
+<summary><b>Alternative 2: Using the Azure Portal</b></summary>
 
 ### Create the Service Principal
 
@@ -108,47 +108,47 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
-2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top.
+1. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top.
 
     <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="190">
 
-3. Here we want to do 2 things:
+1. Here we want to do 2 things:
    - Make note of your `Tenant ID` in the displayed `Overview` for later reference
    - Further select `App registrations` in the blade to the left
 
     <img src="./media/PreReqAzure/portalAzureAD.png" alt="Portal AAD Home" height="400">
 
-4. In the opening view select `+ New registration` on the top.
+1. In the opening view select `+ New registration` on the top.
 
     <img src="./media/PreReqAzure/portalAzureADAppRegistrations.png" alt="Portal AAD App Registration Overview" height="180">
 
-5. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
+1. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
 
     <img src="./media/PreReqAzure/portalAzureADAppCreate.png" alt="Portal AAD App Registration" height="600">
 
-6. This will open the created application's overview. Here we again want to do 2 things:
+1. This will open the created application's overview. Here we again want to do 2 things:
    - Make note of the `Application (client) ID` for later reference
    - Navigate to the application's underlying service principal by selecting its name on the right side of the application's overview
 
     <img src="./media/PreReqAzure/portalAzureADAppView.png" alt="Portal AAD App View" height="200">
 
-7. Here you have to perform 2 tasks:
+1. Here you have to perform 2 tasks:
    - Make note of the service principal's `Object ID`    for later reference
    - Further, navigate back to the created application's overview by going back in your browser
 
     <img src="./media/PreReqAzure/portalAzureADAppViewSPView.png" alt="" height="200">
 
-8. Back on the application, you again have to perform 2 tasks:
+1. Back on the application, you again have to perform 2 tasks:
    - Select `Certificates & secrets` in the blade to the left
    - Select `+ New client secret` in the opening view to the right
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="300">
 
-9. Now enter a name for the secret, and click on `Add`.
+1. Now enter a name for the secret, and click on `Add`.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreateBlade.png" alt="Portal AAD App Secret Create Blade" height="150">
 
-10. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
+1. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretView.png" alt="Portal AAD App Secret View" height="300">
 
@@ -206,6 +206,10 @@ Now that we have a new service principal, we must grant it access on the subscri
 1. In the opening blade you can see that the application indeed is configured with the expected role(s) for the current subscription.
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearchConfirm.png" alt="Role assignment check access" height="120">
+
+</details>
+
+<p>
 
 # Step 2 - Create your fork
 

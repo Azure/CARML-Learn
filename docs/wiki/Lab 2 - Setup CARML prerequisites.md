@@ -1,4 +1,4 @@
-In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory you can use at your customer/company, or to perform an end to end testing for contribution purposes.
+In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory you can use at your customer, or to perform an end to end testing for contribution purposes.
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)

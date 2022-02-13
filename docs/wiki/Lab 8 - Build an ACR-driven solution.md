@@ -55,7 +55,7 @@ In the previous lab you published all the necessary modules to Bicep registry. Y
     module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {}
     module sa 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.storage.storageaccounts:<YourVersion>' = {}
     module kv 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.keyvault.vaults:<YourVersion>' = {}
-    module la 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.operationalinsights.workspaces:<YourVersion>' = {}
+    module law 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.operationalinsights.workspaces:<YourVersion>' = {}
     ```
 
 1. Now, re-run the template's deployment like you did in  [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure##--step-4---stretch-goal-deploy-solution). The deployment should succeed (even if no changes will happen).
@@ -92,7 +92,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
 
 1. As you can see, Application Insights requires two parameters, `name` and `workspaceResourceId`. Please enter the details as follows
    - Add a `applicationInsightsWorkspaceName` parameter to the parameters section
-   - Fill in the module properties as you did for the other resources (i.e. scope, deployment name). For the `workspaceResourceId` use the `resourceId` output of the `la`-module deployment. 
+   - Fill in the module properties as you did for the other resources (i.e. scope, deployment name). For the `workspaceResourceId` use the `resourceId` output of the `law`-module deployment. 
   
     The result should look similar to:
 
@@ -106,13 +106,13 @@ You will now modify the template to deploy a Machine Learning service. In this s
         scope: resourceGroup(resourceGroupName)
         name: 'workload-appi'
         params: {
-            workspaceResourceId: la.outputs.resourceId
+            workspaceResourceId: law.outputs.resourceId
             name: applicationInsightsWorkspaceName
         }
     }
     ```
 
-    > You may notice we didn't ask you to add a dependency to the `la` module deployment. This is not required, as Bicep creates an implicit dependency since you're using the `la`-module's output `la.outputs.resourceId`.
+    > You may notice we didn't ask you to add a dependency to the `law` module deployment. This is not required, as Bicep creates an implicit dependency since you're using the `law`-module's output `law.outputs.resourceId`.
 
 1. You can now add the 'Machine Learning' module:
     - Insert the registry-reference
@@ -172,7 +172,7 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 1. You can add Diagnostic Settings to the `Machine Learning Workspace`, `Key Vault` & `Storage Account` module by adding the following line to each of their `param` blocks:
 
     ```Bicep
-    diagnosticWorkspaceId: la.outputs.resourceId
+    diagnosticWorkspaceId: law.outputs.resourceId
     ```
 
     > ***Note:*** Optionally, you could also set additional parameter such as `logsToEnable` to specify which logs to set exactly. By default, all are enabled once a diagnostic target is specified.
@@ -245,10 +245,10 @@ You can now re-deploy your template to update the existing, and add the new reso
         TemplateFile                    = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
         Location                         = '<LocationOfYourChoice>' # E.g. WestEurope
         Verbose                          = $true
-        ResourceGroupName                = '<NameOfTheResourceGroup>' # E.g. workload-rg
-        StorageAccountName               = '<NameOfTheStorageAccount>' # Must be globally unique
-        KeyVaultName                     = '<NameOfTheKeyVault>' # Must be globally unique
-        LogAnalyticsWorkspaceName        = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        resourceGroupName                = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        storageAccountName               = '<NameOfTheStorageAccount>' # Must be globally unique
+        keyVaultName                     = '<NameOfTheKeyVault>' # Must be globally unique
+        logAnalyticsWorkspaceName        = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
         applicationInsightsWorkspaceName = '<NameOfTheApplicationInsightsWorkspace>'
         machineLearningWorkspaceName     = '<NameOfTheMachineLearningWorkspace>'
         roleAssignments                  = @(

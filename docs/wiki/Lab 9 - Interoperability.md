@@ -22,7 +22,7 @@ To not interfere with your current setup, you should make sure to perform this l
 You can achieve this in two ways:
 
 <details>
-<summary><b>Via VSCode's terminal</b></summary>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
   1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
       
@@ -35,7 +35,7 @@ You can achieve this in two ways:
 </details>
 
 <details>
-<summary><b>Via VSCode's UI</b></summary>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
   1. Select the current branch on the bottom left of VSCode
 

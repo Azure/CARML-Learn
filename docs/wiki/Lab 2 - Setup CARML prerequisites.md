@@ -251,7 +251,7 @@ To do that you have to perform the following steps in sequence:
 
     <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="600">
 
-2. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button.
+1. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button.
 
     <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="600">
 
@@ -360,7 +360,7 @@ You now need to push the changes in the repo. You can do this in two ways:
 
 
 <details>
-<summary><b>Via VSCode's terminal</b></summary>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
 1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
     
@@ -375,7 +375,7 @@ You now need to push the changes in the repo. You can do this in two ways:
 </details>
 
 <details>
-<summary><b>Via VSCode's UI</b></summary>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
@@ -404,7 +404,7 @@ As you don't want to accidentally trigger any pipelines, you should hence create
 You can do this in one of two ways:
 
 <details>
-<summary><b>Via VSCode's terminal</b></summary>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
 1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
     
@@ -417,7 +417,7 @@ You can do this in one of two ways:
 </details>
 
 <details>
-<summary><b>Via VSCode's UI</b></summary>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
 1. Select the current branch on the bottom left of VSCode
 

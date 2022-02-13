@@ -19,7 +19,7 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 1. In VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the Terminal-dropdown on the top, and selecting New Terminal
 
@@ -32,7 +32,7 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
@@ -53,7 +53,7 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 1. Next, create a new branch `contribution`. You can achieve this in two ways:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
@@ -66,7 +66,7 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Select the current branch on the bottom left of VSCode
 
@@ -180,7 +180,7 @@ Now that the contribution is implemented and the tests are green, you can contin
 1. The first thing you have to do is to upload your changes. You can do this either via the terminal or by using the Git integration of VSCode:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
@@ -195,7 +195,7 @@ Now that the contribution is implemented and the tests are green, you can contin
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
         

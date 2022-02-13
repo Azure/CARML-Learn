@@ -109,7 +109,7 @@ Now you have to modify the workflow file to make sure it also uses the new param
 Now that the tests are implemented and the pipeline updated, you can upload your changes to GitHub. You can do this in two ways
 
 <details>
-<summary><b>Via VSCode's terminal</b></summary>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
 1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
     
@@ -124,7 +124,7 @@ Now that the tests are implemented and the pipeline updated, you can upload your
 </details>
 
 <details>
-<summary><b>Via VSCode's UI</b></summary>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 

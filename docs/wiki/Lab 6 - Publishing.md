@@ -17,7 +17,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 1. Next, upload your changes in any of the following 2 ways:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
@@ -32,7 +32,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
@@ -109,7 +109,7 @@ For the next lab you will need a few more modules being published. To do so, pro
 1. Back in VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the Terminal-dropdown on the top, and selecting New Terminal
 
@@ -122,7 +122,7 @@ For the next lab you will need a few more modules being published. To do so, pro
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
@@ -143,7 +143,7 @@ For the next lab you will need a few more modules being published. To do so, pro
 1. Create a new branch `prereqModules`. Again you can do this in two ways:
 
     <details>
-    <summary><b>Via VSCode's terminal</b></summary>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
@@ -156,7 +156,7 @@ For the next lab you will need a few more modules being published. To do so, pro
     </details>
 
     <details>
-    <summary><b>Via VSCode's UI</b></summary>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Select the current branch on the bottom left of VSCode
 

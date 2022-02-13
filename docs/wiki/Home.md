@@ -31,6 +31,11 @@ This lab requires a number of fundamental pre-requisites you need in order to co
     - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
   - [Git](https://git-scm.com/downloads)
     - [Git Guide](https://rogerdudler.github.io/git-guide/)
+    > ***Note:*** If just installed, don't forget to set both your git username & password
+    > ```PowerShell
+    > git config --global user.name "John Doe"
+    > git config --global user.email johndoe@example.com
+    > ```
   - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
   - [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
     - \+ Module: `Az.Accounts`

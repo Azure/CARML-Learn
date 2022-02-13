@@ -82,7 +82,7 @@ In this step, you will use one of CARML's utilities to convert the repository fr
 
 # Step 3 - (Optional) Leverage Azure DevOps Pipelines
 
-Similar to Bicep adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML is able to be hosted in a GitHub repo and deployed with Azure DevOps Pipelines or it can completely be ran out of Azure DevOps. The following will demonstrate how CARML can enable users to do Infrastructure-as-Code deployments with Azure DevOps Pipelines:
+Similar to Bicep's adoption, not all customers may be using GitHub repos and/or GitHub Actions. CARML can be hosted in a GitHub repo and deployed using Azure DevOps Pipelines or run entirely from Azure DevOps. The following demonstrates how CARML can enable users to perform Infrastructure-as-Code deployments using Azure DevOps Pipelines:
 
 1. Before starting, make sure that you have the following:
     - Azure CLI

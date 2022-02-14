@@ -18,7 +18,7 @@ This step will guide you in the creation of the Service Principal and the gather
 
 For this lab, it is enough to just write them temporarily in for example Notepad. You should have notes for the following pieces:
 
-- Application ID
+- Application (Client) ID
 - Service Principal Object ID
 - Service Principal Secret (password)
 - Tenant ID
@@ -50,51 +50,53 @@ The following commands will allow us to:
    - Make note of the `Subscription ID` for later reference
    - Make note of the `Parent Management Group` for later reference
 
+    <p>
+
     <img src="./media/Lab2/portalSubscriptionOverview.png" alt="Subscription overview" height="220">
 
 1. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
 
 1. Now, login to Azure by executing:
 
-```PowerShell
-az login 
-```
+    ```PowerShell
+    az login 
+    ```
 
 1. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
 
-```Powershell
-az account set --subscription "<subscription id>"
-```
+    ```Powershell
+    az account set --subscription "<subscription id>"
+    ```
 
 1. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
 
-```Powershell
-az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
-```
+    ```Powershell
+    az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
+    ```
 
 If you don't want to assign **Owner**, you can also choose **Contributor** in combination with **User Access Administrator**. For this second role assignment you will need to execute the following command:
 
-```Powershell
-az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
-```
+    ```Powershell
+    az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
+    ```
 
 1. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.
 
-```JSON
-{
-  "appId": "<client_id>",
-  "displayName": "<service-principal-name>",
-  "name": "http://<service-principal-name>",
-  "password": "<client_secret>",
-  "tenant": "<tenant_id>"
-}
-```
+    ```JSON
+    {
+    "appId": "<client_id>",
+    "displayName": "<service-principal-name>",
+    "name": "http://<service-principal-name>",
+    "password": "<client_secret>",
+    "tenant": "<tenant_id>"
+    }
+    ```
 
 1. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
 
-```Powershell
-az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
-```
+    ```Powershell
+    az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
+    ```
 
 </details>
 

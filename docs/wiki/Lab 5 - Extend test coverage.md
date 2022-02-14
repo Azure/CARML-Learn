@@ -10,11 +10,12 @@ For this lab, we will use another simple and quick to deploy module: `availabili
 - [Step 5 - Upload your changes to GitHub](#step-5---upload-your-changes-to-github)
 - [Step 6 - Test the deployment](#step-6---test-the-deployment)
 - [Optional Appendix](#optional-appendix)
+  - [Proximity Placement Group dependency](#proximity-placement-group-dependency)
 
 ---
 
 # Step 1 - Examine the module
-   
+
 1. In your VSCode, navigate to the path `arm/Microsoft.Compute/availabilitySets`. You will notice the `readme.md` file describes several parameters and only one of them, `name`, is marked as _`Required`_.
 
     <img src="./media/Lab5/avReadMe.png" alt="AVS Readme" height="300">
@@ -25,13 +26,13 @@ For this lab, we will use another simple and quick to deploy module: `availabili
 
 # Step 2 - Update existing parameter file
 
-Ensure that the dependency pipeline you run in [Lab 3](./Lab%203%20-%20Deploy%20Dependencies) deployed a `Proximity Placement Group` in your lab environment. 
+Ensure that the dependency pipeline you run in [Lab 3](./Lab%203%20-%20Deploy%20Dependencies) deployed a `Proximity Placement Group` in your lab environment.
 
 > ***Note:*** In case the pipeline failed for any reason you can create the dependency manually by following the steps described [here](#proximity-placement-group-dependency). Once the dependency is available, proceed with the follow steps:
 
 Now lets update the existing parameter file.
 
-1. If not already open, navigate back to the `parameter.json` file in path `arm\Microsoft.Compute\proximityPlacementGroups\.parameters\parameters.json` in your local VSCode.
+1. If not already open, navigate back to the `parameters.json` file in path `arm/Microsoft.Compute/availabilitySets/.parameters/parameters.json` in your local VSCode.
 
 1. Add the below snippet as a new parameter to the parameter file and ensure the name of the proximity placement group matches the one you deployed as a dependency. The `<<subscriptionId>>` & `<<namePrefix>>` tokens will be automatically replaced with their correct values by the pipeline
 
@@ -92,12 +93,12 @@ Now you will create a new parameter file that will test that the template's defa
 
     > ***Note:*** The name value is different from the previous `parameters.json` file. As both resources are deployed in parallel, they must have different names to not interfere with one another.
 
-# Step 4 - Add the new file to the workflow 
+# Step 4 - Add the new file to the workflow
 
 Now you have to modify the workflow file to make sure it also uses the new parameter file during the tests.
 
 1. Navigate to the availability sets validation pipeline in `.github/workflows/ms.compute.availabilitysets.yml`.
-   
+
 1. In line 84 you should see the parameters `matrix` where you will need to add the `min.parameters.json`
 
     <img src="./media/Lab5/parameters-matrix.png" alt="Parameters matrix" height="230">

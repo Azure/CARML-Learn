@@ -61,7 +61,7 @@ The following commands will allow us to:
 5. Now, login to Azure by executing:
 
 ```PowerShell
-az login 
+az login
 ```
 
 6. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
@@ -93,6 +93,7 @@ az role assignment create --assignee "<<service-principal-name>>" --role "User A
   "tenant": "<tenant_id>"
 }
 ```
+> ***Note:*** Make sure to write these things down as you will need them in the next Lab. Especially the password since it can't be retrieved twice.
 
 9. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
 
@@ -261,7 +262,7 @@ To do that you have to perform the following steps in sequence:
     | `DEPLOYMENT_SP_ID` | `de33a0e7-64d9-4a94-8fe9-b018cedf1e05` | This is the Principal (Object ID)   for the Service Principal used as the Azure service connection. It is used for Default Role Assignments when Modules are being deployed into Azure |
     | `AZURE_CREDENTIALS` | See below | See below |
     <!-- | <s>PLATFORM_REPO_UPDATE_PAT</s> | - | For this lab, this secret is optional and can be **ignored**. It would be used to sync the repository's `docs` folder with the repository's wiki. However, for the sake of this lab we will ignore it for now. If you are interested, you can find further information [here](https://github.com/Azure/ResourceModules/blob/main/docs/wiki/PipelinesDesign.md#github-component-github-secrets). | -->
-  
+
     - Special case: `AZURE_CREDENTIALS`,
       This secret represents our service connection to Azure and its value is a compressed JSON object that must match the following format:
 
@@ -308,7 +309,7 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
     <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 
-## ![#f03c15](https://via.placeholder.com/15/F59C00/000000?text=+)  Prepare the default prefix 
+## ![#f03c15](https://via.placeholder.com/15/F59C00/000000?text=+)  Prepare the default prefix
 
 To lower the barrier to entry and allow users to easily define their own naming conventions, we introduced a default "name prefix" for resources that must be set during the solution setup.
 
@@ -404,7 +405,7 @@ To do so, perform the following steps:
 1. Next, select '`I understand my workflows, go ahead and enable them`'.
 
     <img src="./media/PreReqGitHub/actionsEnable.png" alt="Enable Actions" height="380">
-    
+
 ---
 ---
 

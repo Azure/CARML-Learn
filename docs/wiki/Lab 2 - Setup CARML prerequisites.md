@@ -1,4 +1,4 @@
-In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory we use at your customer/company, or to perform an end to end testing for contribution purposes.
+In this lab, you will set up **CARML** in your own environment. This set-up can be used to mimic the module factory you can use at your customer, or to perform end to end testing for contribution purposes.
 
 ### _Navigation_
 - [Step 1 - Create Azure Service Principal and Configure Access to Subscription](#step-1---create-azure-service-principal-and-configure-access-to-subscription)
@@ -18,21 +18,17 @@ This step will guide you in the creation of the Service Principal and the gather
 
 For this lab, it is enough to just write them temporarily in for example Notepad. You should have notes for the following pieces:
 
-- Application ID
+- Application (Client) ID
 - Service Principal Object ID
 - Service Principal Secret (password)
 - Tenant ID
 - Subscription ID
 - Parent Management Group
 
-There are two alternatives to execute this step:
+There are two alternatives to execute this step. Please, choose the one you prefer and move to Step 2 afterwards.
 
-1. [Using Az CLI commands](#alternative-1-using-az-cli-commands)
-2. [Using the Azure Portal](#alternative-2-using-the-azure-portal)
-
-Please, choose the one you prefer and move to Step 2 afterwards.
-
-## Alternative 1: Using Az CLI commands
+<details>
+<summary><b>Alternative 1: Via the Az CLI</b></summary>
 
 The following commands will allow us to:
 
@@ -46,62 +42,68 @@ The following commands will allow us to:
 
     <img src="./media/PreReqAzure/portalSubscriptionSearch.png" alt="Subscription search" height="170">
 
-2. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
+1. Following, select the subscription you want to grant access to. In the below example it is called `Visual Studio Enterprise Subscription`.
 
     <img src="./media/PreReqAzure/portalSubscriptionSelect.png" alt="Subscription select" height="230">
 
-3. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
+1. This brings you to the overview of your subscription. Here you need to perform 2 tasks:
    - Make note of the `Subscription ID` for later reference
    - Make note of the `Parent Management Group` for later reference
 
+    <p>
+
     <img src="./media/Lab2/portalSubscriptionOverview.png" alt="Subscription overview" height="220">
 
-4. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
+1. Navigate back to your local Visual Studio Code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
 
-5. Now, login to Azure by executing:
+1. Now, login to Azure by executing:
 
-```PowerShell
-az login
-```
+    ```PowerShell
+    az login 
+    ```
 
-6. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
+1. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
 
-```Powershell
-az account set --subscription "<subscription id>"
-```
+    ```Powershell
+    az account set --subscription "<subscription id>"
+    ```
 
-7. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
+1. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
 
-```Powershell
-az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
-```
+    ```Powershell
+    az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
+    ```
 
 If you don't want to assign **Owner**, you can also choose **Contributor** in combination with **User Access Administrator**. For this second role assignment you will need to execute the following command:
 
-```Powershell
-az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
-```
+    ```Powershell
+    az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
+    ```
 
-8. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.
+1. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.
 
-```JSON
-{
-  "appId": "<client_id>",
-  "displayName": "<service-principal-name>",
-  "name": "http://<service-principal-name>",
-  "password": "<client_secret>",
-  "tenant": "<tenant_id>"
-}
-```
-> ***Note:*** Make sure to write these things down as you will need them in the next Lab. Especially the password since it can't be retrieved twice.
+    ```JSON
+    {
+        "appId": "<client_id>",
+        "displayName": "<service-principal-name>",
+        "name": "http://<service-principal-name>",
+        "password": "<client_secret>",
+        "tenant": "<tenant_id>"
+    }
+    ```
+    > ***Note:*** Make sure to write these things down as you will need them in the next Lab. Especially the password since it can't be retrieved twice.
 
-9. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
+1. Lastly, you need to gather the Object Id of the Service Principal you just created. You can do so by executing the following command:
 
-```Powershell
-az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
-```
+    ```Powershell
+    az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --output tsv
+    ```
 
-## Alternative 2: Using the Azure Portal
+</details>
+
+
+<details>
+<summary><b>Alternative 2: Via the Azure Portal</b></summary>
 
 ### Create the Service Principal
 
@@ -109,47 +111,47 @@ az ad sp list --display-name "<service-principal-name>" --query "[].objectId" --
 
     <img src="./media/PreReqAzure/portalHome.png" alt="Portal Home" height="200">
 
-2. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top.
+1. Navigate to Azure Active Directory (Azure AD) by using for example the search bar on the top.
 
     <img src="./media/PreReqAzure/portalSearchAAD.png" alt="Portal Search AAD" height="190">
 
-3. Here we want to do 2 things:
+1. Here we want to do 2 things:
    - Make note of your `Tenant ID` in the displayed `Overview` for later reference
    - Further select `App registrations` in the blade to the left
 
     <img src="./media/PreReqAzure/portalAzureAD.png" alt="Portal AAD Home" height="400">
 
-4. In the opening view select `+ New registration` on the top.
+1. In the opening view select `+ New registration` on the top.
 
     <img src="./media/PreReqAzure/portalAzureADAppRegistrations.png" alt="Portal AAD App Registration Overview" height="180">
 
-5. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
+1. In the opening form, please provide a name of your choice and select `Register`. All other options can remain as is.
 
     <img src="./media/PreReqAzure/portalAzureADAppCreate.png" alt="Portal AAD App Registration" height="600">
 
-6. This will open the created application's overview. Here we again want to do 2 things:
+1. This will open the created application's overview. Here we again want to do 2 things:
    - Make note of the `Application (client) ID` for later reference
    - Navigate to the application's underlying service principal by selecting its name on the right side of the application's overview
 
     <img src="./media/PreReqAzure/portalAzureADAppView.png" alt="Portal AAD App View" height="200">
 
-7. Here you have to perform 2 tasks:
+1. Here you have to perform 2 tasks:
    - Make note of the service principal's `Object ID`    for later reference
    - Further, navigate back to the created application's overview by going back in your browser
 
     <img src="./media/PreReqAzure/portalAzureADAppViewSPView.png" alt="" height="200">
 
-8. Back on the application, you again have to perform 2 tasks:
+1. Back on the application, you again have to perform 2 tasks:
    - Select `Certificates & secrets` in the blade to the left
    - Select `+ New client secret` in the opening view to the right
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreate.png" alt="Portal AAD App Secret Create" height="300">
 
-9. Now enter a name for the secret, and click on `Add`.
+1. Now enter a name for the secret, and click on `Add`.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretCreateBlade.png" alt="Portal AAD App Secret Create Blade" height="150">
 
-10. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
+1. The previous step created a new secret for the application which is shown to us now. Please make note of the secret value as it will only be visible until we leave this view.
 
     <img src="./media/PreReqAzure/portalAzureADAppSecretView.png" alt="Portal AAD App Secret View" height="300">
 
@@ -208,6 +210,10 @@ Now that we have a new service principal, we must grant it access on the subscri
 
     <img src="./media/PreReqAzure/portalSubscriptionIAMViewSearchConfirm.png" alt="Role assignment check access" height="120">
 
+</details>
+
+<p>
+
 # Step 2 - Create your fork
 
 In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to to _fork_ the repository.
@@ -248,7 +254,7 @@ To do that you have to perform the following steps in sequence:
 
     <img src="./media/PreReqGitHub/forkSettingsSecrets.png" alt="Navigate to secrets" height="600">
 
-2. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button.
+1. In the opening view, you can create a secret by providing a secret `Name`, a secret `Value`, followed by a click on the `Add secret` button.
 
     <img src="./media/PreReqGitHub/forkSettingsSecretAdd.png" alt="Add secret" height="600">
 
@@ -353,27 +359,42 @@ As said above, the Bicep Registry needs a globally unique name, so you will need
 
 ## Commit your changes to main
 
-You now need to push the changes in the repo. To do so using VSCode UI
+You now need to push the changes in the repo. You can do this in two ways:
 
-1. Go to source control and stash the changes by clicking on the `+` button.
 
-    <img src="./media/Lab2/stash-settings-changes.png" alt="Stash changes" height="100">
+<details>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. Type a commit message and commit.
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
+1. Now, execute the following PowerShell commands:
 
-    <img src="./media/Lab2/commit-message.png" alt="Commit changes" height="100">
+    ```PowerShell
+    git add .
+    git commit -m 'Update settings and variables'
+    git push
+    ```
+    
+</details>
 
-1. Sync the changes.
+<details>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
-    <img src="./media/Lab2/sync-changes.png" alt="Sync changes" height="100">
+1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-**As an alternative** you can use the command line using the following commands:
+    <img src="./media/Lab2/gitAdd.png" alt="Open source control" height="130">
 
- ```PowerShell
-git add -A
-git commit -m "Update settings and variables"
-git push
-```
+1. Commit your changes: Next, you should give the commit a meaningful message such as 'Update settings and variables' and can then click the checkmark symbol on the top to create the commit
+
+    <img src="./media/Lab2/gitCommit.png" alt="Git commit" height="120">
+
+1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+
+    <img src="./media/Lab2/gitpush.png" alt="Git push" height="120">
+
+</details>
+
+<p>
 
 # Step 5 - Create a branch
 
@@ -383,14 +404,44 @@ To this end, the trigger is set up to look for any changes in the `main` branch 
 
 As you don't want to accidentally trigger any pipelines, you should hence create a branch to perform your tasks on throughout the rest of the lab.
 
-1. To do so, navigate back to your local Visual Studio code and select the PowerShell `Terminal` that should be open on the lower end of VSCode. If `Terminal` is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`.
+You can do this in one of two ways:
 
+<details>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
+
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
 1. Now, execute the following PowerShell commands:
 
-```PowerShell
-git checkout -b 'carmlLab'
-git push --set-upstream 'origin' 'carmlLab'
-```
+    ```PowerShell
+    git checkout -b 'carmlLab'
+    git push --set-upstream 'origin' 'carmlLab'
+    ```
+</details>
+
+<details>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
+
+1. Select the current branch on the bottom left of VSCode
+
+    <img src="./media/Lab2/initBranchMain.png" alt="Change branch main" height=80> 
+
+1. Select `+ Create new branch` in the opening dropdown
+
+    <img src="./media/Lab2/createBranchUI.png" alt="Init create branch" height=70> 
+
+1. Enter the new branch name `carmlLab`
+
+
+    <img src="./media/Lab2/createBranchName.png" alt="Enter name" height=70> 
+
+1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+    <img src="./media/Lab3/gitpush.png" alt="Git push" height=100>
+
+</details>
+
+<p>
 
 # Step 6 - Enable actions
 

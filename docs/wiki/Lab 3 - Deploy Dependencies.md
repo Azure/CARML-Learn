@@ -92,23 +92,40 @@ Together with the resource modules pipelines, we are providing a dependency pipe
 
 Now that the new dependency is implemented, you can upload your changes to GitHub. 
 
- This can either be done via the terminal or by using the Git integration of VSCode. To keep it simple, this lab assumes you want to use the VSCode's git integration.
+ This can either be done via the terminal or by using the Git integration of VSCode:
 
-1. Navigate to the source control menu to the left.
 
-    <img src="./media/Lab3/gitInit.png" alt="Open source control" height="120">
+<details>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. Stage your changes: Here you first need to add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    
+1. Now, execute the following PowerShell commands:
 
-    <img src="./media/Lab3/gitAdd.png" alt="Git add" height="120">
+    ```PowerShell
+    git add .
+    git commit -m 'Added Proximity Placement Group to dependency pipeline'
+    git push
+    ```
+    
+</details>
+
+<details>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
+
+1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+
+    <img src="./media/Lab3/gitAdd.png" alt="Open source control" height="130">
 
 1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added Proximity Placement Group to dependency pipeline' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab3/gitCommit.png" alt="Git commit" height="140">
+    <img src="./media/Lab3/gitCommit.png" alt="Git commit" height="160">
 
 1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 
     <img src="./media/Lab3/gitpush.png" alt="Git push" height="80">
+
+</details>
 
 # Step 4 - Trigger the dependency pipeline
 

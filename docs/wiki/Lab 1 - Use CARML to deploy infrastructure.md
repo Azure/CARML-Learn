@@ -83,7 +83,7 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param LogAnalyticsWorkspaceName string
+    param logAnalyticsWorkspaceName string
     ```
 
 1. Now, you will add the references to the individual CARML modules you will deploy. Let's start with the resource group. Underneath the parameters, add the following block
@@ -111,7 +111,7 @@ To set these up, please perform the following steps:
     }
     ```
 
-    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` in its parameter block - referring to the resource group name. If you want to know what other parameters would be supported, feel free to check up on the module's `readme.md` that is located in the same folder as the template itself (for example `arm\Microsoft.Resources\resourceGroups\readme.md`).
+    As you can see, the module only requires you to provide a deployment `name` (that will be visible in the list of deployments in the portal), as well as a `name` in its parameter block - referring to the resource group name. Please add a deployment name of your choice and reference the `resourceGroupName` template parameter for the resource group `'name'` `param`. If you want to know what other parameters would be supported, feel free to check up on the module's `readme.md` that is located in the same folder as the template itself (for example `arm\Microsoft.Resources\resourceGroups\readme.md`).
 
     By default, the resource group is deployed into the same location as the deployment. For the sake of this lab, please add an additional parameter `location` in the `params` block of the module. Here you will reference the location that is defined as an input parameter in this template's parameter block above.
 
@@ -147,7 +147,9 @@ To set these up, please perform the following steps:
     scope: resourceGroup(resourceGroupName)
     ```
 
-    > Note: In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in Bicep.
+    > ***Note:*** In case you are wondering why we don't use `scope: rg` or `scope: rg.outputs.name` to reduce the dependency on the input parameter: Both variants are not (yet) supported in Bicep.
+    
+    > ***Note:*** If you're using the latest Bicep version, Linter will warn you to explicitly specify the location parameter. You can either comply and add the location parameter to each module deployment in the template, or ignore the warning.
 
     As there is no direct reference to the resource group deployment (which has to come first) you also have to add an explicit dependency to the mix. To do so, add the following snippet in between the two final closing brackets `}` of the storage account block:
 
@@ -191,7 +193,7 @@ To set these up, please perform the following steps:
     output keyVaultResourceId string = kv.outputs.resourceId
 
     @description('The resource ID of the deployed log analytics workspace')
-    output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
+    output logAnalyticsWorkspaceResourceId string = law.outputs.resourceId
     ```
 
 1. In total, the final result should look similar to. When done, make sure to save the file.
@@ -216,7 +218,7 @@ To set these up, please perform the following steps:
     param keyVaultName string
 
     @description('Required. The name of the log analytics workspace to deploy')
-    param LogAnalyticsWorkspaceName string
+    param logAnalyticsWorkspaceName string
 
     // =========== //
     // Deployments //
@@ -252,11 +254,11 @@ To set these up, please perform the following steps:
         ]
     }
 
-    module la '../arm/Microsoft.OperationalInsights/workspaces/deploy.bicep' = {
+    module law '../arm/Microsoft.OperationalInsights/workspaces/deploy.bicep' = {
         scope: resourceGroup(resourceGroupName)
         name: 'workload-law'
         params: {
-            name: LogAnalyticsWorkspaceName
+            name: logAnalyticsWorkspaceName
         }
         dependsOn: [
             rg
@@ -277,7 +279,7 @@ To set these up, please perform the following steps:
     output keyVaultResourceId string = kv.outputs.resourceId
 
     @description('The resource ID of the deployed log analytics workspace')
-    output logAnalyticsWorkspaceResourceId string = la.outputs.resourceId
+    output logAnalyticsWorkspaceResourceId string = law.outputs.resourceId
     ```
 
 # Step 4 - Stretch goal: Deploy solution
@@ -297,10 +299,10 @@ In this final step, we ask you to optionally perform a test deployment of the gi
         TemplateFile              = '<FullPathToYourTemplateFile>' # Get the path via a right-click on the template file in VSCode & select 'Copy Path'
         Location                  = '<LocationOfYourChoice>' # E.g. WestEurope
         Verbose                   = $true
-        ResourceGroupName         = '<NameOfTheResourceGroup>' # E.g. workload-rg
-        StorageAccountName        = '<NameOfTheStorageAccount>' # Must be globally unique
-        KeyVaultName              = '<NameOfTheKeyVault>' # Must be globally unique
-        LogAnalyticsWorkspaceName = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
+        resourceGroupName         = '<NameOfTheResourceGroup>' # E.g. workload-rg
+        storageAccountName        = '<NameOfTheStorageAccount>' # Must be globally unique
+        keyVaultName              = '<NameOfTheKeyVault>' # Must be globally unique
+        logAnalyticsWorkspaceName = '<NameOfTheLogAnalyticsWorkspace>' # E.g. carml-law
     }
     New-AzSubscriptionDeployment @inputObject
     ```
@@ -322,7 +324,7 @@ In this final step, we ask you to optionally perform a test deployment of the gi
     >>     ResourceGroupName         = 'carml-rg'
     >>     StorageAccountName        = 'carmllabsa'
     >>     KeyVaultName              = 'carmlLabsakv'
-    >>     LogAnalyticsWorkspaceName = 'carmllaw'
+    >>     logAnalyticsWorkspaceName = 'carmllaw'
     >> }
     PS C:\Desktop\CARML\ResourceModules> New-AzSubscriptionDeployment @inputObject
     VERBOSE: Using Bicep v0.4.1008
@@ -370,7 +372,7 @@ In this final step, we ask you to optionally perform a test deployment of the gi
                         Get-location                 String                    WestEurope
                         storageAccountName           String                    carmllabsa
                         keyVaultName                 String                    carmlLabsakv
-                        LogAnalyticsWorkspaceName    String                    carmllaw
+                        logAnalyticsWorkspaceName    String                    carmllaw
 
     Outputs           :
                         Name                              Type                      Value

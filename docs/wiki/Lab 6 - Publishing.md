@@ -14,9 +14,39 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
     <img src="./media/Lab6/1.png" alt="update the version property in the version.json file to be 0.1" height=180>
 
-1. Next, upload your changes in the same manner as you did before, add your changes to the commit, create a commit with a corresponding commit message (e.g. `Updated route table version to 0.1`) and push the changes to GitHub
+1. Next, upload your changes in any of the following 2 ways:
 
-    <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
+    <details>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+        
+    1. Now, execute the following PowerShell commands:
+
+        ```PowerShell
+        git add .
+        git commit -m 'Updated route table version to 0.1'
+        git push
+        ```
+        
+    </details>
+
+    <details>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
+
+    1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
+
+        <img src="./media/Lab6/gitAdd.png" alt="Open source control" height="130">
+
+    1. Commit your changes: Next, you should give the commit a meaningful message such as 'Updated route table version to 0.1' and can then click the checkmark symbol on the top to create the commit
+
+        <img src="./media/Lab6/gitCommit.png" alt="Git commit" height="160">
+
+    1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
+
+        <img src="./media/Lab6/gitpush.png" alt="Git push" height="80">
+
+    </details>
 
 # Step 2 - Run the workflow in GitHub
 
@@ -78,56 +108,76 @@ For the next lab you will need a few more modules being published. To do so, pro
 
 1. Back in VSCode, change the branch to `main` and fetch the latest changes. You can achieve this in two ways:
 
-      - **Alternative 1:** Via VSCode's terminal by executing the following commands
-      
+    <details>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
+
+    1. If Terminal is not in sight, you can alternatively open it by expanding the Terminal-dropdown on the top, and selecting New Terminal
+
+    1. Executing the following commands
+
         ```PowerShell
-          git checkout 'main'
-          git pull
+            git checkout 'main'
+            git pull
         ```
+    </details>
 
-     - **Alternative 2:** You can perform a few steps in the UI
+    <details>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
-       1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
+    1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
-            <img src="./media/Lab6/initBranchChange.png" alt="Change branch" height=80> 
+        <img src="./media/Lab6/initBranchChange.png" alt="Change branch" height=80> 
 
-        1. Next, a dropdown opens where you select the `main` branch
+    1. Next, a dropdown opens where you select the `main` branch
 
-            <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+        <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
 
-        1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
+    1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
 
-            <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+        <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+
+    </details>
+
+    <p>
 
 1. Create a new branch `prereqModules`. Again you can do this in two ways:
 
-   - **Alternative 1:** Via VSCode's terminal with the following steps
-  
-      1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
-       
-      1. Now, execute the following PowerShell commands:
+    <details>
+    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-          ```PowerShell
-          git checkout -b 'prereqModules'
-          git push --set-upstream 'origin' 'prereqModules'
-          ```
-   - **Alternative 2:** You can perform a few steps in the UI
+    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+        
+    1. Now, execute the following PowerShell commands:
 
-      1. Select the current branch on the bottom left of VSCode
+        ```PowerShell
+        git checkout -b 'prereqModules'
+        git push --set-upstream 'origin' 'prereqModules'
+        ```
+    </details>
 
-          <img src="./media/Lab6/initBranchMain.png" alt="Change branch main" height=80> 
+    <details>
+    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
-      1. Select `+ Create new branch` in the opening dropdown
+    1. Select the current branch on the bottom left of VSCode
 
-          <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
+        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80> 
 
-      1. Enter the new branch name `prereqModules`
+    1. Select `+ Create new branch` in the opening dropdown
 
-          <img src="./media/Lab6/createBranchName.png" alt="Enter name" height=70> 
+        <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
 
-      1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+    1. Enter the new branch name `prereqModules`
 
-          <img src="./media/Lab7/gitpush.png" alt="Git push" height=100>
+
+        <img src="./media/Lab6/createBranchName.png" alt="Enter name" height=70> 
+
+    1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
+
+        <img src="./media/Lab6/gitpush.png" alt="Git push" height=100>
+
+    </details>
+
+    <p>
 
 1. Next, change the version number to `0.1` for all of the following modules:
      - `Microsoft.Resources/resourceGroups`

@@ -84,11 +84,11 @@ If you don't want to assign **Owner**, you can also choose **Contributor** in co
 
     ```JSON
     {
-    "appId": "<client_id>",
-    "displayName": "<service-principal-name>",
-    "name": "http://<service-principal-name>",
-    "password": "<client_secret>",
-    "tenant": "<tenant_id>"
+        "appId": "<client_id>",
+        "displayName": "<service-principal-name>",
+        "name": "http://<service-principal-name>",
+        "password": "<client_secret>",
+        "tenant": "<tenant_id>"
     }
     ```
     > ***Note:*** Make sure to write these things down as you will need them in the next Lab. Especially the password since it can't be retrieved twice.

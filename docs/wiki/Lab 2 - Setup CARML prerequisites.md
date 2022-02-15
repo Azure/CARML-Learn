@@ -328,7 +328,7 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
         <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
 
-    1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
+    1. In the Terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
 
         <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
 

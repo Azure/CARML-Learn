@@ -295,25 +295,54 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
     <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="250">
 
-1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short.
+1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short. Create the folder structure you desire.
 
     <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="150">
 
-1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder.
+    There are different ways you can achieve this:
 
-    <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
+    <details>
+    <summary><b>Alternative 1:</b> Using VSCode</summary>
 
-1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
+    1. Open Visual Studio Code and further navigate to the Terminal. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
 
-    <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
+    1. In the terminal, type `cd <Path>`, and replace `<Path>` with the local file path you'd like to clone your fork to (for example `cd 'C:/dev/CARML/lab'`)
 
-1. Following the execution you will find that there is now a `ResourceModules` folder.
+    1. Next, type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
 
-    <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
+    1. Following the execution you can now open the downloaded clone via the file explorer on the top left
 
-1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder.
+        <img src="./media/Lab2/vsCodeOpenFolder.png" alt="Open file explorer" height="180">
 
-    <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
+    1. Navigate to the extracted folder, select it and trigger the `Select Folder` button 
+       
+       <img src="./media/Lab2/vsCodeSelectFolder.png" alt="Select folder" height="350">
+
+
+    </details>
+
+    <details>
+    <summary><b>Alternative 2:</b> Using the Terminal</summary>
+
+    1. In the folder you chose, perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder.
+
+        <img src="./media/PreReqGitHub/localTerminalOpen.png" alt="Open local terminal" height="230">
+
+    1. In the terminal type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
+
+        <img src="./media/PreReqGitHub/localTerminalClone.png" alt="Clone in terminal" height="180">
+
+    1. Following the execution you will find that there is now a `ResourceModules` folder.
+
+        <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
+
+    1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder.
+
+        <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
+
+    </details>
+
+    <p>
 
 ## ![#f03c15](https://via.placeholder.com/15/F59C00/000000?text=+)  Prepare the default prefix
 
@@ -365,7 +394,7 @@ You now need to push the changes in the repo. You can do this in two ways:
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
     
 1. Now, execute the following PowerShell commands:
 
@@ -409,7 +438,7 @@ You can do this in one of two ways:
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
     
 1. Now, execute the following PowerShell commands:
 

@@ -19,7 +19,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
     1. Now, execute the following PowerShell commands:
 
@@ -145,7 +145,7 @@ For the next lab you will need a few more modules being published. To do so, pro
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
         
     1. Now, execute the following PowerShell commands:
 

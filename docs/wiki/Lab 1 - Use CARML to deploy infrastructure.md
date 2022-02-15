@@ -23,7 +23,6 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
-
 1. Next, we'd ask you to open the extracted folder in VSCode. You can achieve this in multiple ways:
 
     <details>

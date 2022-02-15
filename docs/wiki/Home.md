@@ -41,3 +41,22 @@ This lab requires a number of fundamental pre-requisites you need in order to co
     - \+ Module: `Az.Accounts`
     - \+ Module: `Az.Resources`  
     - \+ Module: `Pester` with minimum version `5.3.1`
+
+
+Install Windows requirements via winget package manager.
+```
+winget install --id Microsoft.VisualStudioCode
+winget install --id Microsoft.AzureCLI
+winget install --id Microsoft.Bicep
+winget install --id Git.Git
+winget install --id Microsoft.WindowsTerminal
+winget install --id Microsoft.PowerShell
+
+code --install-extension ms-azuretools.vscode-bicep
+
+Install-Module -Name Az
+Install-Module -Name Pester
+```
+If you already have the Azure CLI installed, please update your CLI installation with `az upgrade`.  
+You should also update the PowerShell modules, if installed, with `Update-Module`.
+>Installing or updating PowerShell modules may require elevated permissions.

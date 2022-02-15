@@ -21,14 +21,35 @@ To start building a solution / workload, you first have to get access to the cod
 
 1. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
 
-    <img src="./media/Lab1%20-%20First%20Solution/../Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
+    <img src="./media/Lab1%20-%20First%20Solution/downloadedZip.png" alt="Downloaded zip" height="80">
 
-1. Next, navigate to the inside of the extracted folder (e.g. `ResourceModules-main`), perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+1. Next, we'd ask you to open the extracted folder in VSCode. You can achieve this in multiple ways:
 
-1. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
+    <details>
+    <summary><b>Alternative 1:</b> Using VSCode</summary>
 
-    <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="450">
+    1. Open Visual Studio Code and trigger the file explorer on the top left
 
+        <img src="./media/Lab1%20-%20First%20Solution/vsCodeOpenFolder.png" alt="Open file explorer" height="180">
+
+
+    1. Navigate to the extracted folder, select it and trigger the `Select Folder` button 
+       
+       <img src="./media/Lab1%20-%20First%20Solution/vsCodeSelectFolder.png" alt="Select folder" height="350">
+
+    </details>
+
+    <details>
+    <summary><b>Alternative 2:</b> Using the Terminal</summary>
+
+    1. Next, navigate to the inside of the extracted folder (e.g. `ResourceModules-main`), perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
+
+    1. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
+
+        <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="450">
+    </details>
+
+<p>
 
 # Step 2 - Create solution file
 

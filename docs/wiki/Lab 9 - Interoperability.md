@@ -24,7 +24,7 @@ You can achieve this in two ways:
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-  1. If Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+  1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
       
   1. Now, execute the following PowerShell commands:
 

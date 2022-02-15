@@ -25,11 +25,10 @@ To start building a solution / workload, you first have to get access to the cod
 
 1. Next, navigate to the inside of the extracted folder (e.g. `ResourceModules-main`), perform a right-click and select `Open in Windows Terminal` to open a new PowerShell session with the path set to the current folder
 
-    <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="230">
-
 1. Next, just type & execute the command `code .` to open Visual Studio Code in the extracted repository folder
 
-    <img src="./media/Lab1%20-%20First%20Solution/downloadedCARML.png" alt="CARML folder in VSCode" height="450">
+    <img src="./media/Lab1%20-%20First%20Solution/localCodeCarml.png" alt="Open local terminal" height="450">
+
 
 # Step 2 - Create solution file
 

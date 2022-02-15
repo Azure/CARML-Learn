@@ -382,11 +382,11 @@ You now need to push the changes in the repo. You can do this in two ways:
 
 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab2/gitAdd.png" alt="Open source control" height="130">
+    <img src="./media/Lab2/gitadd.png" alt="Open source control" height="130">
 
 1. Commit your changes: Next, you should give the commit a meaningful message such as 'Update settings and variables' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab2/gitCommit.png" alt="Git commit" height="120">
+    <img src="./media/Lab2/gitcommit.png" alt="Git commit" height="120">
 
 1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 

@@ -307,7 +307,7 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
     1. Open Visual Studio Code and further navigate to the Terminal. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
 
-    1. In the terminal, type `cd <Path>`, and replace `<Path>` with the local file path you'd like to clone your fork to (for example `cd 'C:/dev/CARML/lab'`)
+    1. In the Terminal, type `cd <Path>`, and replace `<Path>` with the local file path you'd like to clone your fork to (for example `cd 'C:/dev/CARML/lab'`)
 
     1. Next, type `git clone '<URL>'`, replace `<URL>` with the URL you copied before and confirm the execution.
 

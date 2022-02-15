@@ -36,11 +36,11 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
     1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-        <img src="./media/Lab6/gitadd.png" alt="Open source control" height="130">
+        <img src="./media/Lab6/gitAdd.png" alt="Open source control" height="130">
 
     1. Commit your changes: Next, you should give the commit a meaningful message such as 'Updated route table version to 0.1' and can then click the checkmark symbol on the top to create the commit
 
-        <img src="./media/Lab6/gitcommit.png" alt="Git commit" height="160">
+        <img src="./media/Lab6/gitCommit.png" alt="Git commit" height="160">
 
     1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 

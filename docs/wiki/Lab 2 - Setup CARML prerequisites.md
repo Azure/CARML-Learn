@@ -318,7 +318,6 @@ To perform these changes as quickly and easily as possible, we recommend to upda
        
        <img src="./media/Lab2/vsCodeSelectFolder.png" alt="Select folder" height="350">
 
-
     </details>
 
     <details>

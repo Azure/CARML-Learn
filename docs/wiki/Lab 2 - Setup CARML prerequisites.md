@@ -295,7 +295,8 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
     <img src="./media/PreReqGitHub/forkClone.png" alt="Clone fork" height="250">
 
-1. On your local machine you can clone the repository to any location you desire. However, it is recommended to create for example the folder structure `C:/dev/CARML/lab` to keep the local file paths short. Create the folder structure you desire.
+1. On your local machine you can clone the repository to any location you desire. However, it is recommended to keep the local file paths short.
+    >Example: `C:/dev/CARML/lab`
 
     <img src="./media/PreReqGitHub/localFolder.png" alt="Local folder" height="150">
 

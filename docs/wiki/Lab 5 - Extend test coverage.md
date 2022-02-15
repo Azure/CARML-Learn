@@ -129,11 +129,11 @@ Now that the tests are implemented and the pipeline updated, you can upload your
 
 1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
 
-    <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
+    <img src="./media/Lab5/gitadd.png" alt="Open source control" height="130">
 
 1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added new minimum parameter test file and proximity placement group test to availability set module' and can then click the checkmark symbol on the top to create the commit
 
-    <img src="./media/Lab5/gitCommit.png" alt="Git commit" height="160">
+    <img src="./media/Lab5/gitcommit.png" alt="Git commit" height="160">
 
 1. Push your changes: Finally, you can push the changes to the repository by selecting the blue `Publish Branch` button
 

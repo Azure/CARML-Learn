@@ -23,7 +23,7 @@ This lab requires a number of fundamental pre-requisites you need in order to co
 - An active Azure subscription
 - `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
 - Access to the subscriptions tenant with permissions to create applications
-- Installed 
+- Installed
   - [Visual Studio Code](https://code.visualstudio.com/Download)
     - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
   - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
@@ -39,5 +39,35 @@ This lab requires a number of fundamental pre-requisites you need in order to co
   - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
   - [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
     - \+ Module: `Az.Accounts`
-    - \+ Module: `Az.Resources`  
+    - \+ Module: `Az.Resources`
     - \+ Module: `Pester` with minimum version `5.3.1`
+
+<details>
+<summary><b>Install prereq script (only Win10/11)</b></summary>
+
+```powershell
+    winget install --id Git.Git
+    winget install --id Microsoft.PowerShell
+    winget install --id Microsoft.AzureCLI
+    winget install --id Microsoft.Bicep
+    winget install --id Microsoft.VisualStudioCode
+    winget install --id GitHub.GitHubDesktop
+    winget install --id Microsoft.WindowsTerminal
+```
+
+</details>
+
+<details>
+<summary><b>Check version script</b></summary>
+
+```powershell
+    az --version
+    bicep --version
+    Get-Module -Name Az -ListAvailable
+    Get-Module -Name Pester -ListAvailable
+    git --version
+    code --version
+    pwsh --version
+```
+
+</details>

@@ -336,7 +336,7 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
         <img src="./media/PreReqGitHub/localFolder.png" alt="Local Folder" height="150">
 
-    1. Next, back in the terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder.
+    1. Next, back in the Terminal, execute the command `code ./ResourceModules` to open Visual Studio Code in the clone repository folder.
 
         <img src="./media/PreReqGitHub/localCodeCarml.png" alt="CARML in VSCode" height="450">
 

@@ -1,7 +1,7 @@
 # Wiki content
 
 - [Home](./Home)
-- [Lab 0](./Lab%200%20-%20Pre-Requisites.md)
+- [Lab 0](./Lab%200%20-%20Pre-Requisites)
 - [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
 - [Lab 2](./Lab%202%20-%20Setup%20environment)
 - [Lab 3](./Lab%203%20-%20Deploy%20dependencies)

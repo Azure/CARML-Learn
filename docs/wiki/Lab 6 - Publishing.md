@@ -222,4 +222,4 @@ For the next lab you will need a few more modules being published. To do so, pro
 ---
 ---
 
-If ready, proceed to the next lab: [Lab 7 - Build an ACR driven solution](./Lab%207%20-%20Contribution)
+If ready, proceed to the next lab: [Lab 7 - Contribution](./Lab%207%20-%20Contribution)

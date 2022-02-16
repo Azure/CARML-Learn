@@ -71,7 +71,7 @@ The following commands will allow us to:
 1. Create a new Service Principal with `Owner` permissions at subscription level by executing the following command:
 
     ```Powershell
-    az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --output "json"
+    az ad sp create-for-rbac --name "<<service-principal-name>>" --role "Owner" --sdk-auth --output "json"
     ```
 
 If you don't want to assign **Owner**, you can also choose **Contributor** in combination with **User Access Administrator**. For this second role assignment you will need to execute the following command:
@@ -84,11 +84,11 @@ If you don't want to assign **Owner**, you can also choose **Contributor** in co
 
     ```JSON
     {
-        "appId": "<client_id>",
-        "displayName": "<service-principal-name>",
-        "name": "http://<service-principal-name>",
-        "password": "<client_secret>",
-        "tenant": "<tenant_id>"
+        "clientId": "<client_id>",
+        "clientSecret": "<client_secret>",
+        "subscriptionId": "<subscriptionId>",
+        "tenant": "<tenant_id>",
+        (...)
     }
     ```
     > ***Note:*** Make sure to write these things down as you will need them in the next Lab. Especially the password since it can't be retrieved twice.
@@ -276,7 +276,7 @@ To do that you have to perform the following steps in sequence:
       {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
       ```
 
-      Make sure you create this object as one continuous string as shown above - using the information you collected during Step 1 of this lab. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
+      **Make sure you create this object as one continuous string as shown above** - using the information you collected during Step 1 of this lab. Failing to format the secret as above, results in masked strings (`***`) in place of `{` and `}` as its considdering each line of the json object as a separate secret string, as well as .If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials). 
 
 # Step 4 - Configure code base
 

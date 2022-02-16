@@ -8,7 +8,7 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
   - [Original Mock](./OriginalMock)
 - Labs
   - [Lab 1: Use CARML to deploy infrastructure](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
-  - [Lab 2: Setup CARML prerequisites](./Lab%202%20-%20Setup%20CARML%20prerequisites)
+  - [Lab 2: Setup environment](./Lab%202%20-%20Setup%20environment)
   - [Lab 3: Deploy dependencies](./Lab%203%20-%20Deploy%20dependencies)
   - [Lab 4: First pipeline run](./Lab%204%20-%20First%20pipeline%20run)
   - [Lab 5: Extend test coverage](./Lab%205%20-%20Extend%20test%20coverage)

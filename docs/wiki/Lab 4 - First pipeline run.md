@@ -1,4 +1,4 @@
-In this LAB you will explore how a module runs through the first two pipeline stages, the local validation, as well as validation through Azure.
+In this lab you will explore how a module runs through the first two pipeline stages, the local validation, as well as validation through Azure.
 
 ### _Navigation_
 - [Step 1 - Test the module using the pipeline](#step-1---test-the-module-using-the-pipeline)

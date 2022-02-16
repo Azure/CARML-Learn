@@ -489,4 +489,4 @@ To do so, perform the following steps:
 ---
 ---
 
-If ready, proceed to the next lab: [Lab 3 - Deploy Dependencies](./Lab%203%20-%20Deploy%20Dependencies)
+If ready, proceed to the next lab: [Lab 3 - Deploy dependencies](./Lab%203%20-%20Deploy%20dependencies)

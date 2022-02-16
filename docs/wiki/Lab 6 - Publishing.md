@@ -64,7 +64,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 One of the ways you can verify whether the publishing worked is by going to the Azure portal and investigating the Bicep registry. 
 
-1. To get there, you first have to navigate to the resource group containing the container registry (by default `artifacts-rg`). In it, search for the ACR that you specified in [Lab 2](./Lab%202%20-%20Setup%20CARML%20prerequisites#Set-the-container-registry-unique-name).
+1. To get there, you first have to navigate to the resource group containing the container registry (by default `artifacts-rg`). In it, search for the ACR that you specified in [Lab 2](./Lab%202%20-%20Setup%20environment#Set-the-container-registry-unique-name).
 
     <img src="./media/Lab6/acrSelect.png" alt="Find the ACR" height=500>   
 

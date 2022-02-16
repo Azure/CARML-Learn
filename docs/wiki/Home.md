@@ -5,7 +5,7 @@ This Wiki hosts the lab for the _'Common Azure Resource Modules Library (CARML)'
 ### _Navigation_
 
 - Labs
-  - [Lab 0: Pre-Requisites](./Lab%200%20-%20Pre-Requisites.md)
+  - [Lab 0: Pre-Requisites](./Lab%200%20-%20Pre-Requisites)
   - [Lab 1: Use CARML to deploy infrastructure](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
   - [Lab 2: Setup environment](./Lab%202%20-%20Setup%20environment)
   - [Lab 3: Deploy dependencies](./Lab%203%20-%20Deploy%20dependencies)

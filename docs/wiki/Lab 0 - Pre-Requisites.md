@@ -1,0 +1,76 @@
+
+# Pre-Requisites
+
+This lab requires a number of fundamental pre-requisites you need in order to complete the lab in its entirety. These are
+- An GitHub Account
+- An active Azure subscription
+- `Owner` (or `Contributor` + `User Access Administrator`) permissions on set subscription
+- Access to the subscriptions tenant with permissions to create applications
+- Installed
+  - [Visual Studio Code](https://code.visualstudio.com/Download)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install)
+  - [Bicep CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#manual-with-powershell)
+  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+    - \+ Extension: [Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-cli)
+  - [Git](https://git-scm.com/downloads)
+    - [Git Guide](https://rogerdudler.github.io/git-guide/)
+    > ***Note:*** If just installed, don't forget to set both your git username & password
+    > ```PowerShell
+    > git config --global user.name "John Doe"
+    > git config --global user.email "johndoe@example.com"
+    > ```
+  - [Windows Terminal](https://www.microsoft.com/en-US/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
+  - [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-7.2)
+    - \+ Module: `Az.Accounts`
+    - \+ Module: `Az.Resources`
+    - \+ Module: `Pester` with minimum version `5.3.1`
+
+## Scripts
+
+<details>
+<summary><b>Check version script</b></summary>
+
+```powershell
+    az --version
+    bicep --version
+    git --version
+    code --version
+    pwsh --version
+    Get-Module -Name Az.Accounts -ListAvailable
+    Get-Module -Name Az.Resources -ListAvailable
+    Get-Module -Name Pester -ListAvailable
+```
+</details>
+
+
+<details>
+<summary><b>Install pre-requisites script (only Win10/11)</b></summary>
+
+> **Note:** You must have `winget` installed. You can achieve this by installing the App `App Installer` from the [Microsoft Store](https://www.microsoft.com/store/productId/9NBLGGH4NNS1).
+
+```PowerShell
+# WinGet software
+winget install --id Git.Git
+winget install --id Microsoft.PowerShell
+winget install --id Microsoft.AzureCLI
+winget install --id Microsoft.Bicep
+winget install --id Microsoft.VisualStudioCode
+winget install --id GitHub.GitHubDesktop
+winget install --id Microsoft.WindowsTerminal
+
+# VS Code Extensions
+code --install-extension ms-azuretools.vscode-bicep
+code --install-extension ms-vscode.PowerShell
+code --install-extension msazurermtools.azurerm-vscode-tools
+code --install-extension ms-vscode.azurecli
+
+# Installing or updating PowerShell modules may require elevated permissions.
+Install-Module -Name Az.Accounts
+Install-Module -Name Az.Resources
+Install-Module -Name Pester
+```
+
+If you already have the Azure CLI installed, please update your CLI installation with `az upgrade`.  
+You should also update the PowerShell modules, if installed, with `Update-Module`.
+
+</details>

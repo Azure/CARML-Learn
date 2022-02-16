@@ -1,6 +1,7 @@
 # Wiki content
 
 - [Home](./Home)
+- [Lab 0](./Lab%200%20-%20Pre-Requisites.md)
 - [Lab 1](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
 - [Lab 2](./Lab%202%20-%20Setup%20environment)
 - [Lab 3](./Lab%203%20-%20Deploy%20dependencies)
@@ -10,5 +11,3 @@
 - [Lab 7](./Lab%207%20-%20Contribution)
 - [Lab 8](./Lab%208%20-%20Build%20an%20ACR-driven%20solution)
 - [Lab 9](./Lab%209%20-%20Interoperability)
-- [Archive - Original SPARK submission](./OriginalSubmission)
-- [Archive - Original Mock](./OriginalMock)

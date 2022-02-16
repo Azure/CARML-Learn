@@ -216,7 +216,7 @@ Now that we have a new service principal, we must grant it access on the subscri
 
 # Step 2 - Create your fork
 
-In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to to _fork_ the repository.
+In **CARML**, you can't work directly in the `main` branch, so the first action to be taken is to _fork_ the repository.
 
 > One of the fundamental features in version control systems, branching and forking are fundamentals to collaboration.
 >

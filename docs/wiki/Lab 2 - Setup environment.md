@@ -423,17 +423,14 @@ You now need to push the changes in the repo. You can do this in two ways:
 
 </details>
 
-<details>
-<summary><b>Forgot to configure git?</b></summary>
-
-If you get an issue regarding configuring git user name and email, run the following commands with your info:
-
-```PowerShell
-git config --global user.name "John Doe"
-git config --global user.email "johndoe@example.com"
-```
-
-</details>
+> Forgot to configure git?
+>
+> If you get an issue regarding configuring git user name and email, run the following commands with your info:
+>
+> ```PowerShell
+> git config --global user.name "John Doe"
+> git config --global user.email "johndoe@example.com"
+> ```
 
 <p>
 

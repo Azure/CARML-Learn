@@ -87,7 +87,7 @@ If you don't want to assign **Owner**, you can also choose **Contributor** in co
         "clientId": "<client_id>",
         "clientSecret": "<client_secret>",
         "subscriptionId": "<subscriptionId>",
-        "tenant": "<tenant_id>",
+        "tenantId": "<tenant_id>",
         (...)
     }
     ```

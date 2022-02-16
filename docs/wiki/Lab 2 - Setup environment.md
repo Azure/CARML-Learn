@@ -77,7 +77,7 @@ The following commands will allow us to:
 If you don't want to assign **Owner**, you can also choose **Contributor** in combination with **User Access Administrator**. For this second role assignment you will need to execute the following command:
 
     ```Powershell
-    az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator".
+    az role assignment create --assignee "<<service-principal-name>>" --role "User Access Administrator"
     ```
 
 1. The below output will be returned when the service principal has been created. Make sure you copy these values in a Notepad, for instance.

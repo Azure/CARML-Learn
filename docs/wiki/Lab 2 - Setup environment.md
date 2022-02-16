@@ -402,7 +402,7 @@ You now need to push the changes in the repo. You can do this in two ways:
     git add .
     git commit -m 'Update settings and variables'
     git push
-    ```
+    ```  
     
 </details>
 
@@ -422,6 +422,18 @@ You now need to push the changes in the repo. You can do this in two ways:
     <img src="./media/Lab2/gitpush.png" alt="Git push" height="120">
 
 </details>
+
+<details>
+<summary><b>Forgot to configure git?</b></summary>
+
+If you get an issue regarding configuring git user name and email, run the following commands with your info:
+    
+```PowerShell
+git config --global user.name "John Doe"
+git config --global user.email "johndoe@example.com"
+```
+
+</details>  
 
 <p>
 

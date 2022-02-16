@@ -5,7 +5,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 - [Step 2 - Run the workflow in GitHub](#step-2---run-the-workflow-in-github)
 - [Step 3 - Verify the published module](#step-3---verify-the-published-module)
 - [Step 4 - Prepare to publish a release](#step-4---prepare-to-publish-a-release)
-- [Step 5 - Prepare to publish a release](#step-5---prepare-the-next-lab)
+- [Step 5 - Prepare the next lab](#step-5---prepare-the-next-lab)
 ---
 
 # Step 1 - Publish prerelease for a module
@@ -19,8 +19,8 @@ In this lab, you will learn how to publish modules, both for releases and prerel
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-        
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
     1. Now, execute the following PowerShell commands:
 
         ```PowerShell
@@ -28,7 +28,7 @@ In this lab, you will learn how to publish modules, both for releases and prerel
         git commit -m 'Updated route table version to 0.1'
         git push
         ```
-        
+
     </details>
 
     <details>
@@ -62,14 +62,14 @@ In this lab, you will learn how to publish modules, both for releases and prerel
 
 # Step 3 - Verify the published module
 
-One of the ways you can verify whether the publishing worked is by going to the Azure portal and investigating the Bicep registry. 
+One of the ways you can verify whether the publishing worked is by going to the Azure portal and investigating the Bicep registry.
 
 1. To get there, you first have to navigate to the resource group containing the container registry (by default `artifacts-rg`). In it, search for the ACR that you specified in [Lab 2](./Lab%202%20-%20Setup%20environment#Set-the-container-registry-unique-name).
 
-    <img src="./media/Lab6/acrSelect.png" alt="Find the ACR" height=500>   
+    <img src="./media/Lab6/acrSelect.png" alt="Find the ACR" height=500>
 
-1. Next, find the `bicep/modules/microsoft.network.routetables` repository. 
-    
+1. Next, find the `bicep/modules/microsoft.network.routetables` repository.
+
     <img src="./media/Lab6/acrRepo.png" alt="Verify in the Azure portal what version was published" height=350>
 
 1. Check the repository for the published version.
@@ -78,7 +78,7 @@ One of the ways you can verify whether the publishing worked is by going to the 
 
 # Step 4 - Prepare to publish a release
 
-Next, you will create an actual release, that is, publish modules without the prerelease flag. To do so, proceed with the following steps: 
+Next, you will create an actual release, that is, publish modules without the prerelease flag. To do so, proceed with the following steps:
 
 1. First, you need to create a pull request. As `carmlLab` was the last branch you worked on, GitHub should create a banner with a button `Compare & Pull request` for you, once you navigate to the `<> Code` tab (refresh the page if it does not show up automatically).
 
@@ -87,18 +87,18 @@ Next, you will create an actual release, that is, publish modules without the pr
 1. In the PR, first you have to make sure the correct target location is selected. By default the PR would be opened to the upstream CARML repository. To do so, just select your fork from the left dropdown. The UI will then automatically adjust the target to `main`.
 
    <img src="./media/Lab6/prbranch.png" alt="Select target repo" height=130>
- 
-2. provide a meaningful description and if you're interested also check the file changes (should be around 6 files) to make sure everything seems in order. Once you're ready, go ahead an merge the pull request.
+
+1. provide a meaningful description and if you're interested also check the file changes (should be around 6 files) to make sure everything seems in order. Once you're ready, go ahead an merge the pull request.
 
    <img src="./media/Lab6/prMerge.png" alt="Merge a PR" height=200>
 
-3. Check the workflow run that was triggered by the merge (push) to main 
+1. Check the workflow run that was triggered by the merge (push) to main
 
    <img src="./media/Lab6/mergeTrigger.png" alt="Trigger by PR merge" height=150>
 
     > **Note:** The pipelines will roughly take ***10 minutes*** to complete. However, you can already proceed with the next steps.
 
-4. If you further drill into the route table pipeline run, open its `Publish module` logs, and you can get a detailed view of its process to determine the new version to publish into the target location
+1. If you further drill into the route table pipeline run, open its `Publish module` logs, and you can get a detailed view of its process to determine the new version to publish into the target location
 
     <img src="./media/Lab6/acrPublish.png" alt="Check the workflow run of the routeTables once the PR is merged">
 
@@ -126,15 +126,15 @@ For the next lab you will need a few more modules being published. To do so, pro
 
     1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
-        <img src="./media/Lab6/initBranchChange.png" alt="Change branch" height=80> 
+        <img src="./media/Lab6/initBranchChange.png" alt="Change branch" height=80>
 
     1. Next, a dropdown opens where you select the `main` branch
 
-        <img src="./media/Lab6/selectMain.png" alt="Select main" height=150> 
+        <img src="./media/Lab6/selectMain.png" alt="Select main" height=150>
 
     1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
 
-        <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70> 
+        <img src="./media/Lab6/syncBranch.png" alt="Sync main" height=70>
 
     </details>
 
@@ -145,8 +145,8 @@ For the next lab you will need a few more modules being published. To do so, pro
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-        
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
     1. Now, execute the following PowerShell commands:
 
         ```PowerShell
@@ -160,16 +160,16 @@ For the next lab you will need a few more modules being published. To do so, pro
 
     1. Select the current branch on the bottom left of VSCode
 
-        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80> 
+        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80>
 
     1. Select `+ Create new branch` in the opening dropdown
 
-        <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70> 
+        <img src="./media/Lab6/createBranchUI.png" alt="Init create branch" height=70>
 
     1. Enter the new branch name `prereqModules`
 
 
-        <img src="./media/Lab6/createBranchName.png" alt="Enter name" height=70> 
+        <img src="./media/Lab6/createBranchName.png" alt="Enter name" height=70>
 
     1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
@@ -180,15 +180,15 @@ For the next lab you will need a few more modules being published. To do so, pro
     <p>
 
 1. Next, change the version number to `0.1` for all of the following modules:
+     - `Microsoft.Insights/components`
+     - `Microsoft.KeyVault/vaults`
+     - `Microsoft.MachineLearningServices/workspaces`
+     - `Microsoft.OperationalInsights/workspaces`
      - `Microsoft.Resources/resourceGroups`
      - `Microsoft.Storage/storageAccounts`
-     - `Microsoft.KeyVault/vaults`
-     - `Microsoft.OperationalInsights/workspaces`
-     - `Microsoft.Insights/components`
-     - `Microsoft.MachineLearningServices/workspaces`
     > **Note:** For our purposes it is sufficient to only change the `version.json` file for the top-level resource type. In other words, you can ignore the child-modules.
     >
-    > **Note:** Make sure you safe the changes on each file
+    > **Note:** Make sure you save the changes on each file
 
 1. Next, push the changes the same way you did before (either via the UI, or PowerShell). VSCode should display you 6 changed files.
 
@@ -205,15 +205,19 @@ For the next lab you will need a few more modules being published. To do so, pro
 
     > **Note:** The pipelines will roughly take ***30 minutes*** to complete. However, you can already proceed with the next steps.
 
-> **Background**
->  - When a change in `main` occurs on any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
->  - The publishing stage of the workflow will:
->     - Look for changed files in the module and child modules folders.
->     - For a detected change:
->       - Find the nearest template file (`deploy.*` in same folder as the changed file or parent folder).
->       - Find the corresponding `version.json` file and get the `major` and `minor` version numbers. The `patch` number is calculated from 'git height' (number of commits from base commit). If the workflow/pipeline is run on a non `main`/`master` branch, '-prerelease' is added to the version number
->       - Finds all parent module files, and get their version data using the same logic as mentioned before.
->     - Publish each changed child module and parents using the calculated version numbers
+# Background
+
+<img src="./media/Lab6/PublishingSlide.png" alt="Publishing slide">
+
+  - When a change in `main` occurs on any of the module files (as configured in the `on:` or `trigger:` sections of the workflow/pipeline file), the workflow runs.
+  - The publishing stage of the workflow will:
+     - Look for changed files in the module and child modules folders.
+     - For a detected change:
+       - Find the nearest template file (`deploy.*` in same folder as the changed file or parent folder).
+       - Find the corresponding `version.json` file and get the `major` and `minor` version numbers. The `patch` number is calculated from 'git height' (number of commits from base commit). If the workflow/pipeline is run on a non `main`/`master` branch, '-prerelease' is added to the version number
+       - Finds all parent module files, and get their version data using the same logic as mentioned before.
+     - Publish each changed child module and parents using the calculated version numbers
+
 
 ---
 ---

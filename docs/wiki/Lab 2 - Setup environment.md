@@ -59,7 +59,7 @@ The following commands will allow us to:
 1. Now, login to Azure by executing:
 
     ```PowerShell
-    az login 
+    az login
     ```
 
 1. Select the right subscription you want to work in by executing the following command. Update the `<subscription id>` with your Subscription Id. This will start an interactive login session opening your default web browser.
@@ -273,10 +273,10 @@ To do that you have to perform the following steps in sequence:
       This secret represents our service connection to Azure and its value is a compressed JSON object that must match the following format:
 
       ```JSON
-      {"clientId": "<Application ID>", "clientSecret": "<Application Secret>", "subscriptionId": "<ID of the subscription to test in>", "tenantId": "<ID of the tenant to test in>" }
+      {"clientId": "<client_id>", "clientSecret": "<client_secret>", "subscriptionId": "<subscriptionId>", "tenantId": "<tenant_id>" }
       ```
 
-      **Make sure you create this object as one continuous string as shown above** - using the information you collected during Step 1 of this lab. Failing to format the secret as above, results in masked strings (`***`) in place of `{` and `}` as its considdering each line of the json object as a separate secret string, as well as .If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials). 
+      **Make sure you create this object as one continuous string as shown above** - using the information you collected during Step 1 of this lab. Failing to format the secret as above, results in masked strings (`***`) in place of `{` and `}` in the workflow logs as its considdering each line of the json object as a separate secret string. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 # Step 4 - Configure code base
 
@@ -305,7 +305,7 @@ To perform these changes as quickly and easily as possible, we recommend to upda
     <details>
     <summary><b>Alternative 1:</b> Using VSCode</summary>
 
-    1. Open Visual Studio Code and further navigate to the Terminal. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
+    1. Open Visual Studio Code and further navigate to the Terminal. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
 
     1. In the Terminal, type `cd <Path>`, and replace `<Path>` with the local file path you'd like to clone your fork to (for example `cd 'C:/dev/CARML/lab'`)
 
@@ -315,8 +315,8 @@ To perform these changes as quickly and easily as possible, we recommend to upda
 
         <img src="./media/Lab2/vsCodeOpenFolder.png" alt="Open file explorer" height="180">
 
-    1. Navigate to the extracted folder, select it and trigger the `Select Folder` button 
-       
+    1. Navigate to the extracted folder, select it and trigger the `Select Folder` button
+
        <img src="./media/Lab2/vsCodeSelectFolder.png" alt="Select folder" height="350">
 
     </details>
@@ -394,8 +394,8 @@ You now need to push the changes in the repo. You can do this in two ways:
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-    
+1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
 1. Now, execute the following PowerShell commands:
 
     ```PowerShell
@@ -403,7 +403,7 @@ You now need to push the changes in the repo. You can do this in two ways:
     git commit -m 'Update settings and variables'
     git push
     ```
-    
+
 </details>
 
 <details>
@@ -447,8 +447,8 @@ You can do this in one of two ways:
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-    
+1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
 1. Now, execute the following PowerShell commands:
 
     ```PowerShell
@@ -462,16 +462,16 @@ You can do this in one of two ways:
 
 1. Select the current branch on the bottom left of VSCode
 
-    <img src="./media/Lab2/initBranchMain.png" alt="Change branch main" height=80> 
+    <img src="./media/Lab2/initBranchMain.png" alt="Change branch main" height=80>
 
 1. Select `+ Create new branch` in the opening dropdown
 
-    <img src="./media/Lab2/createBranchUI.png" alt="Init create branch" height=70> 
+    <img src="./media/Lab2/createBranchUI.png" alt="Init create branch" height=70>
 
 1. Enter the new branch name `carmlLab`
 
 
-    <img src="./media/Lab2/createBranchName.png" alt="Enter name" height=70> 
+    <img src="./media/Lab2/createBranchName.png" alt="Enter name" height=70>
 
 1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 

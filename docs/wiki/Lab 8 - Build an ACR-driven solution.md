@@ -126,7 +126,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
     param machineLearningWorkspaceName (...)
 
     // Deployments section
-    module ml 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:<YourVersion>' = {
+    module mlw 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:<YourVersion>' = {
         scope: 
         name: 
         params: {
@@ -139,7 +139,7 @@ You will now modify the template to deploy a Machine Learning service. In this s
     }
     ```
 
-1. Add a new empty line in the `ml`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
+1. Add a new empty line in the `mlw`'s `param` block. Once done, press `space` which should open a popup that shows you all available parameters for the module. If you further press `Ctrl + Space` it should also lead all the metadata for these parameters, which means it shows for example a description for each. Now, select the `systemAssignedIdentity` parameter and set it to `true`.
 
     <img src="./media/Lab8/extraParam.png" alt="Extra parameter" height="200">
 
@@ -151,9 +151,9 @@ You will now modify the template to deploy a Machine Learning service. In this s
     param machineLearningWorkspaceName string
 
     // Deployments section
-    module ml 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:<YourVersion>' = {
+    module mlw 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:<YourVersion>' = {
         scope: resourceGroup(resourceGroupName)
-        name: 'workload-ml'
+        name: 'workload-mlw'
         params: {
             associatedApplicationInsightsResourceId: appi.outputs.resourceId
             associatedKeyVaultResourceId: kv.outputs.resourceId
@@ -233,6 +233,127 @@ There are also a few other features you can enable easily. For example `RBAC` & 
 
     Any role assignment we pass in as a template parameter will be passed down into the module and applied to its resource.
 
+
+The completed end result should look similar to:
+
+```bicep
+targetScope = 'subscription'
+
+// ================ //
+// Input Parameters //
+// ================ //
+
+@description('Required. The name of the resource group to deploy')
+param resourceGroupName string
+
+@description('Optional. The location to deploy into')
+param location string = deployment().location
+
+@description('Required. The name of the storage account to deploy')
+param storageAccountName string
+
+@description('Required. The name of the key vault to deploy')
+param keyVaultName string
+
+@description('Required. The name of the log analytics workspace to deploy')
+param logAnalyticsWorkspaceName string
+
+@description('Required. The name of the log analytics workspace to deploy')
+param applicationInsightsWorkspaceName string
+
+@description('Required. The name of the machine learning workspace to deploy')
+param machineLearningWorkspaceName string
+
+// =========== //
+// Deployments //
+// =========== //
+
+module rg 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.resources.resourcegroups:<YourVersion>' = {
+  name: 'workload-rg'
+  params: {
+    name: resourceGroupName
+    location: location
+  }
+}
+
+module sa 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.storage.storageaccounts:<YourVersion>' = {
+  scope: resourceGroup(resourceGroupName)
+  name: 'workload-sa'
+  params: {
+    name: storageAccountName
+  }
+  dependsOn: [
+    rg
+  ]
+}
+
+module kv 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.keyvault.vaults:0.4.740' = {
+  scope: resourceGroup(resourceGroupName)
+  name: 'workload-kv'
+  params: {
+    name: keyVaultName
+  }
+  dependsOn: [
+    rg
+  ]
+}
+
+module law 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.operationalinsights.workspaces:<YourVersion>' = {
+  scope: resourceGroup(resourceGroupName)
+  name: 'workload-law'
+  params: {
+    name: logAnalyticsWorkspaceName
+  }
+  dependsOn: [
+    rg
+  ]
+}
+
+module appi 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.insights.components:0.4.774' = {
+  scope: resourceGroup(resourceGroupName)
+  name: 'workload-appi'
+  params: {
+    workspaceResourceId: law.outputs.resourceId
+    name: applicationInsightsWorkspaceName
+  }
+}
+
+module mlw 'br:<YourRegistry>.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:<YourVersion>' = {
+  scope: resourceGroup(resourceGroupName)
+  name: 'workload-mlw'
+  params: {
+    associatedApplicationInsightsResourceId: appi.outputs.resourceId
+    associatedKeyVaultResourceId: kv.outputs.resourceId
+    associatedStorageAccountResourceId: sa.outputs.resourceId
+    name: machineLearningWorkspaceName
+    sku: 'Basic'
+    systemAssignedIdentity: true
+  }
+}
+
+// ======= //
+// Outputs //
+// ======= //
+
+@description('The resource ID of the deployed resource group')
+output resourceGroupResourceId string = rg.outputs.resourceId
+
+@description('The resource ID of the deployed storage account')
+output storageAccountResourceId string = sa.outputs.resourceId
+
+@description('The resource ID of the deployed key vault')
+output keyVaultResourceId string = kv.outputs.resourceId
+
+@description('The resource ID of the deployed log analytics workspace')
+output logAnalyticsWorkspaceResourceId string = law.outputs.resourceId
+
+@description('The resource ID of the deployed application insights')
+output applicationInsightsResourceId string = appi.outputs.resourceId
+
+@description('The resource ID of the deployed machine learning workspace')
+output machineLearningWorkspaceResourceId string = mlw.outputs.resourceId
+```
+
 # Step 4 - Update your workload
 
 You can now re-deploy your template to update the existing, and add the new resources.
@@ -291,10 +412,10 @@ You can further simplify your module my moving certain metadata into a `bicepcon
 
     ```bicep
     // Before
-    module ml 'br:yxlsxxazacrx001.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:0.1.760' = {}
+    module mlw 'br:yxlsxxazacrx001.azurecr.io/bicep/modules/microsoft.machinelearningservices.workspaces:0.1.760' = {}
 
     // After
-    module ml 'br/modules:microsoft.machinelearningservices.workspaces:0.1.760' = {}
+    module mlw 'br/modules:microsoft.machinelearningservices.workspaces:0.1.760' = {}
     ```
 
 ---

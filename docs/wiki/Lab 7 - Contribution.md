@@ -283,9 +283,9 @@ To reset these files back to original state, run the following command to connec
     git restore --source upstream/main * ':!*routeTables*'
 ```
 
-1. See that the files are restored in "Source Control" in VSCode, and adjust if necessary. I.e. remove any of the "restored" changes you want to bring in.
+2. See that the files are restored in "Source Control" in VSCode, and adjust if necessary. I.e. remove any of the "restored" changes you want to bring in.
 
-1. Commit all files and push to your branch. This will update the PR too.
+3. Commit all files and push to your branch. This will update the PR too.
 
 ```Powershell
     git commit -a -m 'Reset settings files'
@@ -301,13 +301,13 @@ To reset these files back to original state, run the following command to connec
 
   <img src="./media/Lab7/settingsjson.png" alt="Settings JSON fork" height="180">
 
-1. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode
+2. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode
 
   <img src="./media/Lab7/settingsCarml.png" alt="Settings JSON CARML" height="400">
 
-1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
+3. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
 
-1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
+4. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
 
 </details>
 

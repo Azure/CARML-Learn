@@ -276,7 +276,7 @@ To do that you have to perform the following steps in sequence:
       {"clientId": "<client_id>", "clientSecret": "<client_secret>", "subscriptionId": "<subscriptionId>", "tenantId": "<tenant_id>" }
       ```
 
-      **Make sure you create this object as one continuous string as shown above** - using the information you collected during Step 1 of this lab. Failing to format the secret as above, results in masked strings (`***`) in place of `{` and `}` in the workflow logs as its considdering each line of the json object as a separate secret string. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
+      **Make sure you create this object as one continuous string as shown above** - using the information you collected during Step 1 of this lab. Failing to format the secret as above, results in masked strings (`***`) in place of `{` and `}` in the workflow logs as it is considering each line of the json object as a separate secret string. If you're interested, you can find more information about this object [here](https://github.com/Azure/login#configure-deployment-credentials).
 
 # Step 4 - Configure code base
 

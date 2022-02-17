@@ -7,9 +7,9 @@ In this lab, you will learn how a contribution to the source repository (in this
 - [Step 4 - Re-generate the documentation](#step-4---re-generate-the-documentation)
 - [Step 5 - Re-run local test(s)](#step-5---re-run-local-tests)
 - [Step 6 - Upload your changes and run the module pipeline](#step-6---upload-your-changes-and-run-the-module-pipeline)
-- [Step 7 - Create a PR](#step-7---create-a-pull-request)
+- [Step 7 - Create a Pull Request](#step-7---create-a-pull-request)
 - [Step 8 - Exclude environment-specific changes](#step-8---exclude-environment-specific-changes)
-  
+
 ---
 
 # Step 1 - Create a contribution branch
@@ -36,15 +36,15 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
     1. Initiate the branch change by selecting the current branch on the bottom left of the VSCode window
 
-        <img src="./media/Lab7/initBranchChange.png" alt="Change branch" height=80> 
+        <img src="./media/Lab7/initBranchChange.png" alt="Change branch" height=80>
 
     1. Next, a dropdown opens where you select the `main` branch
 
-        <img src="./media/Lab7/selectMain.png" alt="Select main" height=150> 
+        <img src="./media/Lab7/selectMain.png" alt="Select main" height=150>
 
     1. Finally, you only have to trigger the `Sychronize` symbol on the bottom left next to the active branch
 
-        <img src="./media/Lab7/syncBranch.png" alt="Sync main" height=70> 
+        <img src="./media/Lab7/syncBranch.png" alt="Sync main" height=70>
 
     </details>
 
@@ -55,8 +55,8 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-        
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
     1. Now, execute the following PowerShell commands:
 
         ```PowerShell
@@ -70,16 +70,16 @@ For the subsequent contribution, you first need a new branch. Similar to the oth
 
     1. Select the current branch on the bottom left of VSCode
 
-        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80> 
+        <img src="./media/Lab7/initBranchMain.png" alt="Change branch main" height=80>
 
     1. Select `+ Create new branch` in the opening dropdown
 
-        <img src="./media/Lab7/createBranchUI.png" alt="Init create branch" height=70> 
+        <img src="./media/Lab7/createBranchUI.png" alt="Init create branch" height=70>
 
     1. Enter the new branch name `contribution`
 
 
-        <img src="./media/Lab7/createBranchName.png" alt="Enter name" height=70> 
+        <img src="./media/Lab7/createBranchName.png" alt="Enter name" height=70>
 
     1. Push the new branch to your GitHub fork by selecting `Publish Branch` to the left in the 'Source Control' tab
 
@@ -95,12 +95,14 @@ The first step of any contribution is its implementation. For the sake if this l
 
     <img src="./media/Lab7/deployBicepSelect.png" alt="Availability Set VSCode" height="150">
 
-1. A simple contribution to perform is to define an additional `output`. The Bicep template will return its value upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file: 
-   
+1. A simple contribution to perform is to define an additional `output`. The Bicep template will return its value upon successful execution. As you will notice in a later lab, these outputs are particularly useful when multiple modules are orchestrated together. Please add the following snippet to the end of the file:
+
     ```Bicep
     @description('The routes of the deployed route table')
     output route array = routeTable.properties.routes
     ```
+
+1. As adding a output is a feature update, also update the `version.json` file, incrementing the minor version number by 1.
 
 # Step 3 - Run local test(s)
 
@@ -131,7 +133,7 @@ CARML comes with a number of tools that you can use to perform several automated
 
     <img src="./media/Lab7/failedTest.png" alt="Failed test" height="200">
 
-    So why did it fail? Well, as per its description: The ReadMe outputs section should document all outputs defined in the template file. Before, you added a new template output, but the readme remained in its original state. 
+    So why did it fail? Well, as per its description: The ReadMe outputs section should document all outputs defined in the template file. Before, you added a new template output, but the readme remained in its original state.
 
 # Step 4 - Re-generate the documentation
 
@@ -147,7 +149,7 @@ To update the readme, we provide another utility called `Set-ModuleReadMe`. This
     Set-ModuleReadMe -TemplateFilePath '<PathToTheUpdatedTemplate>' # Get the path via a right-click on the updated template file in VSCode & select 'Copy Path'
     ```
 
-3. Once you confirmed the execution of the script you should notice that the module's `readme.md` file is marked as modified. 
+3. Once you confirmed the execution of the script you should notice that the module's `readme.md` file is marked as modified.
 
     <img src="./media/Lab7/readMeUpdatedLog.png" alt="ReadMe Updated Log" height="50">
 
@@ -182,8 +184,8 @@ Now that the contribution is implemented and the tests are green, you can contin
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal` 
-        
+    1. If a Terminal is not in sight, you can alternatively open it by expanding the `Terminal`-dropdown on the top, and selecting `New Terminal`
+
     1. Now, execute the following PowerShell commands:
 
         ```PowerShell
@@ -191,14 +193,14 @@ Now that the contribution is implemented and the tests are green, you can contin
         git commit -m 'Added output to route table'
         git push
         ```
-        
+
     </details>
 
     <details>
     <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. Add your changes: If not already there, navigate to the source control menu to the left and add the changed files to the commit. To do so, select the `+` icon next to `Changes` (appears when hovering)
-        
+
         <img src="./media/Lab5/gitAdd.png" alt="Open source control" height="130">
 
     1. Commit your changes: Next, you should give the commit a meaningful message such as 'Added output to route table' and can then click the checkmark symbol on the top to create the commit
@@ -226,7 +228,7 @@ Now that the contribution is implemented and the tests are green, you can contin
     <img src="./media/Lab7/actionBranch.png" alt="Select branch" height="200">
 
 1. And finally trigger the pipeline with the default settings by selecting `Run workflow`
- 
+
     <img src="./media/Lab7/actionTrigger.png" alt="Trigger run" height="200">
 
     Subsequently, the pipeline will start running through the the same tests you executed locally, but also execute the simulated deployment, followed by an actual test deployment in Azure.
@@ -243,18 +245,18 @@ Now that the contribution is implemented and the tests are green, you can contin
 
 In this step you will create the pull request. Do do so, perform the following tasks:
 
-1. Navigate to `Pull requests` tab on the top. Here you should have multiple options: 
+1. Navigate to `Pull requests` tab on the top. Here you should have multiple options:
    - As you just uploaded changes to a branch, there is an automated popup that allows you to create a pull request for that branch directly
    - Alternatively, you can create a blank pull request via the `New pull request` button.
-  
+
    Select now the `New pull request` button.
 
     <img src="./media/Lab7/pullRequestInit.png" alt="Pull request init" height="300">
 
-1. This opens a new view in the `Azure/ResourceModules` (target) repository. Here, 
-    - make you your `branch` is selected on the top right 
+1. This opens a new view in the `Azure/ResourceModules` (target) repository. Here,
+    - make you your `branch` is selected on the top right
     - you provide a meaningful `title`
-    - you provide a meaningful `description`. This description should include the pipeline badge you copied at the end of from [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) 
+    - you provide a meaningful `description`. This description should include the pipeline badge you copied at the end of from [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline)
     - select the correct `type of change`. In this case it would be a `New feature`
 
     <img src="./media/Lab7/openPRRaw.png" alt="Pull request raw" height="600">
@@ -263,22 +265,18 @@ In this step you will create the pull request. Do do so, perform the following t
 
 # Step 8 - Exclude environment-specific changes
 
-Part of your pull request are 2 files that should not be pushed into the target repository as they contain details specific to your environment:
+Part of your pull request are 2 (or more) files that should not be pushed into the target repository, as they contain details specific to your environment:
 - `settings.json`
 - `global.variables.json`
 
-1. In your Visual Studio Code, open the `settings.json` file in the root directory
+To reset these files back to original state, run the following command to connect your local repo to the upstream repo and restoring all but the `routeTables` files:
 
-    <img src="./media/Lab7/settingsjson.png" alt="Settings JSON fork" height="180">
-
-1. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode 
-
-    <img src="./media/Lab7/settingsCarml.png" alt="Settings JSON CARML" height="400">
-
-1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
-
-
-1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
+```Powershell
+    git remote add upstream https://github.com/Azure/ResourceModules.git
+    git restore --source upstream/main * ':!*routeTables*'
+    git commit -a -m 'Reset settings files'
+    git push
+```
 
 ---
 ---

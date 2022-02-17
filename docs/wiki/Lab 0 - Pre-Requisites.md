@@ -78,7 +78,7 @@ You should also update the PowerShell modules, if installed, with `Update-Module
 <details>
 <summary><b>Check for prefix availability (Lab 2)</b></summary>
 
-To check the availability of the name-prefix you must choose in Lab 2, please copy and paste the below snippet into a PowerShell window with an active Azure login (Az Context) and provide a name for the requested `namePrefix` parameter.
+To check the availability of the name-prefix you must choose in Lab 2, please copy and paste the below snippet into a PowerShell window and provide a name for the requested `namePrefix` parameter.
 
 ```PowerShell
 function Test-NamePrefixAvailability {

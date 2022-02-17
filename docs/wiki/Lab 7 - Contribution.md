@@ -269,6 +269,8 @@ Part of your pull request are 2 (or more) files that should not be pushed into t
 - `settings.json`
 - `global.variables.json`
 
+To undo these changes you can use any of the following 2 alternatives:
+
     <details>
     <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 

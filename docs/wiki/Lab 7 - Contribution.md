@@ -280,6 +280,7 @@ To reset these files back to original state, run the following command to connec
 
 ```Powershell
     git remote add upstream https://github.com/Azure/ResourceModules.git
+    git fetch upstream
     git restore --source upstream/main * ':!*routeTables*'
 ```
 

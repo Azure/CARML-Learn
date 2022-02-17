@@ -89,7 +89,7 @@ function Test-NamePrefixAvailability {
     )
 
     if(-not (Get-AzContext)) {
-      Write-Warning "In order to execute this function you must be logged into Azure. Initiating"
+      Write-Warning "In order to execute this function you must be logged into Azure. Initiating..."
       Connect-AzAccount
     }
 

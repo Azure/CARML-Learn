@@ -269,8 +269,8 @@ Part of your pull request are 2 (or more) files that should not be pushed into t
 - `settings.json`
 - `global.variables.json`
 
-    <details>
-    <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
+<details>
+<summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
     To reset these files back to original state, run the following command to connect your local repo to the upstream repo and restoring all but the `routeTables` files:
 
@@ -290,10 +290,10 @@ Part of your pull request are 2 (or more) files that should not be pushed into t
         git push
     ```
 
-    </details>
+</details>
 
-    <details>
-    <summary><b>Alternative 2: Via VSCode's UI</b></summary>
+<details>
+<summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
     1. In your Visual Studio Code, open the `settings.json` file in the root directory
 
@@ -307,7 +307,7 @@ Part of your pull request are 2 (or more) files that should not be pushed into t
 
     4. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
 
-    </details>
+</details>
 
 ---
 ---

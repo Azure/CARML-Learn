@@ -102,7 +102,7 @@ The first step of any contribution is its implementation. For the sake if this l
     output route array = routeTable.properties.routes
     ```
 
-1. As adding a output is a feature update, also update the `version.json` file, incrementing the minor version number by 1.
+1. As adding an output is a feature update, we also have to update the `version.json` file, incrementing the minor version number by 1.
 
 # Step 3 - Run local test(s)
 

@@ -269,43 +269,45 @@ Part of your pull request are 2 (or more) files that should not be pushed into t
 - `settings.json`
 - `global.variables.json`
 
+To undo these changes you can use any of the following 2 alternatives:
+
 <details>
 <summary><b>Alternative 1: Via VSCode's terminal</b></summary>
 
-    To reset these files back to original state, run the following command to connect your local repo to the upstream repo and restoring all but the `routeTables` files:
+To reset these files back to original state, run the following command to connect your local repo to the upstream repo and restoring all but the `routeTables` files:
 
-  1. Connect to the upstream repo and restore all but the routeTable files from it.
+1. Connect to the upstream repo and restore all but the routeTable files from it.
 
-    ```Powershell
-        git remote add upstream https://github.com/Azure/ResourceModules.git
-        git restore --source upstream/main * ':!*routeTables*'
-    ```
+```Powershell
+    git remote add upstream https://github.com/Azure/ResourceModules.git
+    git restore --source upstream/main * ':!*routeTables*'
+```
 
-  1. See that the files are restored in "Source Control" in VSCode, and adjust if necessary. I.e. remove any of the "restored" changes you want to bring in.
+1. See that the files are restored in "Source Control" in VSCode, and adjust if necessary. I.e. remove any of the "restored" changes you want to bring in.
 
-  1. Commit all files and push to your branch. This will update the PR too.
+1. Commit all files and push to your branch. This will update the PR too.
 
-    ```Powershell
-        git commit -a -m 'Reset settings files'
-        git push
-    ```
+```Powershell
+    git commit -a -m 'Reset settings files'
+    git push
+```
 
 </details>
 
 <details>
 <summary><b>Alternative 2: Via VSCode's UI</b></summary>
 
-    1. In your Visual Studio Code, open the `settings.json` file in the root directory
+1. In your Visual Studio Code, open the `settings.json` file in the root directory
 
-        <img src="./media/Lab7/settingsjson.png" alt="Settings JSON fork" height="180">
+  <img src="./media/Lab7/settingsjson.png" alt="Settings JSON fork" height="180">
 
-    2. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode
+1. Now, open the `settings.json` of the [`CARML` repository](_https://github.com/Azure/ResourceModules/blob/main/settings.json_), copy its content and overwrite it in your local file in VSCode
 
-        <img src="./media/Lab7/settingsCarml.png" alt="Settings JSON CARML" height="400">
+  <img src="./media/Lab7/settingsCarml.png" alt="Settings JSON CARML" height="400">
 
-    3. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
+1. Next, perform the same actions for your local `global.variables.json` in path `.github\variables\global.variables.json` and the corresponding file in the [`CARML`](_https://github.com/Azure/ResourceModules/blob/main/.github/variables/global.variables.json_).
 
-    4. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
+1. Once done, perform the same actions of [Step 5](#step-5---upload-your-changes-and-run-the-module-pipeline) to upload your changes to the branch. These changes will automatically be available in the Pull Request you created earlier.
 
 </details>
 

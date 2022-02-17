@@ -370,7 +370,7 @@ To complete this section perform the following steps:
     }
     ```
 
-    > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. You can test a prefix's availability by leveraging the snippet `Check name-prefix availability snippet` in the [Appendix](#appendix) section bwlow.
+    > **NOTE:** As the prefix is also used for all those resources that require a globally unique name, you should choose a value that is likewise unlikely to be already used somewhere. At the same time, the value should not be too long, as some resources have length restrictions. You can test a prefix's availability by leveraging the snippet `Check name-prefix availability snippet` in the [Appendix](#appendix) section below.
 
 ## ![#f03c15](https://via.placeholder.com/15/F59C00/000000?text=+)  Set the container registry unique name
 

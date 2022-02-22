@@ -15,9 +15,9 @@ To start building a solution / workload, you first have to get access to the cod
 
     <img src="./media/PreReqGitHub/carmlMain.png" alt="Repository main" height="200">
 
-1. On the overview page, select the `<> Code` button to the right, and select the `Download ZIP` button in the opening pop up to trigger the repository to be downloaded as a compressed file.
+1. On the overview page, select `Releases` to the right, further navigate to version 0.4.0 and finally select the `Source code (zip)` link in the `Assets` section of the release to trigger the repository to be downloaded as a compressed file.
 
-    <img src="./media/Lab1/downloadZip.png" alt="Download zip" height="300">
+    <img src="./media/Lab1/downloadZip.png" alt="Download zip" height="150">
 
 1. Following the download, navigate to the downloaded file and extract it to a location of your choice (for example `C:/dev/CARML/lab1`)
 

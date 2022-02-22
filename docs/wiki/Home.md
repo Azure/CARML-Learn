@@ -7,7 +7,7 @@ As the repository is a living entity, labs map to a specific CARML release.
 ### _Navigation_
 
 - Labs
-  - For CARML version [0.4.0](https://github.com/Azure/ResourceModules/releases/tag/v0.4.0) 
+  - For version [0.4.0](https://github.com/Azure/ResourceModules/releases/tag/v0.4.0) 
     - [Lab 0: Pre-Requisites](./Lab%200%20-%20Pre-Requisites)
     - [Lab 1: Use CARML to deploy infrastructure](./Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
     - [Lab 2: Setup environment](./Lab%202%20-%20Setup%20environment)

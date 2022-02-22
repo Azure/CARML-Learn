@@ -1,5 +1,7 @@
 In this lab, you will learn how a contribution to the source repository (in this example the CARML main repository) would look like. At a customer, the same approach could be used to allow teams to contribute to a central library.
 
+> _**NOTE:**_ The contribution described in this lab may already be implemented in CARML. However, my just slightly modifying the given examples (e.g. add another word) the lab will work as intended.
+
 ### _Navigation_
 - [Step 1 - Create a contribution branch](#step-1---create-a-contribution-branch)
 - [Step 2 - Implement the contribution](#step-2---implement-the-contribution)

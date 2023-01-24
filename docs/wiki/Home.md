@@ -1,13 +1,15 @@
 # Common Azure Resource Modules Library - Lab
 
-This Wiki hosts labs for the _'Common Azure Resource Modules Library (CARML)'_. 
+***Note*** - These Labs were originally developed for the Microsoft 2022 SPARK Conference. While Lab 0, Lab 2, and Lab 7 have been updated as recently as January 2023 as a guide for new CARML contributors, the other Labs may contain outdated content.
+
+This Wiki hosts labs for the _'Common Azure Resource Modules Library (CARML)'_.
 
 As the repository is a living entity, labs map to a specific CARML release.
 
 ### _Navigation_
 
 - Labs
-  - For version [0.4.0](https://github.com/Azure/ResourceModules/releases/tag/v0.4.0) 
+  - For version [0.4.0](https://github.com/Azure/ResourceModules/releases/tag/v0.4.0)
     - [Lab 0: Pre-Requisites](./v0.4.0%20-%20Lab%200%20-%20Pre-Requisites)
     - [Lab 1: Use CARML to deploy infrastructure](./v0.4.0%20-%20Lab%201%20-%20Use%20CARML%20to%20deploy%20infrastructure)
     - [Lab 2: Setup environment](./v0.4.0%20-%20Lab%202%20-%20Setup%20environment)
